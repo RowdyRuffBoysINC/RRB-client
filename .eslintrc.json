@@ -26,7 +26,7 @@
   "rules": {
     "brace-style": [
       "error",
-      "Stroustrup"
+      "stroustrup"
     ],
     "indent": [
       "error",
