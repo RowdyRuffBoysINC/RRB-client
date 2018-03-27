@@ -11,6 +11,7 @@ export class Room extends React.Component {
     return (
       <section>
         <EditorView />
+
       </section>
     );
   }
