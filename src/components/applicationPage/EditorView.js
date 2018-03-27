@@ -16,9 +16,9 @@ export class EditorView extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({ 
 
-};
+});
 
 export default connect(mapStateToProps)(EditorView);
 

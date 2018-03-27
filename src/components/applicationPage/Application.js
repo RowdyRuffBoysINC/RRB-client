@@ -5,16 +5,34 @@ import { fetchProtectedData, } from '../../actions/protected-data';
 
 //Import Child Components
 import Room from './Room';
+import RoomCreate from './RoomCreate';
 
 export class Dashboard extends React.Component {
+
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
   }
 
-  //if route=http://localhost:3000/dashboard/, render state that asks what room you want
+  // If route=http://localhost:3000/dashboard/, render state that asks what room you want
 
-  //else render everything as normal, with Room component taking correct props.
+  // Else render everything as normal, with Room component taking correct props.
   render() {
+
+    const { match, location, history, staticContext, dispatch } = this.props;
+
+    if (match.url === '/dashboard') {
+      // show roomCreate
+
+      console.log(match);
+      return <RoomCreate />;
+    }
+
+    else {
+      // show room w/ roomName & other redux props/etc
+      return <Room />;
+    }
+
+    
     return (
       <section>
         <Room />

@@ -1,16 +1,24 @@
+import {
+  SET_CREATE_INPUT
+} from '../actions/application';
 
 const initialState = {
   roomName: null,
-  editorMode: 'code',
+  editorMode: 'code'
 };
 
-export const cmReducer = function(state=initialState, action) {
+export const applicationReducer = function(state=initialState, action) {
+  
   switch (action.type) {
-  default: return state;
+    case SET_CREATE_INPUT: 
+      return { ...state, roomName: action.data };
+  
+    default: return state;
+
   }
 };
 
-export default cmReducer;
+export default applicationReducer;
 
 
 
