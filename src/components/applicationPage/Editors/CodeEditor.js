@@ -28,23 +28,9 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-
-    // const options = {
-    //   // lineNumbers: this.props.lineNumbers,
-    //   mode: 'javascript',
-    //   theme: 'material',
-    //   // tabSize: this.props.tabSize,
-    //   // lineWrapping: true,
-    // };
-
+    
     return (
       <div className="App">
-        <CodeMirror
-          value="Type your code here!"
-          options={options}
-          onChange={(editor, data, value) => {
-            console.log({value,});
-          }}/>
         <select onChange={(e) => {
           this.props.dispatch(setMode(e.target.value));
         }}>
@@ -75,6 +61,12 @@ export class CodeEditor extends Component {
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
+        <CodeMirror
+          value="Type your code here!"
+          options={options}
+          onChange={(editor, data, value) => {
+            console.log({value,});
+          }}/>
       </div>
     );
   }
