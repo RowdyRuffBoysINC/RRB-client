@@ -24,6 +24,9 @@
     }
   },
   "rules": {
+    "no-unused-vars": [
+      1
+    ],
     "brace-style": [
       "error",
       "stroustrup"
