@@ -8,10 +8,9 @@ export class EditorView extends React.Component {
   componentDidMount() {}
 
   render() {
-    
     return (
       <section>
-        <h3>Code</h3> 
+        <CodeEditor />
         <h3>Google Docs </h3>
         <h3> Whiteboard </h3>
       </section>
@@ -19,14 +18,13 @@ export class EditorView extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  const { currentUser } = state.auth;
+const mapStateToProps = (state) => {
+  const { currentUser, } = state.auth;
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     protectedData: state.protectedData.data,
-    editorMode: state.applicationReducer.editorMode
+    editorMode: state.applicationReducer.editorMode,
   };
 };
 

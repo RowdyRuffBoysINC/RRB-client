@@ -13,31 +13,17 @@ export class Dashboard extends React.Component {
     this.props.dispatch(fetchProtectedData());
   }
 
-  // If route=http://localhost:3000/dashboard/, render state that asks what room you want
-
-  // Else render everything as normal, with Room component taking correct props.
   render() {
 
-    const { match, location, history, staticContext, dispatch } = this.props;
+    const { match,} = this.props;
 
     if (match.url === '/dashboard') {
-      // show roomCreate
-
-      console.log(match);
       return <RoomCreate />;
     }
 
     else {
-      // show room w/ roomName & other redux props/etc
       return <Room />;
     }
-
-    
-    return (
-      <section>
-        <Room />
-      </section>
-    );
   }
 }
 
@@ -51,14 +37,3 @@ const mapStateToProps = (state) => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
-
-
-// <div className="dashboard">
-//   <div className="dashboard-username">
-//     Username: {this.props.username}
-//   </div>
-//   <div className="dashboard-name">Name: {this.props.name}</div>
-//   <div className="dashboard-protected-data">
-//     Protected data: {this.props.protectedData}
-//   </div>
-// </div>
