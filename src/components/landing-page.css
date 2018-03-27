@@ -99,3 +99,24 @@ h2 {
 	font-size: 4.25em;
 	line-height: 1em;
 }
+
+#about {
+	background-image: url('../assets/images/outdoor.jpg');
+	color: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#github {
+	background-image: url('../assets/images/pink-weird.jpg');
+	color: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#sign-up {
+	background-image: url('../assets/images/point.jpg');
+	color: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
