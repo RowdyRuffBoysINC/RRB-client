@@ -17,7 +17,7 @@ export class Room extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  
+
 };
 
 export default connect(mapStateToProps)(Room);
