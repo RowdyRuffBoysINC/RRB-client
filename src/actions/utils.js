@@ -4,19 +4,19 @@
 // Containing the status text.  If there is no error then we continue with
 // The promise chain.
 export const normalizeResponseErrors = (res) => {
- if (!res.ok) {
-  if (
-   res.headers.has('content-type') &&
-            res.headers.get('content-type').startsWith('application/json')
-  ) {
-   // It's a nice JSON error returned by us, so decode it
-   return res.json().then(err => Promise.reject(err));
+  if (!res.ok) {
+    if (
+      res.headers.has('content-type') &&
+      res.headers.get('content-type').startsWith('application/json')
+    ) {
+      // It's a nice JSON error returned by us, so decode it
+      return res.json().then(err => Promise.reject(err));
+    }
+    // It's a less informative error returned by express
+    return Promise.reject({
+      code: res.status,
+      message: res.statusText,
+    });
   }
-  // It's a less informative error returned by express
-  return Promise.reject({
-   code: res.status,
-   message: res.statusText,
-  });
- }
- return res;
+  return res;
 };
