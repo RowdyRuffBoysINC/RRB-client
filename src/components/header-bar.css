@@ -1,0 +1,47 @@
+
+/* nav-bar rules */
+
+#site-nav {
+	padding: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	flex-wrap: wrap;
+	position: fixed;
+	z-index: 100000;
+	top: 0;
+	width: 100%;
+	background: rgba(3, 0, 0, 0.671);
+	height: 3em;
+	line-height: 3em;
+	color: rgb(255, 255, 255);
+}
+
+#site-nav h1 {
+	font-size: 1.7em;
+	display: inline-flex;
+	padding-left: 0.5em
+}
+
+#site-nav a {
+	padding: 1em;
+}
+/* OUR APP LOGO HERE
+#site-nav img {
+	width: 3em;
+	height: auto;
+} */
+
+.logo {
+	display: flex;
+	top: 0;
+	position: absolute;
+	left: 0;
+	height: 100%;
+	padding-left: 0.5em;
+}
+
+header {
+	margin-bottom: 1em;
+}

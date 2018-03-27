@@ -1,7 +1,11 @@
 import React from 'react';
+import { Link, } from 'react-router-dom';
 import { connect, } from 'react-redux';
+
 import { clearAuth, } from '../actions/auth';
 import { clearAuthToken, } from '../local-storage';
+import LoginForm from './login-form';
+import './header-bar.css';
 
 export class HeaderBar extends React.Component {
   logOut() {
@@ -14,14 +18,35 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     if (this.props.loggedIn) {
       logOutButton = (
-        <button onClick={() => this.logOut()}>Log out</button>
+        <a href="#" onClick={() => this.logOut()}>LOG OUT</a>
+      );
+    }
+    else {
+      logOutButton = (
+        <Link to="/register">SIGN IN</Link>
       );
     }
     return (
-      <div className="header-bar">
-        <h1>Foo App</h1>
-        {logOutButton}
-      </div>
+      <nav id="site-nav">
+        <header className="logo">
+          <h1>
+            RRB Collab App
+          </h1>
+        </header>
+        <a href="#about">
+          About
+        </a>
+        <a href="#github">
+          Github
+        </a>
+        <a href="#sign-up">
+          Sign Up
+        </a>
+        <a href="#">
+          {logOutButton}
+        </a>
+
+      </nav>
     );
   }
 }
