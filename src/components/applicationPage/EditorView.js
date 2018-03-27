@@ -8,7 +8,6 @@ export class EditorView extends React.Component {
   componentDidMount() {}
 
   render() {
-    const { editorMode } = this.props; 
     
     return (
       <section>
