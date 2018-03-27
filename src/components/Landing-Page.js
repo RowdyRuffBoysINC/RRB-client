@@ -29,7 +29,7 @@ export function LandingPage(props) {
           </footer>
         </div>
       </section>
-      <section id="about" className="container">
+      <section id="github" className="container">
         <div className="about content">
           <header>
             <h2>
@@ -45,7 +45,7 @@ export function LandingPage(props) {
           </footer>
         </div>
       </section>
-      <section id="about" className="container">
+      <section id="sign-up" className="container">
         <div className="about content">
           <header>
             <h2>
