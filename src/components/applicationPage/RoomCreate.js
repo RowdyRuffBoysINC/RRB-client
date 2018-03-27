@@ -4,7 +4,6 @@ import requiresLogin from '../requires-login';
 import { withRouter } from 'react-router'
 import { setCreateInput } from '../../actions/application';
 
-
 export class Dashboard extends React.Component {
 
   componentDidMount() {
@@ -17,23 +16,14 @@ export class Dashboard extends React.Component {
   }
 
   handleClick = () => {
-    console.log('​---------------------------------------------------------------------');
     console.log('​Dashboard -> handleClick -> this.props.roomName', this.props.roomName);
-    console.log('​---------------------------------------------------------------------');
-
     this.props.history.push(`/dashboard/${this.props.roomName}`);
-
   }
 
   render() {
-
     const { match, location, history, staticContext, dispatch } = this.props;
-    //  const {  } = this.state;
     const { handleOnChange, handleClick } = this;
-
-    console.log('​--------------------------------------------------------');
     console.log('​Dashboard -> render -> match, location', match, location);
-    console.log('​--------------------------------------------------------');
     
     return (
       <section>
@@ -46,7 +36,6 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
   const { currentUser, } = state.auth;
   return {
     username: state.auth.currentUser.username,
