@@ -5,7 +5,7 @@ import EditorView from './EditorView';
 // const socket = io('http://localhost:8080');
 
 export class Room extends React.Component {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
@@ -21,4 +21,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Room);
-

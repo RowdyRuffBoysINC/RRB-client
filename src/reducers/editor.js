@@ -12,35 +12,35 @@ const initialState = {
   tabSize: 2,
 };
 
-export const cmReducer = function(state=initialState, action) {
+export const cmReducer = function (state = initialState, action) {
   switch (action.type) {
-  case SET_THEME:
-    return {
-      ...state,
-      theme: action.theme,
-    };
-  case SET_MODE:
-    return {
-      ...state,
-      mode: action.mode,
-    };
-  case SET_TAB_SIZE:
-    return {
-      ...state,
-      tabSize: action.tabSize,
-    };
-  case SET_LINE_NUMBERS:
-    if (action.setting === 'false') {
+    case SET_THEME:
       return {
         ...state,
-        lineNumbers: false,
+        theme: action.theme,
       };
-    }
-    else return {
-      ...state,
-      lineNumbers: true,
-    };
-  default: return state;
+    case SET_MODE:
+      return {
+        ...state,
+        mode: action.mode,
+      };
+    case SET_TAB_SIZE:
+      return {
+        ...state,
+        tabSize: action.tabSize,
+      };
+    case SET_LINE_NUMBERS:
+      if (action.setting === 'false') {
+        return {
+          ...state,
+          lineNumbers: false,
+        };
+      }
+      else return {
+        ...state,
+        lineNumbers: true,
+      };
+    default: return state;
   }
 };
 

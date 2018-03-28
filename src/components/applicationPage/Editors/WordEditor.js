@@ -43,25 +43,25 @@ class WordEditor extends Component {
       lineBreakerTags: [""],
       htmlAllowComments: true,
       events: {
-        "froalaEditor.initialized": function(e, editor, html) {
+        "froalaEditor.initialized": function (e, editor, html) {
           console.log("START!");
           console.log(html);
         },
-        "froalaEditor.commands.after": function(e, editor, html) {
+        "froalaEditor.commands.after": function (e, editor, html) {
           console.log("COMMANDS AFTER!");
           console.log(html);
         },
-        "froalaEditor.keydown": function(e, editor, html) {
+        "froalaEditor.keydown": function (e, editor, html) {
           console.log("key down");
         },
-        "froalaEditor.keyup": function(e, editor, html) {
+        "froalaEditor.keyup": function (e, editor, html) {
           console.log("key up");
         }
       }
     };
   }
 
-  componentWillMount() {}
+  componentWillMount() { }
 
   handleModelChange = model => {
     console.log("X.X modelChange", model);
