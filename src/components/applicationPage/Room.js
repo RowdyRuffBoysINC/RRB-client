@@ -4,7 +4,8 @@ import io from 'socket.io-client';
 import { withRouter } from 'react-router'
 import EditorView from './EditorView';
 import { setCreateInput } from '../../actions/application';
-export const socket = io('http://localhost:8080/');
+import { API_BASE_URL } from '../../config';
+export const socket = io(API_BASE_URL);
 
 export class Room extends React.Component {
   componentDidMount() {
@@ -25,7 +26,7 @@ export class Room extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
 });

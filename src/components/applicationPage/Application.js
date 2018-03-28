@@ -8,13 +8,11 @@ import Room from './Room';
 import RoomCreate from './RoomCreate';
 
 export class Dashboard extends React.Component {
-
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
   }
 
   render() {
-
     const { match, } = this.props;
 
     if (match.url === '/dashboard') {

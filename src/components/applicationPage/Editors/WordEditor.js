@@ -1,6 +1,8 @@
 import React, { Component, } from 'react';
 import { EditorState, } from "draft-js";
+import { connect } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
+import { socket, } from '../Room';
 
 import './react-draft-wysiwyg.css';
 
@@ -20,6 +22,7 @@ class WordEditor extends Component {
     const { editorState, } = this.state;
     return (
       <Editor
+        value={this.state.textContent}
         editorState={editorState}
         wrapperClassName="demo-wrapper"
         editorClassName="demo-editor"
@@ -29,4 +32,9 @@ class WordEditor extends Component {
   }
 }
 
-export default WordEditor;
+const mapStateToProps = state => ({
+  username: state.auth.currentUser.username,
+  roomName: state.applicationReducer.roomName,
+})
+
+export default connect(mapStateToProps)(WordEditor);

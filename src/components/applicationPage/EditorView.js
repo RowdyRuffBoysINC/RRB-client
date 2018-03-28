@@ -3,26 +3,25 @@ import { connect, } from 'react-redux';
 import CodeEditor from './Editors/CodeEditor';
 import WordEditor from './Editors/WordEditor';
 import WhiteBoardEditor from './Editors/WhiteBoardEditor';
-import { setEditorView } from '../../actions/editor';
+import { setEditorView, } from '../../actions/editor';
 import './EditorView.css';
 
 export class EditorView extends React.Component {
   componentDidMount() { }
 
   render() {
-
-    let editorViewToggle = (
+    const editorViewToggle = (
       <div>
         <ul className="nav-bar-ul">
           <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('CodeEditor'))}>
             Code View
-      </li>
+          </li>
           <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('WordEditor'))}>
             Doc View
-      </li>
+          </li>
           <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('WhiteBoardEditor'))}>
             Whiteboard View
-      </li>
+          </li>
         </ul>
       </div>
     );

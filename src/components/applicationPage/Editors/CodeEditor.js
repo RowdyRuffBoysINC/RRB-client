@@ -23,15 +23,14 @@ import 'codemirror/mode/xml/xml.js';
 export class CodeEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {textContent: '',}
+    this.state = {textContent: '',};
     socket.on('code msg sent back to clients', (msg) => {
-      console.log('code msg running');
       this.emitToClients(msg);
-    })
+    });
   }
-  
+
   emitToClients(textContent) {
-    this.setState({textContent})
+    this.setState({textContent,});
   }
 
   render() {
@@ -78,20 +77,19 @@ export class CodeEditor extends Component {
           value={this.state.textContent}
           options={options}
           onChange={(editor, data, value) => {
-            this.setState({textContent: value})
+            this.setState({textContent: value,});
           }}
           onKeyDown={(editor, event) => {
             socket.emit('code msg', {
-              room: this.props.roomName, 
-              user: this.props.userName, 
+              room: this.props.roomName,
+              user: this.props.userName,
               msg: this.state.textContent,
             });
           }}
           onKeyUp={(editor, event) => {
-            console.log(this.state);
             socket.emit('code msg', {
-              room: this.props.roomName, 
-              user: this.props.userName, 
+              room: this.props.roomName,
+              user: this.props.userName,
               msg: this.state.textContent,
             });
           }} />
