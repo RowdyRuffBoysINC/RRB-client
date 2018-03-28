@@ -32,21 +32,21 @@ export class RegistrationForm extends React.Component {
           component={Input}
           type="text"
           name="username"
-          validate={[ required, nonEmpty, isTrimmed, ]}
+          validate={[required, nonEmpty, isTrimmed,]}
         />
         <label htmlFor="password">Password</label>
         <Field
           component={Input}
           type="password"
           name="password"
-          validate={[ required, passwordLength, isTrimmed, ]}
+          validate={[required, passwordLength, isTrimmed,]}
         />
         <label htmlFor="passwordConfirm">Confirm password</label>
         <Field
           component={Input}
           type="password"
           name="passwordConfirm"
-          validate={[ required, nonEmpty, matchesPassword, ]}
+          validate={[required, nonEmpty, matchesPassword,]}
         />
         <button
           type="submit"
