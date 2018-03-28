@@ -36,18 +36,18 @@ render() {
     );
   }
   else if (this.props.editorMode === 'WhiteBoardEditor')
-  return (
-    <section>
-      {editorViewToggle}
-      <WhiteBoardEditor/>
-    </section>
-  );
+    return (
+      <section>
+        {editorViewToggle}
+        <WhiteBoardEditor/>
+      </section>
+    );
   else return (
-    <section>
-      {editorViewToggle}
-      <CodeEditor/>
-    </section>
-  );
+      <section>
+        {editorViewToggle}
+        <CodeEditor/>
+      </section>
+    );
   }
 }
 
