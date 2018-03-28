@@ -14,7 +14,6 @@ export class WhiteBoardEditor extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,

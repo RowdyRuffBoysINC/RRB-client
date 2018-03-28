@@ -2,13 +2,10 @@ import React from 'react';
 import { connect, } from 'react-redux';
 
 export class WordEditor extends React.Component {
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   render() {
 
-    
     return (
       <section>
         <h3>Google Docs </h3>
@@ -18,7 +15,6 @@ export class WordEditor extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,
