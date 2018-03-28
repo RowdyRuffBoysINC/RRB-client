@@ -11,7 +11,7 @@ export class WebCam extends React.Component {
   }
 
   _init() {
-    
+
 //#region Helpers
     /**
      * Helper functions to get this to work
@@ -467,7 +467,32 @@ export class WebCam extends React.Component {
       trace("Receive channel state is: " + readyState);
     }
 //#endregion
+  
+  let isInitiator;
+  window.room = prompt('Enter room name:');
+  const socket = socketIOClient.connect();
+  if(room!==""){
+    console.log('Message from client: Asking to joing room '+room );
+    socket.emit('create or join', room);
   }
+
+  socket.on('created', (room, clientId) =>{
+    isInitiator = true;
+  })
+
+  socket.on('ipaddr', (ipaddr) =>{
+    console.log('Message from client: Server IP address is '+ ipaddr);
+  });
+
+  socket.on('joined', (room, clientId) => {
+    isInitiator = false;
+  });
+
+  socket.on('log', (array) =>{
+    console.log.apply(console, array);
+  });
+
+}
 
   render() {
     return (
