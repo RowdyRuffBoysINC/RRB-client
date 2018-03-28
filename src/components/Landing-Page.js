@@ -41,7 +41,9 @@ export function LandingPage(props) {
             IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.
           </p>
           <footer>
-            {/* Add image inside link to click to the next page  */}
+            <a href="#" >
+              <img src="" />
+            </a>
           </footer>
         </div>
       </section>
