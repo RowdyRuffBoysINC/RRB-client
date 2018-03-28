@@ -1,16 +1,19 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import io from 'socket.io-client';
+import { withRouter } from 'react-router'
 import EditorView from './EditorView';
+import { setCreateInput } from '../../actions/application';
 export const socket = io('http://localhost:8080/');
 
 export class Room extends React.Component {
   componentDidMount() {
-    socket.emit('join room', {room: this.props.roomName, user: this.props.username});
+    this.props.dispatch(setCreateInput(this.props.match.params.roomName));
+    socket.emit('join room', {room: this.props.match.params.roomName, user: this.props.username});
   }
 
   componentWillUnmount() {
-    socket.emit('leave room', {room: this.props.roomName, user: this.props.username});
+    socket.emit('leave room', {room: this.props.match.params.roomName, user: this.props.username});
   }
 
   render() {
@@ -27,4 +30,4 @@ const mapStateToProps = (state) => ({
   roomName: state.applicationReducer.roomName,
 });
 
-export default connect(mapStateToProps)(Room);
+export default withRouter((connect)(mapStateToProps)(Room));
