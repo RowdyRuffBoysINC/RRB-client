@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
 import { connect, } from 'react-redux';
+import { slide as Menu, } from 'react-burger-menu';
 
 import { clearAuth, } from '../actions/auth';
 import { clearAuthToken, } from '../local-storage';
@@ -27,26 +28,31 @@ export class HeaderBar extends React.Component {
       );
     }
     return (
-      <nav id="site-nav">
-        <header className="logo">
-          <h1>
-            RRB Collab App
-          </h1>
-        </header>
-        <a href="#about">
-          About
-        </a>
-        <a href="#github">
-          Github
-        </a>
-        <a href="#sign-up">
-          Sign Up
-        </a>
-        <a href="#">
-          {logOutButton}
-        </a>
+      <Menu right>
+        <ul>
+          <li>
+            <a href="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#github">
+              Github
+            </a>
+          </li>
 
-      </nav>
+          <li>
+            <a href="#sign-up">
+              Sign Up
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              {logOutButton}
+            </a>
+          </li>
+        </ul>
+      </Menu>
     );
   }
 }

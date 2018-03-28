@@ -1,43 +1,54 @@
-
-/* nav-bar rules */
-
-#site-nav {
-	padding: 15px;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
-	flex-wrap: wrap;
-	position: fixed;
-	z-index: 100000;
-	top: 0;
-	width: 100%;
-	background: rgba(0, 0, 0, 0);
-	height: 3em;
-	line-height: 3em;
-	color: rgb(255, 255, 255);
+a {
+	text-decoration: none;
 }
 
-#site-nav h1 {
-	font-size: 1.7em;
-	display: inline-flex;
-	padding-left: 0.5em
+/* Position and sizing of burger button */
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
 }
 
-#site-nav a {
-	padding: 1em;
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #ffffff;
 }
-/* OUR APP LOGO HERE
-#site-nav img {
-	width: 3em;
-	height: auto;
-} */
 
-.logo {
-	display: flex;
-	top: 0;
-	position: absolute;
-	left: 0;
-	height: 100%;
-	padding-left: 0.5em;
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+	overflow: hidden !important;
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+	overflow: hidden;
+  color: #ffffff;
+  padding: 0.8em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  display: none;
 }
