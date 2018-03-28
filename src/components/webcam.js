@@ -34,6 +34,23 @@ export class WebCam extends React.Component {
       return Math.floor((1+Math.random())*1e16).toString(16).substring(1);
     };
 
+    const mediaStreamConstraints = {
+      video: true,
+    };
+
+    const localVideo = document.querySelector('video#webCam-localVideo');
+    
+    const gotLocalMediaStream = (mediaStream) => {
+      localVideo.srcObject = mediaStream;
+    }
+
+    const handleLocalMediaStreamError = (error) => {
+      console.log('navigator.getUserMedia error: ', error);
+    }
+
+    navigator.mediaDevices.getUserMedia(mediaStreamConstraints)
+      .then(gotLocalMediaStream).catch(handleLocalMediaStreamError)
+  }
 
   render() {
     return(
