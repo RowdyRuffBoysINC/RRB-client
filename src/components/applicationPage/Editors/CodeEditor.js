@@ -23,14 +23,14 @@ import 'codemirror/mode/xml/xml.js';
 export class CodeEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {code: '', textContent: '',}
-    // socket.on('code msg sent back to clients', (msg) => {
-    //   console.log('code msg running');
-    //   this.hello(msg)
-    // })
+    this.state = {textContent: '',}
+    socket.on('code msg sent back to clients', (msg) => {
+      console.log('code msg running');
+      this.emitToClients(msg);
+    })
   }
   
-  hello(textContent) {
+  emitToClients(textContent) {
     this.setState({textContent})
   }
 
@@ -42,7 +42,6 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-
     return (
       <div className="App">
         <select onChange={(e) => {
@@ -76,30 +75,24 @@ export class CodeEditor extends Component {
           <option value="false">No line numbers</option>
         </select>
         <CodeMirror
-          value={this.state.code}
+          value={this.state.textContent}
           options={options}
-          editorDidMount={(editor) => {
-            console.log('editorattached');
-            socket.on('code msg sent back to clients', (msg) => {
-              console.log('code msg running');
-              editor.display.wrapper.textContent = msg;
-              this.hello(editor.display.wrapper.textContent);
-            })
+          onChange={(editor, data, value) => {
+            this.setState({textContent: value})
           }}
           onKeyDown={(editor, event) => {
-            // console.log('keydown', editor.display.input.textarea.value)
-            // socket.emit('code msg', {
-            //   room: this.props.roomName, 
-            //   user: this.props.userName, 
-            //   msg: editor.display.input.textarea.value,
-            // });
-          }}
-          onKeyUp={(editor, event) => {
-            console.log(editor.display.wrapper.textContent);
             socket.emit('code msg', {
               room: this.props.roomName, 
               user: this.props.userName, 
-              msg: editor.display.wrapper.textContent,
+              msg: this.state.textContent,
+            });
+          }}
+          onKeyUp={(editor, event) => {
+            console.log(this.state);
+            socket.emit('code msg', {
+              room: this.props.roomName, 
+              user: this.props.userName, 
+              msg: this.state.textContent,
             });
           }} />
       </div>
