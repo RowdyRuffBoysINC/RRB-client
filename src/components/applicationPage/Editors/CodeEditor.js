@@ -1,6 +1,7 @@
 import React, { Component, } from 'react';
 import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
+import { socket, } from '../Room';
 
 //Import Actions
 import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/editor';
@@ -20,6 +21,14 @@ import 'codemirror/mode/swift/swift.js';
 import 'codemirror/mode/xml/xml.js';
 
 export class CodeEditor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {code: ''}
+    socket.on('code msg', (data) => {
+      this.setState({code: data.msg})
+    })
+  }
+  
   render() {
     const options = {
       lineNumbers: this.props.lineNumbers,
@@ -62,10 +71,15 @@ export class CodeEditor extends Component {
           <option value="false">No line numbers</option>
         </select>
         <CodeMirror
-          value="Type your code here!"
+          value={this.state.code}
           options={options}
           onChange={(editor, data, value) => {
             console.log({ value, });
+            socket.emit('code msg', {
+              room: this.props.roomName, 
+              user: this.props.userName, 
+              msg: value,
+            });
           }} />
       </div>
     );
@@ -77,6 +91,8 @@ const mapStateToProps = state => ({
   mode: state.cmReducer.mode,
   tabSize: state.cmReducer.tabSize,
   lineNumbers: state.cmReducer.lineNumbers,
+  username: state.auth.currentUser.username,
+  roomName: state.applicationReducer.roomName,
 });
 
 export default connect(mapStateToProps)(CodeEditor);
