@@ -40,7 +40,6 @@ header {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	padding: 3em 0 3em 0;
 }
 
 .content {
@@ -59,18 +58,29 @@ h2 {
 	color: white;
 	background-size: cover;
 	background-repeat: no-repeat;
+	font-size: 4em;
+	text-align: center;
+	line-height: 1.5em;
 }
 
 #github {
-	background-image: url('../assets/images/point.jpg');
+	/* background-image: url('../assets/images/point.jpg');
 	color: white;
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
+	background: #4DA0B0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #D39D38, #4DA0B0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #D39D38, #4DA0B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 #sign-up {
-	background-image: url('../assets/images/airport.jpg');
+	/* background-image: url('../assets/images/airport.jpg');
 	color: white;
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
+	background: #4DA0B0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #D39D38, #4DA0B0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #D39D38, #4DA0B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

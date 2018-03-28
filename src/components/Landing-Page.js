@@ -16,14 +16,13 @@ export function LandingPage(props) {
       <section id="about" className="container">
         <div className="about content">
           <header>
+            <h1>
+              RRB SWAG
+            </h1>
             <h2>
               Working remote shouldn't FEEL remote.
             </h2>
           </header>
-          <p>
-            HEY THIS IS WHY OUR APP IS THE BEST.LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM
-            IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.
-          </p>
           <footer>
             {/* Add image inside link to click to the next page  */}
           </footer>
