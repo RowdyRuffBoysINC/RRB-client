@@ -30,6 +30,7 @@ a {
 
 /* General sidebar styles */
 .bm-menu {
+	/* User important flag to override stubborn default setting */
 	overflow: hidden !important;
   background: #373a47;
   padding: 2.5em 1.5em 0;
