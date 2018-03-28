@@ -142,9 +142,9 @@ export class WebCam extends React.Component {
 
   render() {
     return (
-      <div class="container">
-      <video class="video-large" autoplay></video>
-      <div class="users-container" id="users-container">
+      <div className="container">
+      <video className="video-large" autoPlay></video>
+      <div className="users-container" id="users-container">
       <h4>Users</h4>
       <div id="users"></div>
       </div>
