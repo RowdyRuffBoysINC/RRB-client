@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import socketIOClient from 'socket.io-client';
-
+import adapter from 'webrtc-adapter';
 export class WebCam extends React.Component {
   componentDidMount() {
     this._init();
@@ -10,97 +11,39 @@ export class WebCam extends React.Component {
   }
 
   _init() {
-    const socket = socketIOClient.connect('http://localhost:8080');
-    console.log('Created socket.');
-    const answersFrom = {};
-    let offer;
+    /**
+    * Helper functions to get this to work
+    **/
 
-    const peerConnection = window.RTCPeerConnection ||window.mozRTCPeerConnection ||window.webkitRTCPeerConnection ||window.msRTCPeerConnection;
-
-    const sessionDescription = window.RTCSessionDescription ||window.mozRTCSessionDescription ||window.webkitRTCSessionDescription ||window.msRTCSessionDescription;
-
-    navigator.getUserMedia = navigator.getUserMedia ||navigator.webkitGetUserMedia ||navigator.mozGetUserMedia ||navigator.msGetUserMedia;
-
-    const pc = new peerConnection({iceServers: [ {url: 'stun:stun4.l.google.com:19302',}, ],});
-    pc.onaddstream = (obj) =>{
-      const vid = document.createElement('video');
-      vid.setAttribute('class', 'webCam-video-small');
-      vid.setAttribute('autoplay', 'autoplay');
-      vid.setAttribute('id', 'webCam-video-small');
-      document.getElementById('webCam-users-container').appendChild(vid);
-      vid.src = window.URL.createObjectURL(obj.stream);
+    
+    const trace = (text) => {
+      text = text.trim();
+      const now = (window.performance.now() / 1000).toFixed(3);
+      console.log(now, text);
     };
 
-    navigator.getUserMedia({video: true,}, (stream) =>{
-      const video = document.querySelector('video#webCam-video-large');
-      video.src = window.URL.createObjectURL(stream);
-      pc.addStream(stream);
-    }, e => console.error);
-
-    const createOffer = (id) => {
-      pc.createOffer((offer) => {
-        pc.setLocationDescription(new sessionDescription(offer), () =>{
-          socket.emit('make-offer', {
-            offer,
-            to: id,
-          });
-        }, e => console.error);
-      });
+    const getPeerName = (peerConnection) => {
+      return (peerConnection === localPeerConnection) ? 'localPeerConnection' : 'remotePeerConnection';
     };
 
-    socket.on('answer-made', (data) =>{
-      pc.setRemoteDescription(new sessionDescription(data.answer), () =>{
-        document.getElementById(data.socket).setAttribute('class', 'active');
-        if(!answersFrom[data.socket]) {
-          createOffer(data.socket);
-          answersFrom[data.socket] = true;
-        }
-      }, e => console.error);
-    });
+    const getOtherPeer = (peerConnection) => {
+      return (peerConnection === localPeerConnection) ? remotePeerConnection : localPeerConnection;
+    };
 
-    socket.on('offer-made', (data) => {
-      offer = data.offer;
+    const randomToken = () =>{
+      return Math.floor((1+Math.random())*1e16).toString(16).substring(1);
+    };
 
-      pc.setRemoteDescription(new sessionDescription(data.offer), () =>{
-        pc.createAnswer((answer) => {
-          pc.setLocalDescription(new sessionDescription(answer), () =>{
-            socket.emit('make-answer', {
-              answer,
-              to: data.socket,
-            });
-          }, e => console.error);
-        }, e => console.error);
-      });
-    });
-
-    socket.on('add-users', (data) => {
-      console.log('Added a user');
-      for (let i = 0; i < data.users.length; i++) {
-        const el = document.createElement('div');
-        const id = data.users[i];
-
-        el.setAttribute('id', id);
-        el.innerHTML = id;
-        el.addEventListener('click', () => {
-          createOffer(id);
-        });
-        document.getElementById('webCam-users').appendChild(el);
-      }
-    });
-
-    socket.on('remove-user', (id) => {
-      const div = document.getElementById(id);
-      const users = document.getElementById('webCam-users');
-    });
-  }
 
   render() {
     return(
       <div className="webCam-container">
-        <video className="webCam-video-large" id="webCam-video-large" autoPlay></video>
-        <div className="users-container" id="webCam-usersContainer">
-          <h4>Users</h4>
-          <div className="webCam-users" id="webCam-users"></div>
+        <video className="webCam-localVideo" id="webCam-localVideo" autoPlay></video>
+        <video className="webCam-remoteVideo" id="webCam-remoteVideo" autoPlay></video>
+        <div>
+          <button id="webCam-startButton">Start</button>
+          <button id="webCam-callButton">Call</button>
+          <button id="webCam-hangupButton">Hang Up</button>
         </div>
       </div>
     );
