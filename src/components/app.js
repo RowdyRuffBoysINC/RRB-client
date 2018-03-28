@@ -8,7 +8,7 @@ import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import { refreshAuthToken, } from '../actions/auth';
 
-import WebCam from './webcam';
+import WebCam from './webCam';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
