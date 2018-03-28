@@ -12,7 +12,7 @@ export function LandingPage(props) {
   }
 
   return (
-    <div>
+    <div className="landing-page">
       <section id="about" className="container">
         <div className="about content">
           <header>
