@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-// import io from 'socket.io-client';
+// Import io from 'socket.io-client';
 import EditorView from './EditorView';
-// const socket = io('http://localhost:8080');
+// Const socket = io('http://localhost:8080');
 
 export class Room extends React.Component {
-  componentDidMount() { }
+  componentDidMount() {
+
+  }
 
   render() {
     return (
@@ -16,7 +18,7 @@ export class Room extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 
 });
 

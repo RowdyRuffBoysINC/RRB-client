@@ -1,85 +1,30 @@
-import React, { Component } from "react";
-// import ReactDOM from 'react-dom';
+import React, { Component, } from 'react';
+import { EditorState, } from "draft-js";
+import { Editor, } from 'react-draft-wysiwyg';
 
-// Require Editor JS files.
-import "froala-editor/js/froala_editor.pkgd.min.js";
-
-// Require Editor CSS files.
-import "froala-editor/css/froala_style.min.css";
-import "froala-editor/css/froala_editor.pkgd.min.css";
-import "froala-editor/css/themes/dark.min.css";
-
-// Require Font Awesome.
-import "font-awesome/css/font-awesome.css";
-
-// Css for wordEditor
-import "./WordEditor.css";
-
-import FroalaEditor from "react-froala-wysiwyg";
-import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
-
-import $ from "jquery";
-window.$ = $;
+import './react-draft-wysiwyg.css';
 
 class WordEditor extends Component {
-
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
-      content: 'Insert text here =]'
-    };
-
-    this.config = {
-      iframe: false,
-      fullPage: true,
-      htmlAllowedTags: [".*"],
-      htmlAllowedAttrs: [".*"],
-      htmlAllowedStyleProps: [".*"],
-      htmlRemoveTags: ["script", "head"],
-      pasteAllowedStyleProps: [".*"],
-      pasteDeniedAttrs: [],
-      lineBreakerOffset: 0,
-      lineBreakerTags: [""],
-      htmlAllowComments: true,
-      events: {
-        "froalaEditor.initialized": function (e, editor, html) {
-          console.log("START!");
-          console.log(html);
-        },
-        "froalaEditor.commands.after": function (e, editor, html) {
-          console.log("COMMANDS AFTER!");
-          console.log(html);
-        },
-        "froalaEditor.keydown": function (e, editor, html) {
-          console.log("key down");
-        },
-        "froalaEditor.keyup": function (e, editor, html) {
-          console.log("key up");
-        }
-      }
+      editorState: EditorState.createEmpty(),
     };
   }
 
-  componentWillMount() { }
-
-  handleModelChange = model => {
-    console.log("X.X modelChange", model);
-    this.setState({ content: model });
-  };
+  onEditorStateChange = (editorState) => {
+    this.setState({ editorState, });
+  }
 
   render() {
+    const { editorState, } = this.state;
     return (
-      <div className="main">
-        <div className="editorBox">
-          <FroalaEditor
-            tag="textarea"
-            config={this.config}
-            model={this.state.content}
-            onModelChange={model => this.handleModelChange(model)}
-          />
-        </div>
-      </div>
+      <Editor
+        editorState={editorState}
+        wrapperClassName="demo-wrapper"
+        editorClassName="demo-editor"
+        onEditorStateChange={this.onEditorStateChange}
+      />
     );
   }
 }
