@@ -1,9 +1,9 @@
 import React, { Component, } from 'react';
-import {UnControlled as CodeMirror,} from 'react-codemirror2';
-import {connect,} from 'react-redux';
+import { UnControlled as CodeMirror, } from 'react-codemirror2';
+import { connect, } from 'react-redux';
 
 //Import Actions
-import {setTheme, setMode, setTabSize, setLineNumbers,} from '../../../actions/editor';
+import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/editor';
 
 //Import Themes
 import 'codemirror/lib/codemirror.css';
@@ -28,7 +28,7 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-    
+
     return (
       <div className="App">
         <select onChange={(e) => {
@@ -65,8 +65,8 @@ export class CodeEditor extends Component {
           value="Type your code here!"
           options={options}
           onChange={(editor, data, value) => {
-            console.log({value,});
-          }}/>
+            console.log({ value, });
+          }} />
       </div>
     );
   }

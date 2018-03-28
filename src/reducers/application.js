@@ -11,12 +11,12 @@ const initialState = {
   editorMode: 'code'
 };
 
-export const applicationReducer = function(state=initialState, action) {
+export const applicationReducer = function (state = initialState, action) {
   switch (action.type) {
-    case SET_CREATE_INPUT: 
-      return { 
-        ...state, 
-        roomName: action.data 
+    case SET_CREATE_INPUT:
+      return {
+        ...state,
+        roomName: action.data
       };
     case SET_EDITOR_VIEW:
       return {
@@ -28,6 +28,3 @@ export const applicationReducer = function(state=initialState, action) {
 };
 
 export default applicationReducer;
-
-
-

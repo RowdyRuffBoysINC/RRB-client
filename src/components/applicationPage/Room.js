@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import EditorView from './EditorView';
-const socket = io();
+export const socket = io();
 
 export class Room extends React.Component {
   componentDidMount() {
@@ -28,4 +28,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Room);
-

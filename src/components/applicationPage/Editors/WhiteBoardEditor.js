@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 
 export class WhiteBoardEditor extends React.Component {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (

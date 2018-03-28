@@ -24,12 +24,12 @@ export class Dashboard extends React.Component {
     const { match, location, history, staticContext, dispatch } = this.props;
     const { handleOnChange, handleClick } = this;
     console.log('​Dashboard -> render -> match, location', match, location);
-    
+
     return (
       <section>
-          <h1> Room Create </h1>
-          <input type='text' placeholder='Shittty Room Name Please!' onChange={(e) => handleOnChange(e) } />
-          <button onClick={handleClick}> Submit </button>
+        <h1> Room Create </h1>
+        <input type='text' placeholder='Shittty Room Name Please!' onChange={(e) => handleOnChange(e)} />
+        <button onClick={handleClick}> Submit </button>
       </section>
     );
   }

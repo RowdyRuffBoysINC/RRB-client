@@ -4,6 +4,7 @@
   color: #141414;
   font-size: 1.1em;
   margin-left: 15px;
+  text-align: left;
 }
 
 
@@ -21,4 +22,8 @@
   margin-right: 10%;
   padding-bottom: 5px;
   padding-left: 0px;
+}
+
+section {
+
 }

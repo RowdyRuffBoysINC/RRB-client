@@ -15,7 +15,7 @@ export class Dashboard extends React.Component {
 
   render() {
 
-    const { match,} = this.props;
+    const { match, } = this.props;
 
     if (match.url === '/dashboard') {
       return <RoomCreate />;
