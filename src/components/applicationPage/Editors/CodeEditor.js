@@ -23,12 +23,17 @@ import 'codemirror/mode/xml/xml.js';
 export class CodeEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {code: ''}
-    socket.on('code msg', (data) => {
-      this.setState({code: data.msg})
-    })
+    this.state = {code: '', textContent: '',}
+    // socket.on('code msg sent back to clients', (msg) => {
+    //   console.log('code msg running');
+    //   this.hello(msg)
+    // })
   }
   
+  hello(textContent) {
+    this.setState({textContent})
+  }
+
   render() {
     const options = {
       lineNumbers: this.props.lineNumbers,
@@ -73,12 +78,28 @@ export class CodeEditor extends Component {
         <CodeMirror
           value={this.state.code}
           options={options}
-          onChange={(editor, data, value) => {
-            console.log({ value, });
+          editorDidMount={(editor) => {
+            console.log('editorattached');
+            socket.on('code msg sent back to clients', (msg) => {
+              console.log('code msg running');
+              editor.display.wrapper.textContent = msg;
+              this.hello(editor.display.wrapper.textContent);
+            })
+          }}
+          onKeyDown={(editor, event) => {
+            // console.log('keydown', editor.display.input.textarea.value)
+            // socket.emit('code msg', {
+            //   room: this.props.roomName, 
+            //   user: this.props.userName, 
+            //   msg: editor.display.input.textarea.value,
+            // });
+          }}
+          onKeyUp={(editor, event) => {
+            console.log(editor.display.wrapper.textContent);
             socket.emit('code msg', {
               room: this.props.roomName, 
               user: this.props.userName, 
-              msg: value,
+              msg: editor.display.wrapper.textContent,
             });
           }} />
       </div>
