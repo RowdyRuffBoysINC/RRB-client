@@ -1,6 +1,6 @@
 import React, { Component, } from 'react';
-import { EditorState, } from "draft-js";
-import { connect } from 'react-redux';
+import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import { connect, } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
 import { socket, } from '../Room';
 
@@ -9,24 +9,28 @@ import './react-draft-wysiwyg.css';
 class WordEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      editorState: EditorState.createEmpty(),
-    };
+    this.state = {editorState: EditorState.createEmpty(),};
   }
 
-  onEditorStateChange = (editorState) => {
+  onEditorStateChange(editorState) {
     this.setState({ editorState, });
+    console.log('​--------------------------------------------------------------');
+    console.log('​WordEditor -> onEditorStateChange -> editorState.FUNC', editorState.getCurrentContent());
+    console.log('​--------------------------------------------------------------');
   }
 
   render() {
     const { editorState, } = this.state;
+    console.log('​-------------------------------------------------');
+    console.log('​WordEditor -> render -> editorState', editorState);
+    console.log('​-------------------------------------------------');
+
     return (
       <Editor
-        value={this.state.textContent}
         editorState={editorState}
         wrapperClassName="demo-wrapper"
         editorClassName="demo-editor"
-        onEditorStateChange={this.onEditorStateChange}
+        onEditorStateChange={editorState => this.onEditorStateChange(editorState)}
       />
     );
   }
@@ -35,6 +39,6 @@ class WordEditor extends Component {
 const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
-})
+});
 
 export default connect(mapStateToProps)(WordEditor);
