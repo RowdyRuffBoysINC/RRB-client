@@ -9,69 +9,68 @@ import './WhiteBoardEditor.css';
 export class WhiteBoardEditor extends React.Component {
   constructor() {
     super();
-    this.state = { sketchFieldValue: {},};
+    this.state = { sketchFieldValue: null ,};
+
+    this.sketch;
+    this.interval;
 
     socket.on("whiteBoard msg sent back to clients", msg => {
-      this.updateSketchFieldWithSocketInfo(msg);
+    this.updateSketchFieldWithSocketInfo(msg);
     });
   }
 
     componentDidMount() {
     // no given functions to listen keyEvents from canvas
-    // document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => { 
-      
-    //   // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
-    //   setTimeout(() => {
+    document.querySelector(".upper-canvas").addEventListener("click", () => {
+      // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
+      if (this.sketch) {
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+      }
+    });
 
-    //     socket.emit("word msg", {
-    //       room: this.props.roomName,
-    //       user: this.props.userName,
-    //       msg: convertToRaw(this.state.editorState.getCurrentContent())
-    //     });
+    document.querySelector('.upper-canvas').addEventListener('mousedown', () => { 
 
-    //     }, 100)
-    //  });
+      if (this.sketch) {
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+      }
+     });
 
-    // document.querySelector('.wordEditor').addEventListener('keydown', () => { 
+    document.querySelector('.upper-canvas').addEventListener('mouseup', () => { 
 
-    //   socket.emit("word msg", {
-    //     room: this.props.roomName,
-    //     user: this.props.userName,
-    //     msg: convertToRaw(this.state.editorState.getCurrentContent())
-    //   });
+      if (this.sketch) {
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+      }
 
-    //  });
+     });
 
-    // document.querySelector('.wordEditor').addEventListener('keyup', () => { 
+    document.querySelector('.upper-canvas').addEventListener('mouseleave', () => { 
 
-    //   socket.emit("word msg", {
-    //     room: this.props.roomName,
-    //     user: this.props.userName,
-    //     msg: convertToRaw(this.state.editorState.getCurrentContent())
-    //   });
-
-    // });
+      if (this.sketch) {
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+      } 
+     });
   }
 
   onSketchFieldChange = (data,__,___,____,_____) => {
-    console.log('​------------------------------------------------------------------------------------');
-    console.log('​WhiteBoardEditor -> onSketchFieldChange -> _,__,___,____,_____', data,__,___,____,_____);
-    console.log('​------------------------------------------------------------------------------------');
 
-    this.setState({sketchFieldValue: data, });
+    this.setState({sketchFieldValue: data,});
   }
 
   updateSketchFieldWithSocketInfo = (msg) => {
-    console.log('​----------------------------------------------------------------');
-    console.log('​WhiteBoardEditor -> updateSketchFieldWithSocketInfo -> msg', msg);
-    console.log('​----------------------------------------------------------------');
-    // this.setState({ editorState: EditorState.createWithContent(convertFromRaw(msg)),});
+    if (this.sketch) {
+      this.setState({ sketchFieldValue: this.sketch.fromJSON(msg) });
+    }
+  }
+
+  sendMessage(message, msg) {
+    socket.emit(message, {
+      room: this.props.roomName,
+      user: this.props.userName,
+      msg: msg
+    });
   }
 
   render() {
-    console.log('​---------------------------------------------------------------------------------------');
-    console.log('​WhiteBoardEditor -> render -> this.state.sketchFieldValue', this.state.sketchFieldValue);
-    console.log('​---------------------------------------------------------------------------------------');
     return (
       <section className="whiteBoardContainer">
         <SketchField width="100vw"
@@ -79,6 +78,7 @@ export class WhiteBoardEditor extends React.Component {
           tool={Tools.Pencil}
           lineColor="black"
           lineWidth={6}
+          ref={(instance) => this.sketch = instance }
           value={this.sketchFieldValue}
           forceValue={true}
           onChange={this.onSketchFieldChange}/>
