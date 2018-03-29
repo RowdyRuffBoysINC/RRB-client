@@ -2,15 +2,19 @@ import React from 'react';
 import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
-import { SketchField, Tools } from "react-sketch";
+import { SketchField, Tools, } from 'react-sketch';
 
 export class WhiteBoardEditor extends React.Component {
   componentDidMount() { }
 
   render() {
     return (
-      <section>
-        <h3> Whiteboard </h3>
+      <section className="whiteBoardContainer">
+        <SketchField width="100vw"
+          height="500px"
+          tool={Tools.Pencil}
+          lineColor="black"
+          lineWidth={6}/>
       </section>
     );
   }
