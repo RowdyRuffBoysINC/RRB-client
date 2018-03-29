@@ -16,14 +16,12 @@ export class Dashboard extends React.Component {
   }
 
   handleClick = () => {
-    console.log('​Dashboard -> handleClick -> this.props.roomName', this.props.roomName);
     this.props.history.push(`/dashboard/${this.props.roomName}`);
   }
 
   render() {
     const { match, location, history, staticContext, dispatch } = this.props;
     const { handleOnChange, handleClick } = this;
-    console.log('​Dashboard -> render -> match, location', match, location);
 
     return (
       <section>

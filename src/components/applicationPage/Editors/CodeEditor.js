@@ -1,6 +1,7 @@
 import React, { Component, } from 'react';
 import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
+import { socket, } from '../Room';
 
 //Import Actions
 import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/editor';
@@ -20,6 +21,18 @@ import 'codemirror/mode/swift/swift.js';
 import 'codemirror/mode/xml/xml.js';
 
 export class CodeEditor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {textContent: '',};
+    socket.on('code msg sent back to clients', (msg) => {
+      this.emitToClients(msg);
+    });
+  }
+
+  emitToClients(textContent) {
+    this.setState({textContent,});
+  }
+
   render() {
     const options = {
       lineNumbers: this.props.lineNumbers,
@@ -28,7 +41,6 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-
     return (
       <div className="App">
         <select onChange={(e) => {
@@ -62,10 +74,24 @@ export class CodeEditor extends Component {
           <option value="false">No line numbers</option>
         </select>
         <CodeMirror
-          value="Type your code here!"
+          value={this.state.textContent}
           options={options}
           onChange={(editor, data, value) => {
-            console.log({ value, });
+            this.setState({textContent: value,});
+          }}
+          onKeyDown={(editor, event) => {
+            socket.emit('code msg', {
+              room: this.props.roomName,
+              user: this.props.userName,
+              msg: this.state.textContent,
+            });
+          }}
+          onKeyUp={(editor, event) => {
+            socket.emit('code msg', {
+              room: this.props.roomName,
+              user: this.props.userName,
+              msg: this.state.textContent,
+            });
           }} />
       </div>
     );
@@ -77,6 +103,8 @@ const mapStateToProps = state => ({
   mode: state.cmReducer.mode,
   tabSize: state.cmReducer.tabSize,
   lineNumbers: state.cmReducer.lineNumbers,
+  username: state.auth.currentUser.username,
+  roomName: state.applicationReducer.roomName,
 });
 
 export default connect(mapStateToProps)(CodeEditor);
