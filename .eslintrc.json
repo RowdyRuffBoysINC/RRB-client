@@ -143,10 +143,6 @@
     ],
     "template-curly-spacing": [
       1
-    ],
-    "func-style": [
-      1,
-      "expression"
     ]
   }
 }

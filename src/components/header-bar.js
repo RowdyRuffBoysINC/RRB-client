@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link, } from 'react-router-dom';
 import { connect, } from 'react-redux';
+import { slide as Menu, } from 'react-burger-menu';
+
 import { clearAuth, } from '../actions/auth';
 import { clearAuthToken, } from '../local-storage';
+import LoginForm from './login-form';
+import './header-bar.css';
 
 export class HeaderBar extends React.Component {
   logOut() {
@@ -14,14 +19,40 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     if (this.props.loggedIn) {
       logOutButton = (
-        <button onClick={() => this.logOut()}>Log out</button>
+        <a href="#" onClick={() => this.logOut()}>LOG OUT</a>
+      );
+    }
+    else {
+      logOutButton = (
+        <Link to="/register">SIGN IN</Link>
       );
     }
     return (
-      <div className="header-bar">
-        <h1>Foo App</h1>
-        {logOutButton}
-      </div>
+      <Menu right>
+        <ul>
+          <li>
+            <a href="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#github">
+              Github
+            </a>
+          </li>
+
+          <li>
+            <a href="#sign-up">
+              Sign Up
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              {logOutButton}
+            </a>
+          </li>
+        </ul>
+      </Menu>
     );
   }
 }
