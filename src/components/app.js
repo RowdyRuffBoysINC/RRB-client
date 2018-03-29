@@ -4,7 +4,6 @@ import { Route, withRouter, } from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './Landing-Page';
-import Dashboard from './dashboard';
 
 import Application from './applicationPage/Application';
 import RegistrationPage from './registration-page';
