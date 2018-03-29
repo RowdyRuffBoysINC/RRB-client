@@ -68,14 +68,16 @@ export class WebCam extends React.Component {
       const vid = document.createElement('video');
       vid.setAttribute('class', 'video-small');
       vid.setAttribute('autoplay', 'autoplay');
-      vid.setAttribute('id', 'video-small');
-      document.getElementById('users-container').appendChild(vid);
+      vid.setAttribute('id', 'webCam-remoteVideo');
+      document.getElementById('video-box').appendChild(vid);
       vid.src = window.URL.createObjectURL(obj.stream);
     }
 
     navigator.getUserMedia({video: true}, (stream) => {
+      const videoBox = document.getElementById('video-box');
       const video = document.querySelector('video');
       video.src = window.URL.createObjectURL(stream);
+      videoBox.appendChild(video);
       pc.addStream(stream);
     }, error);
 
@@ -125,7 +127,7 @@ export class WebCam extends React.Component {
         id = data.users[i];
 
         el.setAttribute('id', id);
-        el.innerHTML = id;
+        el.innerHTML = id; // This would come from logged in user name.
         el.addEventListener('click', ()=>{
           createOffer(id);
         });
@@ -142,8 +144,10 @@ export class WebCam extends React.Component {
 
   render() {
     return (
-      <div className="container">
-      <video className="video-large" autoPlay></video>
+      <div className="webCam-container">
+      <div className="video-box" id="video-box">
+      <video className="video-large" id="webCam-localVideo" autoPlay></video>
+      </div>
       <div className="users-container" id="users-container">
       <h4>Users</h4>
       <div id="users"></div>

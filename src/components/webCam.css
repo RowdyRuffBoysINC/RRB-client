@@ -1,33 +1,54 @@
 html,
-body {
+body, video {
   padding: 0px;
   margin: 0px;
 }
-video {
-  background: #ccc;
+
+.webCam-container {
+  display: flex;
+  flex-direction: column;
 }
-.container {
-  width: 100%;
+
+
+.video-box{
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
+
 .video-large {
-  width: 75%;
-  float: left;
+  top: 0px;
+  width: 100%;
+  min-width:320px;
+  max-width: 720px;
+  max-height: 480px;
+  position: relative;
+
+}
+
+.video-small {
+left: 30%;
+bottom: 150px;
+width: 25%;
+min-width: 128px;
+max-width: 240px;
+max-height: 180px;
+position: relative;
+z-index: 10;
+/* align-self: center; */
 }
 .users-container {
-  width: 21%;
-  float: left;
-  padding: 2%;
-  position: relative;
+
 }
-.video-small {
-  margin-top: 20px;
-  width: 100%;
-}
+
 #users div {
   color: red;
   text-decoration: underline;
   cursor: pointer;
 }
+
 #users .active {
   color: #000;
   cursor: default;
