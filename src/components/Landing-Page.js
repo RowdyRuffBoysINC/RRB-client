@@ -17,7 +17,7 @@ export function LandingPage(props) {
         <div className="about content">
           <header>
             <h1>
-              RRB SWAG
+              OUR APP NAME
             </h1>
             <h2>
               Working remote shouldn't FEEL remote.

@@ -56,8 +56,8 @@ h2 {
 #about {
 	background-image: linear-gradient(
 		to right bottom,
-		rgba(100, 107, 98, 0.568),
-		rgba(185, 185, 185, 0.568)),  url('../assets/images/outdoor.jpg');
+		rgba(100, 107, 98, 0.377),
+		rgba(185, 185, 185, 0.377)),  url('../assets/images/outdoor.jpg');
 	color: white;
 	background-size: cover;
 	background-repeat: no-repeat;
