@@ -6,7 +6,6 @@ import HeaderBar from './header-bar';
 import LandingPage from './Landing-Page';
 import Dashboard from './dashboard';
 
-import LandingPage from './landing-page';
 import Application from './applicationPage/Application';
 import RegistrationPage from './registration-page';
 import { refreshAuthToken } from '../actions/auth';
