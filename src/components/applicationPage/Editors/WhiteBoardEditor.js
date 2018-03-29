@@ -7,7 +7,6 @@ import { SketchField, Tools, } from 'react-sketch';
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
-  componentDidMount() { }
 
   render() {
     return (
