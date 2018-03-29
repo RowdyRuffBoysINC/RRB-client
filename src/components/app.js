@@ -6,9 +6,7 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Application from './applicationPage/Application';
 import RegistrationPage from './registration-page';
-import { refreshAuthToken } from '../actions/auth';
-
-import WebCam from './webCam';
+import { refreshAuthToken, } from '../actions/auth';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
@@ -45,7 +43,6 @@ export class App extends React.Component {
     return (
       <div className="app">
         <HeaderBar />
-        <WebCam />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Application} />
         <Route exact path="/dashboard/:roomName" component={Application} />
