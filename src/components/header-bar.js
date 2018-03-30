@@ -2,9 +2,9 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { slide as Menu, } from 'react-burger-menu';
 import { clearAuth, } from '../actions/auth';
-import {showLoginForm} from '../actions/users';
+import { showLoginForm, } from '../actions/users';
 import { clearAuthToken, } from '../local-storage';
-import {hideLoginForm} from '../actions/users';
+import { hideLoginForm, } from '../actions/users';
 import './header-bar.css';
 
 export class HeaderBar extends React.Component {
@@ -19,7 +19,7 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     if (this.props.loggedIn) {
       logOutButton = (
-        <a href="#" onClick={() => this.logOut() }>LOG OUT</a>
+        <a href="#" onClick={() => this.logOut()}>LOG OUT</a>
       );
     }
     else {

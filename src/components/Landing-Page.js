@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { Link, Redirect, } from 'react-router-dom';
+import { Redirect, } from 'react-router-dom';
 
-import LoginForm from './login-form';
 import Modal from './modal.js';
 import RegistrationForm from './registration-form.js';
 import About from './about.js';
@@ -17,7 +16,7 @@ export function LandingPage(props) {
 
   return (
     <div className="landing-page">
-    <Modal />
+      <Modal />
       <section id="header" className="container">
         <div className="about content">
           <header>
@@ -25,7 +24,7 @@ export function LandingPage(props) {
               OUR APP NAME
             </h1>
             <h2 className="landing-sub-header">
-              Working remote shouldn't FEEL remote.
+              Working remote shouldnt FEEL remote.
             </h2>
           </header>
           <footer>
@@ -36,7 +35,7 @@ export function LandingPage(props) {
       <About />
       <section id="sign-up" className="container">
         <div className="about content">
-        <RegistrationForm />
+          <RegistrationForm />
           <header>
           </header>
           <footer>
