@@ -1,14 +1,15 @@
 .about-container {
   text-align: center;
-  height: 100%;
+  min-height: 100%;
   background: #f1f1f1;
   color: #999;
   font-family: 'Lato';
   vertical-align: middle;
+  margin:0;
 }
 
 .about-text-section {
-  height: 50%;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,7 +28,7 @@
 }
 
 .about-img-section {
-  height: 50%;
+  min-height: 50vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
