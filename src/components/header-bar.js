@@ -39,12 +39,6 @@ export class HeaderBar extends React.Component {
             </a>
           </li>
           <li>
-            <a href="#github">
-              Github
-            </a>
-          </li>
-
-          <li>
             <a href="#sign-up">
               Sign Up
             </a>

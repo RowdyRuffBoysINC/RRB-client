@@ -4,6 +4,7 @@ import { Link, Redirect, } from 'react-router-dom';
 
 import LoginForm from './login-form';
 import Modal from './modal.js';
+import RegistrationForm from './registration-form.js';
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -50,6 +51,7 @@ export function LandingPage(props) {
       </section>
       <section id="sign-up" className="container">
         <div className="about content">
+        <RegistrationForm />
           <header>
             <h2>
               CODE EXAMPLE THING GOES HERE
