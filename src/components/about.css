@@ -8,13 +8,34 @@
 }
 
 .about-text-section {
-  height: 300px;
+  height: 50vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
-h1 {
-  vertical-align: middle;
+.about-header {
+  font-size: 1.4em;
+  line-height: 1.8;
+}
+
+.about-text {
+  font-size: .8em;
+  width: 70%;
+  line-height: 1.2;
+}
+
+.about-img-section {
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #fff;
+}
+
+.about-img {
+  max-width: 300px;
+  max-height: 250px;
+  margin: 20px;
 }
