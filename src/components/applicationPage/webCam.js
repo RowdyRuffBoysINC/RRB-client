@@ -5,6 +5,7 @@ import adapter from "webrtc-adapter";
 import {connect} from 'react-redux'
 import './webCam.css'
 export class WebCam extends React.Component {
+  
   componentDidUpdate() {
     this._init();
   }
@@ -58,6 +59,7 @@ export class WebCam extends React.Component {
       const video = document.querySelector('video');
       video.src = window.URL.createObjectURL(stream);
       videoBox.appendChild(video);
+      video.load();
       pc.addStream(stream);
     }, error);
 
