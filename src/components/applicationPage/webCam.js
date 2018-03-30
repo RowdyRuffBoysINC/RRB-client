@@ -6,6 +6,10 @@ import {connect} from 'react-redux'
 import './webCam.css'
 export class WebCam extends React.Component {
   
+  componentWillMount () {
+    this._init();
+  }
+
   componentDidUpdate() {
     this._init();
   }
@@ -135,7 +139,7 @@ export class WebCam extends React.Component {
     return (
       <div className="webCam-container">
       <div className="video-box" id="video-box">
-      <video className="video-large" id="webCam-localVideo" autoPlay></video>
+        <video className="video-large" id="webCam-localVideo" autoPlay></video>
       </div>
       <div className="users-container" id="users-container">
       <h4>Room: {this.props.roomName}</h4>
