@@ -20,7 +20,8 @@ body {
 } */
 
 header {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
+  font-size: .8em;
 }
 
 .landing-page {
@@ -30,8 +31,20 @@ header {
 	flex-direction: column;
 }
 
+.landing-header {
+  font-size: .9em;
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
+.landing-sub-header {
+  font-size: .5em;
+  font-family: 'Lato';
+  margin-bottom: 300px;
+}
+
 .container {
-	height:100%;
+	height: 100vh;
 	min-height: 100%;
 	display: flex;
 	position: relative;
@@ -48,22 +61,17 @@ header {
 	margin: 0 auto;
 }
 
-h2 {
-	font-size: 4.25em;
-	line-height: 1em;
-}
-
-#about {
+#header {
 	background-image: linear-gradient(
 		to right bottom,
-		rgba(100, 107, 98, 0.377),
-		rgba(185, 185, 185, 0.377)),  url('../assets/images/outdoor.jpg');
+		rgba(100, 107, 98, 0.6),
+		rgba(185, 185, 185, 0.6)),  url('../assets/images/outdoor.jpg');
 	color: white;
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-size: 4em;
-	text-align: center;
-	line-height: 1.5em;
+  text-align: center;
+  line-height: 1.1em;
 }
 
 #github {

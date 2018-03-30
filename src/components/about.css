@@ -1,0 +1,23 @@
+.about-container {
+  text-align: center;
+  height: 1000px;
+  background: #f1f1f1;
+  color: #999;
+  font-family: 'Lato';
+  vertical-align: middle;
+  /* line-height: 150px; */
+}
+
+.about-text-section {
+  height: 300px;
+  /* vertical-align: middle; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-top: 40%; */
+}
+
+h1 {
+  vertical-align: middle;
+}

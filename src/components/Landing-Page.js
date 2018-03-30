@@ -5,6 +5,8 @@ import { Link, Redirect, } from 'react-router-dom';
 import LoginForm from './login-form';
 import Modal from './modal.js';
 import RegistrationForm from './registration-form.js';
+import About from './about.js';
+
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -16,13 +18,13 @@ export function LandingPage(props) {
   return (
     <div className="landing-page">
     <Modal />
-      <section id="about" className="container">
+      <section id="header" className="container">
         <div className="about content">
           <header>
-            <h1>
+            <h1 className="landing-header">
               OUR APP NAME
             </h1>
-            <h2>
+            <h2 className="landing-sub-header">
               Working remote shouldn't FEEL remote.
             </h2>
           </header>
@@ -31,36 +33,12 @@ export function LandingPage(props) {
           </footer>
         </div>
       </section>
-      <section id="github" className="container">
-        <div className="about content">
-          <header>
-            <h2>
-              CODE EXAMPLE THING GOES HERE
-            </h2>
-          </header>
-          <p>
-            HEY THIS IS WHY OUR APP IS THE BEST.LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM
-            IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.
-          </p>
-          <footer>
-            <a href="#" >
-              <img src="" />
-            </a>
-          </footer>
-        </div>
-      </section>
+      <About />
       <section id="sign-up" className="container">
         <div className="about content">
         <RegistrationForm />
           <header>
-            <h2>
-              CODE EXAMPLE THING GOES HERE
-            </h2>
           </header>
-          <p>
-            HEY THIS IS WHY OUR APP IS THE BEST.LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM
-            IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.
-          </p>
           <footer>
             {/* Add image inside link to click to the next page  */}
           </footer>
