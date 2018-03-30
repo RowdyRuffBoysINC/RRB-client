@@ -1,3 +1,4 @@
+import './Room.css';
 import React from 'react';
 import { connect, } from 'react-redux';
 import io from 'socket.io-client';
@@ -5,8 +6,8 @@ import { withRouter, } from 'react-router';
 import EditorView from './EditorView';
 import { setCreateInput, } from '../../actions/application';
 import { API_BASE_URL, } from '../../config';
+import WebCam from './webCam';
 export const socket = io(API_BASE_URL);
-
 export class Room extends React.Component {
   componentDidMount() {
     this.props.dispatch(setCreateInput(this.props.match.params.roomName));
@@ -19,8 +20,9 @@ export class Room extends React.Component {
 
   render() {
     return (
-      <section>
-        <EditorView />
+      <section className="room">
+        <EditorView className="editors"/>
+        <WebCam className="webCam"/>
       </section>
     );
   }
