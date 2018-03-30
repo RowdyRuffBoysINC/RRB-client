@@ -60,10 +60,12 @@ header {
 }
 
 #header {
-	background-image: linear-gradient(
-		to right bottom,
-		rgba(100, 107, 98, 0.6),
-		rgba(185, 185, 185, 0.6)),  url('../assets/images/outdoor.jpg');
+  background-image: 
+  /* linear-gradient( */
+		/* to right bottom, */
+		/* rgba(100, 107, 98, 0.4),
+    rgba(185, 185, 185, 0.4)),   */
+    url('../assets/images/outdoor.jpg');
 	color: white;
 	background-size: cover;
 	background-repeat: no-repeat;

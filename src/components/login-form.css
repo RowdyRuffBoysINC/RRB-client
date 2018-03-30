@@ -70,9 +70,9 @@ input, .demo-text {
 
 .btn-form {
   margin-top: 15px;
-  font-size: 1.2em;
+  font-size: 1em;
 	text-decoration: none;
-	padding: 10px 30px;
+	padding: 8px 25px;
 	display: inline-block;
 	position: relative;
 	border: 1px solid rgba(0,0,0,0.21);
