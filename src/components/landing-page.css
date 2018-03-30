@@ -1,5 +1,3 @@
-
-
 a {
 	color: inherit;
 }
@@ -20,7 +18,8 @@ body {
 } */
 
 header {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
+  font-size: .8em;
 }
 
 .landing-page {
@@ -30,8 +29,20 @@ header {
 	flex-direction: column;
 }
 
+.landing-header {
+  font-size: .9em;
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
+.landing-sub-header {
+  font-size: .5em;
+  font-family: 'Lato';
+  margin-bottom: 300px;
+}
+
 .container {
-	height:100%;
+	height: 100vh;
 	min-height: 100%;
 	display: flex;
 	position: relative;
@@ -48,42 +59,26 @@ header {
 	margin: 0 auto;
 }
 
-h2 {
-	font-size: 4.25em;
-	line-height: 1em;
-}
-
-#about {
-	background-image: linear-gradient(
-		to right bottom,
-		rgba(100, 107, 98, 0.377),
-		rgba(185, 185, 185, 0.377)),  url('../assets/images/outdoor.jpg');
+#header {
+  background-image: 
+  /* linear-gradient( */
+		/* to right bottom, */
+		/* rgba(100, 107, 98, 0.4),
+    rgba(185, 185, 185, 0.4)),   */
+    url('../assets/images/outdoor.jpg');
 	color: white;
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-size: 4em;
-	text-align: center;
-	line-height: 1.5em;
-}
-
-#github {
-	/* background-image: url('../assets/images/point.jpg');
-	color: white;
-	background-size: cover;
-	background-repeat: no-repeat; */
-	background: #4DA0B0;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #D39D38, #4DA0B0);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #D39D38, #4DA0B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  text-align: center;
+  line-height: 1.1em;
 }
 
 #sign-up {
-	/* background-image: url('../assets/images/airport.jpg');
-	color: white;
-	background-size: cover;
-	background-repeat: no-repeat; */
-	background: #4DA0B0;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #D39D38, #4DA0B0);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #D39D38, #4DA0B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #fc4a1a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+font-family: 'Lato';
+line-height: 2;
 }

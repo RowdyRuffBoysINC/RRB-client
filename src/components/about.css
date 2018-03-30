@@ -1,0 +1,43 @@
+.about-container {
+  text-align: center;
+  height: 100%;
+  background: #f1f1f1;
+  color: #999;
+  font-family: 'Lato';
+  vertical-align: middle;
+}
+
+.about-text-section {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-header {
+  font-size: 1.4em;
+  line-height: 1.8;
+}
+
+.about-text {
+  font-size: .8em;
+  width: 70%;
+  line-height: 1.2;
+}
+
+.about-img-section {
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: #fff;
+}
+
+.about-img {
+  max-width: 300px;
+  max-height: 250px;
+  margin-top: 3.5em;
+  align-items: center;
+  border-radius: 5px;
+}
