@@ -3,6 +3,7 @@ import { connect, } from 'react-redux';
 import { Link, Redirect, } from 'react-router-dom';
 
 import LoginForm from './login-form';
+import Modal from './modal.js';
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -13,6 +14,7 @@ export function LandingPage(props) {
 
   return (
     <div className="landing-page">
+    <Modal />
       <section id="about" className="container">
         <div className="about content">
           <header>
