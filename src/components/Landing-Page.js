@@ -68,13 +68,6 @@ export function LandingPage(props) {
       </section>
     </div>
   );
-  // Return (
-  //   <div className="home">
-  //     <h2>Welcome to Foo App</h2>
-  //     <LoginForm />
-  //     <Link to="/register">Register</Link>
-  //   </div>
-  // );
 }
 
 const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null, });
