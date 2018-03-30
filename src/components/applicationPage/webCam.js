@@ -2,11 +2,9 @@
 import React from "react";
 import socketIOClient from "socket.io-client";
 import adapter from "webrtc-adapter";
+import {connect} from 'react-redux'
 import './webCam.css'
 export class WebCam extends React.Component {
-  componentDidMount() {
-    this._init();
-  }
   componentDidUpdate() {
     this._init();
   }
@@ -22,24 +20,6 @@ export class WebCam extends React.Component {
       text = text.trim();
       const now = (window.performance.now() / 1000).toFixed(3);
       console.log(now, text);
-    };
-
-    const getPeerName = peerConnection => {
-      return peerConnection === localPeerConnection
-        ? "localPeerConnection"
-        : "remotePeerConnection";
-    };
-
-    const getOtherPeer = peerConnection => {
-      return peerConnection === localPeerConnection
-        ? remotePeerConnection
-        : localPeerConnection;
-    };
-
-    const randomToken = () => {
-      return Math.floor((1 + Math.random()) * 1e16)
-        .toString(16)
-        .substring(1);
     };
 
 //#endregion
@@ -90,7 +70,8 @@ export class WebCam extends React.Component {
         pc.setLocalDescription(new sessionDescription(offer), () => {
           socket.emit('make-offer', {
             offer: offer,
-            to: id
+            to: id,
+            room: this.props.roomName
           })
         }, error);
       }, error);
@@ -114,12 +95,18 @@ export class WebCam extends React.Component {
           pc.setLocalDescription(new sessionDescription(answer), () =>{
             socket.emit('make-answer', {
               answer: answer,
-              to:data.socket
+              to:data.socket,
+              room: this.props.roomName
             });
           }, error)
         }, error);
       }, error);
     });
+
+    socket.emit('add-users',{
+      room: this.props.roomName, 
+      user: this.props.username
+    })
 
     socket.on('add-users', (data) =>{
       for(let i = 0; i < data.users.length; i++){
@@ -149,7 +136,7 @@ export class WebCam extends React.Component {
       <video className="video-large" id="webCam-localVideo" autoPlay></video>
       </div>
       <div className="users-container" id="users-container">
-      <h4>Users</h4>
+      <h4>Room: {this.props.roomName}</h4>
       <div id="users"></div>
       </div>
       </div>
@@ -157,4 +144,9 @@ export class WebCam extends React.Component {
   }
 }
 
-export default WebCam;
+const mapStateToProps = (state) => ({
+  username: state.applicationReducer.username,
+  roomName: state.applicationReducer.roomName,
+});
+
+export default connect(mapStateToProps)(WebCam);
