@@ -6,6 +6,7 @@ import Modal from './modal.js';
 import RegistrationForm from './registration-form.js';
 import About from './about.js';
 
+import scroll from '../assets/images/double-arrow.png';
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -18,7 +19,7 @@ export function LandingPage(props) {
     <div className="landing-page">
       <Modal />
       <section id="header" className="container">
-        <div className="about content">
+        <div className="content">
           <header>
             <h1 className="landing-header">
               OUR APP NAME
@@ -28,7 +29,9 @@ export function LandingPage(props) {
             </h2>
           </header>
           <footer>
-            {/* Add image inside link to click to the next page  */}
+            <a href="#about">
+              <img src={scroll} className="scroll-icon" />
+            </a>
           </footer>
         </div>
       </section>
