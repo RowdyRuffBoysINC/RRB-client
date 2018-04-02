@@ -1,32 +1,26 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import  LoginForm from './login-form.js';
+import { connect, } from 'react-redux';
+import LoginForm from './login-form.js';
 import './modal.css';
 
 export class Modal extends React.Component {
-
-  render () {
-    const loginStyle = {
-      display: 'show'
-    }
-console.log(this.props);
-    if (this.props.showLoginForm === true) {
+  render() {
+    const loginStyle = { display: 'show', };
+    if (this.props.showLoginForm) {
       return (
         <section style={loginStyle} className="login-modal">
-        <LoginForm />
+          <LoginForm />
         </section>
       );
     }
     else {
       return (
-        <div></div>
-      )
-    }   
+        <div />
+      );
+    }
   }
 }
 
-const mapStateToProps = state => ({
-  showLoginForm: state.landingPageReducer.showLoginForm,
-});
+const mapStateToProps = state => ({ showLoginForm: state.landingPageReducer.showLoginForm, });
 
 export default connect(mapStateToProps)(Modal);

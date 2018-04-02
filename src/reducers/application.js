@@ -6,6 +6,7 @@ const initialState = {
   editorMode: 'code',
   listOfUsers: [],
   listOfUserVideos: [],
+
 };
 
 export const applicationReducer = function (state = initialState, action) {
@@ -21,7 +22,6 @@ export const applicationReducer = function (state = initialState, action) {
       editorMode: action.mode,
     };
   case ApplicationActions.SET_USER_LIST:
-    console.log(action.data);
     return {
       ...state,
       listOfUsers: action.data,
@@ -32,7 +32,8 @@ export const applicationReducer = function (state = initialState, action) {
       ...state,
       listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
     };
-  default: return state;
+  default: 
+    return state;
   }
 };
 

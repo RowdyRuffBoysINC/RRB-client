@@ -2,14 +2,13 @@
 import React from "react";
 import socketIOClient from "socket.io-client";
 import adapter from "webrtc-adapter";
-import { socket } from "./Room";
 import { connect } from 'react-redux';
 
+import { socket } from "./Room";
 import * as ApplicationActions from "../../actions/application";
-
 import UsersList from "./UsersList";
-
 import './webCam.css'
+
 export class WebCam extends React.Component {
   constructor(props) {
     super(props);
@@ -60,7 +59,6 @@ createVideo(id) {
   function trace(text){
     text = text.trim();
     const now = (window.performance.now() / 1000).toFixed(3);
-    console.log(now, text);
   };
 
 
@@ -81,7 +79,7 @@ createVideo(id) {
 
 _init() {
 
-//#region Helpers
+    //#region Helpers
     /**
      * Helper functions to get this to work
      **/
@@ -89,7 +87,6 @@ _init() {
     const trace = text => {
       text = text.trim();
       const now = (window.performance.now() / 1000).toFixed(3);
-      console.log(now, text);
     };
 
 //#endregion
@@ -140,13 +137,8 @@ _init() {
   socket.on('answer-made', (data) => {
 
     trace('an answer was made FROM INIT');
-
-    // console.log('setting addedPersonId?');
-    // this.addedPersonId = data.socket;
     
     this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
-      console.log('SETREMOTEDESCRIPTION', data.answer);
-      // document.getElementById(data.socket).setAttribute('class', 'active');
       if(!answersFrom[data.socket]){
         createOffer(data.socket);
         answersFrom[data.socket] = true;
@@ -184,12 +176,10 @@ _init() {
 
   socket.on("remove-user", id => {
     this.props.dispatch(ApplicationActions.deleteUserFromList(id));
-
-    // let video = document.getElementById(`video-${id}`);
-    // if (video) document.getElementById("video-box").removeChild(video);
   });
 
-}
+
+  }
 
 render() {
     return (

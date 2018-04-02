@@ -1,14 +1,15 @@
 .about-container {
   text-align: center;
-  height: 100%;
+  min-height: 100%;
   background: #f1f1f1;
   color: #999;
   font-family: 'Lato';
   vertical-align: middle;
+  margin:0;
 }
 
 .about-text-section {
-  height: 50%;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -16,18 +17,19 @@
 }
 
 .about-header {
-  font-size: 1.4em;
+  font-size: 1.8em;
   line-height: 1.8;
+  margin-bottom: 20px;
 }
 
 .about-text {
   font-size: .8em;
   width: 70%;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .about-img-section {
-  height: 50%;
+  min-height: 50vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -35,9 +37,10 @@
 }
 
 .about-img {
-  max-width: 300px;
+  max-width: 350px;
   max-height: 250px;
-  margin-top: 3.5em;
+  margin-top: 2.5em;
   align-items: center;
   border-radius: 5px;
+  border: 2px solid rgb(216, 210, 210);
 }
