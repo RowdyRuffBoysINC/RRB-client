@@ -1,29 +1,39 @@
-import {
-  SET_CREATE_INPUT,
-} from '../actions/application';
-
-import {
-  SET_EDITOR_VIEW,
-} from '../actions/editor';
+import * as ApplicationActions from '../actions/application';
+import * as EditorActions from '../actions/editor';
 
 const initialState = {
   roomName: null,
   editorMode: 'code',
+  listOfUsers: [],
+  listOfUserVideos: [],
+
 };
 
 export const applicationReducer = function (state = initialState, action) {
   switch (action.type) {
-  case SET_CREATE_INPUT:
+  case ApplicationActions.SET_CREATE_INPUT:
     return {
       ...state,
       roomName: action.data,
     };
-  case SET_EDITOR_VIEW:
+  case EditorActions.SET_EDITOR_VIEW:
     return {
       ...state,
       editorMode: action.mode,
     };
-  default: return state;
+  case ApplicationActions.SET_USER_LIST:
+    return {
+      ...state,
+      listOfUsers: action.data,
+    };
+  case ApplicationActions.DELETE_USER_FROM_LIST:
+    console.log(action.data);
+    return {
+      ...state,
+      listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
+    };
+  default: 
+    return state;
   }
 };
 
