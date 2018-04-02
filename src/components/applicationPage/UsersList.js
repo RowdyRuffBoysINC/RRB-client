@@ -7,7 +7,7 @@ export class UsersList extends React.Component {
     return users.map((aUser) => {
       const { id, user, } = aUser;
 
-      return (<li key={id}>{user} & {id}</li>);
+      return (<li onClick={() => this.props.createOffer(id)} key={id}> Share your screen with {user} </li>);
     });
   }
 
