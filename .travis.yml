@@ -10,7 +10,7 @@ env:
 
 before_deploy:
   - npm install netlify-cli -g
-  - REACT_APP_API_BASE_URL=https://mysterious-garden-51929.herokuapp.com npm run build
+  - REACT_APP_API_BASE_URL="https://mysterious-garden-51929.herokuapp.com" npm run build
 
 deploy:
   provider: script
