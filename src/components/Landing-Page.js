@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { Link, Redirect, } from 'react-router-dom';
+import { Redirect, } from 'react-router-dom';
 
-import LoginForm from './login-form';
 import Modal from './modal.js';
 import RegistrationForm from './registration-form.js';
 import About from './about.js';
-
+import scroll from '../assets/images/double-arrow.png';
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -17,26 +16,28 @@ export function LandingPage(props) {
 
   return (
     <div className="landing-page">
-    <Modal />
+      <Modal />
       <section id="header" className="container">
-        <div className="about content">
+        <div className="content">
           <header>
             <h1 className="landing-header">
-              OUR APP NAME
+              CrossShare
             </h1>
             <h2 className="landing-sub-header">
-              Working remote shouldn't FEEL remote.
+              Working remotely shouldnt FEEL remote.
             </h2>
           </header>
           <footer>
-            {/* Add image inside link to click to the next page  */}
+            <a href="#about">
+              <img src={scroll} className="scroll-icon" />
+            </a>
           </footer>
         </div>
       </section>
       <About />
       <section id="sign-up" className="container">
         <div className="about content">
-        <RegistrationForm />
+          <RegistrationForm />
           <header>
           </header>
           <footer>

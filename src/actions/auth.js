@@ -61,8 +61,7 @@ export const login = (username, password) => (dispatch) => {
             ? 'Incorrect username or password'
             : 'Unable to login, please try again';
         dispatch(authError(err));
-        // Could not authenticate, so return a SubmissionError for Redux
-        // Form
+        // Could not authenticate, so return a SubmissionError for Redux Form
         return Promise.reject(
           new SubmissionError({ _error: message, })
         );

@@ -2,17 +2,17 @@
 import React from "react";
 import socketIOClient from "socket.io-client";
 import adapter from "webrtc-adapter";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import './webCam.css'
 export class WebCam extends React.Component {
-  
+
   componentDidUpdate() {
     this._init();
   }
 
   _init() {
 
-//#region Helpers
+    //#region Helpers
     /**
      * Helper functions to get this to work
      **/
@@ -23,29 +23,29 @@ export class WebCam extends React.Component {
       console.log(now, text);
     };
 
-//#endregion
+    //#endregion
 
     const socket = socketIOClient.connect('http://localhost:8080');
     let answersFrom = {}, offer;
 
     const peerConnection = window.RTCPeerConnection ||
-    window.mozRTCPeerConnection ||
-    window.webKitRTCPeerConnection ||
-    window.msRTCPeerConnection;
+      window.mozRTCPeerConnection ||
+      window.webKitRTCPeerConnection ||
+      window.msRTCPeerConnection;
 
     const sessionDescription = window.RTCSessionDescription ||
-    window.mozRTCSessionDescription ||
-    window.webkitRTCSessionDescription ||
-    window.msRTCSessionDescription
+      window.mozRTCSessionDescription ||
+      window.webkitRTCSessionDescription ||
+      window.msRTCSessionDescription
 
     navigator.getUserMedia = navigator.getUserMedia ||
-    navigator.webkitGetUSerMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetuserMedia;
+      navigator.webkitGetUSerMedia ||
+      navigator.mozGetUserMedia ||
+      navigator.msGetuserMedia;
 
-    const pc = new peerConnection({'iceServers': [{url: 'stun:stun1.l.google.com:19302'}]});
+    const pc = new peerConnection({ 'iceServers': [{ url: 'stun:stun1.l.google.com:19302' }] });
 
-    pc.onaddstream = (obj) =>{
+    pc.onaddstream = (obj) => {
       const vid = document.createElement('video');
       vid.setAttribute('class', 'video-small');
       vid.setAttribute('autoplay', 'autoplay');
@@ -54,7 +54,7 @@ export class WebCam extends React.Component {
       vid.src = window.URL.createObjectURL(obj.stream);
     }
 
-    navigator.getUserMedia({video: true}, (stream) => {
+    navigator.getUserMedia({ video: true }, (stream) => {
       const videoBox = document.getElementById('video-box');
       const video = document.querySelector('video');
       video.src = window.URL.createObjectURL(stream);
@@ -63,11 +63,11 @@ export class WebCam extends React.Component {
       pc.addStream(stream);
     }, error);
 
-    function error(err){
+    function error(err) {
       console.error('Error', err);
     }
 
-    const createOffer = (id) =>{
+    const createOffer = (id) => {
       pc.createOffer((offer) => {
         pc.setLocalDescription(new sessionDescription(offer), () => {
           socket.emit('make-offer', {
@@ -80,9 +80,9 @@ export class WebCam extends React.Component {
     }
 
     socket.on('answer-made', (data) => {
-      pc.setRemoteDescription(new sessionDescription(data.answer), () =>{
+      pc.setRemoteDescription(new sessionDescription(data.answer), () => {
         document.getElementById(data.socket).setAttribute('class', 'active');
-        if(!answersFrom[data.socket]){
+        if (!answersFrom[data.socket]) {
           createOffer(data.socket);
           answersFrom[data.socket] = true;
         }
@@ -92,12 +92,12 @@ export class WebCam extends React.Component {
     socket.on('offer-made', (data) => {
       offer = data.offer;
 
-      pc.setRemoteDescription(new sessionDescription(data.offer), () =>{
+      pc.setRemoteDescription(new sessionDescription(data.offer), () => {
         pc.createAnswer((answer) => {
-          pc.setLocalDescription(new sessionDescription(answer), () =>{
+          pc.setLocalDescription(new sessionDescription(answer), () => {
             socket.emit('make-answer', {
               answer: answer,
-              to:data.socket,
+              to: data.socket,
               room: this.props.roomName
             });
           }, error)
@@ -105,42 +105,42 @@ export class WebCam extends React.Component {
       }, error);
     });
 
-    socket.emit('add-users',{
-      room: this.props.roomName, 
+    socket.emit('add-users', {
+      room: this.props.roomName,
       user: this.props.username
     })
 
-    socket.on('add-users', (data) =>{
-      for(let i = 0; i < data.users.length; i++){
+    socket.on('add-users', (data) => {
+      for (let i = 0; i < data.users.length; i++) {
         const el = document.createElement('div'),
-        id = data.users[i];
+          id = data.users[i];
 
         el.setAttribute('id', id);
         el.innerHTML = id; // This would come from logged in user name.
-        el.addEventListener('click', ()=>{
+        el.addEventListener('click', () => {
           createOffer(id);
         });
         document.getElementById('users').appendChild(el);
       }
     });
 
-    socket.on('remove-user', (id) =>{
+    socket.on('remove-user', (id) => {
       let div = document.getElementById(id);
       if (div) document.getElementById('users').removeChild(div);
     });
 
-}
+  }
 
   render() {
     return (
       <div className="webCam-container">
-      <div className="video-box" id="video-box">
-      <video className="video-large" id="webCam-localVideo" autoPlay></video>
-      </div>
-      <div className="users-container" id="users-container">
-      <h4>Room: {this.props.roomName}</h4>
-      <div id="users"></div>
-      </div>
+        <div className="video-box" id="video-box">
+          <video className="video-large" id="webCam-localVideo" autoPlay></video>
+        </div>
+        <div className="users-container" id="users-container">
+          <h4>Room: {this.props.roomName}</h4>
+          <div id="users"></div>
+        </div>
       </div>
     );
   }
