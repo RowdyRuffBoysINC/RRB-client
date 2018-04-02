@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow,} from 'enzyme';
 import '../setupTests.js';
-import HeaderBar from './header-bar';
+import {HeaderBar,} from './header-bar';
 
 describe('<HeaderBar />', () => {
   it('Passes', () => {
