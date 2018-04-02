@@ -21,7 +21,7 @@ export function LandingPage(props) {
         <div className="content">
           <header>
             <h1 className="landing-header">
-              OUR APP NAME
+              CrossShare
             </h1>
             <h2 className="landing-sub-header">
               Working remotely shouldnt FEEL remote.

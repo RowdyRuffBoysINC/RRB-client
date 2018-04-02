@@ -8,7 +8,7 @@ export default function About(props) {
   return (
     <section id="about" className="about-container">
       <div className="about-text-section">
-        <h1 className="about-header">About Our App Name</h1>
+        <h1 className="about-header">About CrossShare</h1>
         <p className="about-text">Our App name is a collaborative tool that allows professionals, developers, and programmers of all kinds share documents in real time. </p>
       </div>
       <div className="about-img-section">
