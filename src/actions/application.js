@@ -12,7 +12,7 @@ export const SET_USER_VIDEO = 'SET_USER_VIDEO';
 export const setUserVideo = input => ({ type: SET_USER_VIDEO, data: input, });
 
 export const DELETE_USER_FROM_LIST = 'DELETE_USER_FROM_LIST';
-export const DeleteUserFromList = input => ({ type: DELETE_USER_FROM_LIST, data: input, });
+export const deleteUserFromList = input => ({ type: DELETE_USER_FROM_LIST, data: input, });
 
 export const DELETE_USER_VIDEO = 'DELETE_USER_VIDEO';
 export const deleteUserVideo = input => ({ type: DELETE_USER_VIDEO, data: input, });

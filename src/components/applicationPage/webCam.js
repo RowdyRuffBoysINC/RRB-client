@@ -149,9 +149,9 @@ export class WebCam extends React.Component {
 
     socket.on("remove-user", id => {
       trace("removing a user FROM WILLUNMOUNT");
-      let div = document.getElementById(id);
+      this.props.dispatch(ApplicationActions.deleteUserFromList(id));
+
       let video = document.getElementById(`video-${id}`);
-      if (div) document.getElementById("users").removeChild(div);
       if (video) document.getElementById("video-box").removeChild(video);
     });
 
