@@ -5,8 +5,6 @@ cache:
     - node_modules
 script:
   - npm test
-env:
-  - CI=true
 
 before_deploy:
   - npm install netlify-cli -g
