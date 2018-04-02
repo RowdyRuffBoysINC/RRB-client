@@ -19,25 +19,24 @@ header {
 /* font-family: 'Croissant One', cursive; */
 /* font-family: 'Berkshire Swash', cursive; */
 /* font-family: 'Playfair Display SC', serif; */
-/* font-family: 'Amiri', serif; */
+font-family: 'Amiri', serif;
 /* font-family: 'Prata', serif; */
 /* font-family: 'Yeseva One', cursive; */
 /* font-family: 'Averia Serif Libre', cursive; */
-
 	font-weight: 300;
 }
 
 .landing-sub-header {
-  font-size: .5em;
+font-size: .5em;
 /* font-family: 'Croissant One', cursive; */
 /* font-family: 'Berkshire Swash', cursive; */
 /* font-family: 'Playfair Display SC', serif; */
-/* font-family: 'Amiri', serif; */
+font-family: 'Amiri', serif;
 /* font-family: 'Prata', serif; */
 /* font-family: 'Yeseva One', cursive; */
 /* font-family: 'Averia Serif Libre', cursive; */
-
-  margin-bottom: 300px;
+font-weight: 300;
+margin-bottom: 300px;
 }
 
 .container {
@@ -72,10 +71,14 @@ header {
 }
 
 #sign-up {
-background: #fc4a1a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00d2ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #00d2ff, #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #00d2ff, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 color: white;
 font-family: 'Lato';
 line-height: 2;
 }
+
+/* .bm-burger-button {
+background-color: black;
+} */

@@ -24,9 +24,9 @@ export class Dashboard extends React.Component {
     const { handleOnChange, handleClick } = this;
 
     return (
-      <section>
+      <section className="room-create">
         <h1> Room Create </h1>
-        <input type='text' placeholder='Shittty Room Name Please!' onChange={(e) => handleOnChange(e)} />
+        <input type='text' placeholder='Enter your room name!' onChange={(e) => handleOnChange(e)} />
         <button onClick={handleClick}> Submit </button>
       </section>
     );

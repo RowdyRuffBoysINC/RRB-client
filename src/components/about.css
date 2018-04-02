@@ -17,8 +17,9 @@
 }
 
 .about-header {
-  font-size: 1.4em;
+  font-size: 1.8em;
   line-height: 1.8;
+  margin-bottom: 20px;
 }
 
 .about-text {
@@ -36,9 +37,10 @@
 }
 
 .about-img {
-  max-width: 300px;
+  max-width: 350px;
   max-height: 250px;
-  margin-top: 3.5em;
+  margin-top: 2.5em;
   align-items: center;
   border-radius: 5px;
+  border: 2px solid rgb(216, 210, 210);
 }
