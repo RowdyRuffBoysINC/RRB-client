@@ -3,19 +3,21 @@ import React from "react";
 import socketIOClient from "socket.io-client";
 import adapter from "webrtc-adapter";
 import { socket } from "./Room";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux';
+
+import * as ApplicationActions from "../../actions/application";
+
+import UsersList from "./UsersList";
+
 import './webCam.css'
 export class WebCam extends React.Component {
   constructor(props) {
     super(props);
     this.addedPersonId = '';
-    this.state = {
-      listOfUsers: null
-    };
   }
 
   componentWillMount () {
-    this.trace('I just executed component will mount');
+    
     this._init();
 
   }
@@ -143,11 +145,14 @@ export class WebCam extends React.Component {
 
     socket.on('add-users', (data) =>{
 
-      const el = data.users.map((user) => {
-        return (<li key={user.id} id={user.id} onClick={() => createOffer(user.id) }> The user with id {user.id} is here {user.name}</li>);
-      });
+      // const el = data.users.map((user) => {
+      //   return (<li key={user.id} id={user.id} onClick={() => createOffer(user.id) }> The user with id {user.id} is here {user.name}</li>);
+      // });
 
-      this.setState({ listOfUsers: el });
+      // this.setState({ listOfUsers: el });
+      console.log('added user?');
+      console.log(data.users);
+      this.props.dispatch(ApplicationActions.setUserList(data.users));
     });
 
     socket.on("remove-user", id => {
@@ -168,10 +173,8 @@ export class WebCam extends React.Component {
         <video className="video-large" id="webCam-localVideo" autoPlay></video>
       </div>
       <div className="users-container" id="users-container">
-      <h4>Room: {this.props.roomName}</h4>
-        <ul id="users">
-          {this.state.listOfUsers}
-        </ul>
+        <h4>Room: {this.props.roomName}</h4>
+        <UsersList />
       </div>
       </div>
     );
