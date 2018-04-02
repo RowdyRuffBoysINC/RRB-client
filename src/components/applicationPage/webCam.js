@@ -144,14 +144,6 @@ export class WebCam extends React.Component {
     }, trace('announcing a user FROM INIT'))
 
     socket.on('add-users', (data) =>{
-
-      // const el = data.users.map((user) => {
-      //   return (<li key={user.id} id={user.id} onClick={() => createOffer(user.id) }> The user with id {user.id} is here {user.name}</li>);
-      // });
-
-      // this.setState({ listOfUsers: el });
-      console.log('added user?');
-      console.log(data.users);
       this.props.dispatch(ApplicationActions.setUserList(data.users));
     });
 
