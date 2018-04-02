@@ -1,0 +1,46 @@
+.about-container {
+  text-align: center;
+  min-height: 100%;
+  background: #f1f1f1;
+  color: #999;
+  font-family: 'Lato';
+  vertical-align: middle;
+  margin:0;
+}
+
+.about-text-section {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-header {
+  font-size: 1.8em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  font-size: .8em;
+  width: 70%;
+  line-height: 1.5;
+}
+
+.about-img-section {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: #fff;
+}
+
+.about-img {
+  max-width: 350px;
+  max-height: 250px;
+  margin-top: 2.5em;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid rgb(216, 210, 210);
+}

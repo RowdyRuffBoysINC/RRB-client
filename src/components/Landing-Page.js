@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { Link, Redirect, } from 'react-router-dom';
+import { Redirect, } from 'react-router-dom';
 
-import LoginForm from './login-form';
+import Modal from './modal.js';
+import RegistrationForm from './registration-form.js';
+import About from './about.js';
+import scroll from '../assets/images/double-arrow.png';
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -11,64 +14,37 @@ export function LandingPage(props) {
     return <Redirect to="/dashboard" />;
   }
 
-  // return (
-  //   <div className="landing-page">
-  //     <section id="about" className="container">
-  //       <div className="about content">
-  //         <header>
-  //           <h1>
-  //             OUR APP NAME
-  //           </h1>
-  //           <h2>
-  //             Working remote shouldn't FEEL remote.
-  //           </h2>
-  //         </header>
-  //         <footer>
-  //           {/* Add image inside link to click to the next page  */}
-  //         </footer>
-  //       </div>
-  //     </section>
-  //     <section id="github" className="container">
-  //       <div className="about content">
-  //         <header>
-  //           <h2>
-  //             CODE EXAMPLE THING GOES HERE
-  //           </h2>
-  //         </header>
-  //         <p>
-  //           HEY THIS IS WHY OUR APP IS THE BEST.LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM
-  //           IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.
-  //         </p>
-  //         <footer>
-  //           <a href="#" >
-  //             <img src="" />
-  //           </a>
-  //         </footer>
-  //       </div>
-  //     </section>
-  //     <section id="sign-up" className="container">
-  //       <div className="about content">
-  //         <header>
-  //           <h2>
-  //             CODE EXAMPLE THING GOES HERE
-  //           </h2>
-  //         </header>
-  //         <p>
-  //           HEY THIS IS WHY OUR APP IS THE BEST.LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM. LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM
-  //           IPSUM.LOREM IPSUM.LOREM IPSUM.LOREM IPSUM.
-  //         </p>
-  //         <footer>
-  //           {/* Add image inside link to click to the next page  */}
-  //         </footer>
-  //       </div>
-  //     </section>
-  //   </div>
-  // );
   return (
-    <div className="home">
-      <h2>Welcome to Foo App</h2>
-      <LoginForm />
-      <Link to="/register">Register</Link>
+    <div className="landing-page">
+      <Modal />
+      <section id="header" className="container">
+        <div className="content">
+          <header>
+            <h1 className="landing-header">
+              CrossShare
+            </h1>
+            <h2 className="landing-sub-header">
+              Working remotely shouldnt FEEL remote.
+            </h2>
+          </header>
+          <footer>
+            <a href="#about">
+              <img src={scroll} className="scroll-icon" />
+            </a>
+          </footer>
+        </div>
+      </section>
+      <About />
+      <section id="sign-up" className="container">
+        <div className="about content">
+          <RegistrationForm />
+          <header>
+          </header>
+          <footer>
+            {/* Add image inside link to click to the next page  */}
+          </footer>
+        </div>
+      </section>
     </div>
   );
 }

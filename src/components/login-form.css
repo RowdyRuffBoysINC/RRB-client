@@ -1,0 +1,82 @@
+.form-wrapper {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 2px;
+  width: 350px;
+  height: 500px;
+  padding: 10px;
+  background:#f3f3f3;
+  font-size: 20px;
+}
+
+h1 {
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+.login-form {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  height: 350px;
+}
+
+.labelInput {
+  display: inline-block;
+  padding: 20px;
+}
+
+.labelInputReg {
+  display: inline-block;
+  padding: 12px;
+}
+
+.loginBtn {
+  display: inline-block;
+  margin-top: 30px;
+  width: 75px;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+.close:hover {
+    cursor:pointer;
+  }
+
+input [type="text"] {
+  font-size: 20px;
+  height: 1rem;
+}
+
+.demo-header {
+  display: inline-block;
+  margin: 10px;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+input, .demo-text {
+  font-size: 20px;
+}
+
+.btn-form {
+  margin-top: 15px;
+  font-size: 1em;
+	text-decoration: none;
+	padding: 8px 25px;
+	display: inline-block;
+	position: relative;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom: 4px solid rgba(0,0,0,0.21);
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
