@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import { Route, withRouter, } from 'react-router-dom';
-
 import HeaderBar from './header-bar';
 import LandingPage from './Landing-Page';
-
 import Application from '.././ApplicationPage/Application';
 import RegistrationPage from './registration-page';
 import { refreshAuthToken, } from '../../actions/auth';

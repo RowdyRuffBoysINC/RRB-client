@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import LoginForm from './login-form.js';
+import LoginForm from './Forms/login-form';
 import './modal.css';
 
 export class Modal extends React.Component {
