@@ -3,7 +3,7 @@ import { reducer as formReducer, } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
-import protectedDataReducer from './reducers/protected-data';
+import protectedDataReducer from './reducers/ProtectedData';
 import applicationReducer from './reducers/Application';
 import cmReducer from './reducers/Editor';
 import landingPageReducer from './reducers/Landingpage';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import RequiresLogin from '../LandingPage/RequiresLogin';
-import { fetchProtectedData, } from '../../actions/protected-data';
+import { fetchProtectedData, } from '../../actions/ProtectedData';
 import Room from './Room';
 import RoomCreate from './RoomCreate';
 
@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data,
+    // protectedData: state.protectedData.data,
   };
 };
 
