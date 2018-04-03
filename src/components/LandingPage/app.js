@@ -4,7 +4,6 @@ import { Route, withRouter, } from 'react-router-dom';
 import HeaderBar from './header-bar';
 import LandingPage from './Landing-Page';
 import Application from '.././ApplicationPage/Application';
-import RegistrationPage from './registration-page';
 import { refreshAuthToken, } from '../../actions/auth';
 
 export class App extends React.Component {
@@ -45,7 +44,6 @@ export class App extends React.Component {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Application} />
         <Route exact path="/dashboard/:roomName" component={Application} />
-        <Route exact path="/register" component={RegistrationPage} />
       </div>
     );
   }
