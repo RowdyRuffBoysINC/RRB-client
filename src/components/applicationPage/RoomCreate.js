@@ -36,7 +36,7 @@ export class Dashboard extends React.Component {
 const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
-    name: `${state.auth.firstName} ${state.auth.lastName}`,
+    name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     protectedData: state.protectedData.data,
     roomName: state.applicationReducer.roomName
   };
