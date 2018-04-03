@@ -25,28 +25,30 @@ export class EditorView extends React.Component {
         </ul>
       </div>
     );
-    // ----------------------------------------------Refactor into switch statement
-    if (this.props.editorMode === 'WordEditor') {
+
+    switch(this.props.editorMode) {
+    case 'WordEditor':
       return (
         <section>
           {editorViewToggle}
           <WordEditor />
         </section>
       );
-    }
-    else if (this.props.editorMode === 'WhiteBoardEditor')
+    case 'WhiteBoardEditor':
       return (
         <section>
           {editorViewToggle}
           <WhiteBoardEditor />
         </section>
       );
-    else return (
-      <section>
-        {editorViewToggle}
-        <CodeEditor />
-      </section>
-    );
+    default:
+      return (
+        <section>
+          {editorViewToggle}
+          <CodeEditor />
+        </section>
+      );
+    }
   }
 }
 
