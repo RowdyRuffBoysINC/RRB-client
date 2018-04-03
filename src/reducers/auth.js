@@ -28,6 +28,7 @@ export const authReducer = function (state = initialState, action) {
     };
   case AUTH_REQUEST:
     return {
+      ...state,
       loading: true,
       error: null,
     };
@@ -46,6 +47,7 @@ export const authReducer = function (state = initialState, action) {
   default:
     return state;
   }
-}
+};
 
 export default authReducer;
+
