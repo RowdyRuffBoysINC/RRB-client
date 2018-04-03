@@ -8,7 +8,7 @@ const initialState = {
   listOfUserVideos: [],
 };
 
-export const applicationReducer = function (state = initialState, action) {
+const applicationReducer = function (state = initialState, action) {
   switch (action.type) {
   case ApplicationActions.SET_CREATE_INPUT:
     return {
@@ -30,7 +30,7 @@ export const applicationReducer = function (state = initialState, action) {
       ...state,
       listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
     };
-  default: 
+  default:
     return state;
   }
 };
