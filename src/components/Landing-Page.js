@@ -29,7 +29,7 @@ export function LandingPage(props) {
           </header>
           <footer>
             <a href="#about">
-              <img src={scroll} className="scroll-icon" />
+              <img src={scroll} className="scroll-icon" alt="scroll icon img" />
             </a>
           </footer>
         </div>
