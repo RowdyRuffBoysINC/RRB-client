@@ -5,7 +5,7 @@ import {
 
 const initialState = {showLoginForm: false,};
 
-export function landingPageReducer(state = initialState, action) {
+export const landingPageReducer = function(state = initialState, action) {
   switch (action.type) {
   case SHOW_LOGIN_FORM:
     return {
