@@ -61,7 +61,7 @@ margin-bottom: 300px;
 }
 
 #header {
-  background-image: url('../assets/images/outdoor.jpg');
+  background-image: url('../../assets/images/outdoor.jpg');
 	color: white;
 	background-size: cover;
 	background-repeat: no-repeat;

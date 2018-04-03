@@ -4,7 +4,7 @@ import { Redirect, } from 'react-router-dom';
 import Modal from './modal.js';
 import RegistrationForm from './registration-form.js';
 import About from './about.js';
-import scroll from '../assets/images/double-arrow.png';
+import scroll from '../../assets/images/double-arrow.png';
 import './landing-page.css';
 
 export function LandingPage(props) {
