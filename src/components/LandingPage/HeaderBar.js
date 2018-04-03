@@ -5,7 +5,7 @@ import { clearAuth, } from '../../actions/auth';
 import { showLoginForm, } from '../../actions/users';
 import { clearAuthToken, } from '../../local-storage';
 import { hideLoginForm, } from '../../actions/users';
-import './header-bar.css';
+import './HeaderBar.css';
 
 export class HeaderBar extends React.Component {
   logOut() {
