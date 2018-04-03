@@ -1,5 +1,5 @@
 import * as ApplicationActions from '../actions/Application';
-import * as EditorActions from '../actions/editor';
+import * as EditorActions from '../actions/Editor';
 
 const initialState = {
   roomName: null,

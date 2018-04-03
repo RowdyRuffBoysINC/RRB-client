@@ -5,7 +5,7 @@ import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
 import protectedDataReducer from './reducers/protected-data';
 import applicationReducer from './reducers/Application';
-import cmReducer from './reducers/editor';
+import cmReducer from './reducers/Editor';
 import landingPageReducer from './reducers/landingpage';
 import { setAuthToken, refreshAuthToken, } from './actions/Auth';
 

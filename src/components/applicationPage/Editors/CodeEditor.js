@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 
 //Import Actions
-import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/editor';
+import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/Editor';
 
 //Import Themes
 import 'codemirror/lib/codemirror.css';

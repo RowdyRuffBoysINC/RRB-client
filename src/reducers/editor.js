@@ -3,7 +3,7 @@ import {
   SET_LINE_NUMBERS,
   SET_THEME,
   SET_MODE,
-} from '../actions/editor';
+} from '../actions/Editor';
 
 const initialState = {
   lineNumbers: true,

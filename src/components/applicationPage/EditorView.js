@@ -3,7 +3,7 @@ import { connect, } from 'react-redux';
 import CodeEditor from './Editors/CodeEditor';
 import WordEditor from './Editors/WordEditor';
 import WhiteBoardEditor from './Editors/WhiteBoardEditor';
-import { setEditorView, } from '../../actions/editor';
+import { setEditorView, } from '../../actions/Editor';
 import './EditorView.css';
 
 export class EditorView extends React.Component {
