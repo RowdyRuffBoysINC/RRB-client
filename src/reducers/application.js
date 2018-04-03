@@ -6,7 +6,6 @@ const initialState = {
   editorMode: 'code',
   listOfUsers: [],
   listOfUserVideos: [],
-
 };
 
 export const applicationReducer = function (state = initialState, action) {
@@ -27,7 +26,6 @@ export const applicationReducer = function (state = initialState, action) {
       listOfUsers: action.data,
     };
   case ApplicationActions.DELETE_USER_FROM_LIST:
-    console.log(action.data);
     return {
       ...state,
       listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),

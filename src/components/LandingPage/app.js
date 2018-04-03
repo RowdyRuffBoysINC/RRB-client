@@ -7,7 +7,7 @@ import LandingPage from './Landing-Page';
 
 import Application from './applicationPage/Application';
 import RegistrationPage from './registration-page';
-import { refreshAuthToken, } from '../actions/auth';
+import { refreshAuthToken, } from '../../actions/auth';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
