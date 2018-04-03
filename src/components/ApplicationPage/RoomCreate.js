@@ -5,11 +5,6 @@ import { withRouter } from 'react-router'
 import { setCreateInput } from '../../actions/Application';
 
 export class Dashboard extends React.Component {
-
-  componentDidMount() {
-    // this.props.dispatch();
-  }
-
   handleOnChange = (e) => {
     const input = e.target.value;
     this.props.dispatch(setCreateInput(input));
@@ -20,7 +15,6 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    const { match, location, history, staticContext, dispatch } = this.props;
     const { handleOnChange, handleClick } = this;
 
     return (

@@ -1,7 +1,5 @@
 import { SubmissionError, } from 'redux-form';
-
 import { API_BASE_URL, } from '../config';
-import { normalizeResponseErrors, } from './Utils';
 
 export const registerUser = user => async (dispatch) => {
   try {
@@ -21,7 +19,6 @@ export const registerUser = user => async (dispatch) => {
       );
     }
   };
-
 };
 
 //Shows and Hides Login Form Modal for User
