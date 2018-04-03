@@ -16,16 +16,15 @@ export class HeaderBar extends React.Component {
 
   render() {
     // Only render the log out button if we are logged in
-    let logOutButton;
+    let logInOrOutButton;
     if (this.props.loggedIn) {
-      logOutButton = (
-        <p href="#home" onClick={() => this.logOut()}>Logout</p>
+      logInOrOutButton = (
+        <a href="#home" onClick={() => this.logOut()}>Logout</a>
       );
     }
     else {
-      logOutButton = (
-        // <Link to="/register">SIGN IN</Link>
-        <p className="login-text" onClick={() => this.props.dispatch(showLoginForm())}>Login</p>
+      logInOrOutButton = (
+        <a className="login-text" href="#home" onClick={() => this.props.dispatch(showLoginForm())}>Login</a>
       );
     }
     return (
@@ -42,9 +41,7 @@ export class HeaderBar extends React.Component {
             </a>
           </li>
           <li>
-            <a href="#home">
-              {logOutButton}
-            </a>
+            {logInOrOutButton}
           </li>
         </ul>
       </Menu>
