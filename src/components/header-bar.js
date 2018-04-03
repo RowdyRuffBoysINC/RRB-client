@@ -19,13 +19,13 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     if (this.props.loggedIn) {
       logOutButton = (
-        <a href="#" onClick={() => this.logOut()}>Logout</a>
+        <a href="#home" onClick={() => this.logOut()}>Logout</a>
       );
     }
     else {
       logOutButton = (
         // <Link to="/register">SIGN IN</Link>
-        <li className="login-text" href="#" onClick={() => this.props.dispatch(showLoginForm())}>Login</li>
+        <li className="login-text" onClick={() => this.props.dispatch(showLoginForm())}>Login</li>
       );
     }
     return (
@@ -42,7 +42,7 @@ export class HeaderBar extends React.Component {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#home">
               {logOutButton}
             </a>
           </li>
