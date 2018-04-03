@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { socket } from "./Room";
 import * as ApplicationActions from "../../actions/application";
 import UsersList from "./UsersList";
-import './webCam.css'
+import './WebCam.css'
 
 export class WebCam extends React.Component {
   constructor(props) {

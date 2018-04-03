@@ -6,7 +6,7 @@ import { withRouter, } from 'react-router';
 import EditorView from './EditorView';
 import { setCreateInput, } from '../../actions/application';
 import { API_BASE_URL, } from '../../config';
-import WebCam from './webCam';
+import WebCam from './WebCam';
 export const socket = io(API_BASE_URL);
 export class Room extends React.Component {
   componentDidMount() {

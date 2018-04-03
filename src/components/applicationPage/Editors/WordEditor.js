@@ -3,8 +3,7 @@ import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import { connect, } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
 import { socket, } from '../Room';
-
-import './react-draft-wysiwyg.css';
+import './ReactDraft.css';
 
 class WordEditor extends Component {
   constructor(props) {

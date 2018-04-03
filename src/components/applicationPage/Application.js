@@ -2,8 +2,6 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import requiresLogin from '../LandingPage/requires-login';
 import { fetchProtectedData, } from '../../actions/protected-data';
-
-//Import Child Components
 import Room from './Room';
 import RoomCreate from './RoomCreate';
 
