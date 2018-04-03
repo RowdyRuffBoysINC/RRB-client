@@ -1,8 +1,5 @@
 import React from 'react';
 import './about';
-import code from '../assets/images/code-view.png';
-import doc from '../assets/images/doc-view.png';
-import whiteboard from '../assets/images/whiteboard-view.png';
 
 export default function About(props) {
   return (
