@@ -2,9 +2,9 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { slide as Menu, } from 'react-burger-menu';
 import { clearAuth, } from '../../actions/Auth';
-import { showLoginForm, } from '../../actions/users';
+import { showLoginForm, } from '../../actions/Users';
 import { clearAuthToken, } from '../../local-storage';
-import { hideLoginForm, } from '../../actions/users';
+import { hideLoginForm, } from '../../actions/Users';
 import './HeaderBar.css';
 
 export class HeaderBar extends React.Component {

@@ -3,7 +3,7 @@ import { Field, reduxForm, focus, } from 'redux-form';
 import Input from './Input';
 import { login, } from '../../../actions/Auth';
 import { required, nonEmpty, } from '../../../validators';
-import { hideLoginForm, } from '../../../actions/users';
+import { hideLoginForm, } from '../../../actions/Users';
 import './LoginForm.css';
 
 export class LoginForm extends React.Component {

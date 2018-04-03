@@ -1,7 +1,7 @@
 import {
   SHOW_LOGIN_FORM,
   HIDE_LOGIN_FORM,
-} from '../actions/users';
+} from '../actions/Users';
 
 const initialState = {showLoginForm: false,};
 
