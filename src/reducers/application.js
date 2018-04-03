@@ -1,4 +1,4 @@
-import * as ApplicationActions from '../actions/application';
+import * as ApplicationActions from '../actions/Application';
 import * as EditorActions from '../actions/editor';
 
 const initialState = {

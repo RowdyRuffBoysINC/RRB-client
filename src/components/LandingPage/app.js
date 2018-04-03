@@ -4,7 +4,7 @@ import { Route, withRouter, } from 'react-router-dom';
 import HeaderBar from './HeaderBar';
 import LandingPage from './LandingPage';
 import Application from '.././ApplicationPage/Application';
-import { refreshAuthToken, } from '../../actions/auth';
+import { refreshAuthToken, } from '../../actions/Auth';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {

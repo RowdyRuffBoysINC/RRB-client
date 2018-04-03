@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
 import EditorView from './EditorView';
-import { setCreateInput, } from '../../actions/application';
+import { setCreateInput, } from '../../actions/Application';
 import { API_BASE_URL, } from '../../config';
 import WebCam from './WebCam';
 export const socket = io(API_BASE_URL);

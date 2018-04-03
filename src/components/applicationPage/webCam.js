@@ -5,7 +5,7 @@ import adapter from "webrtc-adapter";
 import { connect } from 'react-redux';
 
 import { socket } from "./Room";
-import * as ApplicationActions from "../../actions/application";
+import * as ApplicationActions from "../../actions/Application";
 import UsersList from "./UsersList";
 import './WebCam.css'
 

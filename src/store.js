@@ -2,12 +2,12 @@ import { createStore, applyMiddleware, combineReducers, } from 'redux';
 import { reducer as formReducer, } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken, } from './local-storage';
-import authReducer from './reducers/auth';
+import authReducer from './reducers/Auth';
 import protectedDataReducer from './reducers/protected-data';
-import applicationReducer from './reducers/application';
+import applicationReducer from './reducers/Application';
 import cmReducer from './reducers/editor';
 import landingPageReducer from './reducers/landingpage';
-import { setAuthToken, refreshAuthToken, } from './actions/auth';
+import { setAuthToken, refreshAuthToken, } from './actions/Auth';
 
 const store = createStore(
   combineReducers({

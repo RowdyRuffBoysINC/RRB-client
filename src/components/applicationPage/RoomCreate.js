@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import RequiresLogin from '../LandingPage/RequiresLogin';
 import { withRouter } from 'react-router'
-import { setCreateInput } from '../../actions/application';
+import { setCreateInput } from '../../actions/Application';
 
 export class Dashboard extends React.Component {
 
