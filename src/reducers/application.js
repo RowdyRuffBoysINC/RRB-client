@@ -31,7 +31,7 @@ export const applicationReducer = function (state = initialState, action) {
       ...state,
       listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
     };
-  default: 
+  default:
     return state;
   }
 };

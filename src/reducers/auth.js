@@ -13,7 +13,7 @@ const initialState = {
   error: null,
 };
 
-export default function reducer(state = initialState, action) {
+export const authReducer = function (state = initialState, action) {
   switch (action.type) {
   case SET_AUTH_TOKEN:
     return {
@@ -47,3 +47,5 @@ export default function reducer(state = initialState, action) {
     return state;
   }
 }
+
+export default authReducer;
