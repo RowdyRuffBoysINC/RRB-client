@@ -6,7 +6,7 @@ import authReducer from './reducers/Auth';
 import protectedDataReducer from './reducers/ProtectedData';
 import applicationReducer from './reducers/Application';
 import cmReducer from './reducers/Editor';
-import landingPageReducer from './reducers/Landingpage';
+import landingPageReducer from './reducers/LandingPage';
 import { setAuthToken, refreshAuthToken, } from './actions/Auth';
 
 const store = createStore(
