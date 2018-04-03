@@ -19,13 +19,13 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     if (this.props.loggedIn) {
       logOutButton = (
-        <a href="#home" onClick={() => this.logOut()}>Logout</a>
+        <p href="#home" onClick={() => this.logOut()}>Logout</p>
       );
     }
     else {
       logOutButton = (
         // <Link to="/register">SIGN IN</Link>
-        <li className="login-text" onClick={() => this.props.dispatch(showLoginForm())}>Login</li>
+        <p className="login-text" onClick={() => this.props.dispatch(showLoginForm())}>Login</p>
       );
     }
     return (
