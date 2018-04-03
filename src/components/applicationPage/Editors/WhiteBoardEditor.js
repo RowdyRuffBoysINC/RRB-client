@@ -1,5 +1,4 @@
 import React from 'react';
-import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
@@ -11,8 +10,8 @@ export class WhiteBoardEditor extends React.Component {
     super();
     this.state = { sketchFieldValue: null, };
 
-    this.sketch;
-    this.interval;
+    this.sketch = null;
+    this.interval = null;
 
     socket.on("whiteBoard msg sent back to clients", msg => {
       this.updateSketchFieldWithSocketInfo(msg);
