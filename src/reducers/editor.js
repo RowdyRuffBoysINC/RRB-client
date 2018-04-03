@@ -12,7 +12,7 @@ const initialState = {
   tabSize: 2,
 };
 
-export const cmReducer = function (state = initialState, action) {
+const cmReducer = function (state = initialState, action) {
   switch (action.type) {
   case SET_THEME:
     return {
