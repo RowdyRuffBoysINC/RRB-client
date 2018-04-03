@@ -5,7 +5,7 @@ import {
 
 const initialState = {showLoginForm: false,};
 
-export const landingPageReducer = function(state = initialState, action) {
+const landingPageReducer = function(state = initialState, action) {
   switch (action.type) {
   case SHOW_LOGIN_FORM:
     return {
@@ -19,6 +19,6 @@ export const landingPageReducer = function(state = initialState, action) {
     };
   default: return state;
   }
-}
+};
 
 export default landingPageReducer;

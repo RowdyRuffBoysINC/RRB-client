@@ -8,7 +8,7 @@ const initialState = {
   error: null,
 };
 
-export const protectedDataReducer = function (state = initialState, action) {
+const protectedDataReducer = function (state = initialState, action) {
   switch(action.type) {
   case FETCH_PROTECTED_DATA_SUCCESS:
     return {
