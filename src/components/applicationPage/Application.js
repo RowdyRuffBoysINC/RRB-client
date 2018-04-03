@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import requiresLogin from '../LandingPage/requires-login';
+import RequiresLogin from '../LandingPage/RequiresLogin';
 import { fetchProtectedData, } from '../../actions/protected-data';
 import Room from './Room';
 import RoomCreate from './RoomCreate';
@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default RequiresLogin()(connect(mapStateToProps)(Dashboard));

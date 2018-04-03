@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { Route, withRouter, } from 'react-router-dom';
 import HeaderBar from './HeaderBar';
-import LandingPage from './Landing-Page';
+import LandingPage from './LandingPage';
 import Application from '.././ApplicationPage/Application';
 import { refreshAuthToken, } from '../../actions/auth';
 

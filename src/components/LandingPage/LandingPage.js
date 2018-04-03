@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import { Redirect, } from 'react-router-dom';
-import Modal from './modal.js';
+import Modal from './Modal.js';
 import RegistrationForm from './Forms/RegistrationForm.js';
 import About from './About.js';
 import scroll from '../../assets/images/double-arrow.png';
-import './landing-page.css';
+import './LandingPage.css';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard

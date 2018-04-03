@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import requiresLogin from '../LandingPage/requires-login';
+import RequiresLogin from '../LandingPage/RequiresLogin';
 import { withRouter } from 'react-router'
 import { setCreateInput } from '../../actions/application';
 
@@ -43,4 +43,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(requiresLogin()(connect(mapStateToProps)(Dashboard)));
+export default withRouter(RequiresLogin()(connect(mapStateToProps)(Dashboard)));
