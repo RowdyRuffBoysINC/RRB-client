@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { Redirect, } from 'react-router-dom';
 import Modal from './modal.js';
-import RegistrationForm from './Forms/registration-form.js';
+import RegistrationForm from './Forms/RegistrationForm.js';
 import About from './about.js';
 import scroll from '../../assets/images/double-arrow.png';
 import './landing-page.css';
