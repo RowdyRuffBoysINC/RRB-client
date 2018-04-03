@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import requiresLogin from '../requires-login';
+import requiresLogin from '../LandingPage/requires-login';
 import { withRouter } from 'react-router'
 import { setCreateInput } from '../../actions/application';
 
