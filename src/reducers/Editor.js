@@ -10,7 +10,7 @@ const initialState = {
   tabSize: 2,
   codeEditorText: '',
   wordEditorText: EditorState.createWithContent(convertFromRaw(defaultWordEditorContent)),
-  whiteBoardEditorValue: '',
+  whiteBoardEditorValue: null,
 };
 
 const editorReducer = function (state = initialState, action) {
