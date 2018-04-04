@@ -7,49 +7,49 @@ import { clearAuthToken, } from '../../local-storage';
 import { hideLoginForm, } from '../../actions/Users';
 import './HeaderBar.css';
 
-export class HeaderBar extends React.Component {
-  logOut() {
-    this.props.dispatch(clearAuth());
-    this.props.dispatch(hideLoginForm());
+export function HeaderBar (props) {
+  function logOut() {
+    props.dispatch(clearAuth());
+    props.dispatch(hideLoginForm());
     clearAuthToken();
   }
 
-  render() {
-    // Only render the log out button if we are logged in
-    let logOutButton;
-    if (this.props.loggedIn) {
-      logOutButton = (
-        <p href="#home" onClick={() => this.logOut()}>Logout</p>
-      );
-    }
-    else {
-      logOutButton = (
-        // <Link to="/register">SIGN IN</Link>
-        <p className="login-text" onClick={() => this.props.dispatch(showLoginForm())}>Login</p>
-      );
-    }
-    return (
-      <Menu right>
-        <ul>
-          <li>
-            <a href="#about">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#sign-up">
-              Sign Up
-            </a>
-          </li>
-          <li>
-            <a href="#home">
-              {logOutButton}
-            </a>
-          </li>
-        </ul>
-      </Menu>
+
+  // Only render the log out button if we are logged in
+  let logOutButton;
+  if (props.loggedIn) {
+    logOutButton = (
+      <p href="#home" onClick={() => logOut()}>Logout</p>
     );
   }
+  else {
+    logOutButton = (
+      // <Link to="/register">SIGN IN</Link>
+      <p className="login-text" onClick={() => props.dispatch(showLoginForm())}>Login</p>
+    );
+  }
+  return (
+    <Menu right>
+      <ul>
+        <li>
+          <a href="#about">
+              About
+          </a>
+        </li>
+        <li>
+          <a href="#sign-up">
+              Sign Up
+          </a>
+        </li>
+        <li>
+          <a href="#home">
+            {logOutButton}
+          </a>
+        </li>
+      </ul>
+    </Menu>
+  );
+
 }
 
 const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null, });
