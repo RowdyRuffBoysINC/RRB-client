@@ -33,6 +33,14 @@ export class CodeEditor extends Component {
     this.props.dispatch(setCodeEditorText(info));
   }
 
+  renderOptions(array) {
+    return array.map((option, index) => {
+      return (
+        <option value={option} key={index}>{option}</option>
+      );
+    });
+  }
+
   render() {
     const options = {
       lineNumbers: this.props.lineNumbers,
@@ -41,31 +49,23 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
+
     return (
       <section className="code-editor-wrapper">
         <select onChange={(e) => {
           this.props.dispatch(setMode(e.target.value));
         }}>
-          <option value="javascript">javascript</option>
-          <option value="xml">html</option>
-          <option value="ruby">ruby</option>
-          <option value="swift">swift</option>
+          {this.renderOptions([ 'javascript', 'xml', 'ruby', 'swift' , ])}
         </select>
         <select onChange={(e) => {
           this.props.dispatch(setTheme(e.target.value));
         }}>
-          <option value="material">material</option>
-          <option value="midnight">midnight</option>
-          <option value="solarized">solarized</option>
-          <option value="dracula">dracula</option>
-          <option value="isotope">isotope</option>
+          {this.renderOptions([ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ])}
         </select>
         <select onChange={(e) => {
           this.props.dispatch(setTabSize(e.target.value));
         }}>
-          <option value="2">2</option>
-          <option value="4">4</option>
-          <option value="8">8</option>
+          {this.renderOptions([ 2, 4, 8, ])}
         </select>
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
@@ -79,14 +79,14 @@ export class CodeEditor extends Component {
           onChange={(editor, data, value) => {
             this.props.dispatch(setCodeEditorText(value));
           }}
-          onKeyDown={(editor, event) => {
+          onKeyDown={() => {
             socket.emit('code msg', {
               room: this.props.roomName,
               user: this.props.userName,
               msg: this.props.codeEditorText,
             });
           }}
-          onKeyUp={(editor, event) => {
+          onKeyUp={() => {
             socket.emit('code msg', {
               room: this.props.roomName,
               user: this.props.userName,
