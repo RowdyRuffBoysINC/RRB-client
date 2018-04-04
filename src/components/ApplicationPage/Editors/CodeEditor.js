@@ -99,12 +99,13 @@ export class CodeEditor extends Component {
 }
 
 const mapStateToProps = state => ({
-  theme: state.cmReducer.theme,
-  mode: state.cmReducer.mode,
-  tabSize: state.cmReducer.tabSize,
-  lineNumbers: state.cmReducer.lineNumbers,
+  theme: state.editorReducer.theme,
+  mode: state.editorReducer.mode,
+  tabSize: state.editorReducer.tabSize,
+  lineNumbers: state.editorReducer.lineNumbers,
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  codeEditorText: state.editorReducer.codeEditorText,
 });
 
 export default connect(mapStateToProps)(CodeEditor);
