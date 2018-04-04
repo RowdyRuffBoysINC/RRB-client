@@ -77,7 +77,7 @@ export class CodeEditor extends Component {
           value={this.props.codeEditorText}
           options={options}
           onChange={(editor, data, value) => {
-            this.setState({ textContent: value, });
+            this.props.dispatch(setCodeEditorText(value));
           }}
           onKeyDown={(editor, event) => {
             socket.emit('code msg', {
