@@ -5,13 +5,11 @@ import { Editor, } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 //Any classes from react-draft imports in event listeners are prebuilt names 
 import { socket, } from '../Room';
+import { setWordEditorText, } from '../../../actions/Editor';
 
 class WordEditor extends Component {
   constructor(props) {
     super(props);
-    const content = { entityMap: {}, blocks: [{ key: '637gr', text: ' Initialized from content state.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, },], };
-
-    this.state = { editorState: EditorState.createWithContent(convertFromRaw(content)), };
 
     socket.on('word msg sent back to clients', (msg) => {
       this.updateEditorWithSocketInfo(msg);
@@ -29,7 +27,7 @@ class WordEditor extends Component {
         socket.emit("word msg", {
           room: this.props.roomName,
           user: this.props.userName,
-          msg: convertToRaw(this.state.editorState.getCurrentContent())
+          msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
         });
 
       }, 100)
@@ -40,7 +38,7 @@ class WordEditor extends Component {
       socket.emit("word msg", {
         room: this.props.roomName,
         user: this.props.userName,
-        msg: convertToRaw(this.state.editorState.getCurrentContent())
+        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
       });
 
     });
@@ -50,26 +48,27 @@ class WordEditor extends Component {
       socket.emit("word msg", {
         room: this.props.roomName,
         user: this.props.userName,
-        msg: convertToRaw(this.state.editorState.getCurrentContent())
+        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
       });
 
     });
   }
 
   onEditorStateChange(editorState) {
-    this.setState({ editorState, });
+    this.props.dispatch(setWordEditorText(editorState));
   }
 
   updateEditorWithSocketInfo = (msg) => {
-    this.setState({ editorState: EditorState.createWithContent(convertFromRaw(msg)), });
+    const convertedMsg = EditorState.createWithContent(convertFromRaw(msg));
+    this.props.dispatch(setWordEditorText(convertedMsg));
   }
 
   render() {
-    const { editorState, } = this.state;
+    const { wordEditorText, } = this.props;
 
     return (
       <Editor
-        editorState={editorState}
+        editorState={wordEditorText}
         wrapperClassName="wordEditorWrapper"
         editorClassName="wordEditor"
         onEditorStateChange={editorState => this.onEditorStateChange(editorState)}
@@ -81,6 +80,7 @@ class WordEditor extends Component {
 const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  wordEditorText: state.editorReducer.wordEditorText
 });
 
 export default connect(mapStateToProps)(WordEditor);

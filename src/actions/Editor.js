@@ -31,3 +31,22 @@ export const setLineNumbers = setting => ({
   type: SET_LINE_NUMBERS,
   setting,
 });
+
+export const SET_CODE_EDITOR_TEXT = 'SET_CODE_EDITOR_TEXT';
+export const setCodeEditorText = input => ({
+  type: SET_CODE_EDITOR_TEXT,
+  input,
+});
+
+export const SET_WORD_EDITOR_TEXT = 'SET_WORD_EDITOR_TEXT';
+export const setWordEditorText = input => ({
+  type: SET_WORD_EDITOR_TEXT,
+  input,
+});
+
+export const SET_WHITEBOARD_EDITOR_VALUE = 'SET_WHITEBOARD_EDITOR_VALUE';
+export const setWhiteBoardEditorValue = input => ({
+  type: SET_WHITEBOARD_EDITOR_VALUE,
+  input,
+});
+
