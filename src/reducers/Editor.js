@@ -1,4 +1,7 @@
+import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import * as EditorActions from '../actions/Editor';
+
+const defaultWordEditorContent = { entityMap: {}, blocks: [ { key: '637gr', text: ' Type here!', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, } ,], };
 
 const initialState = {
   lineNumbers: true,
@@ -6,7 +9,7 @@ const initialState = {
   theme: 'material',
   tabSize: 2,
   codeEditorText: '',
-  wordEditorText: '',
+  wordEditorText: EditorState.createWithContent(convertFromRaw(defaultWordEditorContent)),
   whiteBoardEditorValue: '',
 };
 
