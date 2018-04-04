@@ -3,7 +3,6 @@ import { reducer as formReducer, } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
-import protectedDataReducer from './reducers/ProtectedData';
 import applicationReducer from './reducers/Application';
 import editorReducer from './reducers/Editor';
 import landingPageReducer from './reducers/LandingPage';
@@ -13,7 +12,6 @@ const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
-    protectedData: protectedDataReducer,
     editorReducer,
     landingPageReducer,
     applicationReducer,
