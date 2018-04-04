@@ -28,7 +28,7 @@ class WordEditor extends Component {
         socket.emit("word msg", {
           room: this.props.roomName,
           user: this.props.userName,
-          msg: convertToRaw(this.state.editorState.getCurrentContent())
+          msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
         });
 
       }, 100)
@@ -39,7 +39,7 @@ class WordEditor extends Component {
       socket.emit("word msg", {
         room: this.props.roomName,
         user: this.props.userName,
-        msg: convertToRaw(this.state.editorState.getCurrentContent())
+        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
       });
 
     });
@@ -49,7 +49,7 @@ class WordEditor extends Component {
       socket.emit("word msg", {
         room: this.props.roomName,
         user: this.props.userName,
-        msg: convertToRaw(this.state.editorState.getCurrentContent())
+        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
       });
 
     });
