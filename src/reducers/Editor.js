@@ -1,4 +1,4 @@
-import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
+import { EditorState, convertFromRaw, } from 'draft-js';
 import * as EditorActions from '../actions/Editor';
 
 const defaultWordEditorContent = { entityMap: {}, blocks: [ { key: '637gr', text: ' Type here!', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, } , ], };
