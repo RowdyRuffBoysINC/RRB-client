@@ -10,31 +10,32 @@ export class EditorView extends React.Component {
   componentDidMount() { }
 
   render() {
+    const editorView = [ 'Code View', 'Doc View', 'Whiteboard View', ];
+
+    const editorListItem = editorView.map((view, index) => (
+      <li key={index}
+        className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView(view))}>
+        {view}
+      </li>
+    ));
+
     const editorViewToggle = (
       <section>
         <ul className="nav-bar-ul">
-          <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('CodeEditor'))}>
-            Code View
-          </li>
-          <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('WordEditor'))}>
-            Doc View
-          </li>
-          <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('WhiteBoardEditor'))}>
-            Whiteboard View
-          </li>
+          {editorListItem}
         </ul>
       </section>
     );
 
     switch(this.props.editorMode) {
-    case 'WordEditor':
+    case 'Doc View':
       return (
         <section>
           {editorViewToggle}
           <WordEditor />
         </section>
       );
-    case 'WhiteBoardEditor':
+    case 'Whiteboard View':
       return (
         <section>
           {editorViewToggle}
