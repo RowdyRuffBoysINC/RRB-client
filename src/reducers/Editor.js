@@ -38,6 +38,11 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       lineNumbers: true,
     };
+  case EditorActions.SET_CODE_EDITOR_TEXT:
+    return {
+      ...state,
+      codeEditorText: action.input,
+    };
   default: return state;
   }
 };
