@@ -25,7 +25,7 @@ export class EditorView extends React.Component {
         </ul>
       </div>
     );
-    // ----------------------------------------------Refactor into switch statement
+
     if (this.props.editorMode === 'WordEditor') {
       return (
         <section>

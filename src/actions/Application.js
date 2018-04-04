@@ -3,8 +3,6 @@
 export const SET_CREATE_INPUT = 'SET_CREATE_INPUT';
 export const setCreateInput = input => ({ type: SET_CREATE_INPUT, data: input, });
 
-// Export const AUTH_REQUEST = 'AUTH_REQUEST';
-
 export const SET_USER_LIST = 'SET_USER_LIST';
 export const setUserList = input => ({ type: SET_USER_LIST, data: input, });
 
