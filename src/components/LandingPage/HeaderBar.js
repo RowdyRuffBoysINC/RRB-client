@@ -24,7 +24,7 @@ export class HeaderBar extends React.Component {
     }
     else {
       logOutButton = (
-        // <Link to="/register">SIGN IN</Link>
+        
         <p className="login-text" onClick={() => this.props.dispatch(showLoginForm())}>Login</p>
       );
     }

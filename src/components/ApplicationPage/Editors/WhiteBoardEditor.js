@@ -19,8 +19,9 @@ export class WhiteBoardEditor extends React.Component {
 
   componentDidMount() {
     // No given functions to listen keyEvents from canvas
-    document.querySelector('.upper-canvas').addEventListener('click', () => {
-      // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
+
+    document.querySelector(".upper-canvas").addEventListener("click", () => {
+      
       if (this.sketch) {
         this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
