@@ -3,7 +3,7 @@ import { connect, } from 'react-redux';
 import { Route, withRouter, } from 'react-router-dom';
 import HeaderBar from './HeaderBar';
 import LandingPage from './LandingPage';
-import Application from '.././ApplicationPage/Application';
+import Application from '.././applicationPage/Application';
 import { refreshAuthToken, } from '../../actions/Auth';
 
 export class App extends React.Component {
