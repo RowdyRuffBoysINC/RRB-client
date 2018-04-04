@@ -1,9 +1,4 @@
-import {
-  SET_TAB_SIZE,
-  SET_LINE_NUMBERS,
-  SET_THEME,
-  SET_MODE,
-} from '../actions/Editor';
+import * as EditorActions from '../actions/Editor';
 
 const initialState = {
   lineNumbers: true,
@@ -14,22 +9,22 @@ const initialState = {
 
 const cmReducer = function (state = initialState, action) {
   switch (action.type) {
-  case SET_THEME:
+  case EditorActions.SET_THEME:
     return {
       ...state,
       theme: action.theme,
     };
-  case SET_MODE:
+  case EditorActions.SET_MODE:
     return {
       ...state,
       mode: action.mode,
     };
-  case SET_TAB_SIZE:
+  case EditorActions.SET_TAB_SIZE:
     return {
       ...state,
       tabSize: action.tabSize,
     };
-  case SET_LINE_NUMBERS:
+  case EditorActions.SET_LINE_NUMBERS:
     if (action.setting === 'false') {
       return {
         ...state,
