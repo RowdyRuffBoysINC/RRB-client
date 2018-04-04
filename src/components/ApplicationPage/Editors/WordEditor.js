@@ -15,43 +15,32 @@ class WordEditor extends Component {
     socket.on('word msg sent back to clients', (msg) => {
       this.updateEditorWithSocketInfo(msg);
     });
-
   }
 
   componentDidMount() {
     // no given functions to listen keyEvents from react-draft-js
     document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => {
-
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       setTimeout(() => {
-
-        socket.emit("word msg", {
-          room: this.props.roomName,
-          user: this.props.userName,
-          msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
-        });
-
+        this.emitWordMsg();
       }, 100)
     });
 
-    document.querySelector('.js-word-editor').addEventListener('keydown', () => {
+    this.addListenerAndEmit('keydown');
+    this.addListenerAndEmit('keyup');
+  }
 
-      socket.emit("word msg", {
-        room: this.props.roomName,
-        user: this.props.userName,
-        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
-      });
-
+  addListenerAndEmit(listenFor) {
+    document.querySelector('.js-word-editor').addEventListener(listenFor, () => {
+    this.emitWordMsg();
     });
+  }
 
-    document.querySelector('.js-word-editor').addEventListener('keyup', () => {
-
-      socket.emit("word msg", {
-        room: this.props.roomName,
-        user: this.props.userName,
-        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
-      });
-
+  emitWordMsg() {
+    socket.emit("word msg", {
+      room: this.props.roomName,
+      user: this.props.userName,
+      msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
     });
   }
 
