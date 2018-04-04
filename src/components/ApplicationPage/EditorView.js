@@ -9,7 +9,7 @@ import './EditorView.css';
 export function EditorView (props) {
 
   const editorViewToggle = (
-    <div>
+    <section>
       <ul className="nav-bar-ul">
         <li className="editor-mode-text" href="#" onClick={() => props.dispatch(setEditorView('CodeEditor'))}>
             Code View
@@ -19,49 +19,34 @@ export function EditorView (props) {
         </li>
         <li className="editor-mode-text" href="#" onClick={() => props.dispatch(setEditorView('WhiteBoardEditor'))}>
             Whiteboard View
-          </li>
-        </ul>
+        </li>
+      </ul>
+    </section>
+  );
+
+  switch(props.editorMode) {
+  case 'WordEditor':
+    return (
+      <section>
+        {editorViewToggle}
+        <WordEditor />
       </section>
     );
-
-    switch(this.props.editorMode) {
-    case 'WordEditor':
-      return (
-        <section>
-          {editorViewToggle}
-          <WordEditor />
-        </section>
-      );
-    case 'WhiteBoardEditor':
-      return (
-        <section>
-          {editorViewToggle}
-          <WhiteBoardEditor />
-        </section>
-      );
-    default:
-      return (
-        <section>
-          {editorViewToggle}
-          <CodeEditor />
-        </section>
-      );
-    }
-  }
-  else if (props.editorMode === 'WhiteBoardEditor')
+  case 'WhiteBoardEditor':
     return (
       <section>
         {editorViewToggle}
         <WhiteBoardEditor />
       </section>
     );
-  else return (
-    <section>
-      {editorViewToggle}
-      <CodeEditor />
-    </section>
-  );
-
+  default:
+    return (
+      <section>
+        {editorViewToggle}
+        <CodeEditor />
+      </section>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
