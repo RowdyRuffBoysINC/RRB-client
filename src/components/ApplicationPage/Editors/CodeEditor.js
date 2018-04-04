@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 
 //Import Actions
-import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/Editor';
+import { setTheme, setMode, setTabSize, setLineNumbers, setCodeEditorText, } from '../../../actions/Editor';
 
 //Import Themes
 import 'codemirror/lib/codemirror.css';
@@ -74,7 +74,7 @@ export class CodeEditor extends Component {
           <option value="false">No line numbers</option>
         </select>
         <CodeMirror
-          value={this.state.textContent}
+          value={this.props.codeEditorText}
           options={options}
           onChange={(editor, data, value) => {
             this.setState({ textContent: value, });
@@ -83,14 +83,14 @@ export class CodeEditor extends Component {
             socket.emit('code msg', {
               room: this.props.roomName,
               user: this.props.userName,
-              msg: this.state.textContent,
+              msg: this.props.codeEditorText,
             });
           }}
           onKeyUp={(editor, event) => {
             socket.emit('code msg', {
               room: this.props.roomName,
               user: this.props.userName,
-              msg: this.state.textContent,
+              msg: this.props.codeEditorText,
             });
           }} />
       </div>
