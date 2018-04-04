@@ -33,6 +33,14 @@ export class CodeEditor extends Component {
     this.props.dispatch(setCodeEditorText(info));
   }
 
+  emitCodeMsg() {
+    socket.emit('code msg', {
+      room: this.props.roomName,
+      user: this.props.userName,
+      msg: this.props.codeEditorText,
+    });
+  }
+
   renderOptions(array) {
     return array.map((option, index) => {
       return (
@@ -49,23 +57,26 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
+    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift' , ];
+    const themeOptions = [ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
+    const tabSizeOptions = [ 2, 4, 8, ];
 
     return (
       <section className="code-editor-wrapper">
         <select onChange={(e) => {
           this.props.dispatch(setMode(e.target.value));
         }}>
-          {this.renderOptions([ 'javascript', 'xml', 'ruby', 'swift' , ])}
+          {this.renderOptions(modeOptions)}
         </select>
         <select onChange={(e) => {
           this.props.dispatch(setTheme(e.target.value));
         }}>
-          {this.renderOptions([ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ])}
+          {this.renderOptions(themeOptions)}
         </select>
         <select onChange={(e) => {
           this.props.dispatch(setTabSize(e.target.value));
         }}>
-          {this.renderOptions([ 2, 4, 8, ])}
+          {this.renderOptions(tabSizeOptions)}
         </select>
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
@@ -79,20 +90,8 @@ export class CodeEditor extends Component {
           onChange={(editor, data, value) => {
             this.props.dispatch(setCodeEditorText(value));
           }}
-          onKeyDown={() => {
-            socket.emit('code msg', {
-              room: this.props.roomName,
-              user: this.props.userName,
-              msg: this.props.codeEditorText,
-            });
-          }}
-          onKeyUp={() => {
-            socket.emit('code msg', {
-              room: this.props.roomName,
-              user: this.props.userName,
-              msg: this.props.codeEditorText,
-            });
-          }} />
+          onKeyDown={() => this.emitCodeMsg()}
+          onKeyUp={() => this.emitCodeMsg()} />
       </section>
     );
   }
