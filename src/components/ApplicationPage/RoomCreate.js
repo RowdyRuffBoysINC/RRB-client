@@ -4,15 +4,11 @@ import RequiresLogin from '../LandingPage/RequiresLogin';
 import { withRouter, } from 'react-router';
 import { setCreateInput, } from '../../actions/Application';
 
-export class Dashboard extends React.Component {
+export function RoomCreate (props) {
 
-  componentDidMount() {
-    // This.props.dispatch();
-  }
-
-  handleOnChange(e) {
+  function handleOnChange (e) {
     const input = e.target.value;
-    this.props.dispatch(setCreateInput(input));
+    props.dispatch(setCreateInput(input));
   }
 
   handleClick() {
@@ -39,4 +35,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(RequiresLogin()(connect(mapStateToProps)(Dashboard)));
+export default withRouter(RequiresLogin()(connect(mapStateToProps)(RoomCreate)));
