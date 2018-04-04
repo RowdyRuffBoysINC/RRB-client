@@ -7,6 +7,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { socket, } from '../Room';
 import { setWordEditorText, } from '../../../actions/Editor';
 
+
 class WordEditor extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +34,7 @@ class WordEditor extends Component {
       }, 100)
     });
 
-    document.querySelector('.wordEditor').addEventListener('keydown', () => {
+    document.querySelector('.js-word-editor').addEventListener('keydown', () => {
 
       socket.emit("word msg", {
         room: this.props.roomName,
@@ -43,7 +44,7 @@ class WordEditor extends Component {
 
     });
 
-    document.querySelector('.wordEditor').addEventListener('keyup', () => {
+    document.querySelector('.js-word-editor').addEventListener('keyup', () => {
 
       socket.emit("word msg", {
         room: this.props.roomName,
@@ -69,8 +70,8 @@ class WordEditor extends Component {
     return (
       <Editor
         editorState={wordEditorText}
-        wrapperClassName="wordEditorWrapper"
-        editorClassName="wordEditor"
+        wrapperClassName="word-editor-wrapper"
+        editorClassName="js-word-editor"
         onEditorStateChange={editorState => this.onEditorStateChange(editorState)}
       />
     );
