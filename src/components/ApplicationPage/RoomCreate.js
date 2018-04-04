@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import RequiresLogin from '../LandingPage/RequiresLogin';
-import { withRouter } from 'react-router'
-import { setCreateInput } from '../../actions/Application';
+import { withRouter, } from 'react-router';
+import { setCreateInput, } from '../../actions/Application';
 
 export class Dashboard extends React.Component {
 
   componentDidMount() {
-    // this.props.dispatch();
+    // This.props.dispatch();
   }
 
   handleOnChange(e) {
@@ -24,8 +24,8 @@ export class Dashboard extends React.Component {
     return (
       <section className="room-create">
         <h1> Room Create </h1>
-        <input type='text' placeholder='Enter your room name!' onChange={(e) => this.handleOnChange(e)} />
-        <button onClick={(e) => this.handleClick(e)}> Submit </button>
+        <input type="text" placeholder="Enter your room name!" onChange={e => this.handleOnChange(e)} />
+        <button onClick={e => this.handleClick(e)}> Submit </button>
       </section>
     );
   }
@@ -35,7 +35,7 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    roomName: state.applicationReducer.roomName
+    roomName: state.applicationReducer.roomName,
   };
 };
 
