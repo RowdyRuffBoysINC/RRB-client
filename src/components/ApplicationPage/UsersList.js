@@ -2,7 +2,6 @@ import React from 'react';
 import { connect, } from 'react-redux';
 
 export class UsersList extends React.Component {
-
   createList(users) {
     return users.map((aUser) => {
       const { id, user, } = aUser;
