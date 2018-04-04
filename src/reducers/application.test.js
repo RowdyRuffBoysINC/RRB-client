@@ -47,11 +47,16 @@ describe('applicationReducer', () => {
       let state;
       state = applicationReducer(state, {type: '__UNKNOWN',});
       expect(state.editorMode).toEqual('code');
-    })
+    });
     it('Should set correct editor mode', () => {
       let state;
       const docMode = 'Doc View';
       const whiteboardMode = 'Whiteboard View';
-    })
-  })
+
+      state = applicationReducer(state, EditorActions.setEditorView(docMode));
+      expect(state.editorMode).toEqual(docMode);
+      state = applicationReducer(state, EditorActions.setEditorView(whiteboardMode));
+      expect(state.editorMode).toEqual(whiteboardMode);
+    });
+  });
 });
