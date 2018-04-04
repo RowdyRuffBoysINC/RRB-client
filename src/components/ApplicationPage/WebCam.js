@@ -44,7 +44,6 @@ export class WebCam extends React.Component {
   trace(text) {
     text = text.trim();
     const now = (window.performance.now() / 1000).toFixed(3);
-    console.log(now, text);
   };
 
   createVideo(id) {
@@ -53,7 +52,6 @@ export class WebCam extends React.Component {
 
     function error(err) {
       trace('some shit happened');
-      console.error('Error', err);
     }
 
     function trace(text) {
@@ -117,7 +115,6 @@ export class WebCam extends React.Component {
 
     function error(err) {
       trace('some shit happened');
-      console.error('Error', err);
     }
 
     const createOffer = (id) => {
