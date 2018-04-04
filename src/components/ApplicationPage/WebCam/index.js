@@ -8,6 +8,7 @@ import { socket } from "../Room";
 import * as ApplicationActions from "../../../actions/Application";
 import UsersList from "../UsersList";
 import './WebCam.css'
+import {trace} from './helpers';
 
 export class WebCam extends React.Component {
   constructor(props) {
