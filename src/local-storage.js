@@ -7,7 +7,7 @@ export const saveAuthToken = (authToken) => {
     localStorage.setItem('authToken', authToken);
   }
   catch (e) {
-    console.err(e);
+    console.warn('Couldnt set auth token.');
   }
 };
 
@@ -16,6 +16,6 @@ export const clearAuthToken = () => {
     localStorage.removeItem('authToken');
   }
   catch (e) {
-    console.err(e);
+    console.warn('Couldnt remove auth token.');
   }
 };

@@ -42,7 +42,7 @@ export class CodeEditor extends Component {
       lineWrapping: true,
     };
     return (
-      <section className="App">
+      <section className="code-editor-wrapper">
         <select onChange={(e) => {
           this.props.dispatch(setMode(e.target.value));
         }}>
