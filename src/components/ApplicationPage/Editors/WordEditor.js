@@ -3,14 +3,15 @@ import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import { connect, } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
 import { socket, } from '../Room';
+
+import { setWordEditorText, } from '../../../actions/Editor';
+
 import './ReactDraft.css';
+
 
 class WordEditor extends Component {
   constructor(props) {
     super(props);
-    const content = { entityMap: {}, blocks: [{ key: '637gr', text: ' Initialized from content state.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, },], };
-
-    this.state = { editorState: EditorState.createWithContent(convertFromRaw(content)), };
 
     socket.on('word msg sent back to clients', (msg) => {
       this.updateEditorWithSocketInfo(msg);
@@ -56,11 +57,12 @@ class WordEditor extends Component {
   }
 
   onEditorStateChange(editorState) {
-    this.setState({ editorState, });
+    this.props.dispatch(setWordEditorText(editorState));
   }
 
   updateEditorWithSocketInfo = (msg) => {
-    this.setState({ editorState: EditorState.createWithContent(convertFromRaw(msg)), });
+    const convertedMsg = EditorState.createWithContent(convertFromRaw(msg));
+    this.props.dispatch(setWordEditorText(convertedMsg));
   }
 
   render() {
