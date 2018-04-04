@@ -15,13 +15,13 @@ export class LoginForm extends React.Component {
     let error;
     if (this.props.error) {
       error = (
-        <div className="form-error" aria-live="polite">
+        <section className="form-error" aria-live="polite">
           {this.props.error}
-        </div>
+        </section>
       );
     }
     return (
-      <div className="form-wrapper">
+      <section className="form-wrapper">
         <form
           className="login-form"
           onSubmit={this.props.handleSubmit(values =>
@@ -49,7 +49,7 @@ export class LoginForm extends React.Component {
           </button>
           <span className="close js-close" onClick={() => this.props.dispatch(hideLoginForm())}> &times; </span>
         </form>
-      </div>
+      </section>
     );
   }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect, } from 'react-redux';
 
 export class UsersList extends React.Component {
-
   createList(users) {
     return users.map((aUser) => {
       const { id, user, } = aUser;
@@ -22,7 +21,6 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    protectedData: state.protectedData.data,
     userList: state.applicationReducer.listOfUsers,
   };
 };

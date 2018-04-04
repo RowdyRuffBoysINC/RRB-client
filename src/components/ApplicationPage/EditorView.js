@@ -11,7 +11,7 @@ export class EditorView extends React.Component {
 
   render() {
     const editorViewToggle = (
-      <div>
+      <section>
         <ul className="nav-bar-ul">
           <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('CodeEditor'))}>
             Code View
@@ -23,30 +23,32 @@ export class EditorView extends React.Component {
             Whiteboard View
           </li>
         </ul>
-      </div>
+      </section>
     );
 
-    if (this.props.editorMode === 'WordEditor') {
+    switch(this.props.editorMode) {
+    case 'WordEditor':
       return (
         <section>
           {editorViewToggle}
           <WordEditor />
         </section>
       );
-    }
-    else if (this.props.editorMode === 'WhiteBoardEditor')
+    case 'WhiteBoardEditor':
       return (
         <section>
           {editorViewToggle}
           <WhiteBoardEditor />
         </section>
       );
-    else return (
-      <section>
-        {editorViewToggle}
-        <CodeEditor />
-      </section>
-    );
+    default:
+      return (
+        <section>
+          {editorViewToggle}
+          <CodeEditor />
+        </section>
+      );
+    }
   }
 }
 
@@ -54,7 +56,6 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    protectedData: state.protectedData.data,
     editorMode: state.applicationReducer.editorMode,
   };
 };
