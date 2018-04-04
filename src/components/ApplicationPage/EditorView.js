@@ -6,45 +6,43 @@ import WhiteBoardEditor from './Editors/WhiteBoardEditor';
 import { setEditorView, } from '../../actions/Editor';
 import './EditorView.css';
 
-export class EditorView extends React.Component {
-  componentDidMount() { }
+export function EditorView(props) {
 
-  render() {
-    const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
+  const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
 
-    const editorListItem = editorViewArr.map((view, index) => (
-      <li key={index}
-        className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView(view))}>
-        {view}
-      </li>
-    ));
+  const editorListItem = editorViewArr.map((view, index) => (
+    <li key={index}
+      className="editor-mode-text" href="#" onClick={() => props.dispatch(setEditorView(view))}>
+      {view}
+    </li>
+  ));
 
-    const editorNavigation = (
-      <section>
-        <ul className="nav-bar-ul">
-          {editorListItem}
-        </ul>
-      </section>
-    );
+  const editorNavigation = (
+    <section>
+      <ul className="nav-bar-ul">
+        {editorListItem}
+      </ul>
+    </section>
+  );
 
-    const editorViewToggle = (view) => {
-      switch (view) {
-      case 'Doc View':
-        return <WordEditor />;
-      case 'Whiteboard View':
-        return <WhiteBoardEditor />;
-      default:
-        return <CodeEditor />;
-      }
-    };
+  const editorViewToggle = (view) => {
+    switch (view) {
+    case 'Doc View':
+      return <WordEditor />;
+    case 'Whiteboard View':
+      return <WhiteBoardEditor />;
+    default:
+      return <CodeEditor />;
+    }
+  };
 
-    return (
-      <section>
-        {editorNavigation}
-        {editorViewToggle(this.props.editorMode)}
-      </section>
-    );
-  }
+  return (
+    <section>
+      {editorNavigation}
+      {editorViewToggle(props.editorMode)}
+    </section>
+  );
+
 }
 
 const mapStateToProps = (state) => {
