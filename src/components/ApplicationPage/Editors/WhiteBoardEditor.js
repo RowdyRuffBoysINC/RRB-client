@@ -80,7 +80,6 @@ export class WhiteBoardEditor extends React.Component {
           lineColor="black"
           lineWidth={6}
           ref={(instance) => this.sketch = instance}
-          value={this.props.whiteBoardEditorValue}
           forceValue={true}
           onChange={this.onSketchFieldChange} />
       </section>
