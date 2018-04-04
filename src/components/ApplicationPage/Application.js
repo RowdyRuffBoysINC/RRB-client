@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import RequiresLogin from '../LandingPage/RequiresLogin';
-import { fetchProtectedData, } from '../../actions/ProtectedData';
 import Room from './Room';
 import RoomCreate from './RoomCreate';
 
