@@ -42,11 +42,6 @@ export class WebCam extends React.Component {
 
   }
 
-  trace(text) {
-    text = text.trim();
-    const now = (window.performance.now() / 1000).toFixed(3);
-  };
-
   createVideo(id) {
 
     let answersFrom = {}, offer;
