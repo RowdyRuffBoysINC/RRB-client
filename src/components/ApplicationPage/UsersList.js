@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
-export function UsersList(props) {
-
-  function createList(users) {
+export class UsersList extends React.Component {
+  createList(users) {
     return users.map((aUser) => {
       const { id, user, } = aUser;
 
-      return (<li onClick={() => props.createOffer(id)} key={id}> Share your screen with {user} </li>);
+      return (<li onClick={() => this.props.createOffer(id)} key={id}> Share your screen with {user} </li>);
     });
   }
 
-  const list = createList(props.userList);
+  render() {
+    const list = this.createList(this.props.userList);
 
-  return (<ul>{list}</ul>);
-
+    return (<ul>{list}</ul>);
+  }
 }
 
 const mapStateToProps = (state) => {
