@@ -1,7 +1,7 @@
 import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import * as EditorActions from '../actions/Editor';
 
-const defaultWordEditorContent = { entityMap: {}, blocks: [ { key: '637gr', text: ' Type here!', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, } ,], };
+const defaultWordEditorContent = { entityMap: {}, blocks: [ { key: '637gr', text: ' Type here!', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, } , ], };
 
 const initialState = {
   lineNumbers: true,
@@ -45,6 +45,11 @@ const editorReducer = function (state = initialState, action) {
     return {
       ...state,
       codeEditorText: action.input,
+    };
+  case EditorActions.SET_WORD_EDITOR_TEXT:
+    return {
+      ...state,
+      wordEditorText: action.input,
     };
   default: return state;
   }
