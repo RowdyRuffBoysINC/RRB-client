@@ -8,7 +8,6 @@ export class WhiteBoardEditor extends React.Component {
   constructor() {
     super();
     this.state = { sketchFieldValue: null, };
-
     this.sketch = null;
     this.interval = null;
 

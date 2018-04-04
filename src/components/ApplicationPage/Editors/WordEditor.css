@@ -9,15 +9,11 @@
 .editorBox {
   width: 90vw;
   height: 70vh;
-
   margin-left: 3vw;
-
   border: solid black 2px;
-
   text-align: center;
   margin-bottom: 50px;
   padding: 0;
-
   position: relative;
 }
 
@@ -27,10 +23,8 @@
   width: 100px;
   background-color: black;
   color: white;
-
   top: 30%;
   right: 10%;
-
 }
 
 .marvel-device {

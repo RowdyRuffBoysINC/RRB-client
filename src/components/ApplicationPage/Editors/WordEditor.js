@@ -2,8 +2,9 @@ import React, { Component, } from 'react';
 import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import { connect, } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+//Any classes from react-draft imports in event listeners are prebuilt names 
 import { socket, } from '../Room';
-import './ReactDraft.css';
 
 class WordEditor extends Component {
   constructor(props) {
