@@ -10,12 +10,12 @@ export class Dashboard extends React.Component {
     // this.props.dispatch();
   }
 
-  handleOnChange = (e) => {
+  handleOnChange(e) {
     const input = e.target.value;
     this.props.dispatch(setCreateInput(input));
   }
 
-  handleClick = () => {
+  handleClick() {
     this.props.history.push(`/dashboard/${this.props.roomName}`);
   }
 
@@ -27,7 +27,7 @@ export class Dashboard extends React.Component {
       <section className="room-create">
         <h1> Room Create </h1>
         <input type='text' placeholder='Enter your room name!' onChange={(e) => handleOnChange(e)} />
-        <button onClick={handleClick}> Submit </button>
+        <button onClick={() => handleClick()}> Submit </button>
       </section>
     );
   }
