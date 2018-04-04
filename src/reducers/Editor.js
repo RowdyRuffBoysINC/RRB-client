@@ -51,6 +51,11 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       wordEditorText: action.input,
     };
+  case EditorActions.SET_WHITEBOARD_EDITOR_VALUE:
+    return {
+      ...state,
+      whiteBoardEditorValue: action.input,
+    };
   default: return state;
   }
 };
