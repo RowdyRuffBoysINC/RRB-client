@@ -2,16 +2,13 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
-
 import { setWhiteBoardEditorValue } from "../../../actions/Editor";
-
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
   constructor() {
     super();
     this.state = { sketchFieldValue: null, };
-
     this.sketch = null;
     this.interval = null;
 
@@ -73,7 +70,7 @@ export class WhiteBoardEditor extends React.Component {
 
   render() {
     return (
-      <section className="whiteBoardContainer">
+      <section className="whiteboard-container">
         <SketchField width="100vw"
           height="500px"
           tool={Tools.Pencil}
