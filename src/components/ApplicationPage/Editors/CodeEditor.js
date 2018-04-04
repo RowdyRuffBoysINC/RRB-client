@@ -42,7 +42,7 @@ export class CodeEditor extends Component {
       lineWrapping: true,
     };
     return (
-      <div className="App">
+      <section className="App">
         <select onChange={(e) => {
           this.props.dispatch(setMode(e.target.value));
         }}>
@@ -93,7 +93,7 @@ export class CodeEditor extends Component {
               msg: this.props.codeEditorText,
             });
           }} />
-      </div>
+      </section>
     );
   }
 }
