@@ -19,7 +19,7 @@ export class EditorView extends React.Component {
       </li>
     ));
 
-    const editorViewToggle = (
+    const editorNavigation = (
       <section>
         <ul className="nav-bar-ul">
           {editorListItem}
@@ -27,29 +27,23 @@ export class EditorView extends React.Component {
       </section>
     );
 
-    switch(this.props.editorMode) {
-    case 'Doc View':
-      return (
-        <section>
-          {editorViewToggle}
-          <WordEditor />
-        </section>
-      );
-    case 'Whiteboard View':
-      return (
-        <section>
-          {editorViewToggle}
-          <WhiteBoardEditor />
-        </section>
-      );
-    default:
-      return (
-        <section>
-          {editorViewToggle}
-          <CodeEditor />
-        </section>
-      );
-    }
+    const editorViewToggle = (view) => {
+      switch (view) {
+      case 'Doc View':
+        return <WordEditor />;
+      case 'Whiteboard View':
+        return <WhiteBoardEditor />;
+      default:
+        return <CodeEditor />;
+      }
+    };
+
+    return (
+      <section>
+        {editorNavigation}
+        {editorViewToggle(this.props.editorMode)}
+      </section>
+    );
   }
 }
 
