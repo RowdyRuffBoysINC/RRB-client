@@ -6,7 +6,7 @@
   /* border: solid black 2px; */
 }
 
-.editorBox {
+.editor-box {
   width: 90vw;
   height: 70vh;
   margin-left: 3vw;
@@ -17,7 +17,7 @@
   position: relative;
 }
 
-.saveButton {
+.save-button {
   position: absolute;
   border: solid black 1px;
   width: 100px;
