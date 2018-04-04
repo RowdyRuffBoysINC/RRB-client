@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  /* border: solid black 2px; */
+}
+
+.editor-box {
+  width: 90vw;
+  height: 70vh;
+  margin-left: 3vw;
+  border: solid black 2px;
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0;
+  position: relative;
+}
+
+.save-button {
+  position: absolute;
+  border: solid black 1px;
+  width: 100px;
+  background-color: black;
+  color: white;
+  top: 30%;
+  right: 10%;
+}
+
+.marvel-device {
+  margin-top: 50px;
+}
+
+.main {
+  display: inline-flex;
+}
+
+.content {
+  height: 900px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 50px;
+}

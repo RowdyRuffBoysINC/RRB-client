@@ -1,0 +1,80 @@
+a {
+	color: inherit;
+}
+
+header {
+  margin-bottom: 1em;
+  font-size: .8em;
+}
+
+.landing-page {
+	height:100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.landing-header {
+  font-size: 1.2em;
+/* font-family: 'Croissant One', cursive; */
+/* font-family: 'Berkshire Swash', cursive; */
+/* font-family: 'Playfair Display SC', serif; */
+font-family: 'Amiri', serif;
+/* font-family: 'Prata', serif; */
+/* font-family: 'Yeseva One', cursive; */
+/* font-family: 'Averia Serif Libre', cursive; */
+	font-weight: 300;
+}
+
+.landing-sub-header {
+font-size: .5em;
+/* font-family: 'Croissant One', cursive; */
+/* font-family: 'Berkshire Swash', cursive; */
+/* font-family: 'Playfair Display SC', serif; */
+font-family: 'Amiri', serif;
+/* font-family: 'Prata', serif; */
+/* font-family: 'Yeseva One', cursive; */
+/* font-family: 'Averia Serif Libre', cursive; */
+font-weight: 300;
+margin-bottom: 300px;
+}
+
+.container {
+	min-height: 100%;
+	display: flex;
+	position: relative;
+	margin: 0;
+	overflow-x: hidden;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.content {
+	width: 45em;
+	max-width: calc(100% - 4em);
+	margin: 0 auto;
+}
+
+.scroll-icon {
+	width: 1em;
+}
+
+#header {
+  background-image: url('../../assets/images/outdoor.jpg');
+	color: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-size: 4em;
+  text-align: center;
+	line-height: 1.1em;
+}
+
+#sign-up {
+  background: #00d2ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #00d2ff, #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #00d2ff, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  font-family: 'Lato';
+  line-height: 2;
+}

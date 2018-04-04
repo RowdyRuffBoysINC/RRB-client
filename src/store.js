@@ -2,19 +2,17 @@ import { createStore, applyMiddleware, combineReducers, } from 'redux';
 import { reducer as formReducer, } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken, } from './local-storage';
-import authReducer from './reducers/auth';
-import protectedDataReducer from './reducers/protected-data';
-import applicationReducer from './reducers/application';
-import cmReducer from './reducers/editor';
-import landingPageReducer from './reducers/landingpage';
-import { setAuthToken, refreshAuthToken, } from './actions/auth';
+import authReducer from './reducers/Auth';
+import applicationReducer from './reducers/Application';
+import editorReducer from './reducers/Editor';
+import landingPageReducer from './reducers/LandingPage';
+import { setAuthToken, refreshAuthToken, } from './actions/Auth';
 
 const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
-    protectedData: protectedDataReducer,
-    cmReducer,
+    editorReducer,
     landingPageReducer,
     applicationReducer,
   }),
