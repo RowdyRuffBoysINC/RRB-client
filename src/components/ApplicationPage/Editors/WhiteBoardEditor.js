@@ -70,7 +70,7 @@ export class WhiteBoardEditor extends React.Component {
 
   render() {
     return (
-      <section className="whiteBoardContainer">
+      <section className="whiteboard-container">
         <SketchField width="100vw"
           height="500px"
           tool={Tools.Pencil}
