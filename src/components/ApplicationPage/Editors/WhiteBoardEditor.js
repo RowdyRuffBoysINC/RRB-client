@@ -2,6 +2,9 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
+
+import { setWhiteBoardEditorValue } from "../../../actions/Editor";
+
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
@@ -50,13 +53,13 @@ export class WhiteBoardEditor extends React.Component {
   }
 
   onSketchFieldChange = (data, __, ___, ____, _____) => {
-
-    this.setState({ sketchFieldValue: data, });
+    this.props.dispatch(setWhiteBoardEditorValue(data));
   }
 
   updateSketchFieldWithSocketInfo = (msg) => {
     if (this.sketch) {
-      this.setState({ sketchFieldValue: this.sketch.fromJSON(msg) });
+      const convertedMsg = this.sketch.fromJSON(msg);
+      this.props.dispatch(setWhiteBoardEditorValue(convertedMsg));
     }
   }
 
