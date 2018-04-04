@@ -7,7 +7,7 @@ export const saveAuthToken = (authToken) => {
     localStorage.setItem('authToken', authToken);
   }
   catch (e) {
-    console.err(e);
+    return null;
   }
 };
 
@@ -16,6 +16,6 @@ export const clearAuthToken = () => {
     localStorage.removeItem('authToken');
   }
   catch (e) {
-    console.err(e);
+    return null;
   }
 };
