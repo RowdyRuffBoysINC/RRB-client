@@ -80,6 +80,7 @@ class WordEditor extends Component {
 const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  wordEditorText: state.editorReducer.wordEditorText
 });
 
 export default connect(mapStateToProps)(WordEditor);
