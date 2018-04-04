@@ -11,24 +11,27 @@ export function RoomCreate (props) {
     props.dispatch(setCreateInput(input));
   }
 
-  function handleClick () {
-    props.history.push(`/dashboard/${props.roomName}`);
+  handleClick() {
+    this.props.history.push(`/dashboard/${this.props.roomName}`);
   }
 
-  return (
-    <section className="room-create">
-      <h1> Room Create </h1>
-      <input type="text" placeholder="Enter your room name!" onChange={e => handleOnChange(e)} />
-      <button onClick={handleClick}> Submit </button>
-    </section>
-  );
+  render() {
+
+    return (
+      <section className="room-create">
+        <h1> Room Create </h1>
+        <input type="text" placeholder="Enter your room name!" onChange={e => this.handleOnChange(e)} />
+        <button onClick={e => this.handleClick(e)}> Submit </button>
+      </section>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    roomName: state.applicationReducer.roomName
+    roomName: state.applicationReducer.roomName,
   };
 };
 

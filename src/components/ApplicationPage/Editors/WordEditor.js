@@ -19,24 +19,26 @@ class WordEditor extends Component {
   }
 
   componentDidMount() {
-    // no given functions to listen keyEvents from react-draft-js
+
+    // No given functions to listen to keyEvents from react-draft-js
+
     document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => {
 
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       setTimeout(() => {
 
-        socket.emit("word msg", {
+        socket.emit('word msg', {
           room: this.props.roomName,
           user: this.props.userName,
           msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
         });
 
-      }, 100)
+      }, 100);
     });
 
     document.querySelector('.js-word-editor').addEventListener('keydown', () => {
 
-      socket.emit("word msg", {
+      socket.emit('word msg', {
         room: this.props.roomName,
         user: this.props.userName,
         msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
@@ -46,7 +48,7 @@ class WordEditor extends Component {
 
     document.querySelector('.js-word-editor').addEventListener('keyup', () => {
 
-      socket.emit("word msg", {
+      socket.emit('word msg', {
         room: this.props.roomName,
         user: this.props.userName,
         msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
