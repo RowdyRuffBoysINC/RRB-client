@@ -5,7 +5,7 @@ import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
 import protectedDataReducer from './reducers/ProtectedData';
 import applicationReducer from './reducers/Application';
-import cmReducer from './reducers/Editor';
+import editorReducer from './reducers/Editor';
 import landingPageReducer from './reducers/LandingPage';
 import { setAuthToken, refreshAuthToken, } from './actions/Auth';
 
@@ -14,7 +14,7 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     protectedData: protectedDataReducer,
-    cmReducer,
+    editorReducer,
     landingPageReducer,
     applicationReducer,
   }),
