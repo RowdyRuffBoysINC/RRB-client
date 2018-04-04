@@ -64,11 +64,11 @@ class WordEditor extends Component {
   }
 
   render() {
-    const { editorState, } = this.state;
+    const { wordEditorText, } = this.props;
 
     return (
       <Editor
-        editorState={editorState}
+        editorState={wordEditorText}
         wrapperClassName="wordEditorWrapper"
         editorClassName="wordEditor"
         onEditorStateChange={editorState => this.onEditorStateChange(editorState)}
