@@ -10,9 +10,9 @@ export class EditorView extends React.Component {
   componentDidMount() { }
 
   render() {
-    const editorView = [ 'Code View', 'Doc View', 'Whiteboard View', ];
+    const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
 
-    const editorListItem = editorView.map((view, index) => (
+    const editorListItem = editorViewArr.map((view, index) => (
       <li key={index}
         className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView(view))}>
         {view}
