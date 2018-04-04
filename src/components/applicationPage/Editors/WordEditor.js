@@ -9,7 +9,7 @@ import './react-draft-wysiwyg.css';
 class WordEditor extends Component {
   constructor(props) {
     super(props);
-    const content = { entityMap: {}, blocks: [{ key: '637gr', text: ' Initialized from content state.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, },], };
+    const content = { entityMap: {}, blocks: [ { key: '637gr', text: ' Initialized from content state.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, }, ], };
 
     this.state = { editorState: EditorState.createWithContent(convertFromRaw(content)), };
 
@@ -20,37 +20,37 @@ class WordEditor extends Component {
   }
 
   componentDidMount() {
-    // no given functions to listen keyEvents from react-draft-js
+    // No given functions to listen keyEvents from react-draft-js
     document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => {
 
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       setTimeout(() => {
 
-        socket.emit("word msg", {
+        socket.emit('word msg', {
           room: this.props.roomName,
           user: this.props.userName,
-          msg: convertToRaw(this.state.editorState.getCurrentContent())
+          msg: convertToRaw(this.state.editorState.getCurrentContent()),
         });
 
-      }, 100)
+      }, 100);
     });
 
     document.querySelector('.wordEditor').addEventListener('keydown', () => {
 
-      socket.emit("word msg", {
+      socket.emit('word msg', {
         room: this.props.roomName,
         user: this.props.userName,
-        msg: convertToRaw(this.state.editorState.getCurrentContent())
+        msg: convertToRaw(this.state.editorState.getCurrentContent()),
       });
 
     });
 
     document.querySelector('.wordEditor').addEventListener('keyup', () => {
 
-      socket.emit("word msg", {
+      socket.emit('word msg', {
         room: this.props.roomName,
         user: this.props.userName,
-        msg: convertToRaw(this.state.editorState.getCurrentContent())
+        msg: convertToRaw(this.state.editorState.getCurrentContent()),
       });
 
     });
@@ -60,7 +60,7 @@ class WordEditor extends Component {
     this.setState({ editorState, });
   }
 
-  updateEditorWithSocketInfo = (msg) => {
+  updateEditorWithSocketInfo(msg) {
     this.setState({ editorState: EditorState.createWithContent(convertFromRaw(msg)), });
   }
 
