@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
 import applicationReducer from './reducers/Application';
-import cmReducer from './reducers/Editor';
+import editorReducer from './reducers/Editor';
 import landingPageReducer from './reducers/LandingPage';
 import { setAuthToken, refreshAuthToken, } from './actions/Auth';
 
@@ -12,7 +12,7 @@ const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
-    cmReducer,
+    editorReducer,
     landingPageReducer,
     applicationReducer,
   }),

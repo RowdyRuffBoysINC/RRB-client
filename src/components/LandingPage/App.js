@@ -3,7 +3,7 @@ import { connect, } from 'react-redux';
 import { Route, withRouter, } from 'react-router-dom';
 import HeaderBar from './HeaderBar';
 import LandingPage from './LandingPage';
-import Application from '.././applicationPage/Application';
+import Application from '.././ApplicationPage/Application';
 import { refreshAuthToken, } from '../../actions/Auth';
 
 export class App extends React.Component {
@@ -40,12 +40,12 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <section className="app">
         <HeaderBar />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Application} />
         <Route exact path="/dashboard/:roomName" component={Application} />
-      </div>
+      </section>
     );
   }
 }

@@ -2,6 +2,9 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
+
+import { setWhiteBoardEditorValue } from "../../../actions/Editor";
+
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
@@ -20,23 +23,22 @@ export class WhiteBoardEditor extends React.Component {
   componentDidMount() {
     // no given functions to listen keyEvents from canvas
     document.querySelector(".upper-canvas").addEventListener("click", () => {
-      // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
 
     document.querySelector('.upper-canvas').addEventListener('mousedown', () => {
 
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
 
     document.querySelector('.upper-canvas').addEventListener('mouseup', () => {
 
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
 
     });
@@ -44,19 +46,20 @@ export class WhiteBoardEditor extends React.Component {
     document.querySelector('.upper-canvas').addEventListener('mouseleave', () => {
 
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
   }
 
   onSketchFieldChange = (data, __, ___, ____, _____) => {
-
-    this.setState({ sketchFieldValue: data, });
+    this.props.dispatch(setWhiteBoardEditorValue(data));
   }
 
   updateSketchFieldWithSocketInfo = (msg) => {
     if (this.sketch) {
-      this.setState({ sketchFieldValue: this.sketch.fromJSON(msg) });
+      // Surprise, this.sketch.fromJSON rerenders SketchField by ITSELF; no need to bind
+      const convertedMsg = this.sketch.fromJSON(msg);
+      this.props.dispatch(setWhiteBoardEditorValue(convertedMsg));
     }
   }
 
@@ -77,7 +80,6 @@ export class WhiteBoardEditor extends React.Component {
           lineColor="black"
           lineWidth={6}
           ref={(instance) => this.sketch = instance}
-          value={this.sketchFieldValue}
           forceValue={true}
           onChange={this.onSketchFieldChange} />
       </section>
@@ -90,6 +92,7 @@ const mapStateToProps = (state) => {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     roomName: state.applicationReducer.roomName,
+    whiteBoardEditorValue: state.editorReducer.whiteBoardEditorValue
   };
 };
 

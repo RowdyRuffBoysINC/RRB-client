@@ -15,7 +15,7 @@ export class Modal extends React.Component {
     }
     else {
       return (
-        <div />
+        <section />
       );
     }
   }
