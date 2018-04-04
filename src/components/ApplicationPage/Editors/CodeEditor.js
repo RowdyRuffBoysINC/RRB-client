@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 
 //Import Actions
-import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/Editor';
+import { setTheme, setMode, setTabSize, setLineNumbers, setCodeEditorText, } from '../../../actions/Editor';
 
 //Import Themes
 import 'codemirror/lib/codemirror.css';
@@ -23,14 +23,14 @@ import 'codemirror/mode/xml/xml.js';
 export class CodeEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { textContent: '', };
+
     socket.on('code msg sent back to clients', (msg) => {
-      this.emitToClients(msg);
+      this.updateCodeEditorWithSocketInfo(msg);
     });
   }
 
-  emitToClients(textContent) {
-    this.setState({ textContent, });
+  updateCodeEditorWithSocketInfo(info) {
+    this.props.dispatch(setCodeEditorText(info));
   }
 
   render() {
@@ -74,23 +74,23 @@ export class CodeEditor extends Component {
           <option value="false">No line numbers</option>
         </select>
         <CodeMirror
-          value={this.state.textContent}
+          value={this.props.codeEditorText}
           options={options}
           onChange={(editor, data, value) => {
-            this.setState({ textContent: value, });
+            this.props.dispatch(setCodeEditorText(value));
           }}
           onKeyDown={(editor, event) => {
             socket.emit('code msg', {
               room: this.props.roomName,
               user: this.props.userName,
-              msg: this.state.textContent,
+              msg: this.props.codeEditorText,
             });
           }}
           onKeyUp={(editor, event) => {
             socket.emit('code msg', {
               room: this.props.roomName,
               user: this.props.userName,
-              msg: this.state.textContent,
+              msg: this.props.codeEditorText,
             });
           }} />
       </div>
@@ -99,12 +99,13 @@ export class CodeEditor extends Component {
 }
 
 const mapStateToProps = state => ({
-  theme: state.cmReducer.theme,
-  mode: state.cmReducer.mode,
-  tabSize: state.cmReducer.tabSize,
-  lineNumbers: state.cmReducer.lineNumbers,
+  theme: state.editorReducer.theme,
+  mode: state.editorReducer.mode,
+  tabSize: state.editorReducer.tabSize,
+  lineNumbers: state.editorReducer.lineNumbers,
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  codeEditorText: state.editorReducer.codeEditorText,
 });
 
 export default connect(mapStateToProps)(CodeEditor);
