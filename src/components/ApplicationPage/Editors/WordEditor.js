@@ -19,7 +19,7 @@ class WordEditor extends Component {
   }
 
   componentDidMount() {
-    // no given functions to listen keyEvents from react-draft-js
+    // No given functions to listen to keyEvents from react-draft-js
     document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => {
 
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register

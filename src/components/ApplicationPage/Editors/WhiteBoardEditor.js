@@ -18,7 +18,7 @@ export class WhiteBoardEditor extends React.Component {
   }
 
   componentDidMount() {
-    // no given functions to listen keyEvents from canvas
+    // No given functions to listen keyEvents from canvas
     document.querySelector(".upper-canvas").addEventListener("click", () => {
       if (this.sketch) {
         this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
