@@ -49,6 +49,16 @@ export class CodeEditor extends Component {
     });
   }
 
+  renderSelect(func, option) {
+    return (
+      <select onChange={(e) => {
+        this.props.dispatch(func(e.target.value));
+      }}>
+        {this.renderOptions(option)}
+      </select>
+    );
+  }
+
   render() {
     const options = {
       lineNumbers: this.props.lineNumbers,
@@ -63,27 +73,17 @@ export class CodeEditor extends Component {
 
     return (
       <section className="code-editor-wrapper">
-        <select onChange={(e) => {
-          this.props.dispatch(setMode(e.target.value));
-        }}>
-          {this.renderOptions(modeOptions)}
-        </select>
-        <select onChange={(e) => {
-          this.props.dispatch(setTheme(e.target.value));
-        }}>
-          {this.renderOptions(themeOptions)}
-        </select>
-        <select onChange={(e) => {
-          this.props.dispatch(setTabSize(e.target.value));
-        }}>
-          {this.renderOptions(tabSizeOptions)}
-        </select>
+        {this.renderSelect(setMode, modeOptions)}
+        {this.renderSelect(setTheme, themeOptions)}
+        {this.renderSelect(setTabSize, tabSizeOptions)}
+
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
+        
         <CodeMirror
           value={this.props.codeEditorText}
           options={options}
