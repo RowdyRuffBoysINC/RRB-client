@@ -1,6 +1,5 @@
 import { SubmissionError, } from 'redux-form';
 import { API_BASE_URL, } from '../config';
-
 export const registerUser = user => async (dispatch) => {
   try {
     const response = await fetch(`${API_BASE_URL}/users`, {
@@ -23,11 +22,7 @@ export const registerUser = user => async (dispatch) => {
 
 //Shows and Hides Login Form Modal for User
 export const SHOW_LOGIN_FORM = 'SHOW_LOGIN_FORM';
-export const showLoginForm = () => ({
-  type: SHOW_LOGIN_FORM,
-});
+export const showLoginForm = () => ({ type: SHOW_LOGIN_FORM, });
 
 export const HIDE_LOGIN_FORM = 'HIDE_LOGIN_FORM';
-export const hideLoginForm = () => ({
-  type: HIDE_LOGIN_FORM,
-});
+export const hideLoginForm = () => ({ type: HIDE_LOGIN_FORM, });
