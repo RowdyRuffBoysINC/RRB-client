@@ -59,4 +59,29 @@ describe('applicationReducer', () => {
       expect(state.editorMode).toEqual(whiteboardMode);
     });
   });
+
+  describe('setUserList', () => {
+    it('Should set list of users', () => {
+      let state;
+      const userList1 = [ 'user1', 'user2', 'user3', ];
+      const userList2 = [ 'user4', 'user5', 'user6', ];
+
+      state = applicationReducer(state, ApplicationActions.setUserList(userList1));
+      expect(state.listOfUsers).toEqual(userList1);
+      state = applicationReducer(state, ApplicationActions.setUserList(userList2));
+      expect(state.listOfUsers).toEqual(userList2);
+    });
+  });
+
+  describe('deleteUserFromList', () => {
+    it('Should delete user from list', () => {
+      let state;
+      const userList1 = [ {id: 'user1',}, {id: 'user2',}, {id: 'user3',}, ];
+
+      state = applicationReducer(state, ApplicationActions.setUserList(userList1));
+      expect(state.listOfUsers).toEqual(userList1);
+      state = applicationReducer(state, ApplicationActions.deleteUserFromList('user1'));
+      expect(state.listOfUsers).toEqual([ {id: 'user2',}, {id: 'user3',}, ]);
+    });
+  });
 });
