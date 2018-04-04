@@ -28,8 +28,7 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    protectedData: state.protectedData.data,
-    roomName: state.applicationReducer.roomName,
+    roomName: state.applicationReducer.roomName
   };
 };
 

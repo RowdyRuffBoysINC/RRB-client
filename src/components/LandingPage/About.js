@@ -1,15 +1,14 @@
 import React from 'react';
 import './About.css';
 
-
 export default function About(props) {
   return (
     <section id="about" className="about-container">
-      <div className="about-text-section">
+      <section className="about-text-section">
         <h1 className="about-header">About Cross Share</h1>
         <p className="about-text">CrossShare is a collaborative tool that allows professionals, developers, and friends to share and edit documents in real time. Features include a code editor, doc editor, and whiteboard editor, with users able to share their screen with each other.</p>
-      </div>
-      <div className="about-img-section">
+      </section>
+      <section className="about-img-section">
         <img className="about-img"
           src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5a31d03ddee66863a599421f792e07b&auto=format&fit=crop&w=500&q=60"
           alt="code editor"
@@ -22,7 +21,7 @@ export default function About(props) {
           src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0b2d02a82b3f05412acd1ce347920e4f&auto=format&fit=crop&w=500&q=60"
           alt="whiteboard editor"
         />
-      </div>
+      </section>
     </section>
   );
 }

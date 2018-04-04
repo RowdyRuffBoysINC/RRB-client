@@ -14,10 +14,10 @@ export function LandingPage(props) {
   }
 
   return (
-    <div className="landing-page">
+    <section className="landing-page">
       <Modal />
       <section id="header" className="container">
-        <div className="content">
+        <section className="content">
           <header>
             <h1 className="landing-header">
               CrossShare
@@ -31,20 +31,20 @@ export function LandingPage(props) {
               <img src={scroll} className="scroll-icon" alt="scroll icon img" />
             </a>
           </footer>
-        </div>
+        </section>
       </section>
       <About />
       <section id="sign-up" className="container">
-        <div className="about content">
+        <section className="about content">
           <RegistrationForm />
           <header>
           </header>
           <footer>
             {/* Add image inside link to click to the next page  */}
           </footer>
-        </div>
+        </section>
       </section>
-    </div>
+    </section>
   );
 }
 

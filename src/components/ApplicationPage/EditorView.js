@@ -19,18 +19,34 @@ export function EditorView (props) {
         </li>
         <li className="editor-mode-text" href="#" onClick={() => props.dispatch(setEditorView('WhiteBoardEditor'))}>
             Whiteboard View
-        </li>
-      </ul>
-    </div>
-  );
-    // Refactor into switch statement
-  if (props.editorMode === 'WordEditor') {
-    return (
-      <section>
-        {editorViewToggle}
-        <WordEditor />
+          </li>
+        </ul>
       </section>
     );
+
+    switch(this.props.editorMode) {
+    case 'WordEditor':
+      return (
+        <section>
+          {editorViewToggle}
+          <WordEditor />
+        </section>
+      );
+    case 'WhiteBoardEditor':
+      return (
+        <section>
+          {editorViewToggle}
+          <WhiteBoardEditor />
+        </section>
+      );
+    default:
+      return (
+        <section>
+          {editorViewToggle}
+          <CodeEditor />
+        </section>
+      );
+    }
   }
   else if (props.editorMode === 'WhiteBoardEditor')
     return (
@@ -52,7 +68,6 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    protectedData: state.protectedData.data,
     editorMode: state.applicationReducer.editorMode,
   };
 };

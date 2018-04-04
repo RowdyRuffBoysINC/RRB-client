@@ -3,9 +3,9 @@ import {
   HIDE_LOGIN_FORM,
 } from '../actions/Users';
 
-const initialState = {showLoginForm: false,};
+const initialState = { showLoginForm: false, };
 
-const landingPageReducer = function(state = initialState, action) {
+const landingPageReducer = function (state = initialState, action) {
   switch (action.type) {
   case SHOW_LOGIN_FORM:
     return {
