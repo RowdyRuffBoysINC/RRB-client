@@ -12,14 +12,16 @@ export class WhiteBoardEditor extends React.Component {
     this.sketch = null;
     this.interval = null;
 
-    socket.on("whiteBoard msg sent back to clients", msg => {
+    socket.on('whiteBoard msg sent back to clients', (msg) => {
       this.updateSketchFieldWithSocketInfo(msg);
     });
   }
 
   componentDidMount() {
     // No given functions to listen keyEvents from canvas
+
     document.querySelector(".upper-canvas").addEventListener("click", () => {
+      
       if (this.sketch) {
         this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
@@ -52,7 +54,7 @@ export class WhiteBoardEditor extends React.Component {
     this.props.dispatch(setWhiteBoardEditorValue(data));
   }
 
-  updateSketchFieldWithSocketInfo = (msg) => {
+  updateSketchFieldWithSocketInfo(msg) {
     if (this.sketch) {
       // Surprise, this.sketch.fromJSON rerenders SketchField by ITSELF; no need to bind
       const convertedMsg = this.sketch.fromJSON(msg);
@@ -64,7 +66,7 @@ export class WhiteBoardEditor extends React.Component {
     socket.emit(message, {
       room: this.props.roomName,
       user: this.props.userName,
-      msg: msg
+      msg,
     });
   }
 
@@ -78,7 +80,7 @@ export class WhiteBoardEditor extends React.Component {
           lineWidth={6}
           ref={(instance) => this.sketch = instance}
           forceValue={true}
-          onChange={this.onSketchFieldChange} />
+          onChange={data => this.onSketchFieldChange(data)} />
       </section>
     );
   }
