@@ -22,21 +22,21 @@ export class WhiteBoardEditor extends React.Component {
     document.querySelector(".upper-canvas").addEventListener("click", () => {
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
 
     document.querySelector('.upper-canvas').addEventListener('mousedown', () => {
 
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
 
     document.querySelector('.upper-canvas').addEventListener('mouseup', () => {
 
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
 
     });
@@ -44,7 +44,7 @@ export class WhiteBoardEditor extends React.Component {
     document.querySelector('.upper-canvas').addEventListener('mouseleave', () => {
 
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.state.sketchFieldValue));
+        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
   }
@@ -91,6 +91,7 @@ const mapStateToProps = (state) => {
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     protectedData: state.protectedData.data,
     roomName: state.applicationReducer.roomName,
+    whiteBoardEditorValue: state.editorReducer.whiteBoardEditorValue
   };
 };
 
