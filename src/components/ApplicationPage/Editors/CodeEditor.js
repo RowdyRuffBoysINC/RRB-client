@@ -23,14 +23,14 @@ import 'codemirror/mode/xml/xml.js';
 export class CodeEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { textContent: '', };
+
     socket.on('code msg sent back to clients', (msg) => {
-      this.emitToClients(msg);
+      this.updateCodeEditorWithSocketInfo(msg);
     });
   }
 
-  emitToClients(textContent) {
-    this.setState({ textContent, });
+  updateCodeEditorWithSocketInfo(info) {
+    this.props.dispatch(setCodeEditorText(info));
   }
 
   render() {
