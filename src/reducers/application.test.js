@@ -43,7 +43,7 @@ describe('applicationReducer', () => {
   });
 
   describe('setEditorView', () => {
-    it('Should default to code', () => {
+    it('Should default to code mode', () => {
       let state;
       state = applicationReducer(state, {type: '__UNKNOWN',});
       expect(state.editorMode).toEqual('code');
