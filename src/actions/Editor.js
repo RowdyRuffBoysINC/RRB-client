@@ -49,4 +49,3 @@ export const setWhiteBoardEditorValue = input => ({
   type: SET_WHITEBOARD_EDITOR_VALUE,
   input,
 });
-

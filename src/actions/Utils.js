@@ -1,8 +1,9 @@
-// Boilerplate code for handling errors from the API.  If the error response
-// Contains JSON then we return a rejected promise containing the decoded
-// JSON.  If the error doesn't contain JSON then we return a rejected promise
-// Containing the status text.  If there is no error then we continue with
-// The promise chain.
+/*
+If the error response contains JSON then we return a rejected promise
+containing the decoded JSON. If the error doesn't contain JSON then we
+return a rejected promise containing the status text.
+If there is no error then we continue with the promise chain.
+*/
 export const normalizeResponseErrors = (res) => {
   if (!res.ok) {
     if (

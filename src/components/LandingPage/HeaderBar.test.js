@@ -1,7 +1,7 @@
 import React from 'react';
-import {shallow,} from 'enzyme';
+import { shallow, } from 'enzyme';
 import '../setupTests.js';
-import {HeaderBar,} from './HeaderBar';
+import { HeaderBar, } from './HeaderBar';
 
 describe('<HeaderBar />', () => {
   it('Passes', () => {
@@ -12,5 +12,4 @@ describe('<HeaderBar />', () => {
 
     shallow(<HeaderBar store={mockStore} loggedIn={false} />);
   });
-})
-;
+});
