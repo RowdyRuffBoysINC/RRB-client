@@ -4,31 +4,25 @@ import RequiresLogin from '../LandingPage/RequiresLogin';
 import { withRouter, } from 'react-router';
 import { setCreateInput, } from '../../actions/Application';
 
-export class Dashboard extends React.Component {
+export function Dashboard(props) {
 
-  componentDidMount() {
-    // This.props.dispatch();
-  }
-
-  handleOnChange(e) {
+  function handleOnChange(e) {
     const input = e.target.value;
-    this.props.dispatch(setCreateInput(input));
+    props.dispatch(setCreateInput(input));
   }
 
-  handleClick() {
-    this.props.history.push(`/dashboard/${this.props.roomName}`);
+  function handleClick() {
+    props.history.push(`/dashboard/${props.roomName}`);
   }
 
-  render() {
+  return (
+    <section className="room-create">
+      <h1> Room Create </h1>
+      <input type="text" placeholder="Enter your room name!" onChange={e => handleOnChange(e)} />
+      <button onClick={e => handleClick(e)}> Submit </button>
+    </section>
+  );
 
-    return (
-      <section className="room-create">
-        <h1> Room Create </h1>
-        <input type="text" placeholder="Enter your room name!" onChange={e => this.handleOnChange(e)} />
-        <button onClick={e => this.handleClick(e)}> Submit </button>
-      </section>
-    );
-  }
 }
 
 const mapStateToProps = (state) => {
