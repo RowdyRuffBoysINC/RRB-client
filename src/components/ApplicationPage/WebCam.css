@@ -4,18 +4,16 @@ body, video {
   margin: 0px;
 }
 
-.webCam-container {
+.webcam-container {
   display: flex;
   flex-direction: column;
 }
 
-
-.video-box{
+.video-box {
   max-width: 720px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .video-large {
@@ -25,22 +23,17 @@ body, video {
   max-width: 720px;
   max-height: 480px;
   position: relative;
-
 }
 
 .video-small {
-left: 30%;
-bottom: 150px;
-width: 25%;
-min-width: 128px;
-max-width: 240px;
-max-height: 180px;
-position: relative;
-z-index: 10;
-/* align-self: center; */
-}
-.users-container {
-
+  left: 30%;
+  bottom: 150px;
+  width: 25%;
+  min-width: 128px;
+  max-width: 240px;
+  max-height: 180px;
+  position: relative;
+  z-index: 10;
 }
 
 #users li {

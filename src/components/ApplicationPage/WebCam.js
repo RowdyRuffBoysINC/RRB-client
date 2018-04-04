@@ -183,9 +183,9 @@ export class WebCam extends React.Component {
 
   render() {
     return (
-      <section className="webCam-container">
+      <section className="webcam-container">
         <section className="video-box" id="video-box">
-          <video className="video-large" id="webCam-localVideo" autoPlay></video>
+          <video className="video-large" id="webcam-local-video" autoPlay></video>
         </section>
         <section className="users-container" id="users-container">
           <h4> Room: {this.props.roomName} </h4>

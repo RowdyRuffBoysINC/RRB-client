@@ -22,7 +22,7 @@ export class Room extends React.Component {
     return (
       <section className="room">
         <EditorView className="editors" />
-        <WebCam className="webCam" />
+        <WebCam className="webcam" />
       </section>
     );
   }
