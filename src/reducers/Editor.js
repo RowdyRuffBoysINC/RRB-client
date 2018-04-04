@@ -10,7 +10,7 @@ const initialState = {
   whiteBoardEditorValue: '',
 };
 
-const cmReducer = function (state = initialState, action) {
+const editorReducer = function (state = initialState, action) {
   switch (action.type) {
   case EditorActions.SET_THEME:
     return {
@@ -42,4 +42,4 @@ const cmReducer = function (state = initialState, action) {
   }
 };
 
-export default cmReducer;
+export default editorReducer;
