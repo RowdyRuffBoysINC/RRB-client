@@ -5,6 +5,9 @@ const initialState = {
   mode: 'javascript',
   theme: 'material',
   tabSize: 2,
+  codeEditorText: '',
+  wordEditorText: '',
+  whiteBoardEditorValue: '',
 };
 
 const cmReducer = function (state = initialState, action) {
