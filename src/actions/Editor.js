@@ -87,24 +87,38 @@ export const saveDocsToDb = doc => async (dispatch) => {
 };
 
 
-export const GET_DOCS_FROM_DB_REQUEST = 'GET_DOCS_FROM_DB_REQUEST';
-export const getDocsFromDbRequest = () => ({type: GET_DOCS_FROM_DB_REQUEST,});
+export const FETCH_DOCS_FROM_DB_REQUEST = 'FETCH_DOCS_FROM_DB_REQUEST';
+export const fetchDocsFromDbRequest = () => ({type: FETCH_DOCS_FROM_DB_REQUEST,});
 
-export const GET_DOCS_FROM_DB_SUCCESS = 'GET_DOCS_FROM_DB_SUCCESS';
-export const getDocsFromDbSuccess = document => ({
-  type: GET_DOCS_FROM_DB_SUCCESS,
+export const FETCH_DOCS_FROM_DB_SUCCESS = 'FETCH_DOCS_FROM_DB_SUCCESS';
+export const fetchDocsFromDbSuccess = document => ({
+  type: FETCH_DOCS_FROM_DB_SUCCESS,
   codeEditorText: document.code,
   wordEditorText: document.word,
   whiteBoardEditorValue: document.whiteBoard,
 });
 
-export const GET_DOCS_FROM_DB_ERROR = 'GET_DOCS_FROM_DB_ERROR';
-export const getDocsFromDbError = error => ({
-  type: GET_DOCS_FROM_DB_ERROR,
+export const FETCH_DOCS_FROM_DB_ERROR = 'FETCH_DOCS_FROM_DB_ERROR';
+export const fetchDocsFromDbError = error => ({
+  type: FETCH_DOCS_FROM_DB_ERROR,
   error,
 });
 
-export const getDocsFromDb = () => (dispatch) => {
-
+export const fetchDocsFromDb = roomName => async (dispatch) => {
+  dispatch(fetchDocsFromDbRequest());
+  try {
+    const response = await fetch(`${API_BASE_URL}/documents/${roomName}`);
+    dispatch(fetchDocsFromDbSuccess(response.json()));
+    return await response.json();
+  }
+  catch (err) {
+    dispatch(fetchDocsFromDbError(err));
+    const { reason, message, location, } = err;
+    if (reason === 'ValidationError') {
+      // Convert ValidationErrors into SubmissionErrors for Redux Form
+      return Promise.reject(
+        new SubmissionError({ [location]: message, })
+      );
+    }
+  }
 }
-
