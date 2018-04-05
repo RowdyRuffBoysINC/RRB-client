@@ -26,4 +26,24 @@ describe('authReducer', () => {
       expect(state.authToken).toEqual(token);
     });
   });
+
+  describe('clearAuth', () => {
+    it('Should clear current auth token', () => {
+      let state;
+      const token = 'token123';
+      state = authReducer(state, AuthActions.setAuthToken(token));
+      expect(state.authToken).toEqual(token);
+      state = authReducer(state, AuthActions.clearAuth());
+      expect(state.authToken).toEqual(null);
+    });
+  });
+
+  describe('authRequest', () => {
+    it('Should start auth request', () => {
+      let state;
+      state = authReducer(state, AuthActions.authRequest());
+      expect(state.loading).toEqual(true);
+      expect(state.error).toEqual(null);
+    })
+  })
 });
