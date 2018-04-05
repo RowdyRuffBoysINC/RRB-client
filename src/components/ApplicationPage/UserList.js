@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
-export function UsersList(props) {
+export function UserList(props) {
   const { userList, createOffer, } = props;
   const list = userList
     .filter(user =>
@@ -21,4 +21,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(UsersList);
+export default connect(mapStateToProps)(UserList);
