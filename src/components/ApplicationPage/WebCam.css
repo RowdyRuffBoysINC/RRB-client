@@ -18,7 +18,7 @@ video {
 .video-large {
   top: 0px;
   width: 100%;
-  min-width:320px;
+  min-width: 320px;
   max-width: 720px;
   max-height: 480px;
   position: relative;
