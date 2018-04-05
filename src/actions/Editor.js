@@ -94,9 +94,9 @@ export const fetchDocsFromDbRequest = () => ({type: FETCH_DOCS_FROM_DB_REQUEST,}
 export const FETCH_DOCS_FROM_DB_SUCCESS = 'FETCH_DOCS_FROM_DB_SUCCESS';
 export const fetchDocsFromDbSuccess = document => ({
   type: FETCH_DOCS_FROM_DB_SUCCESS,
-  codeEditorText: document.code,
-  wordEditorText: document.word,
-  whiteBoardEditorValue: document.whiteBoard,
+  codeEditorText: document.codeEditorText,
+  wordEditorText: document.wordEditorText,
+  whiteBoardEditorValue: document.whiteBoardEditorValue,
 });
 
 export const FETCH_DOCS_FROM_DB_ERROR = 'FETCH_DOCS_FROM_DB_ERROR';
