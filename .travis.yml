@@ -18,7 +18,7 @@ after_success:
 
 deploy:
   provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  script: netlify deploy -p build
   skip_cleanup: true
   on:
     repo: RowdyRuffBoysINC/RRB-client
