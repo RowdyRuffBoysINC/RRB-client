@@ -30,11 +30,7 @@ export function WhiteBoardEditorControls(props) {
     <section className="whiteBoardControls-container">
       <div onClick={() => changeFontSize()} className="tool change-size-button"> {whiteBoardEditorBrushSize} </div>
       <div onClick={() => changeBrushToEraser()} className="tool eraser"></div>
-      <div onClick={() => changeColor('green')} className="tool green-brush"></div>
-      <div onClick={() => changeColor('red')} className="tool red-brush"></div>
-      <div onClick={() => changeColor('blue')} className="tool blue-brush"></div>
-      <div onClick={() => changeColor('yellow')} className="tool yellow-brush"></div>
-      <div onClick={() => changeColor('black')} className="tool black-brush"></div>
+      {colorChangeButtons}
     </section>
   );
 }
