@@ -10,7 +10,6 @@ export function UsersList(props) {
     });
   }
 
-
   const list = createList(props.userList);
 
   return (<ul>{list}</ul>);
