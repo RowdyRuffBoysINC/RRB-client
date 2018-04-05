@@ -17,7 +17,7 @@ export function EditorView(props) {
   ));
 
   const editorNavigation = (
-    <section>
+    <section className="nav-bar-wrapper">
       <ul className="nav-bar-ul">
         {editorListItem}
       </ul>

@@ -10,6 +10,10 @@
   cursor:pointer;
  }
 
+ .nav-bar-wrapper {
+   width: 100%;
+ }
+
 .nav-bar-ul {
   display: flex;
   margin-top: 0px;
