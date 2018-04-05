@@ -4,17 +4,33 @@ import { setWhiteBoardEditorColor, setWhiteBoardEditorBrushSize, } from '../../.
 import './WhiteBoardEditorControls.css';
 
 export class WhiteBoardEditorControls extends React.Component {
+
+  changeColor(color) {
+    console.log(color);
+    this.props.dispatch(setWhiteBoardEditorColor(color));
+  }
+
+  changeFontSize() {
+    if (this.props.whiteBoardEditorBrushSize === 12) {
+      this.props.dispatch(setWhiteBoardEditorBrushSize(2));
+    }
+
+    else {
+      this.props.dispatch(setWhiteBoardEditorBrushSize(this.props.whiteBoardEditorBrushSize + 2));
+    }
+  }
+
   render() {
     return (
-      <section className="whiteboardControls-container">
-        <div className="tool eraser"></div>
-        <div className="tool green-brush"></div>
-        <div className="tool red-brush"></div>
-        <div className="tool blue-brush"></div>
-        <div className="tool yellow-brush"></div>
-        <div className="tool green-brush" />
-        <div className="tool change-size-button"> {this.props.setWhiteBoardEditorColor} </div>
-      </section>
+      <div className="whiteBoardControls-container">
+        <div onClick={null} className="tool eraser"></div>
+        <div onClick={() => this.changeColor('green')} className="tool green-brush"></div>
+        <div onClick={() => this.changeColor('red')} className="tool red-brush"></div>
+        <div onClick={() => this.changeColor('blue')} className="tool blue-brush"></div>
+        <div onClick={() => this.changeColor('yellow')} className="tool yellow-brush"></div>
+        <div onClick={() => this.changeColor('black')} className="tool black-brush"></div>
+        <div onClick={null} className="tool change-size-button"> {this.props.whiteBoardEditorBrushSize} </div>
+      </div>
     );
   }
 }

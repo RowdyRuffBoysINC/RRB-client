@@ -1,8 +1,7 @@
 .whiteBoardControls-container {
-    border: 5px solid black;
-    width: 300px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    position: absolute;
+    width: 50px;
+    z-index: 1;
 }
 
 .tool {
@@ -27,6 +26,10 @@
 }
 .black-brush {
     background-color: black;
+}
+
+.eraser {
+
 }
 
 .change-size-button {
