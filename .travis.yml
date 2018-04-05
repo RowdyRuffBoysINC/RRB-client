@@ -16,6 +16,9 @@ before_deploy:
   - npm install netlify-cli -g
   - npm run build
 
+repo_token:
+  secure: "dTjObYaYs+fWMpN6+VlPTkvsShcr9jrz+uKU2JXuC9I8p3z8repHt8XdwNg3rB+it1Hcv9xzRFI3i2Mrku1sPkIfws6cNswLqj8da9Hhe5iQnUUTvFHXj7HEEDj3LisKqwH+nALoM6ATyEsJs8CMDWj9PR+2jzCroL59SSmL/lQl8Z5WIkkfQbL22wOi2GKONrJVNHsvS0T5935YGe78gkY5r035Qq7W3xfbphchFrm4frAmiWzlsC3ukfzhfpBnh+TzXlMDjUHtTBMHcYdK2ox4HWxqSJxIghsRJil74DqJ9VCdUEHR/aqacfjAUlaI4fxpHIujSUfRsDRQy9Snog7zbl/FOtKqz53ouUL+MlgyMXvXL5aQCXQmzfVnv0eJXMrijKl0XC4WuYvr5XT8eJfaxW37hNi+ETbQbTJHv9aN9NG6BY/ytHLuMDVse9KEVwIL6Sjnagr7XPg5usFteGEq9YCFV57EZwuNZYGh7rF58O3CeapY0h9K9XLuVm/SU7U9tDYcfnn5yNKtFZHSNRR0hy5hDb09y83pUVl229l+H7ogodNWq8RIfuV4h5bRuje1FWkznnxhUxv2vpN5oAOHI7X6zLGEzrj60ffiwrv0R0R8qt4m+81ocKWbSYAhnqG552WBtXjpGzhkIr8VZRYnllFRIGNxRNLNqO9ZHgY="
+
 deploy:
   provider: script
   script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
