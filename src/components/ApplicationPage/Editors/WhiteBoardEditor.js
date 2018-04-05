@@ -73,8 +73,8 @@ export class WhiteBoardEditor extends React.Component {
         <SketchField width="100vw"
           height="500px"
           tool={Tools.Pencil}
-          lineColor="black"
-          lineWidth={6}
+          lineColor={this.props.whiteBoardEditorColor}
+          lineWidth={this.props.whiteBoardEditorBrushSize}
           ref={instance => this.sketch = instance}
           forceValue={true}
           onChange={data => this.onSketchFieldChange(data)} />
