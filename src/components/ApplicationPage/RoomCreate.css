@@ -1,5 +1,5 @@
 .room-create {
-  height: 500px;
+  /* height: 500px; */
   position: absolute;
   top:0;
   bottom: 0;
@@ -7,8 +7,8 @@
   right: 0;
   margin: auto;
   background-color: #f1f1f1;
+  background: rgb(0, 111, 255);
   text-align: center;
-  color: rgb(153, 153, 153);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -17,22 +17,27 @@
 .room-create-wrapper {
   margin-bottom: 20px;
   text-align: center; 
+  color: rgb(153, 153, 153);
 }
 
 .room-create-header {
-  font-size: 3em;
+  font-size: 4em;
   padding-bottom: 30px;
+  color: rgb(255, 255, 255);
+
 }
 
 .room-create-input {
   width: 50%;
-  padding: 20px 20px;
+  padding: 15px 15px;
   font-size: 1.5em;
   text-align: center;
   display: block;
   margin: 20px auto;
+  border-radius: 10px solid white;
 }
 
 .room-btn {
   display: block;
+  color: rgb(255, 255, 255);
 }
