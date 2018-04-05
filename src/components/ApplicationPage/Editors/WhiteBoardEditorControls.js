@@ -5,7 +5,6 @@ import './WhiteBoardEditorControls.css';
 
 export function WhiteBoardEditorControls(props) {
   function changeColor(color) {
-    console.log(color);
     props.dispatch(setWhiteBoardEditorColor(color));
   }
 
