@@ -22,6 +22,7 @@ video {
   max-width: 720px;
   max-height: 480px;
   position: relative;
+  border: 1px solid black;
 }
 
 .video-small {

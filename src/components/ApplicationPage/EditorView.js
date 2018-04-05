@@ -7,7 +7,6 @@ import { setEditorView, } from '../../actions/Editor';
 import './EditorView.css';
 
 export function EditorView(props) {
-
   const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
 
   const editorListItem = editorViewArr.map((view, index) => (
@@ -39,10 +38,11 @@ export function EditorView(props) {
   return (
     <section>
       {editorNavigation}
-      {editorViewToggle(props.editorMode)}
+      <div className="main-editor-wrapper">
+        {editorViewToggle(props.editorMode)}
+      </div>
     </section>
   );
-
 }
 
 const mapStateToProps = (state) => {
