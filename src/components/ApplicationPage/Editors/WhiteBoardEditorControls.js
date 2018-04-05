@@ -25,6 +25,8 @@ export class WhiteBoardEditorControls extends React.Component {
   }
 
   render() {
+    const { whiteBoardEditorBrushSize, } = this.props;
+    
     return (
       <section className="whiteBoardControls-container">
         <div onClick={() => this.changeBrushToEraser()} className="tool eraser"></div>
@@ -33,7 +35,7 @@ export class WhiteBoardEditorControls extends React.Component {
         <div onClick={() => this.changeColor('blue')} className="tool blue-brush"></div>
         <div onClick={() => this.changeColor('yellow')} className="tool yellow-brush"></div>
         <div onClick={() => this.changeColor('black')} className="tool black-brush"></div>
-        <div onClick={() => this.changeFontSize()} className="tool change-size-button"> {this.props.whiteBoardEditorBrushSize} </div>
+        <div onClick={() => this.changeFontSize()} className="tool change-size-button"> {whiteBoardEditorBrushSize} </div>
       </section>
     );
   }
