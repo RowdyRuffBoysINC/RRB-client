@@ -3,9 +3,14 @@ import { connect, } from 'react-redux';
 
 export function UsersList(props) {
   const { userList, createOffer, } = props;
-  const list = userList.map(user =>
-    <li onClick={() => createOffer(user.id)} key={user.id}> Share your screen with {user.user} </li>
-  );
+  const list = userList
+    .filter(user =>
+      user.user !== props.username
+    )
+    .map(user =>
+      <li onClick={() => createOffer(user.id)} key={user.id}> Share your screen with {user.user} </li>
+    );
+  console.log(list);
 
   return (<ul>{list}</ul>);
 }
