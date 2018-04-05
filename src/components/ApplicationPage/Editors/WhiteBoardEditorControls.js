@@ -20,16 +20,20 @@ export class WhiteBoardEditorControls extends React.Component {
     }
   }
 
+  changeBrushToEraser() {
+    this.props.dispatch(setWhiteBoardEditorColor('white'));
+  }
+
   render() {
     return (
       <div className="whiteBoardControls-container">
-        <div onClick={null} className="tool eraser"></div>
+        <div onClick={() => this.changeBrushToEraser()} className="tool eraser"></div>
         <div onClick={() => this.changeColor('green')} className="tool green-brush"></div>
         <div onClick={() => this.changeColor('red')} className="tool red-brush"></div>
         <div onClick={() => this.changeColor('blue')} className="tool blue-brush"></div>
         <div onClick={() => this.changeColor('yellow')} className="tool yellow-brush"></div>
         <div onClick={() => this.changeColor('black')} className="tool black-brush"></div>
-        <div onClick={null} className="tool change-size-button"> {this.props.whiteBoardEditorBrushSize} </div>
+        <div onClick={() => this.changeFontSize()} className="tool change-size-button"> {this.props.whiteBoardEditorBrushSize} </div>
       </div>
     );
   }
