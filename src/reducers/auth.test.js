@@ -56,4 +56,14 @@ describe('authReducer', () => {
       expect(state.currentUser).toEqual(user);
     });
   });
+
+  describe('authError', () => {
+    it('Should return auth error', () => {
+      let state;
+      const error = 'Something went wrong!';
+      state = authReducer(state, AuthActions.authError(error));
+      expect(state.loading).toEqual(false);
+      expect(state.error).toEqual(error);
+    });
+  });
 });
