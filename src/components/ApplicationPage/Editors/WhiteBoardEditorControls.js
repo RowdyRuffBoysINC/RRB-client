@@ -22,6 +22,7 @@ export function WhiteBoardEditorControls(props) {
     props.dispatch(setWhiteBoardEditorColor('white'));
   }
 
+
   const { whiteBoardEditorBrushSize, } = props;
 
   return (
