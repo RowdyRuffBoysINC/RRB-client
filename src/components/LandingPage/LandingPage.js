@@ -20,10 +20,10 @@ export function LandingPage(props) {
         <section className="content">
           <header>
             <h1 className="landing-header">
-              CrossShare
+              <span className="header-one">Cross</span><span className="header-two">Share</span>
             </h1>
             <h2 className="landing-sub-header">
-              Working remotely shouldnt FEEL remote.
+          Working remotely shouldnt feel remote
             </h2>
           </header>
           <footer>

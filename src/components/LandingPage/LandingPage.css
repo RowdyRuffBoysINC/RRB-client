@@ -16,27 +16,25 @@ header {
 
 .landing-header {
   font-size: 1.2em;
-/* font-family: 'Croissant One', cursive; */
-/* font-family: 'Berkshire Swash', cursive; */
-/* font-family: 'Playfair Display SC', serif; */
-font-family: 'Amiri', serif;
-/* font-family: 'Prata', serif; */
-/* font-family: 'Yeseva One', cursive; */
-/* font-family: 'Averia Serif Libre', cursive; */
-	font-weight: 300;
 }
 
 .landing-sub-header {
 font-size: .5em;
-/* font-family: 'Croissant One', cursive; */
-/* font-family: 'Berkshire Swash', cursive; */
-/* font-family: 'Playfair Display SC', serif; */
-font-family: 'Amiri', serif;
-/* font-family: 'Prata', serif; */
-/* font-family: 'Yeseva One', cursive; */
-/* font-family: 'Averia Serif Libre', cursive; */
+font-family: 'Josefin Sans', sans-serif;
 font-weight: 300;
 margin-bottom: 300px;
+}
+
+.header-one {
+  font-weight: 600;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 6px;
+}
+
+ .header-two {
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 6px;
+  font-weight: 100;
 }
 
 .container {
