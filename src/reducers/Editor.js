@@ -58,6 +58,16 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       whiteBoardEditorValue: action.input,
     };
+  case EditorActions.SET_WHITEBOARD_EDITOR_BRUSH_SIZE:
+    return {
+      ...state,
+      whiteBoardEditorBrushSize: action.input,
+    };
+  case EditorActions.SET_WHITEBOARD_EDITOR_COLOR:
+    return {
+      ...state,
+      whiteBoardEditorColor: action.input,
+    };
   default: return state;
   }
 };
