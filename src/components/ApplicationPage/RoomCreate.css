@@ -8,6 +8,8 @@
   margin: auto;
   background-color: #f1f1f1;
   background: rgb(0, 111, 255);
+  /* Change to primary color once decided */
+  /* background: rgb(255, 100, 65); */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -21,23 +23,24 @@
 }
 
 .room-create-header {
-  font-size: 4em;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 4.5em;
   padding-bottom: 30px;
   color: rgb(255, 255, 255);
-
 }
 
 .room-create-input {
-  width: 50%;
+  width: 40%;
   padding: 15px 15px;
   font-size: 1.5em;
   text-align: center;
   display: block;
   margin: 20px auto;
-  border-radius: 10px solid white;
+  border-radius: 20px solid white;
+  color: #999;
 }
 
-.room-btn {
-  display: block;
-  color: rgb(255, 255, 255);
+.btn-room {
+  color: #999;
 }
