@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { socket, } from '../Room';
-import { SketchField, Tools, } from 'react-sketch';
 import { setWhiteBoardEditorColor, setWhiteBoardEditorBrushSize, } from '../../../actions/Editor';
 import './WhiteBoardEditorControls.css';
 
