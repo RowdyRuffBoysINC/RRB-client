@@ -32,6 +32,7 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       tabSize: action.tabSize,
     };
+    // Change to toggle instead of if else?
   case EditorActions.SET_LINE_NUMBERS:
     if (action.setting === 'false') {
       return {

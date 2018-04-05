@@ -61,5 +61,3 @@ export const setWhiteBoardEditorBrushSize = input => ({
   type: SET_WHITEBOARD_EDITOR_BRUSH_SIZE,
   input,
 });
-
-
