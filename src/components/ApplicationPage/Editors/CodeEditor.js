@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React from 'react';
 import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
@@ -20,7 +20,7 @@ import 'codemirror/mode/ruby/ruby.js';
 import 'codemirror/mode/swift/swift.js';
 import 'codemirror/mode/xml/xml.js';
 
-export class CodeEditor extends Component {
+export class CodeEditor extends React.Component {
   constructor(props) {
     super(props);
 
@@ -67,7 +67,7 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift' , ];
+    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift', ];
     const themeOptions = [ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
     const tabSizeOptions = [ 2, 4, 8, ];
 
@@ -83,7 +83,6 @@ export class CodeEditor extends Component {
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
-        
         <CodeMirror
           value={this.props.codeEditorText}
           options={options}
