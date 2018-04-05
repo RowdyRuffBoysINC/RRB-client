@@ -4,7 +4,6 @@ import LoginForm from './Forms/LoginForm';
 import './Modal.css';
 
 export function Modal(props) {
-
   const loginStyle = { display: 'show', };
   if (props.showLoginForm) {
     return (
@@ -18,7 +17,6 @@ export function Modal(props) {
       <section />
     );
   }
-
 }
 
 const mapStateToProps = state => ({ showLoginForm: state.landingPageReducer.showLoginForm, });
