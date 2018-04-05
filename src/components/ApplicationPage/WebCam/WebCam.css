@@ -3,7 +3,7 @@ video {
   margin: 0px;
 }
 
-.webcam-container {
+.video-container {
   display: flex;
   flex-direction: column;
 }
@@ -15,7 +15,7 @@ video {
   align-items: center;
 }
 
-.video-large {
+.video-remote-large {
   top: 0px;
   width: 100%;
   min-width:320px;
@@ -24,9 +24,9 @@ video {
   position: relative;
 }
 
-.video-small {
+.video-local-small {
   left: 30%;
-  bottom: 150px;
+  bottom: 0px;
   width: 25%;
   min-width: 128px;
   max-width: 240px;
