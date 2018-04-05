@@ -37,7 +37,6 @@ export function WhiteBoardEditorControls(props) {
   );
 }
 
-
 const mapStateToProps = (state) => {
   return {
     whiteBoardEditorBrushSize: state.editorReducer.whiteBoardEditorBrushSize,
