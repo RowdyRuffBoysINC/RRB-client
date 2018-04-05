@@ -8,80 +8,27 @@ import { socket } from "../Room";
 import * as ApplicationActions from "../../../actions/Application";
 import UsersList from "../UsersList";
 import './WebCam.css'
-import {trace} from './helpers';
+import Video from './Video';
+import {trace, error} from './helpers';
+import SICO from './SIOC';
 
 export class WebCam extends React.Component {
   constructor(props) {
     super(props);
+
     this.addedPersonId = '';
 
-    this.peerConnection = window.RTCPeerConnection ||
-      window.mozRTCPeerConnection ||
-      window.webKitRTCPeerConnection ||
-      window.msRTCPeerConnection;
+    this.SIOC = new SIOC();
 
-    this.sessionDescription = window.RTCSessionDescription ||
-      window.mozRTCSessionDescription ||
-      window.webkitRTCSessionDescription ||
-      window.msRTCSessionDescription
-
-    navigator.getUserMedia = navigator.getUserMedia ||
-      navigator.webkitGetUSerMedia ||
-      navigator.mozGetUserMedia ||
-      navigator.msGetuserMedia;
-
-    this.navigator = navigator;
-
-    this.pc = new this.peerConnection({ 'iceServers': [{ url: 'stun:stun1.l.google.com:19302' }] });
-
+    this.localVideo = null;
+    this.remoteVideo =null;
   }
 
   componentWillMount() {
-
     this._init();
-
   }
-
-  createVideo(id) {
-
-    let answersFrom = {}, offer;
-
-    function error(err) {
-      trace('some shit happened');
-    }
-
-    function trace(text) {
-      text = text.trim();
-      const now = (window.performance.now() / 1000).toFixed(3);
-    };
-
-
-    this.pc.createOffer((offer) => {
-      this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
-        trace('making an offer locally')
-        socket.emit('make-offer', {
-          offer: offer,
-          to: id,
-          room: this.props.roomName
-        })
-      }, error);
-    }, error);
-
-
-  }
-
 
   _init() {
-
-    //#region Helpers
-    /**
-     * Helper functions to get this to work
-     **/
-
-    const trace = text => {
-      text = text.trim();
-      const now = (window.performance.now() / 1000).toFixed(3);
-    };
 
     //#endregion
     let answersFrom = {}, offer;
@@ -101,31 +48,11 @@ export class WebCam extends React.Component {
 
     this.navigator.getUserMedia({ video: true, audio: true, }, (stream) => {
       trace('get webcam FROM INIT')
-      const videoBox = document.getElementById('video-box');
-      const video = document.querySelector('video');
-      video.src = window.URL.createObjectURL(stream);
-      videoBox.appendChild(video);
-      video.load();
+      this.localVideo = <Video style={{backgroundColor:'red'}} className="-local-small" videoId="local"
+      muted={this.props.muted}></Video>
+      this.localVideo.srcObject = stream;
       this.pc.addStream(stream);
     }, error);
-
-    function error(err) {
-      trace('some shit happened');
-    }
-
-    const createOffer = (id) => {
-      trace('creating an offer')
-      this.pc.createOffer((offer) => {
-        this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
-          trace('making an offer locally')
-          socket.emit('make-offer', {
-            offer: offer,
-            to: id,
-            room: this.props.roomName
-          })
-        }, error);
-      }, error);
-    }
 
     socket.on('answer-made', (data) => {
 
@@ -170,15 +97,14 @@ export class WebCam extends React.Component {
     socket.on("remove-user", id => {
       this.props.dispatch(ApplicationActions.deleteUserFromList(id));
     });
-
-
   }
 
   render() {
     return (
-      <section className="webcam-container">
+      <section className="video-container">
         <section className="video-box" id="video-box">
-          <video className="video-large" id="webcam-local-video" autoPlay></video>
+        =
+        {this.localVideo}
         </section>
         <section className="users-container" id="users-container">
           <h4> Room: {this.props.roomName} </h4>
