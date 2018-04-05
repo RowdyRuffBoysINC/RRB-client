@@ -26,11 +26,15 @@
 }
 
 .CodeMirror {
-  height: 80vh;
+  height: 81vh;
+}
+
+.CodeMirror-sizer {
+  height: 100%;
 }
 
 .editor-view-wrapper {
-  width: 60%;
+  width: 70%;
 }
 
 .main-editor-wrapper {
