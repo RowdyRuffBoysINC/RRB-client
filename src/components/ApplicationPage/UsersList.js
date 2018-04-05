@@ -10,8 +10,6 @@ export function UsersList(props) {
     .map(user =>
       <li onClick={() => createOffer(user.id)} key={user.id}> Share your screen with {user.user} </li>
     );
-  console.log(list);
-
   return (<ul>{list}</ul>);
 }
 
