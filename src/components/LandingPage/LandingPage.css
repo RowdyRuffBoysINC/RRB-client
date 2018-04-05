@@ -96,6 +96,7 @@ font-weight: 300;
   } 
   .scroll-icon {
     margin-top: 60%;
+    width: .8em;
   }
 }
 
@@ -112,6 +113,6 @@ font-weight: 300;
   line-height: .8em;
   }
   .scroll-icon {
-    margin-top: 90%;
+    margin-top: 110%;
   }
 }
