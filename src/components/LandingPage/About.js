@@ -5,7 +5,7 @@ export default function About(props) {
   return (
     <section id="about" className="about-container">
       <section className="about-text-section">
-        <h1 className="about-header">About Cross Share</h1>
+        <h1 className="about-header">About CrossShare</h1>
         <p className="about-text">CrossShare is a collaborative tool that allows professionals, developers, and friends to share and edit documents in real time. Features include a code editor, doc editor, and whiteboard editor, with users able to share their screen with each other.</p>
       </section>
       <section className="about-img-section">

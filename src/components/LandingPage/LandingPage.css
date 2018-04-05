@@ -16,13 +16,14 @@ header {
 
 .landing-header {
   font-size: 1.2em;
+  margin-top: 15%;
 }
 
 .landing-sub-header {
 font-size: .5em;
 font-family: 'Josefin Sans', sans-serif;
 font-weight: 300;
-margin-bottom: 300px;
+/* margin-bottom: 300px; */
 }
 
 .header-one {
@@ -43,19 +44,15 @@ margin-bottom: 300px;
 	position: relative;
 	margin: 0;
 	overflow-x: hidden;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
-	text-align: center;
-}
-
-.content {
-	width: 45em;
-	max-width: calc(100% - 4em);
-	margin: 0 auto;
+  text-align: center;
+  /* margin: 0 auto; */
 }
 
 .scroll-icon {
-	width: 1em;
+  width: 1em;
+  margin-top: 50%;
 }
 
 #header {
@@ -65,7 +62,7 @@ margin-bottom: 300px;
 	background-repeat: no-repeat;
 	font-size: 4em;
   text-align: center;
-	line-height: 1.1em;
+  line-height: 1.1em;
 }
 
 #sign-up {
@@ -75,4 +72,46 @@ margin-bottom: 300px;
   color: white;
   font-family: 'Ubuntu', sans-serif;
   line-height: 2;
+}
+
+
+@media (max-width: 1024px) {
+  .landing-header {
+    font-size: .8em;
+  }
+  .landing-sub-header {
+    font-size: .4em;
+  } 
+  .scroll-icon {
+    margin-top: 60%;
+  }
+}
+
+@media (max-width: 760px) {
+  .landing-header {
+    font-size: .8em;
+  }
+  .landing-sub-header {
+    font-size: .4em;
+  } 
+  .scroll-icon {
+    margin-top: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-header {
+    font-size: .7em;
+    margin-bottom: 0px;
+    margin-top: 25%;
+  }
+  .landing-sub-header {
+    font-size: .2em;
+  } 
+  #header {
+  line-height: .8em;
+  }
+  .scroll-icon {
+    margin-top: 90%;
+  }
 }
