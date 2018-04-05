@@ -1,0 +1,27 @@
+.room-create {
+  height: 500px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #888888;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.room-create-wrapper {
+  margin-bottom: 20px;
+}
+
+.room-create-header {
+  font-size: 3em;
+  padding-bottom: 20px;
+}
+
+.room-create-input {
+  
+}
