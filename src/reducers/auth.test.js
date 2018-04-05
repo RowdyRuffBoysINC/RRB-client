@@ -1,13 +1,29 @@
 import authReducer from './Auth';
 import * as AuthActions from '../actions/Auth';
 
-const initialState = {
-  authToken: null, // AuthToken !== null does not mean it has been validated
-  currentUser: null,
-  loading: false,
-  error: null,
-};
-
 describe('authReducer', () => {
+  it('Should set the initial state when nothing is passed in', () => {
+    const state = authReducer(undefined, {type: '__UNKNOWN',});
+    expect(state).toEqual({
+      authToken: null,
+      currentUser: null,
+      loading: false,
+      error: null,
+    });
+  });
 
+  it('Should return the current state on an unknown action', () => {
+    const currentState = {};
+    const state = authReducer(currentState, {type: '__UNKNOWN',});
+    expect(state).toBe(currentState);
+  });
+
+  describe('setAuthToken', () => {
+    it('Should set auth token', () => {
+      let state;
+      const token = 'token123';
+      state = authReducer(state, AuthActions.setAuthToken(token));
+      expect(state.authToken).toEqual(token);
+    });
+  });
 });
