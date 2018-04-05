@@ -28,7 +28,7 @@
   font-size: 4.5em;
   padding-bottom: 30px;
   color: rgb(255, 255, 255);
-}
+I}
 
 .room-create-input {
   width: 40%;
@@ -43,4 +43,14 @@
 
 .btn-room {
   color: #999;
+}
+
+@media (max-width: 760px) {
+  .room-create-header {
+    font-size: 3em;
+    line-height: 1.2;
+  }
+  .room-create-input {
+    width: 50%;
+  }
 }
