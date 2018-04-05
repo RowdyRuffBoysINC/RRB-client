@@ -44,6 +44,16 @@ describe('authReducer', () => {
       state = authReducer(state, AuthActions.authRequest());
       expect(state.loading).toEqual(true);
       expect(state.error).toEqual(null);
-    })
-  })
+    });
+  });
+
+  describe('authSuccess', () => {
+    it('Should get current user on success', () => {
+      let state;
+      const user = 'David';
+      state = authReducer(state, AuthActions.authSuccess(user));
+      expect(state.loading).toEqual(false);
+      expect(state.currentUser).toEqual(user);
+    });
+  });
 });
