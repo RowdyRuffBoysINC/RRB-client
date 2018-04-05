@@ -34,9 +34,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "nyc react-scripts test --env=jsdom",
-    "coverage": "react-scripts test --env=jsdom --coverage",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "test": "nyc react-scripts test .test.js --env=jsdom",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "eject": "react-scripts eject"
   }
 }
