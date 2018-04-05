@@ -48,7 +48,6 @@ export function HeaderBar(props) {
       </ul>
     </Menu>
   );
-
 }
 
 const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null, });
