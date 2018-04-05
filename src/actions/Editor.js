@@ -49,3 +49,17 @@ export const setWhiteBoardEditorValue = input => ({
   type: SET_WHITEBOARD_EDITOR_VALUE,
   input,
 });
+
+export const SET_WHITEBOARD_EDITOR_COLOR = 'SET_WHITEBOARD_EDITOR_COLOR';
+export const setWhiteBoardEditorColor = input => ({
+  type: SET_WHITEBOARD_EDITOR_COLOR,
+  input,
+});
+
+export const SET_WHITEBOARD_EDITOR_BRUSH_SIZE = 'SET_WHITEBOARD_EDITOR_BRUSH_SIZE';
+export const setWhiteBoardEditorBrushSize = input => ({
+  type: SET_WHITEBOARD_EDITOR_BRUSH_SIZE,
+  input,
+});
+
+

@@ -37,7 +37,6 @@ export class WhiteBoardEditor extends React.Component {
       if (this.sketch) {
         this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
-
     });
 
     document.querySelector('.upper-canvas').addEventListener('mouseleave', () => {
