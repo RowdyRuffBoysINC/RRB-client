@@ -1,5 +1,6 @@
 /* This actions file handles actions specific to the EditorView component and it's child components: CodeEditor, WordEditor, & WhiteBoardEditor */
-import API_BASE_URL from '../config';
+import { API_BASE_URL } from '../config';
+import { SubmissionError, } from 'redux-form';
 
 //Actions that handle state change for Editor View Component
 export const SET_EDITOR_VIEW = 'SET_EDITOR_VIEW';
@@ -108,7 +109,7 @@ export const fetchDocsFromDb = roomName => async (dispatch) => {
   dispatch(fetchDocsFromDbRequest());
   try {
     const response = await fetch(`${API_BASE_URL}/documents/${roomName}`);
-    dispatch(fetchDocsFromDbSuccess(response.json()));
+    dispatch(fetchDocsFromDbSuccess(response));
     return await response.json();
   }
   catch (err) {
