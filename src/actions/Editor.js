@@ -1,4 +1,5 @@
 /* This actions file handles actions specific to the EditorView component and it's child components: CodeEditor, WordEditor, & WhiteBoardEditor */
+import API_BASE_URL from '../config';
 
 //Actions that handle state change for Editor View Component
 export const SET_EDITOR_VIEW = 'SET_EDITOR_VIEW';
@@ -49,3 +50,61 @@ export const setWhiteBoardEditorValue = input => ({
   type: SET_WHITEBOARD_EDITOR_VALUE,
   input,
 });
+
+export const SAVE_DOCS_TO_DB_REQUEST = 'SAVE_DOCS_TO_DB_REQUEST';
+export const saveDocsToDbRequest = () => ({type: SAVE_DOCS_TO_DB_REQUEST,});
+
+export const SAVE_DOCS_TO_DB_SUCCESS = 'SAVE_DOCS_TO_DB_SUCCESS';
+export const saveDocsToDbSuccess = () => ({type: SAVE_DOCS_TO_DB_SUCCESS,});
+
+export const SAVE_DOCS_TO_DB_ERROR = 'SAVE_DOCS_TO_DB_ERROR';
+export const saveDocsToDbError = error => ({
+  type: SAVE_DOCS_TO_DB_ERROR,
+  error,
+});
+
+export const saveDocsToDb = doc => async (dispatch) => {
+  dispatch(saveDocsToDbRequest());
+  try {
+    const response = await fetch(`${API_BASE_URL}/documents`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', },
+      body: JSON.stringify(doc),
+    })
+    dispatch(saveDocsToDbSuccess());
+    return await response.json();
+  }
+  catch (err) {
+    dispatch(saveDocsToDbError(err));
+    const { reason, message, location, } = err;
+    if (reason === 'ValidationError') {
+      // Convert ValidationErrors into SubmissionErrors for Redux Form
+      return Promise.reject(
+        new SubmissionError({ [location]: message, })
+      );
+    }
+  }
+};
+
+
+export const GET_DOCS_FROM_DB_REQUEST = 'GET_DOCS_FROM_DB_REQUEST';
+export const getDocsFromDbRequest = () => ({type: GET_DOCS_FROM_DB_REQUEST,});
+
+export const GET_DOCS_FROM_DB_SUCCESS = 'GET_DOCS_FROM_DB_SUCCESS';
+export const getDocsFromDbSuccess = document => ({
+  type: GET_DOCS_FROM_DB_SUCCESS,
+  codeEditorText: document.code,
+  wordEditorText: document.word,
+  whiteBoardEditorValue: document.whiteBoard,
+});
+
+export const GET_DOCS_FROM_DB_ERROR = 'GET_DOCS_FROM_DB_ERROR';
+export const getDocsFromDbError = error => ({
+  type: GET_DOCS_FROM_DB_ERROR,
+  error,
+});
+
+export const getDocsFromDb = () => (dispatch) => {
+
+}
+
