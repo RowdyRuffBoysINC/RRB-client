@@ -13,4 +13,19 @@ describe('landingPageReducer', () => {
     expect(state).toBe(currentState);
   });
 
-})
+  describe('showLoginForm', () => {
+    it('Should set showLoginForm to true', () => {
+      let state;
+      state = landingPageReducer(state, LandingPageActions.showLoginForm());
+      expect(state.showLoginForm).toEqual(true);
+    });
+  });
+
+  describe('hideLoginForm', () => {
+    it('Should set showLoginForm to false', () => {
+      let state;
+      state = landingPageReducer(state, LandingPageActions.hideLoginForm());
+      expect(state.showLoginForm).toEqual(false);
+    });
+  });
+});
