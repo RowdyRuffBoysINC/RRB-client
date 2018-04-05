@@ -50,7 +50,7 @@ export class WhiteBoardEditor extends React.Component {
     });
   }
 
-  onSketchFieldChange = (data, __, ___, ____, _____) => {
+  onSketchFieldChange(data) {
     this.props.dispatch(setWhiteBoardEditorValue(data));
   }
 
