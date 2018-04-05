@@ -36,7 +36,7 @@ export function EditorView(props) {
   };
 
   return (
-    <section>
+    <section className="editor-view-wrapper">
       {editorNavigation}
       <div className="main-editor-wrapper">
         {editorViewToggle(props.editorMode)}

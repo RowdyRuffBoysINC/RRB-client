@@ -6,9 +6,9 @@ video {
 .webcam-container {
   display: flex;
   flex-direction: column;
-  width: 30%;
   border: 1px solid black;
   height: 50%;
+  width: 40%;
 }
 
 .video-box {

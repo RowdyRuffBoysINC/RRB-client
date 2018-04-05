@@ -25,6 +25,10 @@
   height: 80vh;
 }
 
+.editor-view-wrapper {
+  width: 60%;
+}
+
 .main-editor-wrapper {
   height: 85vh;
   border: 1px solid black;
