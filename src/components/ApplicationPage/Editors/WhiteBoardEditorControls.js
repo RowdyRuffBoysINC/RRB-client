@@ -23,14 +23,15 @@ export function WhiteBoardEditorControls(props) {
   }
 
   const arrOfColors = ['green', 'yellow', 'red', 'blue', 'black'];
-  const colorChangeButtons = arrOfColors.map(color => (<div className={`tool ${color}-brush`} key={color.toBase64()} onClick={() => changeColor(color)}></div>));
-  const { whiteBoardEditorBrushSize, } = props;
+  const colorChangeButtons = arrOfColors.map(color => (<div className={`tool ${color}-brush`} key={color} onClick={() => changeColor(color)}></div>));
+  const { whiteBoardEditorBrushSize, clear, } = props;
 
   return (
     <section className="whiteBoardControls-container">
+      {colorChangeButtons}
       <div onClick={() => changeFontSize()} className="tool change-size-button"> {whiteBoardEditorBrushSize} </div>
       <div onClick={() => changeBrushToEraser()} className="tool eraser"></div>
-      {colorChangeButtons}
+      <div onClick={() => clear()} className="tool nuke"></div>
     </section>
   );
 }

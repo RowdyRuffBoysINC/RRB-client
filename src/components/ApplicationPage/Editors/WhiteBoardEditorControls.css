@@ -33,6 +33,10 @@
     border-radius: 80px;
 }
 
+.nuke {
+    border: 1px solid black;
+}
+
 .change-size-button {
     border: 1px solid black;
 }
