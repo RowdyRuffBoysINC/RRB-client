@@ -11,6 +11,7 @@ const initialState = {
   codeEditorText: '',
   wordEditorText: EditorState.createWithContent(convertFromRaw(defaultWordEditorContent)),
   whiteBoardEditorValue: null,
+  error: null,
 };
 
 const editorReducer = function (state = initialState, action) {
@@ -55,6 +56,23 @@ const editorReducer = function (state = initialState, action) {
     return {
       ...state,
       whiteBoardEditorValue: action.input,
+    };
+  case EditorActions.SAVE_DOCS_TO_DB_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case EditorActions.SAVE_DOCS_TO_DB_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+    };
+  case EditorActions.SAVE_DOCS_TO_DB_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.error,
     };
   default: return state;
   }
