@@ -49,7 +49,7 @@ table {
 
 html {
   height: 100%;
-  font-family: 'Playfair Display';
+  font-family: 'Ubuntu', sans-serif;
 }
 
 body, #root, .app {
@@ -60,5 +60,5 @@ body, #root, .app {
 	font-size: 18pt;
 	line-height: 1.75em;
 	color: #000000;
-	letter-spacing: 0.025em;
+  letter-spacing: 0.025em;
 }
