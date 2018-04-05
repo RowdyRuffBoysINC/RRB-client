@@ -3,9 +3,11 @@
  * @param {*} text a message to return as text
  * @param {*} level valid options are info, log, warn, error
  */
+/* eslint-disable */
 export const trace = (text, level='info') => {
   text = text.trim();
   const now = (window.performance.now() / 1000).toFixed(3);
+
   switch(level.toLowerCase().trim()) {
   case 'info':
     console.info(now, text);
@@ -21,3 +23,11 @@ export const trace = (text, level='info') => {
     break;
   }
 };
+
+/**
+ *
+ * @param {*} message
+ */
+export const error = (message) => {
+  trace(message, 'error');
+}
