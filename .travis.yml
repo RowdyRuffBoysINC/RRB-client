@@ -5,7 +5,7 @@ cache:
     - node_modules
 
 script:
-  - npm test -- --coverage
+  - nyc --reporter=text-lcov npm test
 
 env:
   - REACT_APP_API_BASE_URL="https://mysterious-garden-51929.herokuapp.com"
@@ -15,7 +15,6 @@ before_deploy:
   - npm run build
 
 after_success:
-  - npm run coverage
 
 deploy:
   provider: script
