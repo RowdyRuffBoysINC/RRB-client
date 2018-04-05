@@ -4,7 +4,7 @@ import RequiresLogin from '../LandingPage/RequiresLogin';
 import { withRouter, } from 'react-router';
 import { setCreateInput, } from '../../actions/Application';
 
-export function RoomCreate(props) {  
+export function RoomCreate(props) {
   function handleOnChange(e) {
     const input = e.target.value;
     props.dispatch(setCreateInput(input));
@@ -21,7 +21,6 @@ export function RoomCreate(props) {
       <button onClick={e => handleClick(e)}> Submit </button>
     </section>
   );
-
 }
 
 const mapStateToProps = (state) => {
