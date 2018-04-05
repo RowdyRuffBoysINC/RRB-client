@@ -5,8 +5,9 @@
 
 # testing
 /coverage
-/.nyc_output
-
+.nyc_output
+coverage
+lib-cov
 # production
 /build
 
