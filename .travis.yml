@@ -10,7 +10,6 @@ script:
 - npm test -- --coverage
 
 env:
-  - CI=true
   - REACT_APP_API_BASE_URL="https://mysterious-garden-51929.herokuapp.com"
 
 before_deploy:
