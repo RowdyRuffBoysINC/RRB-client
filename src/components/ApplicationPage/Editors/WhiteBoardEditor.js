@@ -10,7 +10,6 @@ export class WhiteBoardEditor extends React.Component {
   constructor() {
     super();
     this.sketch = null;
-    this.value = null;
     socket.on('whiteBoard msg sent back to clients', (msg) => {
       this.updateSketchFieldWithSocketInfo(msg);
     });
