@@ -89,6 +89,8 @@ const mapStateToProps = (state) => {
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     roomName: state.applicationReducer.roomName,
     whiteBoardEditorValue: state.editorReducer.whiteBoardEditorValue,
+    whiteBoardEditorBrushSize: state.editorReducer.whiteBoardEditorBrushSize,
+    whiteBoardEditorColor: state.editorReducer.whiteBoardEditorColor,
   };
 };
 
