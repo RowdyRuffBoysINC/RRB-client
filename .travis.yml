@@ -5,7 +5,7 @@ cache:
     - node_modules
 
 script:
-  - nyc npm test --coverage
+  - nyc --reporter=text-lcov npm test --coverage
 
 env:
   - REACT_APP_API_BASE_URL="https://mysterious-garden-51929.herokuapp.com"
@@ -13,8 +13,6 @@ env:
 before_deploy:
   - npm install netlify-cli -g
   - npm run build
-
-after_success:
 
 deploy:
   provider: script
