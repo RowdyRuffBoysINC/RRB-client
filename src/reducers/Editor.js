@@ -11,6 +11,8 @@ const initialState = {
   codeEditorText: '',
   wordEditorText: EditorState.createWithContent(convertFromRaw(defaultWordEditorContent)),
   whiteBoardEditorValue: null,
+  whiteBoardEditorColor: 'black',
+  whiteBoardEditorBrushSize: 6,
 };
 
 const editorReducer = function (state = initialState, action) {
