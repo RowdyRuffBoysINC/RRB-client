@@ -19,8 +19,8 @@ export function RoomCreate(props) {
     <section className="room-create">
       <div className="room-create-wrapper">
         <h1 className="room-create-header"> Create a Room </h1>
-        <input className="room-create-input" type="text" placeholder="Enter your room name!" onChange={e => handleOnChange(e)} />
-        <button onClick={e => handleClick(e)}> Submit </button>
+        <input className="room-create-input" type="text" placeholder="Room Name..." onChange={e => handleOnChange(e)} />
+        <button className="btn-form btn-room" onClick={e => handleClick(e)}> Submit </button>
       </div>
     </section>
   );

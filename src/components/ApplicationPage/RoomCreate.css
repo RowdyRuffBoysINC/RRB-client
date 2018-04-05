@@ -6,8 +6,9 @@
   left: 0;
   right: 0;
   margin: auto;
-  background-color: #888888;
+  background-color: #f1f1f1;
   text-align: center;
+  color: rgb(153, 153, 153);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -15,13 +16,23 @@
 
 .room-create-wrapper {
   margin-bottom: 20px;
+  text-align: center; 
 }
 
 .room-create-header {
   font-size: 3em;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .room-create-input {
-  
+  width: 50%;
+  padding: 20px 20px;
+  font-size: 1.5em;
+  text-align: center;
+  display: block;
+  margin: 20px auto;
+}
+
+.room-btn {
+  display: block;
 }
