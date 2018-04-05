@@ -3,7 +3,7 @@ import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import { connect, } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-//Any classes from react-draft imports in event listeners are prebuilt names 
+//Any classes from react-draft imports in event listeners are prebuilt names
 import { socket, } from '../Room';
 import { setWordEditorText, } from '../../../actions/Editor';
 
@@ -25,7 +25,7 @@ class WordEditor extends Component {
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       setTimeout(() => {
         this.emitWordMsg();
-      }, 100)
+      }, 100);
     });
 
     this.addListenerAndEmit('keydown');
@@ -34,15 +34,15 @@ class WordEditor extends Component {
 
   addListenerAndEmit(listenFor) {
     document.querySelector('.js-word-editor').addEventListener(listenFor, () => {
-    this.emitWordMsg();
+      this.emitWordMsg();
     });
   }
 
   emitWordMsg() {
-    socket.emit("word msg", {
+    socket.emit('word msg', {
       room: this.props.roomName,
       user: this.props.userName,
-      msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
+      msg: convertToRaw(this.props.wordEditorText.getCurrentContent()),
     });
   }
 
@@ -50,7 +50,7 @@ class WordEditor extends Component {
     this.props.dispatch(setWordEditorText(editorState));
   }
 
-  updateEditorWithSocketInfo = (msg) => {
+  updateEditorWithSocketInfo(msg) {
     const convertedMsg = EditorState.createWithContent(convertFromRaw(msg));
     this.props.dispatch(setWordEditorText(convertedMsg));
   }
@@ -72,7 +72,7 @@ class WordEditor extends Component {
 const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
-  wordEditorText: state.editorReducer.wordEditorText
+  wordEditorText: state.editorReducer.wordEditorText,
 });
 
 export default connect(mapStateToProps)(WordEditor);

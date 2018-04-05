@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { socket } from "./Room";
 import * as ApplicationActions from "../../actions/Application";
-import UsersList from "./UsersList";
+import UserList from "./UserList";
 import './WebCam.css'
 
 export class WebCam extends React.Component {
@@ -186,7 +186,7 @@ export class WebCam extends React.Component {
         </section>
         <section className="users-container" id="users-container">
           <h4> Room: {this.props.roomName} </h4>
-          <UsersList createOffer={(id) => this.createVideo(id)} />
+          <UserList createOffer={(id) => this.createVideo(id)} />
         </section>
       </section>
     );
