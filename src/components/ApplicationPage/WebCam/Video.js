@@ -1,6 +1,7 @@
 import './WebCam.css';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {trace,} from './helpers';
 
 const propTypes = {
   muted: PropTypes.bool,
@@ -20,7 +21,7 @@ export class Video extends React.Component {
     this.load();
   }
   load() {
-    // This.video.load();
+    // Load video
   }
 
   setSource(src) {
@@ -29,7 +30,7 @@ export class Video extends React.Component {
 
   render() {
     const {muted, videoId, src, autoPlay,} = this.props;
-
+    trace('Rendering video component');
     return (
       <video
         className={this.props.className}

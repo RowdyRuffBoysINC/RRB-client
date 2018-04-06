@@ -66,7 +66,7 @@ export default class SIOC {
   }
 
   setRemoteVideo(src) {
-    this.remoteVide = <Video className="video-remote-large"
+    this.remoteVideo = <Video className="video-remote-large"
       src={window.URL.createObjectURL(src)}></Video>;
   }
 
@@ -89,7 +89,6 @@ export default class SIOC {
 
   __createOffer(id) {
     this.pc.createOffer((offer) =>{
-      if(this.debug) trace('pc.createOffer called');
       this.pc.setLocalDescription(new this.sessionDescription(offer), () =>{
         socket.emit('make-offer', {
           offer,
@@ -142,14 +141,21 @@ export default class SIOC {
   }
 
   init(props) {
+    trace('Running SIOC.init');
     const {roomName, username, dispatch,} = props;
     this.roomName = roomName;
     this.username = username;
 
-    this.pc.onaddstream = (obj) => {
+
+    console.log(this.pc);
+
+    this.pc.onaddstream= (obj) => {
+      trace('onaddstream...');
       this.setLocalVideo(window.URL.createObjectURL(obj.stream));
     };
+    console.log(this.pc.onaddstream);
 
+    trace('running getUserMedia');
     this.navigator.getUserMedia({
       video: this.enableCamera,
       audio: this.enableAudio,
