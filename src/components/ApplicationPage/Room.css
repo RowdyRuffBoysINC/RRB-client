@@ -11,3 +11,13 @@
   top: 60px;
   position:relative;
 }
+
+.left-side-wrapper {
+  height: 100vh;
+  width: 70%;
+}
+
+.right-side-wrapper {
+  height: 100vh;
+  width: 30%;
+}
