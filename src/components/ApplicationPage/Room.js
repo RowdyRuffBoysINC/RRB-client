@@ -26,7 +26,6 @@ export class Room extends React.Component {
   render() {
     return (
       <section className="room">
-        <AppNavBar />
         <div className="left-side-wrapper">
           <EditorView className="editors" />
         </div>

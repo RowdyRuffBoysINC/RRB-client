@@ -3,6 +3,8 @@ import { connect, } from 'react-redux';
 import RequiresLogin from '../LandingPage/RequiresLogin';
 import Room from './Room';
 import RoomCreate from './RoomCreate';
+import AppNavBar from './AppNavBar';
+
 
 export class Dashboard extends React.Component {
   render() {
@@ -11,7 +13,12 @@ export class Dashboard extends React.Component {
       return <RoomCreate />;
     }
     else {
-      return <Room />;
+      return (
+        <section>
+          <AppNavBar/>
+          <Room />
+        </section>
+      );
     }
   }
 }
