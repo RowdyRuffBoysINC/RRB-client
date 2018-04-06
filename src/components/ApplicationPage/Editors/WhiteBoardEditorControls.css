@@ -1,0 +1,42 @@
+.whiteBoardControls-container {
+    position: absolute;
+    width: 50px;
+    z-index: 1;
+}
+
+.tool {
+    width: 50px;
+    height: 50px;
+
+    margin-top: 5px;
+}
+
+.green-brush {
+    background-color: green;
+}
+
+.red-brush {
+    background-color: red;
+}
+.blue-brush {
+    background-color: blue;
+}
+.yellow-brush {
+    background-color: yellow;
+}
+.black-brush {
+    background-color: black;
+}
+
+.eraser {
+    border: 1px solid black;
+    border-radius: 80px;
+}
+
+.nuke {
+    border: 1px solid black;
+}
+
+.change-size-button {
+    border: 1px solid black;
+}

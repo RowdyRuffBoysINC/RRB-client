@@ -2,16 +2,14 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
+import WhiteBoardEditorControls from './WhiteBoardEditorControls';
 import { setWhiteBoardEditorValue, } from '../../../actions/Editor';
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
   constructor() {
     super();
-    this.state = { sketchFieldValue: null, };
     this.sketch = null;
-    this.interval = null;
-
     socket.on('whiteBoard msg sent back to clients', (msg) => {
       this.updateSketchFieldWithSocketInfo(msg);
     });
@@ -49,6 +47,11 @@ export class WhiteBoardEditor extends React.Component {
     this.props.dispatch(setWhiteBoardEditorValue(data));
   }
 
+  clearSketchCanvas() {
+    if (this.sketch)
+      this.sketch.clear();
+  }
+
   updateSketchFieldWithSocketInfo(msg) {
     if (this.sketch) {
       // Surprise, this.sketch.fromJSON rerenders SketchField by ITSELF; no need to bind
@@ -68,13 +71,14 @@ export class WhiteBoardEditor extends React.Component {
   render() {
     return (
       <section className="whiteboard-container">
-        <SketchField width="100vw"
-          height="500px"
+        <WhiteBoardEditorControls clear={() => this.clearSketchCanvas()} />
+        <SketchField
+          width="100%"
+          height="100%"
           tool={Tools.Pencil}
-          lineColor="black"
-          lineWidth={6}
+          lineColor={this.props.whiteBoardEditorColor}
+          lineWidth={this.props.whiteBoardEditorBrushSize}
           ref={instance => this.sketch = instance}
-          forceValue={true}
           onChange={data => this.onSketchFieldChange(data)} />
       </section>
     );
@@ -87,6 +91,8 @@ const mapStateToProps = (state) => {
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     roomName: state.applicationReducer.roomName,
     whiteBoardEditorValue: state.editorReducer.whiteBoardEditorValue,
+    whiteBoardEditorBrushSize: state.editorReducer.whiteBoardEditorBrushSize,
+    whiteBoardEditorColor: state.editorReducer.whiteBoardEditorColor,
   };
 };
 

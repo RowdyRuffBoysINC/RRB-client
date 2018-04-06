@@ -13,6 +13,8 @@ const initialState = {
   whiteBoardEditorValue: null,
   loading: false,
   error: null,
+  whiteBoardEditorColor: 'black',
+  whiteBoardEditorBrushSize: 6,
 };
 
 const editorReducer = function (state = initialState, action) {
@@ -32,6 +34,7 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       tabSize: action.tabSize,
     };
+    // Change to toggle instead of if else?
   case EditorActions.SET_LINE_NUMBERS:
     if (action.setting === 'false') {
       return {
@@ -112,6 +115,15 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       loading: false,
       error: action.error,
+  case EditorActions.SET_WHITEBOARD_EDITOR_BRUSH_SIZE:
+    return {
+      ...state,
+      whiteBoardEditorBrushSize: action.input,
+    };
+  case EditorActions.SET_WHITEBOARD_EDITOR_COLOR:
+    return {
+      ...state,
+      whiteBoardEditorColor: action.input,
     };
   default: return state;
   }

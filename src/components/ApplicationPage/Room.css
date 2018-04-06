@@ -2,15 +2,15 @@
   display:flex;
   flex-direction: row;
   justify-content: flex-start;
-  height: 60vH;
-}
-
-.room > section {
-  width: 60vw;
   height: 100%;
 }
 
-.webcam-container {
-  top: 60px;
-  position:relative;
+.left-side-wrapper {
+  height: 90vh;
+  width: 70%;
+}
+
+.right-side-wrapper {
+  height: 90vh;
+  width: 30%;
 }

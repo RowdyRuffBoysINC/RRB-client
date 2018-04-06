@@ -52,6 +52,7 @@ export const setWhiteBoardEditorValue = input => ({
   input,
 });
 
+
 export const UPDATE_DOCS_DB_REQUEST = 'UPDATE_DOCS_DB_REQUEST';
 export const updateDocsDbRequest = () => ({type: UPDATE_DOCS_DB_REQUEST,});
 
@@ -164,3 +165,15 @@ export const createDocsDb = doc => async (dispatch) => {
     }
   }
 };
+
+export const SET_WHITEBOARD_EDITOR_COLOR = 'SET_WHITEBOARD_EDITOR_COLOR';
+export const setWhiteBoardEditorColor = input => ({
+  type: SET_WHITEBOARD_EDITOR_COLOR,
+  input,
+});
+
+export const SET_WHITEBOARD_EDITOR_BRUSH_SIZE = 'SET_WHITEBOARD_EDITOR_BRUSH_SIZE';
+export const setWhiteBoardEditorBrushSize = input => ({
+  type: SET_WHITEBOARD_EDITOR_BRUSH_SIZE,
+  input,
+});

@@ -76,7 +76,6 @@ export class CodeEditor extends React.Component {
         {this.renderSelect(setMode, modeOptions)}
         {this.renderSelect(setTheme, themeOptions)}
         {this.renderSelect(setTabSize, tabSizeOptions)}
-
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>
