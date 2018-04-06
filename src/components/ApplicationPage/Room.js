@@ -20,9 +20,9 @@ export class Room extends React.Component {
     this.props.dispatch(setCreateInput(this.props.match.params.roomName));
     socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
     const doc = {
-      code: this.props.codeEditorText,
-      word: this.props.wordEditorText,
-      whiteBoard: this.props.whiteBoardEditorText,
+      codeEditorText: this.props.codeEditorText,
+      wordEditorText: this.props.wordEditorText,
+      whiteBoardEditorText: this.props.whiteBoardEditorText,
     };
     this.interval = setInterval(this.props.dispatch(saveDocsToDb(doc)), 30000);
   }
