@@ -6,50 +6,43 @@ import WhiteBoardEditor from './Editors/WhiteBoardEditor';
 import { setEditorView, } from '../../actions/Editor';
 import './EditorView.css';
 
-export class EditorView extends React.Component {
-  componentDidMount() { }
+export function EditorView(props) {
 
-  render() {
-    const editorViewToggle = (
-      <section>
-        <ul className="nav-bar-ul">
-          <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('CodeEditor'))}>
-            Code View
-          </li>
-          <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('WordEditor'))}>
-            Doc View
-          </li>
-          <li className="editor-mode-text" href="#" onClick={() => this.props.dispatch(setEditorView('WhiteBoardEditor'))}>
-            Whiteboard View
-          </li>
-        </ul>
-      </section>
-    );
+  const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
 
-    switch(this.props.editorMode) {
-    case 'WordEditor':
-      return (
-        <section>
-          {editorViewToggle}
-          <WordEditor />
-        </section>
-      );
-    case 'WhiteBoardEditor':
-      return (
-        <section>
-          {editorViewToggle}
-          <WhiteBoardEditor />
-        </section>
-      );
+  const editorListItem = editorViewArr.map((view, index) => (
+    <li key={index}
+      className="editor-mode-text" href="#" onClick={() => props.dispatch(setEditorView(view))}>
+      {view}
+    </li>
+  ));
+
+  const editorNavigation = (
+    <section>
+      <ul className="nav-bar-ul">
+        {editorListItem}
+      </ul>
+    </section>
+  );
+
+  const editorViewToggle = (view) => {
+    switch (view) {
+    case 'Doc View':
+      return <WordEditor />;
+    case 'Whiteboard View':
+      return <WhiteBoardEditor />;
     default:
-      return (
-        <section>
-          {editorViewToggle}
-          <CodeEditor />
-        </section>
-      );
+      return <CodeEditor />;
     }
-  }
+  };
+
+  return (
+    <section>
+      {editorNavigation}
+      {editorViewToggle(props.editorMode)}
+    </section>
+  );
+
 }
 
 const mapStateToProps = (state) => {

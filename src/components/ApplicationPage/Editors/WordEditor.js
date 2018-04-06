@@ -3,7 +3,7 @@ import { EditorState, convertFromRaw, convertToRaw, } from 'draft-js';
 import { connect, } from 'react-redux';
 import { Editor, } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-//Any classes from react-draft imports in event listeners are prebuilt names 
+//Any classes from react-draft imports in event listeners are prebuilt names
 import { socket, } from '../Room';
 import { setWordEditorText, } from '../../../actions/Editor';
 
@@ -15,43 +15,34 @@ class WordEditor extends Component {
     socket.on('word msg sent back to clients', (msg) => {
       this.updateEditorWithSocketInfo(msg);
     });
-
   }
 
   componentDidMount() {
-    // No given functions to listen to keyEvents from react-draft-js
-    document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => {
 
+    // No given functions to listen to keyEvents from react-draft-js
+
+    document.querySelector('.rdw-editor-toolbar').addEventListener('click', () => {
       // Click events happen a couple milliseconds too early for fontsize/color/etc changes to register
       setTimeout(() => {
-
-        socket.emit("word msg", {
-          room: this.props.roomName,
-          user: this.props.userName,
-          msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
-        });
-
-      }, 100)
+        this.emitWordMsg();
+      }, 100);
     });
 
-    document.querySelector('.js-word-editor').addEventListener('keydown', () => {
+    this.addListenerAndEmit('keydown');
+    this.addListenerAndEmit('keyup');
+  }
 
-      socket.emit("word msg", {
-        room: this.props.roomName,
-        user: this.props.userName,
-        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
-      });
-
+  addListenerAndEmit(listenFor) {
+    document.querySelector('.js-word-editor').addEventListener(listenFor, () => {
+      this.emitWordMsg();
     });
+  }
 
-    document.querySelector('.js-word-editor').addEventListener('keyup', () => {
-
-      socket.emit("word msg", {
-        room: this.props.roomName,
-        user: this.props.userName,
-        msg: convertToRaw(this.props.wordEditorText.getCurrentContent())
-      });
-
+  emitWordMsg() {
+    socket.emit('word msg', {
+      room: this.props.roomName,
+      user: this.props.userName,
+      msg: convertToRaw(this.props.wordEditorText.getCurrentContent()),
     });
   }
 
@@ -59,7 +50,7 @@ class WordEditor extends Component {
     this.props.dispatch(setWordEditorText(editorState));
   }
 
-  updateEditorWithSocketInfo = (msg) => {
+  updateEditorWithSocketInfo(msg) {
     const convertedMsg = EditorState.createWithContent(convertFromRaw(msg));
     this.props.dispatch(setWordEditorText(convertedMsg));
   }
@@ -81,7 +72,7 @@ class WordEditor extends Component {
 const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
-  wordEditorText: state.editorReducer.wordEditorText
+  wordEditorText: state.editorReducer.wordEditorText,
 });
 
 export default connect(mapStateToProps)(WordEditor);

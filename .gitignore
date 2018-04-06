@@ -4,11 +4,11 @@
 /node_modules
 
 # testing
+.nyc_output
 /coverage
-
 # production
 /build
-
+.nyc_output
 # misc
 .DS_Store
 .env

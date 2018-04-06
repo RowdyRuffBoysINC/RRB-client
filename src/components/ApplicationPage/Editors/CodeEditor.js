@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React from 'react';
 import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
@@ -20,7 +20,7 @@ import 'codemirror/mode/ruby/ruby.js';
 import 'codemirror/mode/swift/swift.js';
 import 'codemirror/mode/xml/xml.js';
 
-export class CodeEditor extends Component {
+export class CodeEditor extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,6 +33,32 @@ export class CodeEditor extends Component {
     this.props.dispatch(setCodeEditorText(info));
   }
 
+  emitCodeMsg() {
+    socket.emit('code msg', {
+      room: this.props.roomName,
+      user: this.props.userName,
+      msg: this.props.codeEditorText,
+    });
+  }
+
+  renderOptions(array) {
+    return array.map((option, index) => {
+      return (
+        <option value={option} key={index}>{option}</option>
+      );
+    });
+  }
+
+  renderSelect(func, option) {
+    return (
+      <select onChange={(e) => {
+        this.props.dispatch(func(e.target.value));
+      }}>
+        {this.renderOptions(option)}
+      </select>
+    );
+  }
+
   render() {
     const options = {
       lineNumbers: this.props.lineNumbers,
@@ -41,32 +67,16 @@ export class CodeEditor extends Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
+    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift', ];
+    const themeOptions = [ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
+    const tabSizeOptions = [ 2, 4, 8, ];
+
     return (
       <section className="code-editor-wrapper">
-        <select onChange={(e) => {
-          this.props.dispatch(setMode(e.target.value));
-        }}>
-          <option value="javascript">javascript</option>
-          <option value="xml">html</option>
-          <option value="ruby">ruby</option>
-          <option value="swift">swift</option>
-        </select>
-        <select onChange={(e) => {
-          this.props.dispatch(setTheme(e.target.value));
-        }}>
-          <option value="material">material</option>
-          <option value="midnight">midnight</option>
-          <option value="solarized">solarized</option>
-          <option value="dracula">dracula</option>
-          <option value="isotope">isotope</option>
-        </select>
-        <select onChange={(e) => {
-          this.props.dispatch(setTabSize(e.target.value));
-        }}>
-          <option value="2">2</option>
-          <option value="4">4</option>
-          <option value="8">8</option>
-        </select>
+        {this.renderSelect(setMode, modeOptions)}
+        {this.renderSelect(setTheme, themeOptions)}
+        {this.renderSelect(setTabSize, tabSizeOptions)}
+
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>
@@ -79,20 +89,8 @@ export class CodeEditor extends Component {
           onChange={(editor, data, value) => {
             this.props.dispatch(setCodeEditorText(value));
           }}
-          onKeyDown={(editor, event) => {
-            socket.emit('code msg', {
-              room: this.props.roomName,
-              user: this.props.userName,
-              msg: this.props.codeEditorText,
-            });
-          }}
-          onKeyUp={(editor, event) => {
-            socket.emit('code msg', {
-              room: this.props.roomName,
-              user: this.props.userName,
-              msg: this.props.codeEditorText,
-            });
-          }} />
+          onKeyDown={() => this.emitCodeMsg()}
+          onKeyUp={() => this.emitCodeMsg()} />
       </section>
     );
   }
