@@ -10,6 +10,10 @@
   cursor:pointer;
  }
 
+ .nav-bar-wrapper {
+   width: 100%;
+ }
+
 .nav-bar-ul {
   display: flex;
   margin-top: 0px;
@@ -21,3 +25,23 @@
   padding-left: 0px;
 }
 
+.CodeMirror {
+  height: 85vh;
+}
+
+.CodeMirror-sizer {
+  height: 100%;
+}
+
+.editor-view-wrapper {
+  width: 100%;
+}
+
+.main-editor-wrapper {
+  height: 90vh;
+  border: 1px solid black;
+}
+
+.whiteboard-container, .upper-canvas {
+  height: 100% !important;
+}

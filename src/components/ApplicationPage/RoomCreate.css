@@ -1,0 +1,56 @@
+.room-create {
+  /* height: 500px; */
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #f1f1f1;
+  background: rgb(0, 111, 255);
+  /* Change to primary color once decided */
+  /* background: rgb(255, 100, 65); */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.room-create-wrapper {
+  margin-bottom: 20px;
+  text-align: center; 
+  color: rgb(153, 153, 153);
+}
+
+.room-create-header {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 4.5em;
+  padding-bottom: 30px;
+  color: rgb(255, 255, 255);
+}
+
+.room-create-input {
+  width: 40%;
+  padding: 15px 15px;
+  font-size: 1.5em;
+  text-align: center;
+  display: block;
+  margin: 20px auto;
+  border-radius: 20px solid white;
+  color: #999;
+}
+
+.btn-room {
+  color: #999;
+}
+
+@media (max-width: 760px) {
+  .room-create-header {
+    font-size: 3em;
+    line-height: 1.2;
+  }
+  .room-create-input {
+    width: 50%;
+  }
+}

@@ -7,8 +7,9 @@ import EditorView from './EditorView';
 import { setCreateInput, } from '../../actions/Application';
 import { API_BASE_URL, } from '../../config';
 import WebCam from './WebCam';
-export const socket = io(API_BASE_URL);
+import Chat from './Chat';
 
+export const socket = io(API_BASE_URL);
 
 export class Room extends React.Component {
   componentDidMount() {
@@ -23,8 +24,13 @@ export class Room extends React.Component {
   render() {
     return (
       <section className="room">
-        <EditorView className="editors" />
-        <WebCam className="webcam" />
+        <div className="left-side-wrapper">
+          <EditorView className="editors" />
+        </div>
+        <div className="right-side-wrapper">
+          <WebCam className="webcam" />
+          <Chat className="chat" />
+        </div>
       </section>
     );
   }

@@ -72,8 +72,9 @@ export class WhiteBoardEditor extends React.Component {
     return (
       <section className="whiteboard-container">
         <WhiteBoardEditorControls clear={() => this.clearSketchCanvas()} />
-        <SketchField width="100vw"
-          height="500px"
+        <SketchField
+          width="100%"
+          height="100%"
           tool={Tools.Pencil}
           lineColor={this.props.whiteBoardEditorColor}
           lineWidth={this.props.whiteBoardEditorBrushSize}
