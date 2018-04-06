@@ -58,18 +58,18 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       whiteBoardEditorValue: action.input,
     };
-  case EditorActions.SAVE_DOCS_TO_DB_REQUEST:
+  case EditorActions.UPDATE_DOCS_DB_REQUEST:
     return {
       ...state,
       loading: true,
       error: null,
     };
-  case EditorActions.SAVE_DOCS_TO_DB_SUCCESS:
+  case EditorActions.UPDATE_DOCS_DB_SUCCESS:
     return {
       ...state,
       loading: false,
     };
-  case EditorActions.SAVE_DOCS_TO_DB_ERROR:
+  case EditorActions.UPDATE_DOCS_DB_ERROR:
     return {
       ...state,
       loading: false,
