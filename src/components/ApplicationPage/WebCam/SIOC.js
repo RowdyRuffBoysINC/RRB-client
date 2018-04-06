@@ -55,10 +55,6 @@ export default class SIOC {
     return this.stunServer;
   }
 
-  getLocalUserMedia() {
-    console.log('getting user media');
-
-  }
 
   setLocalVideo(src) {
     console.log('Setting local video.');
@@ -168,13 +164,14 @@ export default class SIOC {
     this.pc.onaddstream= (obj) => {
       this.setRemoteVideo();
     };
+    console.log('Starting... setting local video');
 
     trace('running getUserMedia');
     this.navigator.getUserMedia({
       video: this.enableCamera,
       audio: this.enableAudio,
     }, (stream) => {
-      this.setRemoteVideo(stream);
+      this.setLocalVideo(window.URL.createObjectURL(stream));
       this.pc.addStream(stream);
     }, error);
 
