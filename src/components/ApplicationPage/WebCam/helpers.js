@@ -5,7 +5,7 @@
  */
 /* eslint-disable */
 export const trace = (text, level='info') => {
-  text = text.trim();
+  if(typeof text === 'string') text = text.trim();
   const now = (window.performance.now() / 1000).toFixed(3);
 
   switch(level.toLowerCase().trim()) {

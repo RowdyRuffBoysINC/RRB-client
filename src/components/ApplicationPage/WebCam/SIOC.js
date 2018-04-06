@@ -66,8 +66,11 @@ export default class SIOC {
   }
 
   setRemoteVideo(src) {
-    this.remoteVideo = <Video className="video-remote-large"
-      src={window.URL.createObjectURL(src)}></Video>;
+    trace('Setting remote video');
+    this.remoteVideo = <Video
+      className="video-remote-large"
+      src={window.URL.createObjectURL(src)}>
+    </Video>;
   }
 
   getRemoteVideo() {
@@ -150,8 +153,7 @@ export default class SIOC {
     console.log(this.pc);
 
     this.pc.onaddstream= (obj) => {
-      trace('onaddstream...');
-      this.setLocalVideo(window.URL.createObjectURL(obj.stream));
+      this.setRemoteVideo();
     };
     
     console.log(this.pc.onaddstream);
