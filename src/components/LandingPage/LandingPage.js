@@ -32,7 +32,7 @@ export function LandingPage(props) {
         </footer>
       </section>
       <About />
-      <section id="sign-up" className="container">
+      <section id="sign-up" className="container-about">
         <section className="about content">
           <RegistrationForm />
           <header>
