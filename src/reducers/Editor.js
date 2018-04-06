@@ -1,7 +1,7 @@
 import { EditorState, convertFromRaw, } from 'draft-js';
 import * as EditorActions from '../actions/Editor';
 
-const defaultWordEditorContent = { entityMap: {}, blocks: [ { key: '637gr', text: ' Type here!', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, }, ], };
+const defaultWordEditorContent = { entityMap: {}, blocks: [ { key: '637gr', text: '', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, }, ], };
 
 const initialState = {
   lineNumbers: true,
@@ -11,6 +11,8 @@ const initialState = {
   codeEditorText: '',
   wordEditorText: EditorState.createWithContent(convertFromRaw(defaultWordEditorContent)),
   whiteBoardEditorValue: null,
+  loading: false,
+  error: null,
   whiteBoardEditorColor: 'black',
   whiteBoardEditorBrushSize: 6,
 };
@@ -58,6 +60,61 @@ const editorReducer = function (state = initialState, action) {
     return {
       ...state,
       whiteBoardEditorValue: action.input,
+    };
+  case EditorActions.UPDATE_DOCS_DB_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case EditorActions.UPDATE_DOCS_DB_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+    };
+  case EditorActions.UPDATE_DOCS_DB_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.error,
+    };
+  case EditorActions.FETCH_DOCS_FROM_DB_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case EditorActions.FETCH_DOCS_FROM_DB_SUCCESS:
+    action.wordEditorText.entityMap = {};
+    return {
+      ...state,
+      loading: false,
+      codeEditorText: action.codeEditorText,
+      wordEditorText: EditorState.createWithContent(convertFromRaw(action.wordEditorText)),
+      whiteBoardEditorValue: action.whiteBoardEditorValue,
+    };
+  case EditorActions.FETCH_DOCS_FROM_DB_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.error,
+    };
+  case EditorActions.CREATE_DOCS_DB_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case EditorActions.CREATE_DOCS_DB_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+    };
+  case EditorActions.CREATE_DOCS_DB_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.error,
     };
   case EditorActions.SET_WHITEBOARD_EDITOR_BRUSH_SIZE:
     return {
