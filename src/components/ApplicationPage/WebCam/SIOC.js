@@ -33,9 +33,9 @@ export default class SIOC {
 
 
     this.sessionDescription = window.RTCSessionDescription ||
-  window.mozRTCSessionDescription ||
-  window.webkitRTCSessionDescription ||
-  window.msRTCPeerConnection;
+    window.mozRTCSessionDescription ||
+    window.webkitRTCSessionDescription ||
+    window.msRTCPeerConnection;
 
     navigator.getUserMedia = navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||
@@ -142,7 +142,7 @@ export default class SIOC {
 
   init(props) {
     trace('Running SIOC.init');
-    const {roomName, username, dispatch,} = props;
+    const { roomName, username, dispatch, } = props;
     this.roomName = roomName;
     this.username = username;
 
@@ -153,6 +153,7 @@ export default class SIOC {
       trace('onaddstream...');
       this.setLocalVideo(window.URL.createObjectURL(obj.stream));
     };
+    
     console.log(this.pc.onaddstream);
 
     trace('running getUserMedia');
