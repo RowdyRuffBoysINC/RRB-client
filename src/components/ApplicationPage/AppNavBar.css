@@ -6,6 +6,11 @@
   display: flex;
   flex-direction: row-reverse;
   align-self: flex-end;
+  margin-left: 50%;
+}
+
+.right-li {
+  flex-direction:
 }
 
 .nav-bar-ul {
