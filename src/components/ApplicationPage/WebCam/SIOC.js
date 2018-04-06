@@ -159,13 +159,12 @@ export default class SIOC {
     this.username = username;
 
 
-    console.log(this.pc);
+    console.log('PC Exists', this.pc);
 
     this.pc.onaddstream= (obj) => {
       this.setRemoteVideo();
     };
     
-    console.log(this.pc.onaddstream);
 
     trace('running getUserMedia');
     this.navigator.getUserMedia({
