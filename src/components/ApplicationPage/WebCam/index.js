@@ -19,26 +19,30 @@ export class WebCam extends React.Component {
   }
 
   componentWillMount() {
-    console.log('running SIOC init');
-    this.SIOC.init(this.props);
     // this.SIOC.setL
   }
 
   componentDidMount() {
     console.log('ComponentDidMount ->');
-    console.log('set localvideo to this: ', this.SIOC.getLocalVideo());
-    this.setState({ localVideo: this.SIOC.getLocalVideo() });
+    this.SIOC.init(this.props);
+    // console.log('set localvideo to this: ', this.SIOC.getLocalVideo());
+    // this.setState({ localVideo: this.SIOC.getLocalVideo() });
   }
 
   componentWillUpdate() {
-    console.log('update?');
+    console.log('index.js -> update?');
+  }
+
+  componentDidUpdate() {
+    console.log('index.js -> didupdate');
   }
 
   render() {
     return (
       <section className="video-container">
         <section className="video-box" id="video-box">
-          {this.state.localVideo}
+          {/* {this.state.localVideo} */}
+          {this.SIOC.getLocalVideo()}
           {/* {this.SIOC.getRemoteVideo()} */}
         </section>
         <section className="users-container" id="users-container">
