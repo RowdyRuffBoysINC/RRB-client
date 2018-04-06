@@ -3,6 +3,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
+import { convertToRaw, } from 'draft-js';
 import EditorView from './EditorView';
 import { setCreateInput, } from '../../actions/Application';
 import { fetchDocsFromDb, updateDocsDb, createDocsDb, } from '../../actions/Editor';
@@ -20,7 +21,7 @@ export class Room extends React.Component {
           this.props.dispatch(createDocsDb({
             roomName: this.props.roomName,
             codeEditorText: this.props.codeEditorText,
-            wordEditorText: this.props.wordEditorText,
+            wordEditorText: convertToRaw(this.props.wordEditorText.getCurrentContent()),
             whiteBoardEditorText: this.props.whiteBoardEditorText,
           }));
         }
@@ -35,10 +36,10 @@ export class Room extends React.Component {
       this.props.dispatch(updateDocsDb({
         roomName: this.props.roomName,
         codeEditorText: this.props.codeEditorText,
-        wordEditorText: this.props.wordEditorText,
+        wordEditorText: convertToRaw(this.props.wordEditorText.getCurrentContent()),
         whiteBoardEditorText: this.props.whiteBoardEditorText,
       }));
-    }, 10000);
+    }, 3000);
   }
 
   componentWillUnmount() {
