@@ -17,7 +17,6 @@ video {
 }
 
 .video-large {
-  top: 0px;
   width: 100%;
   max-width: 640px;
   max-height: 480px;
@@ -33,6 +32,10 @@ video {
   max-height: 180px;
   position: relative;
   z-index: 10;
+}
+
+.room-name {
+  margin-top: 10px;
 }
 
 #users li {
