@@ -149,7 +149,7 @@ export const createDocsDbError = error => ({
 export const createDocsDb = doc => async (dispatch) => {
   dispatch(createDocsDbRequest());
   try {
-    const response = await fetch(`${API_BASE_URL}/documents/${doc.roomName}`, {
+    const response = await fetch(`${API_BASE_URL}/documents/`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', },
       body: JSON.stringify(doc),
