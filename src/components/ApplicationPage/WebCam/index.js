@@ -17,6 +17,7 @@ export class WebCam extends React.Component {
   componentWillMount() {
     console.log('running SIOC init');
     this.SIOC.init(this.props);
+    // this.SIOC.setL
   }
 
   render() {
@@ -24,7 +25,7 @@ export class WebCam extends React.Component {
       <section className="video-container">
         <section className="video-box" id="video-box">
           {this.SIOC.getLocalVideo()}
-          {this.SIOC.getRemoteVideo()}
+          {/* {this.SIOC.getRemoteVideo()} */}
         </section>
         <section className="users-container" id="users-container">
           <h4> Room: {this.props.roomName} </h4>
