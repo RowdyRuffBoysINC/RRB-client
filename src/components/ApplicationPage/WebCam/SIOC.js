@@ -54,6 +54,10 @@ export default class SIOC {
     return this.stunServer;
   }
 
+  getLocalUserMedia() {
+
+  }
+
   setLocalVideo(src) {
     this.localVideo = <Video className="video-local-small"
       id={this.addedPersonId}
