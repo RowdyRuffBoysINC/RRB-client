@@ -52,31 +52,31 @@ export const setWhiteBoardEditorValue = input => ({
   input,
 });
 
-export const SAVE_DOCS_TO_DB_REQUEST = 'SAVE_DOCS_TO_DB_REQUEST';
-export const saveDocsToDbRequest = () => ({type: SAVE_DOCS_TO_DB_REQUEST,});
+export const UPDATE_DOCS_DB_REQUEST = 'UPDATE_DOCS_DB_REQUEST';
+export const updateDocsDbRequest = () => ({type: UPDATE_DOCS_DB_REQUEST,});
 
-export const SAVE_DOCS_TO_DB_SUCCESS = 'SAVE_DOCS_TO_DB_SUCCESS';
-export const saveDocsToDbSuccess = () => ({type: SAVE_DOCS_TO_DB_SUCCESS,});
+export const UPDATE_DOCS_DB_SUCCESS = 'UPDATE_DOCS_DB_SUCCESS';
+export const updateDocsDbSuccess = () => ({type: UPDATE_DOCS_DB_SUCCESS,});
 
-export const SAVE_DOCS_TO_DB_ERROR = 'SAVE_DOCS_TO_DB_ERROR';
-export const saveDocsToDbError = error => ({
-  type: SAVE_DOCS_TO_DB_ERROR,
+export const UPDATE_DOCS_DB_ERROR = 'UPDATE_DOCS_DB_ERROR';
+export const updateDocsDbError = error => ({
+  type: UPDATE_DOCS_DB_ERROR,
   error,
 });
 
-export const saveDocsToDb = doc => async (dispatch) => {
-  dispatch(saveDocsToDbRequest());
+export const updateDocsDb = doc => async (dispatch) => {
+  dispatch(updateDocsDbRequest());
   try {
     const response = await fetch(`${API_BASE_URL}/documents/${doc.roomName}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json', },
       body: JSON.stringify(doc),
     })
-    dispatch(saveDocsToDbSuccess());
+    dispatch(updateDocsDbSuccess());
     await response.json();
   }
   catch (err) {
-    dispatch(saveDocsToDbError(err));
+    dispatch(updateDocsDbError(err));
     const { reason, message, location, } = err;
     if (reason === 'ValidationError') {
       // Convert ValidationErrors into SubmissionErrors for Redux Form
@@ -111,7 +111,6 @@ export const fetchDocsFromDb = roomName => async (dispatch) => {
     const response = await fetch(`${API_BASE_URL}/documents/${roomName}`);
     const json = await response.json();
     if (json.length === 0) {
-      console.log('hello');
       return false;
     }
     await dispatch(fetchDocsFromDbSuccess(json[0]));
