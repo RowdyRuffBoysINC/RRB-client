@@ -95,6 +95,23 @@ const editorReducer = function (state = initialState, action) {
       loading: false,
       error: action.error,
     };
+  case EditorActions.CREATE_DOCS_DB_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case EditorActions.CREATE_DOCS_DB_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+    };
+  case EditorActions.CREATE_DOCS_DB_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.error,
+    };
   default: return state;
   }
 };
