@@ -12,12 +12,21 @@ export class WebCam extends React.Component {
     super(props);
     this.SIOC = new SIOC();
     console.log('SIOC', this.SIOC);
+
+    this.state = {
+      localVideo: null,
+    };
   }
 
   componentWillMount() {
     console.log('running SIOC init');
     this.SIOC.init(this.props);
     // this.SIOC.setL
+  }
+
+  componentDidMount() {
+    console.log('ComponentDidMount ->');
+    
   }
 
   render() {
