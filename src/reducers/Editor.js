@@ -82,11 +82,12 @@ const editorReducer = function (state = initialState, action) {
       error: null,
     };
   case EditorActions.FETCH_DOCS_FROM_DB_SUCCESS:
+    action.wordEditorText.entityMap = {};
     return {
       ...state,
       loading: false,
       codeEditorText: action.codeEditorText,
-      wordEditorText: EditorState.createWithContent(convertFromRaw({ entityMap: {}, blocks: [ { key: '637gr', text: action.wordEditorText, type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, }, ], })),
+      wordEditorText: EditorState.createWithContent(convertFromRaw(action.wordEditorText)),
       whiteBoardEditorValue: action.whiteBoardEditorValue,
     };
   case EditorActions.FETCH_DOCS_FROM_DB_ERROR:
