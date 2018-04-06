@@ -26,7 +26,7 @@
 }
 
 .CodeMirror {
-  height: 81vh;
+  height: 85vh;
 }
 
 .CodeMirror-sizer {
@@ -38,7 +38,7 @@
 }
 
 .main-editor-wrapper {
-  height: 100vh;
+  height: 90vh;
   border: 1px solid black;
 }
 

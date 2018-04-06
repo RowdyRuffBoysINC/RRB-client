@@ -8,10 +8,8 @@ import { setCreateInput, } from '../../actions/Application';
 import { API_BASE_URL, } from '../../config';
 import WebCam from './WebCam';
 import Chat from './Chat';
-import AppNavBar from './AppNavBar';
 
 export const socket = io(API_BASE_URL);
-
 
 export class Room extends React.Component {
   componentDidMount() {
