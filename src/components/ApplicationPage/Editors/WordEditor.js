@@ -38,6 +38,7 @@ class WordEditor extends Component {
     });
   }
 
+  // EditorState -> getCurrentContent [contentState] -> convertToRaw
   emitWordMsg() {
     socket.emit('word msg', {
       room: this.props.roomName,
