@@ -1,7 +1,8 @@
 import React from 'react';
 import { setEditorView, } from '../../actions/Editor';
+import { connect, } from 'react-redux';
 
-export default function AppNavBar(props) {
+export function AppNavBar(props) {
   const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
 
   const editorListItem = editorViewArr.map((view, index) => (
@@ -24,3 +25,9 @@ export default function AppNavBar(props) {
     </section>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {editorMode: state.applicationReducer.editorMode,};
+};
+
+export default connect(mapStateToProps)(AppNavBar);
