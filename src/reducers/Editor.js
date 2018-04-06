@@ -86,7 +86,7 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       loading: false,
       codeEditorText: action.codeEditorText,
-      wordEditorText: action.wordEditorText,
+      wordEditorText: EditorState.createWithContent(convertFromRaw({ entityMap: {}, blocks: [ { key: '637gr', text: action.wordEditorText, type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {}, }, ], })),
       whiteBoardEditorValue: action.whiteBoardEditorValue,
     };
   case EditorActions.FETCH_DOCS_FROM_DB_ERROR:
