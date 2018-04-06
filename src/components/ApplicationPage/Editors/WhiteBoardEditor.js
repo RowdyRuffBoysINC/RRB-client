@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
-import { setWhiteBoardEditorValue } from "../../../actions/Editor";
+import { setWhiteBoardEditorValue, } from '../../../actions/Editor';
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
@@ -20,32 +20,27 @@ export class WhiteBoardEditor extends React.Component {
   componentDidMount() {
     // No given functions to listen keyEvents from canvas
 
-    document.querySelector(".upper-canvas").addEventListener("click", () => {
-      
+    document.querySelector('.upper-canvas').addEventListener('click', () => {
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
+        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
 
     document.querySelector('.upper-canvas').addEventListener('mousedown', () => {
-
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
+        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
 
     document.querySelector('.upper-canvas').addEventListener('mouseup', () => {
-
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
+        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
-
     });
 
     document.querySelector('.upper-canvas').addEventListener('mouseleave', () => {
-
       if (this.sketch) {
-        this.sendMessage("whiteBoard msg", this.sketch.toJSON(this.props.whiteBoardEditorValue));
+        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
       }
     });
   }
@@ -78,7 +73,7 @@ export class WhiteBoardEditor extends React.Component {
           tool={Tools.Pencil}
           lineColor="black"
           lineWidth={6}
-          ref={(instance) => this.sketch = instance}
+          ref={instance => this.sketch = instance}
           forceValue={true}
           onChange={data => this.onSketchFieldChange(data)} />
       </section>
@@ -91,7 +86,7 @@ const mapStateToProps = (state) => {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     roomName: state.applicationReducer.roomName,
-    whiteBoardEditorValue: state.editorReducer.whiteBoardEditorValue
+    whiteBoardEditorValue: state.editorReducer.whiteBoardEditorValue,
   };
 };
 
