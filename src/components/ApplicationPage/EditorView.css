@@ -34,11 +34,11 @@
 }
 
 .editor-view-wrapper {
-  width: 70%;
+  width: 100%;
 }
 
 .main-editor-wrapper {
-  height: 85vh;
+  height: 95vh;
   border: 1px solid black;
 }
 

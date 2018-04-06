@@ -7,8 +7,7 @@ video {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  /* height: 50%; */
-  /* width: 30%; */
+  height: 50%;
 }
 
 .video-box {
