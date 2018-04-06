@@ -115,6 +115,7 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       loading: false,
       error: action.error,
+    };
   case EditorActions.SET_WHITEBOARD_EDITOR_BRUSH_SIZE:
     return {
       ...state,
