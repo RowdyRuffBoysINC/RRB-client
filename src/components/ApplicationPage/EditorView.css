@@ -1,30 +1,3 @@
-.editor-mode-text {
-  list-style-type: none;
-  color: #141414;
-  font-size: 1.1em;
-  margin-left: 15px;
-  text-align: left;
-}
-
-.editor-mode-text:hover {
-  cursor:pointer;
- }
-
- .nav-bar-wrapper {
-   width: 100%;
- }
-
-.nav-bar-ul {
-  display: flex;
-  margin-top: 0px;
-  padding-top: 15px;
-  margin-bottom: 0px;
-  flex-direction: row;
-  margin-right: 10%;
-  padding-bottom: 5px;
-  padding-left: 0px;
-}
-
 .CodeMirror {
   height: 85vh;
 }

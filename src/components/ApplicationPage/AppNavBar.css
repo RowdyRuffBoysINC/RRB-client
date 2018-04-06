@@ -1,3 +1,38 @@
 .nav-bar-wrapper {
   height: 10vh;
 }
+
+.view-switch, .video, .audio {
+  display: flex;
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+.nav-bar-ul {
+  display: flex;
+  margin-top: 0px;
+  padding-top: 15px;
+  margin-bottom: 0px;
+  flex-direction: row;
+  margin-right: 10%;
+  padding-bottom: 5px;
+  padding-left: 0px;
+}
+
+.editor-mode-text {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  color: #141414;
+  font-size: 1.1em;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.editor-mode-text:hover {
+  cursor:pointer;
+ }
+
+ .nav-bar-wrapper {
+   width: 100%;
+ }
