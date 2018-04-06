@@ -14,7 +14,11 @@ export const socket = io(API_BASE_URL);
 export class Room extends React.Component {
   componentWillMount() {
     console.log(this.props.match.params.roomName);
-    this.props.dispatch(fetchDocsFromDb(this.props.match.params.roomName));
+    if (this.props.dispatch(fetchDocsFromDb(this.props.match.params.roomName))) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
   }
 
   componentDidMount() {

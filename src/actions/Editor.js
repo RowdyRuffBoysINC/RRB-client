@@ -68,7 +68,7 @@ export const saveDocsToDb = doc => async (dispatch) => {
   dispatch(saveDocsToDbRequest());
   try {
     const response = await fetch(`${API_BASE_URL}/documents/`, {
-      method: 'POST',
+      method: 'PUT',
       headers: { 'content-type': 'application/json', },
       body: JSON.stringify(doc),
     })
@@ -110,8 +110,8 @@ export const fetchDocsFromDb = roomName => async (dispatch) => {
   try {
     const response = await fetch(`${API_BASE_URL}/documents/${roomName}`);
     const json = await response.json();
-    console.log(json[0]);
-    dispatch(fetchDocsFromDbSuccess(json[0]));
+    await dispatch(fetchDocsFromDbSuccess(json[0]));
+    return;
   }
   catch (err) {
     dispatch(fetchDocsFromDbError(err));
