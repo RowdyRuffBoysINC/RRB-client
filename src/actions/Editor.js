@@ -127,3 +127,44 @@ export const fetchDocsFromDb = roomName => async (dispatch) => {
     }
   }
 }
+
+
+export const CREATE_DOCS_DB_REQUEST = 'CREATE_DOCS_DB_REQUEST';
+export const createDocsDbRequest = () => ({type: CREATE_DOCS_DB_REQUEST,});
+
+export const CREATE_DOCS_DB_SUCCESS = 'CREATE_DOCS_DB_SUCCESS';
+export const createDocsDbSuccess = document => ({
+  type: CREATE_DOCS_DB_SUCCESS,
+  codeEditorText: document.codeEditorText,
+  wordEditorText: document.wordEditorText,
+  whiteBoardEditorValue: document.whiteBoardEditorValue,
+});
+
+export const CREATE_DOCS_DB_ERROR = 'CREATE_DOCS_DB_ERROR';
+export const createDocsDbError = error => ({
+  type: CREATE_DOCS_DB_ERROR,
+  error,
+});
+
+export const createDocsDb = doc => async (dispatch) => {
+  dispatch(createDocsDbRequest());
+  try {
+    const response = await fetch(`${API_BASE_URL}/documents/${doc.roomName}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', },
+      body: JSON.stringify(doc),
+    })
+    dispatch(createDocsDbSuccess());
+    await response.json();
+  }
+  catch (err) {
+    dispatch(createDocsDbError(err));
+    const { reason, message, location, } = err;
+    if (reason === 'ValidationError') {
+      // Convert ValidationErrors into SubmissionErrors for Redux Form
+      return Promise.reject(
+        new SubmissionError({ [location]: message, })
+      );
+    }
+  }
+};
