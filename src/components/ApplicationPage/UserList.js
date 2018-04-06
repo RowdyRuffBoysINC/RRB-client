@@ -14,7 +14,7 @@ export function UserList(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {  
+  return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     userList: state.applicationReducer.listOfUsers,

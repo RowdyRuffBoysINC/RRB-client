@@ -1,15 +1,17 @@
-import './Room.css';
 import React from 'react';
 import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
 import { convertToRaw, } from 'draft-js';
+
 import EditorView from './EditorView';
 import { setCreateInput, } from '../../actions/Application';
 import { fetchDocsFromDb, updateDocsDb, createDocsDb, } from '../../actions/Editor';
 import { API_BASE_URL, } from '../../config';
 import WebCam from './WebCam';
 import Chat from './Chat';
+import './Room.css';
+
 
 export const socket = io(API_BASE_URL);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+
 import RequiresLogin from '../LandingPage/RequiresLogin';
 import Room from './Room';
 import RoomCreate from './RoomCreate';
@@ -15,7 +16,7 @@ export class Dashboard extends React.Component {
     else {
       return (
         <section>
-          <AppNavBar/>
+          <AppNavBar />
           <Room />
         </section>
       );
