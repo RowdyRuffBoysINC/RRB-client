@@ -58,10 +58,12 @@ export default class SIOC {
 
   setLocalVideo(src) {
     console.log('Setting local video.');
+    console.log('Setting local video. -> src: ', src);
     this.localVideo = <Video className="video-local-small"
       id={this.addedPersonId}
       key={this.addedPersonId}
       src={src}></Video>;
+    console.log('Setting local video. -> this.localVideo:  ', this.localVideo);
   }
 
   getLocalVideo() {
@@ -110,6 +112,7 @@ export default class SIOC {
   }
 
   answerMade() {
+    console.log('Created answerMade socket listener');
     socket.on('answer-made', (data) =>{
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
         console.log('answer was made');
@@ -122,6 +125,7 @@ export default class SIOC {
   }
 
   offerMade() {
+    console.log('Created offer made socket listener');
     socket.on('offer-made', (data) => {
       console.log('offer made');
       this.offer = data.offer;
@@ -141,6 +145,7 @@ export default class SIOC {
   }
 
   addUsers(dispatch) {
+    console.log('added addUsers socket listener');
     socket.on('add-users', (data) => {
       dispatch(setUserList(data.users));
     });
@@ -162,10 +167,10 @@ export default class SIOC {
     console.log('PC Exists', this.pc);
 
     this.pc.onaddstream= (obj) => {
-      this.setRemoteVideo();
+      console.log('This.pc.onaddstream triggered');
+      // This.setRemoteVideo();
     };
     console.log('Starting... setting local video');
-
     trace('running getUserMedia');
     this.navigator.getUserMedia({
       video: this.enableCamera,
