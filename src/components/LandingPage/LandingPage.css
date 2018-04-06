@@ -16,7 +16,7 @@ header {
 
 .landing-header {
   font-size: 1.2em;
-  margin-top: 15%;
+  margin-top: 1em;
 }
 
 .landing-sub-header {
@@ -38,18 +38,26 @@ font-weight: 300;
 }
 
 .container {
-	min-height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 	display: flex;
 	position: relative;
 	margin: 0;
 	overflow-x: hidden;
-	justify-content: center;
   text-align: center;
+  flex-direction: column;
+}
+
+footer {
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin-top: 2.5em !important;
 }
 
 .scroll-icon {
   width: 1em;
-  margin-top: 50%;
+  flex-direction: column-reverse;
+  text-align: center;
 }
 
 #header {
@@ -79,10 +87,7 @@ font-weight: 300;
   .landing-sub-header {
     font-size: .4em;
   } 
-  .scroll-icon {
-    margin-top: 60%;
-  }
-}
+} 
 
 @media (max-width: 760px) {
   .landing-header {
@@ -91,10 +96,6 @@ font-weight: 300;
   .landing-sub-header {
     font-size: .4em;
   } 
-  .scroll-icon {
-    margin-top: 60%;
-    width: .8em;
-  }
 }
 
 @media (max-width: 480px) {
@@ -108,8 +109,5 @@ font-weight: 300;
   } 
   #header {
   line-height: .8em;
-  }
-  .scroll-icon {
-    margin-top: 110%;
   }
 }
