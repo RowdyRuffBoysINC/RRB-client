@@ -13,18 +13,21 @@ export const socket = io(API_BASE_URL);
 
 export class Room extends React.Component {
   componentWillMount() {
+    console.log(this.props.match.params.roomName);
     this.props.dispatch(fetchDocsFromDb(this.props.match.params.roomName));
   }
 
   componentDidMount() {
     this.props.dispatch(setCreateInput(this.props.match.params.roomName));
     socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
-    const doc = {
-      codeEditorText: this.props.codeEditorText,
-      wordEditorText: this.props.wordEditorText,
-      whiteBoardEditorText: this.props.whiteBoardEditorText,
-    };
-    this.interval = setInterval(this.props.dispatch(saveDocsToDb(doc)), 30000);
+    this.interval = setInterval(() => {
+      this.props.dispatch(saveDocsToDb({
+        roomName: this.props.roomName,
+        codeEditorText: this.props.codeEditorText,
+        wordEditorText: this.props.wordEditorText,
+        whiteBoardEditorText: this.props.whiteBoardEditorText,
+      }));
+    }, 5000);
   }
 
   componentWillUnmount() {
