@@ -133,12 +133,7 @@ export const CREATE_DOCS_DB_REQUEST = 'CREATE_DOCS_DB_REQUEST';
 export const createDocsDbRequest = () => ({type: CREATE_DOCS_DB_REQUEST,});
 
 export const CREATE_DOCS_DB_SUCCESS = 'CREATE_DOCS_DB_SUCCESS';
-export const createDocsDbSuccess = document => ({
-  type: CREATE_DOCS_DB_SUCCESS,
-  codeEditorText: document.codeEditorText,
-  wordEditorText: document.wordEditorText,
-  whiteBoardEditorValue: document.whiteBoardEditorValue,
-});
+export const createDocsDbSuccess = () => ({type: CREATE_DOCS_DB_SUCCESS,});
 
 export const CREATE_DOCS_DB_ERROR = 'CREATE_DOCS_DB_ERROR';
 export const createDocsDbError = error => ({
