@@ -55,6 +55,7 @@ export default class SIOC {
   }
 
   getLocalUserMedia() {
+    console.log('getting user media');
 
   }
 
@@ -83,6 +84,7 @@ export default class SIOC {
 
   createVideo(id) {
     this.pc.createOffer((offer) => {
+      console.log('creating video aka creating offer');
       this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
         socket.emit('make-offer', {
           offer,
@@ -95,7 +97,8 @@ export default class SIOC {
 
 
   __createOffer(id) {
-    this.pc.createOffer((offer) =>{
+    this.pc.createOffer((offer) => {
+      console.log('creating offer');
       this.pc.setLocalDescription(new this.sessionDescription(offer), () =>{
         socket.emit('make-offer', {
           offer,
@@ -108,7 +111,8 @@ export default class SIOC {
 
   answerMade() {
     socket.on('answer-made', (data) =>{
-      this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () =>{
+      this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
+        console.log('answer was made');
         if(!this.answersFrom[data.socket]) {
           this.__createOffer(data.socket);
           this.answersFrom[data.socket] = true;
@@ -119,6 +123,7 @@ export default class SIOC {
 
   offerMade() {
     socket.on('offer-made', (data) => {
+      console.log('offer made');
       this.offer = data.offer;
       this.pc.setRemoteDescription(new this.sessionDescription(data.offer), () =>{
         this.pc.createAnswer((answer) => {
