@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, combineReducers, } from 'redux';
 import { composeWithDevTools, } from 'redux-devtools-extension';
 import { reducer as formReducer, } from 'redux-form';
 import thunk from 'redux-thunk';
+
 import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
 import applicationReducer from './reducers/Application';

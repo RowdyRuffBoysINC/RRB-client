@@ -54,10 +54,10 @@ export const setWhiteBoardEditorValue = input => ({
 
 
 export const UPDATE_DOCS_DB_REQUEST = 'UPDATE_DOCS_DB_REQUEST';
-export const updateDocsDbRequest = () => ({type: UPDATE_DOCS_DB_REQUEST,});
+export const updateDocsDbRequest = () => ({ type: UPDATE_DOCS_DB_REQUEST, });
 
 export const UPDATE_DOCS_DB_SUCCESS = 'UPDATE_DOCS_DB_SUCCESS';
-export const updateDocsDbSuccess = () => ({type: UPDATE_DOCS_DB_SUCCESS,});
+export const updateDocsDbSuccess = () => ({ type: UPDATE_DOCS_DB_SUCCESS, });
 
 export const UPDATE_DOCS_DB_ERROR = 'UPDATE_DOCS_DB_ERROR';
 export const updateDocsDbError = error => ({
@@ -90,7 +90,7 @@ export const updateDocsDb = doc => async (dispatch) => {
 
 
 export const FETCH_DOCS_FROM_DB_REQUEST = 'FETCH_DOCS_FROM_DB_REQUEST';
-export const fetchDocsFromDbRequest = () => ({type: FETCH_DOCS_FROM_DB_REQUEST,});
+export const fetchDocsFromDbRequest = () => ({ type: FETCH_DOCS_FROM_DB_REQUEST, });
 
 export const FETCH_DOCS_FROM_DB_SUCCESS = 'FETCH_DOCS_FROM_DB_SUCCESS';
 export const fetchDocsFromDbSuccess = document => ({
@@ -131,10 +131,10 @@ export const fetchDocsFromDb = roomName => async (dispatch) => {
 
 
 export const CREATE_DOCS_DB_REQUEST = 'CREATE_DOCS_DB_REQUEST';
-export const createDocsDbRequest = () => ({type: CREATE_DOCS_DB_REQUEST,});
+export const createDocsDbRequest = () => ({ type: CREATE_DOCS_DB_REQUEST, });
 
 export const CREATE_DOCS_DB_SUCCESS = 'CREATE_DOCS_DB_SUCCESS';
-export const createDocsDbSuccess = () => ({type: CREATE_DOCS_DB_SUCCESS,});
+export const createDocsDbSuccess = () => ({ type: CREATE_DOCS_DB_SUCCESS, });
 
 export const CREATE_DOCS_DB_ERROR = 'CREATE_DOCS_DB_ERROR';
 export const createDocsDbError = error => ({
