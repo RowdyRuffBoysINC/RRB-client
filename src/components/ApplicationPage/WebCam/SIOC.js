@@ -14,6 +14,7 @@ export default class SIOC {
     this.enableCamera = true;
     this.remoteVideo = null;
     this.localVideo = null;
+    this.localVideoRef = null;
     this.pc = null;
     this.roomName = null;
     this.username = null;
@@ -60,6 +61,7 @@ export default class SIOC {
   }
 
   setLocalVideo(src) {
+    console.log('Setting local video.');
     this.localVideo = <Video className="video-local-small"
       id={this.addedPersonId}
       key={this.addedPersonId}
@@ -67,13 +69,13 @@ export default class SIOC {
   }
 
   getLocalVideo() {
+    console.log('Getting local video', this.localVideo);
     return this.localVideo;
   }
 
   setRemoteVideo(src) {
     trace('Setting remote video');
     this.remoteVideo = <Video
-      ref="local-video"
       className="video-remote-large"
       src={window.URL.createObjectURL(src)}>
     </Video>;
@@ -166,7 +168,6 @@ export default class SIOC {
     this.pc.onaddstream= (obj) => {
       this.setRemoteVideo();
     };
-
 
     trace('running getUserMedia');
     this.navigator.getUserMedia({

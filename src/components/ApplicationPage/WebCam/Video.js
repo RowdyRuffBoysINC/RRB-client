@@ -29,7 +29,7 @@ export class Video extends React.Component {
 
   constructor(props) {
     super(props);
-
+    console.log('Video constructor initiate');
     this.state = {
       hasUserMedia: false,
       userMediaRequested: false
@@ -78,7 +78,7 @@ export class Video extends React.Component {
       constraints,
       (stream) => {
         const video = this._video;
-
+        console.log('video? in Video Comp', this._video);
         video.srcObject = stream;
 
         this._mediaStream = stream;
