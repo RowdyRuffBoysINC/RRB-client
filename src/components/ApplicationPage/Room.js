@@ -13,6 +13,7 @@ export const socket = io(API_BASE_URL);
 
 export class Room extends React.Component {
   componentWillMount() {
+    // If false is returned from GET, create new doc instead of updating
     this.props.dispatch(fetchDocsFromDb(this.props.match.params.roomName))
       .then((value) => {
         if (value === false) {
@@ -20,7 +21,7 @@ export class Room extends React.Component {
             roomName: this.props.roomName,
             codeEditorText: this.props.codeEditorText,
             wordEditorText: this.props.wordEditorText,
-            whiteBoardEditorText: this.props.whiteBoardEditorText,    
+            whiteBoardEditorText: this.props.whiteBoardEditorText,
           }));
         }
       });
@@ -29,6 +30,7 @@ export class Room extends React.Component {
   componentDidMount() {
     this.props.dispatch(setCreateInput(this.props.match.params.roomName));
     socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
+    // Update docs every x seconds
     this.interval = setInterval(() => {
       this.props.dispatch(updateDocsDb({
         roomName: this.props.roomName,
@@ -36,7 +38,7 @@ export class Room extends React.Component {
         wordEditorText: this.props.wordEditorText,
         whiteBoardEditorText: this.props.whiteBoardEditorText,
       }));
-    }, 5000);
+    }, 10000);
   }
 
   componentWillUnmount() {
