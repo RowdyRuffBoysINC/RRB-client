@@ -11,6 +11,7 @@ export class Video extends React.Component {
     height: PropTypes.number,
     onSuccess: PropTypes.func,
     onFailure: PropTypes.func,
+    src: PropTypes.any,
   };
 
   static defaultProps = {
@@ -37,6 +38,8 @@ export class Video extends React.Component {
   }
 
   componentDidMount() {
+    console.log('Video -> componentDidMount');
+    
     if (!this._hasGetUserMedia()) {
       return false;
     }
@@ -98,6 +101,7 @@ export class Video extends React.Component {
   }
 
   render() {
+    console.log('Videojs -> props', this.props);
     const { width, height } = this.props;
 
     return (
