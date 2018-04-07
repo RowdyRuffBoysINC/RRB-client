@@ -11,10 +11,10 @@ export class WebCam extends React.Component {
   constructor(props) {
     super(props);
     this.SIOC = new SIOC();
-    console.log('SIOC', this.SIOC);
+    console.log('Index.js -> new instance of SIOC');
 
     this.state = {
-      localVideo: null,
+      localVideoSrc: null,
     };
   }
 
@@ -35,6 +35,10 @@ export class WebCam extends React.Component {
 
   componentDidUpdate() {
     console.log('index.js -> didupdate');
+  }
+
+  setLocalVideoSrc(src) {
+    this.setState({ localVideoSrc: src });
   }
 
   render() {
