@@ -16,6 +16,7 @@ export class WebCam extends React.Component {
     // Future change; turn state into Redux state
     this.state = {
       localVideoStream: null,
+      remoteVideoStreams: {}
     };
   }
 
