@@ -100,7 +100,7 @@ export default class SIOC {
 
   __createOffer(id) {
     this.pc.createOffer((offer) => {
-      console.log('creating offer');
+      console.log('SIOC -> creating offer');
       this.pc.setLocalDescription(new this.sessionDescription(offer), () =>{
         socket.emit('make-offer', {
           offer,
@@ -114,8 +114,8 @@ export default class SIOC {
   answerMade() {
     console.log('Created answerMade socket listener');
     socket.on('answer-made', (data) =>{
+      console.log('SIOC -> answer was made');
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
-        console.log('answer was made');
         if(!this.answersFrom[data.socket]) {
           this.__createOffer(data.socket);
           this.answersFrom[data.socket] = true;
@@ -125,9 +125,9 @@ export default class SIOC {
   }
 
   offerMade() {
-    console.log('Created offer made socket listener');
+    console.log('SIOC -> Created offer made socket listener');
     socket.on('offer-made', (data) => {
-      console.log('offer made');
+      console.log('SIOC -> offer made');
       this.offer = data.offer;
       this.pc.setRemoteDescription(new this.sessionDescription(data.offer), () =>{
         this.pc.createAnswer((answer) => {
