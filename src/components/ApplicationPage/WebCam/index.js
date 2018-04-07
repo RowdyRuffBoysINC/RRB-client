@@ -58,6 +58,16 @@ export class WebCam extends React.Component {
     return null;
   }
 
+  createRemoteVideos() {
+    if (false) {
+
+    }
+
+    console.log('Indexjs -> createRemoteVideos -> localVideoStream is null -> return null');
+
+    return null;
+  }
+
   render() {
     console.log('index.js -> render');
     return (
