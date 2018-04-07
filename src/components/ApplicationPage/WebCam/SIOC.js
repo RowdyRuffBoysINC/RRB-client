@@ -157,6 +157,19 @@ export default class SIOC {
     });
   }
 
+  getLocalUserMedia(callback) {
+
+    trace('SIOC -> getLocalUserMedia -> running getUserMedia');
+    this.navigator.getUserMedia({
+      video: this.enableCamera,
+      audio: this.enableAudio,
+    }, (stream) => {
+      // this.setLocalVideo(window.URL.createObjectURL(stream));
+      callback(stream);
+      this.pc.addStream(stream);
+    }, error);
+  }
+
   init(props) {
     trace('Running SIOC.init');
     const { roomName, username, dispatch, } = props;
