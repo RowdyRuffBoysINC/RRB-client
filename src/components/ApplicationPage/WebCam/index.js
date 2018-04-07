@@ -39,8 +39,12 @@ export class WebCam extends React.Component {
   }
 
   setLocalVideoStream(stream) {
-    console.log('Index.js -> setlocalVideoStream -> src: ', stream);
+    console.log('Index.js -> setlocalVideoStream -> stream: ', stream);
     this.setState({ localVideoStream: stream });
+  }
+
+  setRemoteVideoStream(stream) {
+    console.log('Index.js -> setRemoteVideoStream -> stream: ', stream);
   }
 
   createLocalVideo() {
