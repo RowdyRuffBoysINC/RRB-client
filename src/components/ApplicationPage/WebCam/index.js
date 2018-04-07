@@ -43,13 +43,19 @@ export class WebCam extends React.Component {
     this.setState({ localVideoSrc: src });
   }
 
+  createLocalVideo() {
+    const videoSrc = window.URL.createObjectURL(this.state.localVideoSrc);
+    return (<video src={videoSrc} autoPlay></video>);
+  }
+
   render() {
     console.log('index.js -> render');
     return (
       <section className="video-container">
         <section className="video-box" id="video-box">
           {/* {this.state.localVideo} */}
-          {this.SIOC.getLocalVideo()}
+          {/* {this.SIOC.getLocalVideo()} */}
+          <h1>Video</h1>
           {/* {this.SIOC.getRemoteVideo()} */}
         </section>
         <section className="users-container" id="users-container">
