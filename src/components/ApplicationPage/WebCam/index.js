@@ -39,13 +39,17 @@ export class WebCam extends React.Component {
   }
 
   setLocalVideoStream(stream) {
-    console.log('Index.js -> setlocalVideoStream -> src: ', src);
+    console.log('Index.js -> setlocalVideoStream -> src: ', stream);
     this.setState({ localVideoStream: stream });
   }
 
   createLocalVideo() {
-    const videoSrc = window.URL.createObjectURL(this.state.localVideoStream);
-    return (<video src={videoSrc} autoPlay></video>);
+    if (this.state.localVideoStream) {
+      const videoSrc = window.URL.createObjectURL(this.state.localVideoStream);
+      return (<video src={videoSrc} autoPlay></video>);
+    }
+
+    return null;
   }
 
   render() {
@@ -56,6 +60,7 @@ export class WebCam extends React.Component {
           {/* {this.state.localVideo} */}
           {/* {this.SIOC.getLocalVideo()} */}
           <h1>Video</h1>
+          {this.createLocalVideo()}
           {/* {this.SIOC.getRemoteVideo()} */}
         </section>
         <section className="users-container" id="users-container">
