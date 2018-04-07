@@ -38,6 +38,7 @@ export class WebCam extends React.Component {
   }
 
   render() {
+    console.log('index.js -> render');
     return (
       <section className="video-container">
         <section className="video-box" id="video-box">

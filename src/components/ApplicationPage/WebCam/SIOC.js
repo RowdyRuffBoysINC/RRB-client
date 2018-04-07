@@ -170,7 +170,7 @@ export default class SIOC {
       console.log('This.pc.onaddstream triggered');
       // This.setRemoteVideo();
     };
-    console.log('Starting... setting local video');
+    console.log('init -> Starting... setting local video');
     trace('running getUserMedia');
     this.navigator.getUserMedia({
       video: this.enableCamera,
