@@ -147,12 +147,14 @@ export default class SIOC {
   addUsers(dispatch) {
     console.log('added addUsers socket listener');
     socket.on('add-users', (data) => {
+      console.log('SIOC -> addUsers -> add-users was event was emitted');
       dispatch(setUserList(data.users));
     });
   }
 
   removeUsers(dispatch) {
     socket.on('remove-user', (id) => {
+      console.log('SIOC -> addUsers -> add-users was event was emitted');
       dispatch(deleteUserFromList(id));
     });
   }
