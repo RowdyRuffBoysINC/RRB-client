@@ -177,8 +177,8 @@ export default class SIOC {
     this.username = username;
 
 
-    console.log('PC Exists', this.pc);
 
+    console.log('SIOC -> adding pc.onaddstream listener');
     this.pc.onaddstream= (obj) => {
       console.log('This.pc.onaddstream triggered');
       // This.setRemoteVideo();
