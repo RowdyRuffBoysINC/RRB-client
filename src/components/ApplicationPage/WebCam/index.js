@@ -20,11 +20,11 @@ export class WebCam extends React.Component {
 
   componentWillMount() {
     // this.SIOC.setL
+    this.SIOC.init(this.props);
   }
 
   componentDidMount() {
     console.log('ComponentDidMount ->');
-    this.SIOC.init(this.props);
     // console.log('set localvideo to this: ', this.SIOC.getLocalVideo());
     // this.setState({ localVideo: this.SIOC.getLocalVideo() });
   }
