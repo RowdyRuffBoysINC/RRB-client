@@ -183,25 +183,29 @@ export default class SIOC {
       console.log('This.pc.onaddstream triggered');
       // This.setRemoteVideo();
     };
-    console.log('init -> Starting... setting local video');
-    trace('running getUserMedia');
-    this.navigator.getUserMedia({
-      video: this.enableCamera,
-      audio: this.enableAudio,
-    }, (stream) => {
-      this.setLocalVideo(window.URL.createObjectURL(stream));
-      this.pc.addStream(stream);
-    }, error);
+
+    // console.log('init -> Starting... setting local video');
+    // trace('running getUserMedia');
+    // this.navigator.getUserMedia({
+    //   video: this.enableCamera,
+    //   audio: this.enableAudio,
+    // }, (stream) => {
+    //   this.setLocalVideo(window.URL.createObjectURL(stream));
+    //   this.pc.addStream(stream);
+    // }, error);
 
     // Wire socket events
+    console.log('SIOC -> wiring socket events');
     this.answerMade();
     this.offerMade();
 
+    console.log('SIOC -> emitting add-users');
     socket.emit('add-users', {
       room: roomName,
       user: username,
     });
 
+    // Forgot what these did
     this.addUsers(dispatch);
     this.removeUsers(dispatch);
   }
