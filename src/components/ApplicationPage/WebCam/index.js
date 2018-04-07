@@ -60,7 +60,9 @@ export class WebCam extends React.Component {
   }
 
   createRemoteVideos() {
-    if (false) {
+    const arrOfRemoteVideoStreamKeys = Object.keys(this.state.remoteVideoStreams);
+
+    if (arrOfRemoteVideoStreamKeys.length > 0) {
 
     }
 
