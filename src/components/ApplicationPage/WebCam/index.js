@@ -50,7 +50,7 @@ export class WebCam extends React.Component {
 
       console.log('Indexjs -> createLocalVideo -> localVideoStream exists -> turned into src -> return it');
 
-      return (<video className='video-small'src={videoSrc} autoPlay></video>);
+      return (<video className='video-local-small' src={videoSrc} autoPlay></video>);
     }
 
     console.log('Indexjs -> createLocalVideo -> localVideoStream is null -> return null');
