@@ -52,11 +52,14 @@ export class WebCam extends React.Component {
     if (this.props.remoteVideoStreams.length > 0) {
       console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
       for (let index in this.props.remoteVideoStreams) {
-        console.log(this.props.remoteVideoStreams[index]);
-        const videoSrc = window.URL.createObjectURL(this.props.remoteVideoStreams[index].stream);
-        //console.log('Index.js -> createRemoteVideos -> for loop: ', index, arrOfRemoteVideoStreamKeys[key], this.props.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
+
+        let currentId = this.props.remoteVideoStreams[index].id;
+        let currentStream = this.props.remoteVideoStreams[index].stream;
+
+        console.log(currentId, currentStream);
+        const videoSrc = window.URL.createObjectURL(currentStream);
       
-        // arrOfVideos.push(<video key={arrOfRemoteVideoStreamKeys[key]} className='video-remote-large' src={videoSrc} autoPlay></video>);
+        arrOfVideos.push(<video key={currentId} className='video-remote-large' src={videoSrc} autoPlay></video>);
         console.log('Index.js -> createRemoteVideos -> videos: ', arrOfVideos);
       }
 

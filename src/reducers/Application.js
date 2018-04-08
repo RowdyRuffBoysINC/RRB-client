@@ -37,7 +37,6 @@ const applicationReducer = function (state = initialState, action) {
       localVideoStream: action.data,
     };
   case ApplicationActions.SET_REMOTE_USER_STREAM: {
-
     if (state.remoteVideoStreams.length === 0) {
       return {
         ...state,
@@ -45,7 +44,7 @@ const applicationReducer = function (state = initialState, action) {
       };
     }
 
-    const foundUser = state.remoteVideoStreams.find(stream => stream.id === action.data.id);
+    const foundUser = state.remoteVideoStreams.find(video => video.id === action.data.id);
 
     if (foundUser)
       return state;
@@ -60,21 +59,15 @@ const applicationReducer = function (state = initialState, action) {
       ...state,
       localVideoStream: null,
     };
-  case ApplicationActions.DELETE_REMOTE_USER_STREAM: {
-    console.log('ApplicationReducer -> OLD OBJ:', JSON.stringify(state, null, 2));
-    console.log('ApplicationReducer -> ACTION DATA: ', JSON.stringify(action.data, null, 2));
-    const { remoteVideoStreams: { r, ...remoteVideoStreams }, } = state;
-
-    console.log('ApplicationReducer -> NEW DELETED OBJ:', {
+  case ApplicationActions.DELETE_REMOTE_USER_STREAM:
+    console.log('ApplicationReducer -> Delete Remote user stream -> NEW ONE', {
       ...state,
-      remoteVideoStreams,
+      remoteVideoStreams: state.remoteVideoStreams.filter(video => video.id !== action.data),
     });
-
     return {
       ...state,
-      remoteVideoStreams,
+      remoteVideoStreams: state.remoteVideoStreams.filter(video => video.id !== action.data),
     };
-  }
   default:
     return state;
   }
