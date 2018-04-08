@@ -1,5 +1,8 @@
 import { UPDATE_CHAT_LOG, } from './../actions/Chat';
-const initialState = {chatLogs: [],};
+const initialState = {
+  chatLogs: [],
+  isChatViewEnabled: true,
+};
 
 const chatReducer = function (state = initialState, action) {
   switch (action.type) {

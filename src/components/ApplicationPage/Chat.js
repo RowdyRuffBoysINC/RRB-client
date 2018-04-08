@@ -23,10 +23,6 @@ export class Chat extends React.Component {
   }
 
   render() {
-    console.log(this.props.numOfUsers);
-    <section className="users-container" id="users-container">
-      <UserList createOffer={id => this.createVideo(id)} />
-    </section>;
     return (
       <section className="chat-wrapper">
         <header>
@@ -39,6 +35,7 @@ export class Chat extends React.Component {
             <li>
               <a>
                 Users ({this.props.numOfUsers})
+                <UserList />
               </a>
             </li>
           </ul>
