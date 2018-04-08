@@ -9,7 +9,7 @@ import applicationReducer from './reducers/Application';
 import editorReducer from './reducers/Editor';
 import landingPageReducer from './reducers/LandingPage';
 import { setAuthToken, refreshAuthToken, } from './actions/Auth';
-
+// Fix: use same naming conventions for reducers.
 const store = createStore(
   combineReducers({
     form: formReducer,
