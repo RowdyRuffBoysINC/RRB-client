@@ -177,6 +177,7 @@ export default class SIOC {
     const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, } = props;
     this.roomName = roomName;
     this.username = username;
+    this.dispatch = dispatch;
     this.setLocalVideoStream = setLocalVideoStream;
     this.setRemoteVideoStream = setRemoteVideoStream;
 
