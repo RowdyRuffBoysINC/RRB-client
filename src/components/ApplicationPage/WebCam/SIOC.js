@@ -9,7 +9,9 @@ import {
 
 export default class SIOC {
   constructor() {
+    // AddedPersonId keeps track of the user you requested video from
     this.addedPersonId = null;
+
     this.enableAudio = false;
     this.enableCamera = true;
     this.remoteVideo = null;
@@ -80,7 +82,6 @@ export default class SIOC {
       className="video-remote-large"
       src={window.URL.createObjectURL(src)}>
     </Video>;
-
   }
 
   getRemoteVideo() {
@@ -118,6 +119,12 @@ export default class SIOC {
     socket.on('answer-made', (data) =>{
       console.log('SIOC -> answer was made');
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
+        /*
+        This runs more than once; even though a valid answer comes back from a remote user the first time.
+        Might produce issues in the future?
+        */
+        this.addedPersonId = data.socket;
+
         if(!this.answersFrom[data.socket]) {
           console.log('SIOC -> answerMade() -> answer from socket doesnt exist..');
           this.__createOffer(data.socket);
@@ -163,7 +170,6 @@ export default class SIOC {
   }
 
   getLocalUserMedia() {
-
     trace('SIOC -> getLocalUserMedia -> running getUserMedia');
     this.navigator.getUserMedia({
       video: this.enableCamera,
