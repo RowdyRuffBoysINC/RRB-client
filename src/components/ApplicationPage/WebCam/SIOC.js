@@ -5,6 +5,8 @@ import Video from './Video';
 import {
   setUserList,
   deleteUserFromList,
+  setLocalUserStream,
+  setRemoteUserStream,
 } from '../../../actions/Application';
 
 export default class SIOC {
