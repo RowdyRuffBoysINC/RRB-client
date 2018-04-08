@@ -12,12 +12,6 @@ export class WebCam extends React.Component {
     super(props);
     this.SIOC = new SIOC();
     console.log('Index.js -> new instance of SIOC');
-
-    // Future change; turn state into Redux state
-    this.state = {
-      localVideoStream: null,
-      remoteVideoStreams: {}
-    };
   }
 
   componentWillMount() {
