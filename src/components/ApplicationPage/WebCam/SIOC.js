@@ -192,6 +192,7 @@ export default class SIOC {
     // This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
     this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
+      console.log('SIOC -> this user triggered the event: ', this.addedPersonId);
     };
 
     // Wire socket events
