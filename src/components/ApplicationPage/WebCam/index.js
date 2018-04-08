@@ -50,7 +50,13 @@ export class WebCam extends React.Component {
   }
 
   setRemoteVideoStream(stream, person) {
+    const { socket, user } = person;
+
     console.log('Index.js -> setRemoteVideoStream -> stream: ', stream);
+    this.setState({ remoteVideoStreams: { 
+      ...this.state.remoteVideoStreams,
+      socket: stream 
+    } });
   }
 
   createLocalVideo() {
@@ -83,6 +89,7 @@ export class WebCam extends React.Component {
 
   render() {
     console.log('index.js -> render');
+    console.log('index.js -> this.state: ', this.state);
     return (
       <section className="video-container">
         <section className="video-box" id="video-box">
