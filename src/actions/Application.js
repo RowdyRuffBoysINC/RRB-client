@@ -12,11 +12,17 @@ export const deleteUserFromList = input => ({ type: DELETE_USER_FROM_LIST, data:
 export const SET_LOCAL_USER_STREAM = 'SET_LOCAL_USER_STREAM';
 export const setLocalUserStream = stream => ({ type: SET_LOCAL_USER_STREAM, data: stream, });
 
+export const STOP_LOCAL_USER_STREAM = 'STOP_LOCAL_USER_STREAM';
+export const stopLocalUserStream = () => ({ type: STOP_LOCAL_USER_STREAM, });
+
 export const DELETE_LOCAL_USER_STREAM = 'DELETE_LOCAL_USER_STREAM';
 export const deleteLocalUserStream = () => ({ type: DELETE_LOCAL_USER_STREAM, });
 
 export const SET_REMOTE_USER_STREAM = 'SET_REMOTE_USER_STREAM';
 export const setRemoteUserStream = (stream, addedPerson) => ({ type: SET_REMOTE_USER_STREAM, data: { stream, id: addedPerson.socket, user: addedPerson.user, }, });
+
+export const STOP_REMOTE_USER_STREAM = 'STOP_REMOTE_USER_STREAM';
+export const stopRemoteUserStream = id => ({ type: STOP_REMOTE_USER_STREAM, data: id, });
 
 export const DELETE_REMOTE_USER_STREAM = 'DELETE_REMOTE_USER_STREAM';
 export const deleteRemoteUserStream = id => ({ type: DELETE_REMOTE_USER_STREAM, data: id, });
