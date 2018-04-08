@@ -96,6 +96,7 @@ export default class SIOC {
           offer,
           to: id,
           room: this.roomName,
+          user: this.username,
         });
       }, error);
     }, error);
@@ -141,6 +142,12 @@ export default class SIOC {
   offerMade() {
     console.log('SIOC -> Created offer made socket listener');
     socket.on('offer-made', (data) => {
+      console.log('SIOC -> offerMade() -> offer was made');
+      console.log('SIOC -> offerMade() -> data from socket', data);
+
+      const { socket, user, } = data;
+      this.addedPerson = { socket, user, };
+
       console.log('SIOC -> offer made');
       this.offer = data.offer;
       this.pc.setRemoteDescription(new this.sessionDescription(data.offer), () =>{
@@ -193,7 +200,9 @@ export default class SIOC {
     this.setRemoteVideoStream = setRemoteVideoStream;
 
     console.log('SIOC -> adding pc.onaddstream listener');
-    // This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
+    /*
+    This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
+    */
     this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
       console.log('SIOC -> This.pc.onaddstream -> this user triggered the event: ', this.addedPerson);
