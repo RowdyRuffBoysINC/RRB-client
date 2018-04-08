@@ -2,7 +2,7 @@
   height: 10vh;
 }
 
-.view-switch, .video, .audio {
+.view-switch, video, audio {
   display: flex;
   flex-direction: row-reverse;
   align-self: flex-end;
@@ -34,7 +34,7 @@
   text-align: left;
 }
 
-.editor-mode-text:hover {
+.editor-mode-text:hover, .video, .audio {
   cursor:pointer;
  }
 
