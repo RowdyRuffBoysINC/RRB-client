@@ -9,20 +9,26 @@ import './Chat.css';
 export class Chat extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
-    const message = this.input.value;
-    this.props.dispatch(updateChatLog(message));
-    console.log(this.props);
+    this.props.dispatch(updateChatLog(this.input.value));
+    this.input.value = '';
+  }
+
+  generateChatList() {
+    const chatList = this.props.chatLogs
+      .map(message =>
+        <li>{message}</li>
+      );
+    return chatList;
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props, 'these are props');
     return (
       <section className="chat-wrapper">
         <div className="chat-display">
           <ul className="chat-messages">
-            <li>
-              Username: message from user
-            </li>
+            fsffdfsd
+            {this.generateChatList()}
           </ul>
         </div>
         <form
@@ -36,6 +42,9 @@ export class Chat extends React.Component {
               this.input = input;
             }}
           />
+          <button>
+            Send
+          </button>
         </form>
       </section>
     );
