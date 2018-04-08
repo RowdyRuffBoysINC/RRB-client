@@ -68,6 +68,7 @@ export class Chat extends React.Component {
 const mapStateToProps = (state) => {
   return {
     chatLogs: state.chat.chatLogs,
+    isChatViewEnabled: state.chat.isChatViewEnabled,
     username: state.auth.currentUser.username,
     numOfUsers: state.applicationReducer.listOfUsers.length,
   };
