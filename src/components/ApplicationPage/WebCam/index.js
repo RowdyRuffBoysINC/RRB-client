@@ -48,15 +48,15 @@ export class WebCam extends React.Component {
   }
 
   createRemoteVideos() {
-    const arrOfRemoteVideoStreamKeys = Object.keys(this.props.remoteVideoStreams);
     const arrOfVideos = [];
-    if (arrOfRemoteVideoStreamKeys.length > 0) {
+    if (this.props.remoteVideoStreams.length > 0) {
       console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
-      for (let key in arrOfRemoteVideoStreamKeys) {
-        const videoSrc = window.URL.createObjectURL(this.props.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
-        console.log('Index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.props.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
+      for (let index in this.props.remoteVideoStreams) {
+        console.log(this.props.remoteVideoStreams[index]);
+        const videoSrc = window.URL.createObjectURL(this.props.remoteVideoStreams[index].stream);
+        //console.log('Index.js -> createRemoteVideos -> for loop: ', index, arrOfRemoteVideoStreamKeys[key], this.props.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
       
-        arrOfVideos.push(<video key={arrOfRemoteVideoStreamKeys[key]} className='video-remote-large' src={videoSrc} autoPlay></video>);
+        // arrOfVideos.push(<video key={arrOfRemoteVideoStreamKeys[key]} className='video-remote-large' src={videoSrc} autoPlay></video>);
         console.log('Index.js -> createRemoteVideos -> videos: ', arrOfVideos);
       }
 
