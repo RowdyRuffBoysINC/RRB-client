@@ -24,6 +24,20 @@ export class Chat extends React.Component {
     console.log(this.props, 'these are props');
     return (
       <section className="chat-wrapper">
+        <header>
+          <ul>
+            <li>
+              <a>
+                Chat
+              </a>
+            </li>
+            <li>
+              <a>
+                Users
+              </a>
+            </li>
+          </ul>
+        </header>
         <div className="chat-display">
           <ul className="chat-messages">
             {this.generateChatList()}
