@@ -6,7 +6,7 @@ const initialState = {
   editorMode: 'code',
   listOfUsers: [],
   localVideoStream: null,
-  remoteVideoStreams: {},
+  remoteVideoStreams: [],
 };
 
 const applicationReducer = function (state = initialState, action) {
@@ -40,8 +40,8 @@ const applicationReducer = function (state = initialState, action) {
     return {
       ...state,
       remoteVideoStreams: {
+        [action.data.id]: action.data.stream,
         ...state.remoteVideoStreams,
-        [`${action.data.socket}`]: action.data.stream,
       },
     };
   case ApplicationActions.DELETE_LOCAL_USER_STREAM:
@@ -51,11 +51,11 @@ const applicationReducer = function (state = initialState, action) {
     };
   case ApplicationActions.DELETE_REMOTE_USER_STREAM: {
 
-    console.log('OLD OBJ:', state);
+    console.log('ApplicationReducer -> OLD OBJ:', JSON.stringify(state, null, 2));
+    console.log('ApplicationReducer -> ACTION DATA: ', JSON.stringify(action.data, null, 2));
+    const { remoteVideoStreams: { r, ...remoteVideoStreams }, } = state;
 
-    const { remoteVideoStreams: { [action.data.input]: r, ...remoteVideoStreams }, } = state;
-    
-    console.log('NEW DELETED OBJ:', {
+    console.log('ApplicationReducer -> NEW DELETED OBJ:', {
       ...state,
       remoteVideoStreams,
     });
