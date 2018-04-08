@@ -22,14 +22,7 @@ export class WebCam extends React.Component {
 
   componentWillMount() {
     console.log('Index.js -> ComponentDidMount -> init');
-    // Design Q: Pass funcs as props or as callbacks?
-    const newProps = { 
-      ...this.props,
-      setLocalVideoStream: (stream) => this.setLocalVideoStream(stream),
-      setRemoteVideoStream: (stream, id) => this.setRemoteVideoStream(stream, id) 
-    };
-
-    this.SIOC.init(newProps);
+    this.SIOC.init(this.props);
   }
 
   componentDidMount() {
@@ -44,26 +37,11 @@ export class WebCam extends React.Component {
     console.log('Index.js -> didupdate');
   }
 
-  setLocalVideoStream(stream) {
-    console.log('Index.js -> setlocalVideoStream -> stream: ', stream);
-    this.setState({ localVideoStream: stream });
-  }
-
-  setRemoteVideoStream(stream, person) {
-    const { socket, user } = person;
-    console.log('socket', socket);
-    console.log('Index.js -> setRemoteVideoStream -> stream: ', stream);
-    this.setState({ remoteVideoStreams: { 
-      ...this.state.remoteVideoStreams,
-      ['' + socket]: stream 
-    } });
-  }
-
   createLocalVideo() {
-    if (this.state.localVideoStream) {
+    if (this.props.localVideoStream) {
       console.log('Index.js -> createLocalVideo -> localVideoStream exists');
 
-      const videoSrc = window.URL.createObjectURL(this.state.localVideoStream);
+      const videoSrc = window.URL.createObjectURL(this.props.localVideoStream);
 
       console.log('Index.js -> createLocalVideo -> localVideoStream exists -> turned into src -> return it');
 
@@ -76,13 +54,13 @@ export class WebCam extends React.Component {
   }
 
   createRemoteVideos() {
-    const arrOfRemoteVideoStreamKeys = Object.keys(this.state.remoteVideoStreams);
+    const arrOfRemoteVideoStreamKeys = Object.keys(this.props.remoteVideoStreams);
     const arrOfVideos = [];
     if (arrOfRemoteVideoStreamKeys.length > 0) {
       console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
       for (let key in arrOfRemoteVideoStreamKeys) {
-        const videoSrc = window.URL.createObjectURL(this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
-        console.log('Index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
+        const videoSrc = window.URL.createObjectURL(this.props.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
+        console.log('Index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.props.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
       
         arrOfVideos.push(<video key={arrOfRemoteVideoStreamKeys[key]} className='video-remote-large' src={videoSrc} autoPlay></video>);
         console.log('Index.js -> createRemoteVideos -> videos: ', arrOfVideos);
