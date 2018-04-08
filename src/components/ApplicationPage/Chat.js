@@ -9,9 +9,8 @@ import './Chat.css';
 export class Chat extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
-    const answer = this.input.value;
-    console.log(answer);
-    this.props.dispatch(updateChatLog());
+    const message = this.input.value;
+    this.props.dispatch(updateChatLog(message));
   }
 
   render() {
