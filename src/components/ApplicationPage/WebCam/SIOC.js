@@ -145,8 +145,12 @@ export default class SIOC {
       console.log('SIOC -> offerMade() -> offer was made');
       console.log('SIOC -> offerMade() -> data from socket', data);
 
-      const { socket, user, } = data;
-      this.addedPerson = { socket, user, };
+      const userSocket = data.socket;
+      const user = data.user;
+      
+      this.addedPerson = {};
+      this.addedPerson.user = user;
+      this.addedPerson.socket = userSocket;
 
       console.log('SIOC -> offer made');
       this.offer = data.offer;
@@ -202,6 +206,7 @@ export default class SIOC {
     console.log('SIOC -> adding pc.onaddstream listener');
     /*
     This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
+    also setRemoteDescription offer was made
     */
     this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
