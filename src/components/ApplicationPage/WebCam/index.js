@@ -33,8 +33,7 @@ export class WebCam extends React.Component {
   }
 
   componentDidMount() {
-    // Didnt try binding setLocalVideoStream
-    this.SIOC.getLocalUserMedia((src) => this.setLocalVideoStream(src));
+    this.SIOC.getLocalUserMedia();
   }
 
   componentWillUpdate() {
@@ -50,7 +49,7 @@ export class WebCam extends React.Component {
     this.setState({ localVideoStream: stream });
   }
 
-  setRemoteVideoStream(stream) {
+  setRemoteVideoStream(stream, person) {
     console.log('Index.js -> setRemoteVideoStream -> stream: ', stream);
   }
 

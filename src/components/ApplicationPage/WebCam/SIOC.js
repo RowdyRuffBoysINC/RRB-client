@@ -198,7 +198,7 @@ export default class SIOC {
       console.log('SIOC -> This.pc.onaddstream triggered');
       console.log('SIOC -> This.pc.onaddstream -> this user triggered the event: ', this.addedPerson);
       console.log('SIOC -> This.pc.onaddstream -> obj: ', obj); 
-
+      this.setRemoteVideoStream(obj, this.addedPerson);
     };
 
     // Wire socket events
