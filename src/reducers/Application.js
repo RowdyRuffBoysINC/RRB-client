@@ -36,6 +36,14 @@ const applicationReducer = function (state = initialState, action) {
       ...state,
       localVideoStream: action.data,
     };
+  case ApplicationActions.DELETE_LOCAL_USER_STREAM:
+
+    state.localVideoStream.getTracks().forEach(track => track.stop());
+
+    return {
+      ...state,
+      localVideoStream: null,
+    };
   case ApplicationActions.SET_REMOTE_USER_STREAM: {
     if (state.remoteVideoStreams.length === 0) {
       return {
@@ -54,19 +62,18 @@ const applicationReducer = function (state = initialState, action) {
         remoteVideoStreams: [ ...state.remoteVideoStreams, { id: action.data.id, stream: action.data.stream, }, ],
       };
   }
-  case ApplicationActions.DELETE_LOCAL_USER_STREAM:
-    return {
-      ...state,
-      localVideoStream: null,
-    };
   case ApplicationActions.DELETE_REMOTE_USER_STREAM:
-    console.log('ApplicationReducer -> Delete Remote user stream -> NEW ONE', {
-      ...state,
-      remoteVideoStreams: state.remoteVideoStreams.filter(video => video.id !== action.data),
-    });
     return {
       ...state,
-      remoteVideoStreams: state.remoteVideoStreams.filter(video => video.id !== action.data),
+      remoteVideoStreams: state.remoteVideoStreams.filter((video) => {
+        if (video.id === action.data) {
+          video.stream.getTracks().forEach(track => track.stop());
+          video.stream = null;
+          return false;
+        }
+
+        return true;
+      }),
     };
   default:
     return state;
