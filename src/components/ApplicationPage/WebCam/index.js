@@ -22,7 +22,13 @@ export class WebCam extends React.Component {
 
   componentWillMount() {
     console.log('Index.js -> ComponentDidMount -> init');
-    this.SIOC.init(this.props);
+    // Design Q: Pass funcs as props or as callbacks?
+    const newProps = { 
+      ...this.props,
+      setLocalVideoStream: this.setLocalVideoStream,
+      setRemoteVideoStream: this.setRemoteVideoStream 
+    };
+    this.SIOC.init(newProps);
   }
 
   componentDidMount() {
