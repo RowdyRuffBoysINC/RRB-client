@@ -23,6 +23,9 @@ export default class SIOC {
     this.offer = null;
     this.sessionDescription = null;
     this.stunServer = 'stun:stun1.l.google.com:19302';
+    
+    this.setLocalVideoStream = null;
+    this.setRemoteVideoStream = null;
 
     this._peerConnection = window.RTCPeerConnection ||
       window.mozRTCPeerConnection ||
@@ -159,7 +162,7 @@ export default class SIOC {
     });
   }
 
-  getLocalUserMedia(callback) {
+  getLocalUserMedia() {
 
     trace('SIOC -> getLocalUserMedia -> running getUserMedia');
     this.navigator.getUserMedia({
