@@ -123,7 +123,10 @@ export default class SIOC {
         This runs more than once; even though a valid answer comes back from a remote user the first time.
         Might produce issues in the future?
         */
-        this.addedPersonId = data.socket;
+        console.log('SIOC -> answerMade() -> data from socket', data);
+        
+        this.addedPersonId = data;
+        console.log('SIOC -> answerMade() -> addedPersonId changed', this.addedPersonId);
 
         if(!this.answersFrom[data.socket]) {
           console.log('SIOC -> answerMade() -> answer from socket doesnt exist..');
