@@ -100,7 +100,6 @@ export default class SIOC {
     }, error);
   }
 
-
   __createOffer(id) {
     this.pc.createOffer((offer) => {
       console.log('SIOC -> creating offer');
@@ -120,6 +119,7 @@ export default class SIOC {
       console.log('SIOC -> answer was made');
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
         if(!this.answersFrom[data.socket]) {
+          console.log('SIOC -> answerMade() -> answer from socket doesnt exist..');
           this.__createOffer(data.socket);
           this.answersFrom[data.socket] = true;
         }
@@ -183,7 +183,8 @@ export default class SIOC {
     this.setRemoteVideoStream = setRemoteVideoStream;
 
     console.log('SIOC -> adding pc.onaddstream listener');
-    this.pc.onaddstream= (obj) => {
+    // This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
+    this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
     };
 
