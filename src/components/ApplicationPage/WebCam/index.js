@@ -70,7 +70,7 @@ export class WebCam extends React.Component {
 
   render() {
     console.log('Index.js -> render');
-    console.log('Index.js -> this.state: ', this.state);
+    console.log('Index.js -> this.props: ', this.props);
 
     return (
       <section className="video-container">
