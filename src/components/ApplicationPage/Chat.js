@@ -3,6 +3,8 @@ import { connect, } from 'react-redux';
 
 import { socket, } from './Room';
 import { updateChatLog, } from './../../actions/Chat';
+import UserList from './UserList';
+
 import './Chat.css';
 
 
@@ -21,7 +23,9 @@ export class Chat extends React.Component {
   }
 
   render() {
-    console.log(this.props, 'these are props');
+    <section className="users-container" id="users-container">
+      <UserList createOffer={id => this.createVideo(id)} />
+    </section>;
     return (
       <section className="chat-wrapper">
         <header>

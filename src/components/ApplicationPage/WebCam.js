@@ -51,7 +51,7 @@ export class WebCam extends React.Component {
     let answersFrom = {}, offer;
 
     function error(err) {
-      trace('some shit happened');
+      trace(err);
     }
 
     function trace(text) {
