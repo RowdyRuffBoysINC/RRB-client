@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
+import {
+  updateChatLog,
+  isChatViewEnabled,
+} from './../../actions/Chat';
 import { socket, } from './Room';
-import { updateChatLog, } from './../../actions/Chat';
 import UserList from './UserList';
 
 import './Chat.css';

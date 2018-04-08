@@ -6,3 +6,9 @@ export const updateChatLog = message => ({
   type: UPDATE_CHAT_LOG,
   message,
 });
+
+export const UPDATE_MESSAGE_DRAFT = 'UPDATE_MESSAGE_DRAFT';
+export const updateMessageDraft = message => ({
+  type: UPDATE_MESSAGE_DRAFT,
+  message,
+});
