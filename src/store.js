@@ -9,11 +9,13 @@ import applicationReducer from './reducers/Application';
 import editorReducer from './reducers/Editor';
 import landingPageReducer from './reducers/LandingPage';
 import { setAuthToken, refreshAuthToken, } from './actions/Auth';
+import chatReducer from './reducers/Chat';
 // Fix: use same naming conventions for reducers.
 const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
+    chat: chatReducer,
     editorReducer,
     landingPageReducer,
     applicationReducer,
