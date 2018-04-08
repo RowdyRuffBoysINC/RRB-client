@@ -51,11 +51,11 @@ export class WebCam extends React.Component {
 
   setRemoteVideoStream(stream, person) {
     const { socket, user } = person;
-
+    console.log('socket', socket);
     console.log('Index.js -> setRemoteVideoStream -> stream: ', stream);
     this.setState({ remoteVideoStreams: { 
       ...this.state.remoteVideoStreams,
-      socket: stream 
+      ['' + socket]: stream 
     } });
   }
 
