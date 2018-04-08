@@ -1,8 +1,5 @@
 import { UPDATE_CHAT_LOG, } from './../actions/Chat';
-const initialState = {
-  chatLogs: [],
-  messageDraft: '',
-};
+const initialState = {chatLogs: [],};
 
 const chatReducer = function (state = initialState, action) {
   switch (action.type) {
