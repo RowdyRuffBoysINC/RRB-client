@@ -28,6 +28,7 @@ export class WebCam extends React.Component {
       setLocalVideoStream: this.setLocalVideoStream,
       setRemoteVideoStream: this.setRemoteVideoStream 
     };
+    
     this.SIOC.init(newProps);
   }
 

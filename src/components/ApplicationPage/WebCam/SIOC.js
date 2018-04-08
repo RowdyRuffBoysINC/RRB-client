@@ -173,7 +173,7 @@ export default class SIOC {
 
   init(props) {
     trace('Running SIOC.init');
-    const { roomName, username, dispatch, } = props;
+    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, } = props;
     this.roomName = roomName;
     this.username = username;
 
