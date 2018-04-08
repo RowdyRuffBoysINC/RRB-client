@@ -3,6 +3,7 @@ import { connect, } from 'react-redux';
 
 import {
   updateChatLog,
+  updateMessageDraft,
   isChatViewEnabled,
 } from './../../actions/Chat';
 import { socket, } from './Room';
