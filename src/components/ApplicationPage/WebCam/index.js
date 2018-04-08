@@ -3,9 +3,10 @@ import React from "react";
 import adapter from "webrtc-adapter";
 import { connect } from 'react-redux';
 import UserList from "../UserList";
-import './WebCam.css'
+import { deleteLocalUserStream, } from '../../../actions/Application';
 import {trace, error} from './helpers';
 import SIOC from './SIOC';
+import './WebCam.css'
 
 export class WebCam extends React.Component {
   constructor(props) {
@@ -29,6 +30,10 @@ export class WebCam extends React.Component {
 
   componentDidUpdate() {
     console.log('Index.js -> didupdate');
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(deleteLocalUserStream());
   }
 
   createLocalVideo() {
