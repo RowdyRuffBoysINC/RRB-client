@@ -37,11 +37,11 @@ export class WebCam extends React.Component {
   }
 
   componentWillUpdate() {
-    console.log('index.js -> update?');
+    console.log('Index.js -> update?');
   }
 
   componentDidUpdate() {
-    console.log('index.js -> didupdate');
+    console.log('Index.js -> didupdate');
   }
 
   setLocalVideoStream(stream) {
@@ -61,16 +61,16 @@ export class WebCam extends React.Component {
 
   createLocalVideo() {
     if (this.state.localVideoStream) {
-      console.log('Indexjs -> createLocalVideo -> localVideoStream exists');
+      console.log('Index.js -> createLocalVideo -> localVideoStream exists');
 
       const videoSrc = window.URL.createObjectURL(this.state.localVideoStream);
 
-      console.log('Indexjs -> createLocalVideo -> localVideoStream exists -> turned into src -> return it');
+      console.log('Index.js -> createLocalVideo -> localVideoStream exists -> turned into src -> return it');
 
       return (<video className='video-local-small' src={videoSrc} autoPlay></video>);
     }
 
-    console.log('Indexjs -> createLocalVideo -> localVideoStream is null -> return null');
+    console.log('Index.js -> createLocalVideo -> localVideoStream is null -> return null');
 
     return null;
   }
@@ -82,23 +82,23 @@ export class WebCam extends React.Component {
       console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
       for (let key in arrOfRemoteVideoStreamKeys) {
         const videoSrc = window.URL.createObjectURL(this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
-        console.log('index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
+        console.log('Index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
       
         arrOfVideos.push(<video key={arrOfRemoteVideoStreamKeys[key]} className='video-remote-large' src={videoSrc} autoPlay></video>);
-        console.log('index.js -> createRemoteVideos -> videos: ', arrOfVideos);
+        console.log('Index.js -> createRemoteVideos -> videos: ', arrOfVideos);
       }
 
       return arrOfVideos;
     }
 
-    console.log('Indexjs -> createRemoteVideos -> localVideoStream is null -> return null');
+    console.log('Index.js -> createRemoteVideos -> localVideoStream is null -> return null');
 
     return null;
   }
 
   render() {
-    console.log('index.js -> render');
-    console.log('index.js -> this.state: ', this.state);
+    console.log('Index.js -> render');
+    console.log('Index.js -> this.state: ', this.state);
     return (
       <section className="video-container">
         <section className="video-box" id="video-box">

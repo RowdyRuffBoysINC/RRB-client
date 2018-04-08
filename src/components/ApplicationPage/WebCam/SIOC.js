@@ -151,7 +151,7 @@ export default class SIOC {
 
   removeUsers(dispatch) {
     socket.on('remove-user', (id) => {
-      console.log('SIOC -> addUsers -> add-users was event was emitted');
+      console.log('SIOC -> removeUser() -> remove-users was event was emitted', id);
       dispatch(deleteUserFromList(id));
     });
   }
@@ -178,7 +178,7 @@ export default class SIOC {
     console.log('SIOC -> adding pc.onaddstream listener');
     /*
     This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
-    also setRemoteDescription offer was made
+    also setRemoteDescription is in [offer was made] func
     */
     this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
