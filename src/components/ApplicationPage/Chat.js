@@ -14,11 +14,10 @@ export class Chat extends React.Component {
   }
 
   generateChatList() {
-    const chatList = this.props.chatLogs
-      .map(message =>
-        <li>{message}</li>
+    return this.props.chatLogs
+      .map((message, key) =>
+        <li key={key}>{message}</li>
       );
-    return chatList;
   }
 
   render() {
