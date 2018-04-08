@@ -99,6 +99,7 @@ export class WebCam extends React.Component {
   render() {
     console.log('Index.js -> render');
     console.log('Index.js -> this.state: ', this.state);
+
     return (
       <section className="video-container">
         <section className="video-box" id="video-box">
@@ -118,6 +119,8 @@ export class WebCam extends React.Component {
 const mapStateToProps = (state) => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  localVideoStream: state.applicationReducer.localVideoStream,
+  remoteVideoStreams: state.applicationReducer.remoteVideoStreams,
 });
 
 export default connect(mapStateToProps)(WebCam);
