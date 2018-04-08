@@ -14,6 +14,9 @@ export default class SIOC {
     // addedPerson keeps track of the user you requested video from
     this.addedPerson = null;
 
+    // need to use dispatch outside of init()
+    this.dispatch = null;
+
     this.enableAudio = false;
     this.enableCamera = true;
     this.remoteVideo = null;
@@ -164,7 +167,7 @@ export default class SIOC {
       video: this.enableCamera,
       audio: this.enableAudio,
     }, (stream) => {
-      this.setLocalVideoStream(stream);
+      this.dispatch(setLocalUserStream(stream));
       this.pc.addStream(stream);
     }, error);
   }
@@ -186,7 +189,7 @@ export default class SIOC {
       console.log('SIOC -> This.pc.onaddstream triggered');
       console.log('SIOC -> This.pc.onaddstream -> this user triggered the event: ', this.addedPerson);
       console.log('SIOC -> This.pc.onaddstream -> obj: ', obj); 
-      this.setRemoteVideoStream(obj.stream, this.addedPerson);
+      dispatch(setRemoteUserStream(obj.stream, this.addedPerson));
     };
 
     // Wire socket events
