@@ -9,8 +9,8 @@ import {
 
 export default class SIOC {
   constructor() {
-    // AddedPersonId keeps track of the user you requested video from
-    this.addedPersonId = null;
+    // addedPerson keeps track of the user you requested video from
+    this.addedPerson = null;
 
     this.enableAudio = false;
     this.enableCamera = true;
@@ -65,8 +65,8 @@ export default class SIOC {
     console.log('Setting local video.');
     console.log('Setting local video. -> src: ', src);
     this.localVideo = <Video className="video-local-small"
-      id={this.addedPersonId}
-      key={this.addedPersonId}
+      id={this.addedPerson}
+      key={this.addedPerson}
       src={src}></Video>;
     console.log('Setting local video. -> this.localVideo:  ', this.localVideo);
   }
@@ -118,15 +118,18 @@ export default class SIOC {
     console.log('SIOC -> Created answerMade socket listener');
     socket.on('answer-made', (data) =>{
       console.log('SIOC -> answer was made');
+      console.log('SIOC -> answerMade() -> data from socket', data);
+
+      const { socket, user, } = data;
+      this.addedPerson = { socket, user, };
+      
+      console.log('SIOC -> answerMade() -> addedPerson changed', this.addedPerson);
+      
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
         /*
         This runs more than once; even though a valid answer comes back from a remote user the first time.
         Might produce issues in the future?
         */
-        console.log('SIOC -> answerMade() -> data from socket', data);
-        
-        this.addedPersonId = data;
-        console.log('SIOC -> answerMade() -> addedPersonId changed', this.addedPersonId);
 
         if(!this.answersFrom[data.socket]) {
           console.log('SIOC -> answerMade() -> answer from socket doesnt exist..');
@@ -195,7 +198,7 @@ export default class SIOC {
     // This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
     this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
-      console.log('SIOC -> this user triggered the event: ', this.addedPersonId);
+      console.log('SIOC -> this user triggered the event: ', this.addedPerson);
     };
 
     // Wire socket events
