@@ -36,21 +36,24 @@ const applicationReducer = function (state = initialState, action) {
       ...state,
       localVideoStream: action.data,
     };
-  case ApplicationActions.SET_REMOTE_USER_STREAM:
-    return {
-      ...state,
-      remoteVideoStreams: {
-        [action.data.id]: action.data.stream,
-        ...state.remoteVideoStreams,
-      },
-    };
+  case ApplicationActions.SET_REMOTE_USER_STREAM: {
+    const foundUser = this.state.remoteVideoStreams.find(stream => stream.id === action.data.id);
+    if (foundUser) {
+      return state;
+    }
+    else {
+      return {
+        ...state,
+        remoteVideoStreams: state.remoteVideoStreams.push({ id: action.data.id, stream: action.data.stream, }),
+      };
+    }
+  }
   case ApplicationActions.DELETE_LOCAL_USER_STREAM:
     return {
       ...state,
       localVideoStream: null,
     };
   case ApplicationActions.DELETE_REMOTE_USER_STREAM: {
-
     console.log('ApplicationReducer -> OLD OBJ:', JSON.stringify(state, null, 2));
     console.log('ApplicationReducer -> ACTION DATA: ', JSON.stringify(action.data, null, 2));
     const { remoteVideoStreams: { r, ...remoteVideoStreams }, } = state;
