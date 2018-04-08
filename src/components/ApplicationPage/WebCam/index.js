@@ -79,7 +79,14 @@ export class WebCam extends React.Component {
     const arrOfRemoteVideoStreamKeys = Object.keys(this.state.remoteVideoStreams);
 
     if (arrOfRemoteVideoStreamKeys.length > 0) {
+      console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
+      for (let key in arrOfRemoteVideoStreamKeys) {
+        console.log('index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
+        const videoSrc = window.URL.createObjectURL(this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
+        
+      }
 
+      return null;
     }
 
     console.log('Indexjs -> createRemoteVideos -> localVideoStream is null -> return null');
@@ -95,7 +102,7 @@ export class WebCam extends React.Component {
         <section className="video-box" id="video-box">
           <h1>Video</h1>
           {this.createLocalVideo()}
-          {/* {this.SIOC.getRemoteVideo()} */}
+          {this.createRemoteVideos()}
         </section>
         <section className="users-container" id="users-container">
           <h4> Room: {this.props.roomName} </h4>
