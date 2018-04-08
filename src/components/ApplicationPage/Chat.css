@@ -6,7 +6,9 @@
 }
 
 .chat-display {
-  /* border: 1px solid black; */
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  min-height: 20vh;
 }
 
 .message-content {
@@ -24,7 +26,8 @@
 }
 
 .chat-tabs li {
+  margin: 5px;
   border: 1px solid rgb(75, 75, 75);
   border-radius: 5px;
-  color:rgb(235, 235, 235);
+  color:rgb(0, 0, 0);
 }
