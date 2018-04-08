@@ -7,6 +7,8 @@ import {
   deleteUserFromList,
   setLocalUserStream,
   setRemoteUserStream,
+  deleteLocalUserStream,
+  deleteRemoteUserStream,
 } from '../../../actions/Application';
 
 export default class SIOC {
@@ -55,11 +57,9 @@ export default class SIOC {
     this.navigator = navigator;
   }
 
-
   setStunServer(stun) {
     this.stunServer = stun;
   }
-
 
   getStunServer() {
     return this.stunServer;
@@ -158,6 +158,7 @@ export default class SIOC {
     socket.on('remove-user', (id) => {
       console.log('SIOC -> removeUser() -> remove-users was event was emitted', id);
       dispatch(deleteUserFromList(id));
+      dispatch(deleteRemoteUserStream(id));
     });
   }
 
