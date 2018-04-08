@@ -12,6 +12,9 @@ export const deleteUserFromList = input => ({ type: DELETE_USER_FROM_LIST, data:
 export const SET_LOCAL_USER_VIDEO = 'SET_LOCAL_USER_VIDEO';
 export const setLocalUserVideo = stream => ({ type: SET_LOCAL_USER_VIDEO, data: stream, });
 
+export const DELETE_LOCAL_USER_VIDEO = 'DELETE_LOCAL_USER_VIDEO';
+export const deleteLocalUserVideo = () => ({ type: DELETE_LOCAL_USER_VIDEO, });
+
 export const SET_REMOTE_USER_VIDEO = 'SET_REMOTE_USER_VIDEO';
 export const setRemoteUserVideo = (stream, id) => ({ type: SET_REMOTE_USER_VIDEO, data: { stream, id, }, });
 
