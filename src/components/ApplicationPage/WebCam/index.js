@@ -26,7 +26,7 @@ export class WebCam extends React.Component {
     const newProps = { 
       ...this.props,
       setLocalVideoStream: (stream) => this.setLocalVideoStream(stream),
-      setRemoteVideoStream: (stream) => this.setRemoteVideoStream(stream) 
+      setRemoteVideoStream: (stream, id) => this.setRemoteVideoStream(stream, id) 
     };
 
     this.SIOC.init(newProps);
