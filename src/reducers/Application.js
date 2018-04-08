@@ -5,8 +5,8 @@ const initialState = {
   roomName: null,
   editorMode: 'code',
   listOfUsers: [],
-  // Check with Abe to see if he needs this unused property.
-  listOfUserVideos: [],
+  localVideoStream: null,
+  remoteVideoStreams: {},
 };
 
 const applicationReducer = function (state = initialState, action) {
