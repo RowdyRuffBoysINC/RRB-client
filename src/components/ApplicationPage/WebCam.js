@@ -185,7 +185,6 @@ export class WebCam extends React.Component {
           <video className="video-large" id="webcam-local-video" autoPlay></video>
         </section>
         <section className="users-container" id="users-container">
-          <h4 className="room-name"> Room: {this.props.roomName} </h4>
           <UserList createOffer={(id) => this.createVideo(id)} />
         </section>
       </section>
