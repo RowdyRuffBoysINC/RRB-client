@@ -1,14 +1,19 @@
 import { UPDATE_CHAT_LOG, } from './../actions/Chat';
 const initialState = {
-  messageLogs: [],
+  chatLogs: [],
   messageDraft: '',
 };
 
 const chatReducer = function (state = initialState, action) {
   switch (action.type) {
   case UPDATE_CHAT_LOG:
-    console.log('Chat wired up!');
-    return state;
+    return {
+      ...state,
+      chatLogs: [
+        ...state.chatLogs,
+        action.message,
+      ],
+    };
   default:
     return state;
   }

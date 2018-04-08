@@ -11,9 +11,11 @@ export class Chat extends React.Component {
     event.preventDefault();
     const message = this.input.value;
     this.props.dispatch(updateChatLog(message));
+    console.log(this.props);
   }
 
   render() {
+    console.log(this.props);
     return (
       <section className="chat-wrapper">
         <div className="chat-display">
@@ -41,10 +43,7 @@ export class Chat extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    username: state.auth.currentUser.username,
-    name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-  };
+  return { chatLogs: state.chat.chatLogs, };
 };
 
 export default connect(mapStateToProps)(Chat);
