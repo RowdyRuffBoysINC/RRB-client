@@ -27,10 +27,7 @@ export class Chat extends React.Component {
   generateChatList() {
     return this.props.chatLogs
       .map((message, key) =>
-        <li
-          key={key}
-          className="message-content"
-        >
+        <li key={key} className="message-content" >
           <span className="message-sender">
             {this.props.username}:
           </span>
@@ -45,7 +42,7 @@ export class Chat extends React.Component {
     return (
       <section className="chat-wrapper">
         <header>
-          <ul>
+          <ul className="chat-tabs">
             <li>
               Chat
             </li>

@@ -4,3 +4,27 @@
   flex-direction: column;
   height:50% !important;
 }
+
+.chat-display {
+  /* border: 1px solid black; */
+}
+
+.message-content {
+  display: flex;
+}
+
+.message-sender {
+  color: blue;
+  font-weight: 700;
+  margin-right: 0.4em;
+}
+
+.chat-tabs {
+  display: flex;
+}
+
+.chat-tabs li {
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 5px;
+  color:rgb(235, 235, 235);
+}
