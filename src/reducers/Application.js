@@ -44,6 +44,27 @@ const applicationReducer = function (state = initialState, action) {
         [`${action.data.socket}`]: action.data.stream,
       },
     };
+  case ApplicationActions.DELETE_LOCAL_USER_STREAM:
+    return {
+      ...state,
+      localVideoStream: null,
+    };
+  case ApplicationActions.DELETE_REMOTE_USER_STREAM: {
+
+    console.log('OLD OBJ:', state);
+
+    const { remoteVideoStreams: { [action.data.input]: r, ...remoteVideoStreams }, } = state;
+    
+    console.log('NEW DELETED OBJ:', {
+      ...state,
+      remoteVideoStreams,
+    });
+
+    return {
+      ...state,
+      remoteVideoStreams,
+    };
+  }
   default:
     return state;
   }
