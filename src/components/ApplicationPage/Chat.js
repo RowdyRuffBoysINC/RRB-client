@@ -23,6 +23,7 @@ export class Chat extends React.Component {
   }
 
   render() {
+    console.log(this.props.numOfUsers);
     <section className="users-container" id="users-container">
       <UserList createOffer={id => this.createVideo(id)} />
     </section>;
@@ -37,7 +38,7 @@ export class Chat extends React.Component {
             </li>
             <li>
               <a>
-                Users
+                Users ({this.props.numOfUsers})
               </a>
             </li>
           </ul>
@@ -71,6 +72,7 @@ const mapStateToProps = (state) => {
   return {
     chatLogs: state.chat.chatLogs,
     username: state.auth.currentUser.username,
+    numOfUsers: state.applicationReducer.listOfUsers.length,
   };
 };
 
