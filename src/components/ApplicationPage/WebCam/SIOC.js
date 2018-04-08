@@ -10,7 +10,7 @@ import {
 export default class SIOC {
   constructor() {
     this.addedPersonId = null;
-    this.enableAudio = true;
+    this.enableAudio = false;
     this.enableCamera = true;
     this.remoteVideo = null;
     this.localVideo = null;
