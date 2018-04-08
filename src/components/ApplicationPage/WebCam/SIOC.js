@@ -123,8 +123,6 @@ export default class SIOC {
       const { socket, user, } = data;
       this.addedPerson = { socket, user, };
       
-      console.log('SIOC -> answerMade() -> addedPerson changed', this.addedPerson);
-      
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
         /*
         This runs more than once; even though a valid answer comes back from a remote user the first time.
@@ -198,7 +196,9 @@ export default class SIOC {
     // This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
     this.pc.onaddstream = (obj) => {
       console.log('SIOC -> This.pc.onaddstream triggered');
-      console.log('SIOC -> this user triggered the event: ', this.addedPerson);
+      console.log('SIOC -> This.pc.onaddstream -> this user triggered the event: ', this.addedPerson);
+      console.log('SIOC -> This.pc.onaddstream -> obj: ', obj); 
+
     };
 
     // Wire socket events
