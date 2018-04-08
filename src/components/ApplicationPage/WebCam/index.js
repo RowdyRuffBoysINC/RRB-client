@@ -33,6 +33,7 @@ export class WebCam extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log('Index.js -> unmounted');
     this.props.dispatch(deleteLocalUserStream());
   }
 
