@@ -23,7 +23,7 @@ export default class SIOC {
     this.offer = null;
     this.sessionDescription = null;
     this.stunServer = 'stun:stun1.l.google.com:19302';
-    
+
     this.setLocalVideoStream = null;
     this.setRemoteVideoStream = null;
 
@@ -169,7 +169,7 @@ export default class SIOC {
       video: this.enableCamera,
       audio: this.enableAudio,
     }, (stream) => {
-      callback(stream);
+      this.setLocalVideoStream(stream);
       this.pc.addStream(stream);
     }, error);
   }
@@ -179,6 +179,8 @@ export default class SIOC {
     const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, } = props;
     this.roomName = roomName;
     this.username = username;
+    this.setLocalVideoStream = setLocalVideoStream;
+    this.setRemoteVideoStream = setRemoteVideoStream;
 
     console.log('SIOC -> adding pc.onaddstream listener');
     this.pc.onaddstream= (obj) => {
