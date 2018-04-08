@@ -112,7 +112,7 @@ export default class SIOC {
   }
 
   answerMade() {
-    console.log('Created answerMade socket listener');
+    console.log('SIOC -> Created answerMade socket listener');
     socket.on('answer-made', (data) =>{
       console.log('SIOC -> answer was made');
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
@@ -179,7 +179,7 @@ export default class SIOC {
 
     console.log('SIOC -> adding pc.onaddstream listener');
     this.pc.onaddstream= (obj) => {
-      console.log('This.pc.onaddstream triggered');
+      console.log('SIOC -> This.pc.onaddstream triggered');
     };
 
     // Wire socket events
