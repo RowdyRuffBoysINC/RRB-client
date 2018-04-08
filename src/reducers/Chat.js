@@ -9,3 +9,5 @@ const chatReducer = function (state = initialState, action) {
     return state;
   }
 };
+
+export default chatReducer;
