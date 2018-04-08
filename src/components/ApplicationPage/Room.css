@@ -5,6 +5,14 @@
   height: 100%;
 }
 
+.room-audio {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+
 .left-side-wrapper {
   height: 90vh;
   width: 70%;
@@ -13,4 +21,14 @@
 .right-side-wrapper {
   height: 90vh;
   width: 30%;
+}
+
+.top-side-wrapper {
+  height: 70vh;
+  width: 100%;
+}
+
+.bottom-side-wrapper {
+  height: 30vh;
+  width: 100%;
 }

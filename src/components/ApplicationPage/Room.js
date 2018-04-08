@@ -22,13 +22,24 @@ export class Room extends React.Component {
   }
 
   render() {
+    // return (
+    //   <section className="room-video">
+    //     <div className="left-side-wrapper">
+    //       <EditorView className="editors" />
+    //     </div>
+    //     <div className="right-side-wrapper">
+    //       <WebCam className="webcam" />
+    //       <Chat className="chat" />
+    //     </div>
+    //   </section>
+    // );
+
     return (
-      <section className="room">
-        <div className="left-side-wrapper">
+      <section className="room-audio">
+        <div className="top-side-wrapper">
           <EditorView className="editors" />
         </div>
-        <div className="right-side-wrapper">
-          <WebCam className="webcam" />
+        <div className="bottom-side-wrapper">
           <Chat className="chat" />
         </div>
       </section>
