@@ -15,8 +15,13 @@ import './Chat.css';
 export class Chat extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
-    this.props.dispatch(updateChatLog(this.input.value));
+    this.props.dispatch(updateChatLog(this.props.messageDraft));
     this.input.value = '';
+  }
+
+  handleMessageDraftChange() {
+    this.props.dispatch(updateMessageDraft(this.input.value));
+    this.input = this.props.messageDraft;
   }
   // Consider adding timestamp to messages
   generateChatList() {
@@ -59,6 +64,9 @@ export class Chat extends React.Component {
             ref={(input) => {
               this.input = input;
             }}
+            onChange={() => {
+              this.handleMessageDraftChange();
+            }}
           />
           <button>
             Send
@@ -72,6 +80,7 @@ export class Chat extends React.Component {
 const mapStateToProps = (state) => {
   return {
     chatLogs: state.chat.chatLogs,
+    messageDraft: state.chat.messageDraft,
     isChatViewEnabled: state.chat.isChatViewEnabled,
     username: state.auth.currentUser.username,
     numOfUsers: state.applicationReducer.listOfUsers.length,

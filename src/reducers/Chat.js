@@ -10,6 +10,7 @@ const initialState = {
 };
 
 const chatReducer = function (state = initialState, action) {
+  console.log(action, 'THIS IS ACTION FROM REDUCER');
   switch (action.type) {
   case UPDATE_CHAT_LOG:
     return {
