@@ -31,6 +31,19 @@ const applicationReducer = function (state = initialState, action) {
       ...state,
       listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
     };
+  case ApplicationActions.SET_LOCAL_USER_STREAM:
+    return {
+      ...state,
+      localVideoStream: action.data,
+    };
+  case ApplicationActions.SET_REMOTE_USER_STREAM:
+    return {
+      ...state,
+      remoteVideoStreams: {
+        ...state.remoteVideoStreams,
+        [`${action.data.socket}`]: action.data.stream,
+      },
+    };
   default:
     return state;
   }
