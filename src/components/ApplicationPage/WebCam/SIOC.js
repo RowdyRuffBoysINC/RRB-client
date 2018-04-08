@@ -60,34 +60,6 @@ export default class SIOC {
     return this.stunServer;
   }
 
-
-  setLocalVideo(src) {
-    console.log('Setting local video.');
-    console.log('Setting local video. -> src: ', src);
-    this.localVideo = <Video className="video-local-small"
-      id={this.addedPerson}
-      key={this.addedPerson}
-      src={src}></Video>;
-    console.log('Setting local video. -> this.localVideo:  ', this.localVideo);
-  }
-
-  getLocalVideo() {
-    console.log('Getting local video', this.localVideo);
-    return this.localVideo;
-  }
-
-  setRemoteVideo(src) {
-    trace('Setting remote video');
-    this.remoteVideo = <Video
-      className="video-remote-large"
-      src={window.URL.createObjectURL(src)}>
-    </Video>;
-  }
-
-  getRemoteVideo() {
-    return this.remoteVideo;
-  }
-
   createVideo(id) {
     this.pc.createOffer((offer) => {
       console.log('creating video aka creating offer');
