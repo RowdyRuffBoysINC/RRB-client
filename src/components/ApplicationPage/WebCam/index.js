@@ -25,10 +25,10 @@ export class WebCam extends React.Component {
     // Design Q: Pass funcs as props or as callbacks?
     const newProps = { 
       ...this.props,
-      setLocalVideoStream: this.setLocalVideoStream,
-      setRemoteVideoStream: this.setRemoteVideoStream 
+      setLocalVideoStream: (stream) => this.setLocalVideoStream(stream),
+      setRemoteVideoStream: (stream) => this.setRemoteVideoStream(stream) 
     };
-    
+
     this.SIOC.init(newProps);
   }
 
