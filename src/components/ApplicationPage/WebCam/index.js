@@ -81,9 +81,8 @@ export class WebCam extends React.Component {
     if (arrOfRemoteVideoStreamKeys.length > 0) {
       console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
       for (let key in arrOfRemoteVideoStreamKeys) {
-        console.log('index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
         const videoSrc = window.URL.createObjectURL(this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]]);
-        
+        console.log('index.js -> createRemoteVideos -> for loop: ', key, arrOfRemoteVideoStreamKeys[key], this.state.remoteVideoStreams[arrOfRemoteVideoStreamKeys[key]], videoSrc);
       }
 
       return null;
