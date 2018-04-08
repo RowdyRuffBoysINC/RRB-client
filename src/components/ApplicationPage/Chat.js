@@ -12,11 +12,11 @@ export class Chat extends React.Component {
     this.props.dispatch(updateChatLog(this.input.value));
     this.input.value = '';
   }
-
+  // Consider adding timestamp to messages
   generateChatList() {
     return this.props.chatLogs
       .map((message, key) =>
-        <li key={key}>{message}</li>
+        <li key={key}>{this.props.username}: {message}</li>
       );
   }
 
@@ -26,7 +26,6 @@ export class Chat extends React.Component {
       <section className="chat-wrapper">
         <div className="chat-display">
           <ul className="chat-messages">
-            fsffdfsd
             {this.generateChatList()}
           </ul>
         </div>
@@ -51,7 +50,10 @@ export class Chat extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { chatLogs: state.chat.chatLogs, };
+  return {
+    chatLogs: state.chat.chatLogs,
+    username: state.auth.currentUser.username,
+  };
 };
 
 export default connect(mapStateToProps)(Chat);
