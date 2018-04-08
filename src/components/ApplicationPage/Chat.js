@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { updateChatLog, } from './../../actions/Chat';
 import './Chat.css';
 
 
