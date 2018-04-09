@@ -5,10 +5,13 @@ import { clearAuth, } from '../../actions/Auth';
 import { showLoginForm, } from '../../actions/Users';
 import { clearAuthToken, } from '../../local-storage';
 import { hideLoginForm, } from '../../actions/Users';
+import {action as toggleMenu, } from 'redux-burger-menu';
+import createStore from '../../store';
 import './HeaderBar.css';
 
 export function HeaderBar(props) {
   function logOut() {
+    createStore.dispatch(toggleMenu(false));
     props.dispatch(clearAuth());
     props.dispatch(hideLoginForm());
     clearAuthToken();
