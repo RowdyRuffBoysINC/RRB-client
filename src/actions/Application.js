@@ -9,6 +9,12 @@ export const setUserList = input => ({ type: SET_USER_LIST, data: input, });
 export const DELETE_USER_FROM_LIST = 'DELETE_USER_FROM_LIST';
 export const deleteUserFromList = input => ({ type: DELETE_USER_FROM_LIST, data: input, });
 
+export const TOGGLE_WEBCAM_AUDIO = 'TOGGLE_WEBCAM_AUDIO';
+export const toggleWebcamAudio = input => ({ type: TOGGLE_WEBCAM_AUDIO, data: input, });
+
+export const TOGGLE_WEBCAM_VIDEO = 'TOGGLE_WEBCAM_VIDEO';
+export const toggleWebcamVideo = input => ({ type: TOGGLE_WEBCAM_VIDEO, data: input, });
+
 export const SET_LOCAL_USER_STREAM = 'SET_LOCAL_USER_STREAM';
 export const setLocalUserStream = stream => ({ type: SET_LOCAL_USER_STREAM, data: stream, });
 
