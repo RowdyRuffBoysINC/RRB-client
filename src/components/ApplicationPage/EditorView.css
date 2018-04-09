@@ -1,11 +1,6 @@
 /* .CodeMirror {
-  font-family: monospace;
-  line-height: 1em;
-  height: auto;
-  height: 100%;
-  overflow: hidden;
+  height: 65vh;
 } */
-
 
 .CodeMirror-scroll{
   overflow: auto;
