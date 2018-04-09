@@ -1,14 +1,13 @@
 import React from 'react';
-import {socket,} from '../Room';
-import {trace, error,} from './helpers';
-import Video from './Video';
+import {socket,} from './Room';
+import { trace, error, } from './WebCam/helpers';
 import {
   setUserList,
   deleteUserFromList,
   setLocalUserStream,
   setRemoteUserStream,
   deleteRemoteUserStream,
-} from '../../../actions/Application';
+} from '../../actions/Application';
 
 export default class SIOC {
   constructor() {
@@ -162,7 +161,7 @@ export default class SIOC {
   }
 
   getLocalUserMedia() {
-    trace('SIOC -> getLocalUserMedia -> running getUserMedia');
+    console.log('SIOC -> getLocalUserMedia -> running getUserMedia', this.enableCamera, this.enableAudio);
     this.navigator.getUserMedia({
       video: this.enableCamera,
       audio: this.enableAudio,
@@ -174,7 +173,7 @@ export default class SIOC {
 
   init(props) {
     trace('Running SIOC.init');
-    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, enableAudio, enableCamera, } = props;
+    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, enableAudio = true, enableCamera = true, } = props;
     this.roomName = roomName;
     this.username = username;
     this.dispatch = dispatch;

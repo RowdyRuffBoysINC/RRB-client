@@ -15,6 +15,9 @@ export const toggleWebcamAudio = input => ({ type: TOGGLE_WEBCAM_AUDIO, data: in
 export const TOGGLE_WEBCAM_VIDEO = 'TOGGLE_WEBCAM_VIDEO';
 export const toggleWebcamVideo = input => ({ type: TOGGLE_WEBCAM_VIDEO, data: input, });
 
+export const SET_CREATE_VIDEO_FUNC = 'SET_CREATE_VIDEO_FUNC';
+export const setCreateVideoFunc = func => ({ type: SET_CREATE_VIDEO_FUNC, data: func, });
+
 export const SET_LOCAL_USER_STREAM = 'SET_LOCAL_USER_STREAM';
 export const setLocalUserStream = stream => ({ type: SET_LOCAL_USER_STREAM, data: stream, });
 

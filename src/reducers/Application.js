@@ -9,6 +9,7 @@ const initialState = {
   enableVideo: true,
   localVideoStream: null,
   remoteVideoStreams: [],
+  createVideoFunc: null,
 };
 
 const applicationReducer = function (state = initialState, action) {
@@ -22,6 +23,12 @@ const applicationReducer = function (state = initialState, action) {
     return {
       ...state,
       editorMode: action.mode,
+    };
+  case ApplicationActions.SET_CREATE_VIDEO_FUNC:
+    console.log('applicationReducer -> SET_CREATE_VIDEO_FUNC', action.data);
+    return {
+      ...state,
+      createVideoFunc: action.data,
     };
   case ApplicationActions.TOGGLE_WEBCAM_AUDIO:
     return {

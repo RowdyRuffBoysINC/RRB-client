@@ -4,24 +4,24 @@ import adapter from "webrtc-adapter";
 import { connect } from 'react-redux';
 import UserList from "../UserList";
 import { deleteLocalUserStream, } from '../../../actions/Application';
-import {trace, error} from './helpers';
-import SIOC from './SIOC';
+import { trace, erro } from './helpers';
+// import SIOC from '../SIOC';
 import './WebCam.css'
 
 export class WebCam extends React.Component {
   constructor(props) {
     super(props);
-    this.SIOC = new SIOC();
+    // this.SIOC = new SIOC();
     console.log('Index.js -> new instance of SIOC');
   }
 
   componentWillMount() {
     console.log('Index.js -> ComponentDidMount -> init');
-    this.SIOC.init(this.props);
+    // this.SIOC.init(this.props);
   }
 
   componentDidMount() {
-    this.SIOC.getLocalUserMedia();
+    // this.props.SIOC.getLocalUserMedia();
   }
 
   componentWillUpdate() {
@@ -34,7 +34,7 @@ export class WebCam extends React.Component {
 
   componentWillUnmount() {
     console.log('Index.js -> unmounted');
-    this.props.dispatch(deleteLocalUserStream());
+    // this.props.dispatch(deleteLocalUserStream());
   }
 
   createLocalVideo() {
@@ -90,7 +90,7 @@ export class WebCam extends React.Component {
         </section>
         <section className="users-container" id="users-container">
           <h4> Room: {this.props.roomName} </h4>
-          <UserList createOffer={(id) => this.SIOC.createVideo(id)} />
+          <UserList />
         </section>
       </section>
     );
