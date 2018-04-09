@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import SIOC_Class from './SIOC';
-
 
 export function UserList(props) {
   const { userList, } = props;

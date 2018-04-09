@@ -1,4 +1,3 @@
-import React from 'react';
 import {socket,} from './Room';
 import { trace, error, } from './WebCam/helpers';
 import {
@@ -11,10 +10,10 @@ import {
 
 export default class SIOC {
   constructor() {
-    // addedPerson keeps track of the user you requested video from
+    // AddedPerson keeps track of the user you requested video from
     this.addedPerson = null;
 
-    // need to use dispatch outside of init()
+    // Need to use dispatch outside of init()
     this.dispatch = null;
 
     this.enableAudio = false;
@@ -65,7 +64,6 @@ export default class SIOC {
 
   createVideo(id) {
     this.pc.createOffer((offer) => {
-
       this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
         socket.emit('make-offer', {
           offer,
@@ -79,7 +77,6 @@ export default class SIOC {
 
   __createOffer(id) {
     this.pc.createOffer((offer) => {
-
       this.pc.setLocalDescription(new this.sessionDescription(offer), () =>{
         socket.emit('make-offer', {
           offer,
@@ -91,14 +88,10 @@ export default class SIOC {
   }
 
   answerMade() {
-
     socket.on('answer-made', (data) =>{
-
-
-
       const { socket, user, } = data;
       this.addedPerson = { socket, user, };
-      
+
       this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
         /*
         This runs more than once; even though a valid answer comes back from a remote user the first time.
@@ -106,7 +99,6 @@ export default class SIOC {
         */
 
         if(!this.answersFrom[data.socket]) {
-
           this.__createOffer(data.socket);
           this.answersFrom[data.socket] = true;
         }
@@ -115,14 +107,10 @@ export default class SIOC {
   }
 
   offerMade() {
-
     socket.on('offer-made', (data) => {
-
-
-
       const userSocket = data.socket;
       const user = data.user;
-      
+
       this.addedPerson = {};
       this.addedPerson.user = user;
       this.addedPerson.socket = userSocket;
@@ -145,23 +133,19 @@ export default class SIOC {
   }
 
   addUsers(dispatch) {
-
     socket.on('add-users', (data) => {
-
       dispatch(setUserList(data.users));
     });
   }
 
   removeUsers(dispatch) {
     socket.on('remove-user', (id) => {
-
       dispatch(deleteUserFromList(id));
       dispatch(deleteRemoteUserStream(id));
     });
   }
 
   getLocalUserMedia() {
-
     this.navigator.getUserMedia({
       video: this.enableCamera,
       audio: this.enableAudio,
@@ -188,9 +172,6 @@ export default class SIOC {
     also setRemoteDescription is in [offer was made] func
     */
     this.pc.onaddstream = (obj) => {
-
-
- 
       dispatch(setRemoteUserStream(obj.stream, this.addedPerson));
     };
 

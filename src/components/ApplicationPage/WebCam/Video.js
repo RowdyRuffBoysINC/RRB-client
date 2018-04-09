@@ -1,36 +1,36 @@
+/* eslint-disable */ 
 import './WebCam.css';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {trace,} from './helpers';
+import { trace,} from './helpers';
 
 
 export class Video extends React.Component {
-  static propTypes = {
-    audio: PropTypes.bool,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    onSuccess: PropTypes.func,
-    onFailure: PropTypes.func,
-    src: PropTypes.any,
-  };
-
-  static defaultProps = {
-    audio: true,
-    video: true,
-    width: 320,
-    height: 160,
-    onSuccess: (() => {}),
-    onFailure: ((error) => {
-      console.warn("An error occured while requesting user media");
-      throw error;
-    }),
-  };
-
-  static _mediaStream = null;
-
   constructor(props) {
     super(props);
-
+    
+    this.propTypes = { 
+      audio: PropTypes.bool,
+      width: PropTypes.number,
+      height: PropTypes.number,
+      onSuccess: PropTypes.func,
+      onFailure: PropTypes.func,
+      src: PropTypes.any,
+    };
+  
+    this.defaultProps = {
+      audio: true,
+      video: true,
+      width: 320,
+      height: 160,
+      onSuccess: (() => {}),
+      onFailure: ((error) => {
+        console.warn("An error occured while requesting user media");
+        throw error;
+      }),
+    };
+  
+    this._mediaStream = null;
     this.state = {
       hasUserMedia: false,
       userMediaRequested: false
@@ -39,7 +39,6 @@ export class Video extends React.Component {
 
   componentDidMount() {
 
-    
     if (!this._hasGetUserMedia()) {
       return false;
     }
