@@ -12,3 +12,10 @@
   color: white;
   background: rgb(0, 111, 255);
 }
+
+.reg-header {
+  font-size: 2.2em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+}
