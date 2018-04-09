@@ -161,21 +161,6 @@ export class WebCam extends React.Component {
         }, error);
       }, error);
     });
-
-    socket.emit('add-users', {
-      room: this.props.roomName,
-      user: this.props.username
-    }, trace('announcing a user FROM INIT'))
-
-    socket.on('add-users', (data) => {
-      this.props.dispatch(ApplicationActions.setUserList(data.users));
-    });
-
-    socket.on("remove-user", id => {
-      this.props.dispatch(ApplicationActions.deleteUserFromList(id));
-    });
-
-
   }
 
   render() {
