@@ -75,9 +75,7 @@ footer {
 }
 
 #sign-up {
-  background: #00d2ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #00d2ff, #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #00d2ff, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(0, 111, 255);
   color: white;
   font-family: 'Ubuntu', sans-serif;
   line-height: 2;
