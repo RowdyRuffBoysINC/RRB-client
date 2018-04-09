@@ -68,7 +68,6 @@ export function RegistrationForm(props) {
       </button>
     </form>
   );
-
 }
 
 export default reduxForm({
