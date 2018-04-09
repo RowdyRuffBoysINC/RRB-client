@@ -21,7 +21,7 @@ export class Video extends React.Component {
     height: 160,
     onSuccess: (() => {}),
     onFailure: ((error) => {
-      console.error("An error occured while requesting user media");
+      console.warn("An error occured while requesting user media");
       throw error;
     }),
   };
@@ -30,7 +30,7 @@ export class Video extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('Video constructor initiate');
+
     this.state = {
       hasUserMedia: false,
       userMediaRequested: false
@@ -38,7 +38,7 @@ export class Video extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Video -> componentDidMount');
+
     
     if (!this._hasGetUserMedia()) {
       return false;
@@ -81,7 +81,7 @@ export class Video extends React.Component {
       constraints,
       (stream) => {
         const video = this._video;
-        console.log('video? in Video Comp', this._video);
+
         video.srcObject = stream;
 
         this._mediaStream = stream;
@@ -101,7 +101,7 @@ export class Video extends React.Component {
   }
 
   render() {
-    console.log('Videojs -> props', this.props);
+
     const { width, height } = this.props;
 
     return (
