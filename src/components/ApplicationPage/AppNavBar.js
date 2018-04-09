@@ -17,8 +17,8 @@ export function AppNavBar(props) {
   const editorNavigation = (
     <ul className="nav-bar-ul">
       {editorListItem}
-      <li className="view-switch video" href="#" onClick={() => props.dispatch(setRoomView('video'))}>Audio</li>
-      <li className="view-switch audio" href="#" onClick={() => props.dispatch(setRoomView('audio'))}>Video</li>
+      <li className="view-switch video" href="#" onClick={() => props.dispatch(setRoomView('audio'))}>Audio</li>
+      <li className="view-switch audio" href="#" onClick={() => props.dispatch(setRoomView('video'))}>Video</li>
     </ul>
   );
 

@@ -179,23 +179,35 @@ export class WebCam extends React.Component {
   }
 
   render() {
-    return (
-      <section className="webcam-container">
-        <section className="video-box" id="video-box">
-          <video className="video-large" id="webcam-local-video" autoPlay></video>
+
+    if (this.props.roomView === 'video') {
+      return (
+        <section className="webcam-container">
+          <section className="video-box" id="video-box">
+            <video className="video-large" id="webcam-local-video" autoPlay></video>
+          </section>
+          <section className="users-container" id="users-container">
+            <h4 className="room-name"> Room: {this.props.roomName} </h4>
+            <UserList createOffer={(id) => this.createVideo(id)} />
+          </section>
         </section>
+      );
+    }
+    else return (
+      <section className="webcam-audio-only-container">
         <section className="users-container" id="users-container">
-          <h4 className="room-name"> Room: {this.props.roomName} </h4>
-          <UserList createOffer={(id) => this.createVideo(id)} />
+            <h4 className="room-name"> Room: {this.props.roomName} </h4>
+            <UserList createOffer={(id) => this.createVideo(id)} />
         </section>
       </section>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state) => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  roomView: state.applicationReducer.roomView,
 });
 
 export default connect(mapStateToProps)(WebCam);
