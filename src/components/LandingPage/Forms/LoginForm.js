@@ -21,6 +21,7 @@ export function LoginForm(props) {
   }
   return (
     <section className="form-wrapper">
+      <span className="close js-close" onClick={() => props.dispatch(hideLoginForm())}> &times; </span>
       <form
         className="login-form"
         onSubmit={props.handleSubmit(values =>
@@ -46,11 +47,9 @@ export function LoginForm(props) {
         <button className="btn-form" disabled={props.pristine || props.submitting}>
             Log in
         </button>
-        <span className="close js-close" onClick={() => props.dispatch(hideLoginForm())}> &times; </span>
       </form>
     </section>
   );
-
 }
 
 export default reduxForm({

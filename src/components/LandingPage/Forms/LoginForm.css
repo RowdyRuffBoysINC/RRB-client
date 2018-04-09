@@ -40,10 +40,9 @@ h1 {
 }
 
 .close {
-    color: white;
-    position: absolute;
-    top: 10px;
-    left: 20px;
+    color: black;
+    margin-left: 90%;
+    display: block;
     font-size: 35px;
     font-weight: bold;
   }
