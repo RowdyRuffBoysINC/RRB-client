@@ -7,6 +7,7 @@ const initialState = {
   listOfUsers: [],
   // Check with Abe to see if he needs this unused property.
   listOfUserVideos: [],
+  roomView: 'audio',
 };
 
 const applicationReducer = function (state = initialState, action) {
@@ -30,6 +31,11 @@ const applicationReducer = function (state = initialState, action) {
     return {
       ...state,
       listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
+    };
+  case ApplicationActions.SET_ROOM_VIEW:
+    return {
+      ...state,
+      roomView: action.data,
     };
   default:
     return state;
