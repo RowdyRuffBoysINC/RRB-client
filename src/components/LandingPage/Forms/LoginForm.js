@@ -4,10 +4,13 @@ import Input from './Input';
 import { login, } from '../../../actions/Auth';
 import { required, nonEmpty, } from '../../../validators';
 import { hideLoginForm, } from '../../../actions/Users';
+import {action as toggleMenu, } from 'redux-burger-menu';
+import createStore from '../../../store';
 import './LoginForm.css';
 
 export function LoginForm(props) {
   function onSubmit(values) {
+    createStore.dispatch(toggleMenu(false));
     return props.dispatch(login(values.username, values.password));
   }
 
@@ -19,6 +22,7 @@ export function LoginForm(props) {
       </section>
     );
   }
+
   return (
     <section className="form-wrapper">
       <span className="close js-close" onClick={() => props.dispatch(hideLoginForm())}> &times; </span>
@@ -26,7 +30,7 @@ export function LoginForm(props) {
         className="login-form"
         onSubmit={props.handleSubmit(values =>
           onSubmit(values)
-        )}>
+        )} >
         {error}
         <label className="labelInput" htmlFor="username">Username</label>
         <Field

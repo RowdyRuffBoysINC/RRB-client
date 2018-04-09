@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { slide as Menu, } from 'react-burger-menu';
+import Menu from './Menu';
 import { clearAuth, } from '../../actions/Auth';
 import { showLoginForm, } from '../../actions/Users';
 import { clearAuthToken, } from '../../local-storage';

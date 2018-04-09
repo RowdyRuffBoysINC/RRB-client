@@ -19,6 +19,8 @@ export function Modal(props) {
   }
 }
 
-const mapStateToProps = state => ({ showLoginForm: state.landingPageReducer.showLoginForm, });
+const mapStateToProps = state => ({ 
+  showLoginForm: state.landingPageReducer.showLoginForm,
+});
 
 export default connect(mapStateToProps)(Modal);
