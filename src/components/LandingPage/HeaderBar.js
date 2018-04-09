@@ -23,7 +23,6 @@ export function HeaderBar(props) {
   }
   else {
     logOutButton = (
-
       <p className="login-text" onClick={() => props.dispatch(showLoginForm())}>Login</p>
     );
   }

@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers, } from 'redux';
 import { reducer as formReducer, } from 'redux-form';
+import {reducer as burgerMenu, } from 'redux-burger-menu';
 import thunk from 'redux-thunk';
 import { loadAuthToken, } from './local-storage';
 import authReducer from './reducers/Auth';
@@ -15,6 +16,7 @@ const store = createStore(
     editorReducer,
     landingPageReducer,
     applicationReducer,
+    burgerMenu,
   }),
   applyMiddleware(thunk)
 );
