@@ -1,6 +1,6 @@
-/* .CodeMirror {
+.CodeMirror {
   height: 65vh;
-} */
+}
 
 .CodeMirror-scroll{
   overflow: auto;

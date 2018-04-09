@@ -42,7 +42,6 @@ export class Room extends React.Component {
           <EditorView className="editors" />
         </div>
         <div className="bottom-side-wrapper">
-          <WebCam className="webcam" />
           <Chat className="chat" />
         </div>
       </section>
