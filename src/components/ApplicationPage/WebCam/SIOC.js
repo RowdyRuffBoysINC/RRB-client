@@ -175,12 +175,14 @@ export default class SIOC {
 
   init(props) {
     trace('Running SIOC.init');
-    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, } = props;
+    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, enableAudio, enableCamera, } = props;
     this.roomName = roomName;
     this.username = username;
     this.dispatch = dispatch;
     this.setLocalVideoStream = setLocalVideoStream;
     this.setRemoteVideoStream = setRemoteVideoStream;
+    this.enableAudio = enableAudio;
+    this.enableCamera = enableCamera;
 
     console.log('SIOC -> adding pc.onaddstream listener');
     /*
@@ -208,5 +210,16 @@ export default class SIOC {
     // Forgot what these did
     this.addUsers(dispatch);
     this.removeUsers(dispatch);
+  }
+
+  changeProps(props) {
+    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, enableAudio, enableCamera, } = props;
+    this.roomName = roomName;
+    this.username = username;
+    this.dispatch = dispatch;
+    this.setLocalVideoStream = setLocalVideoStream;
+    this.setRemoteVideoStream = setRemoteVideoStream;
+    this.enableAudio = enableAudio;
+    this.enableCamera = enableCamera;
   }
 }
