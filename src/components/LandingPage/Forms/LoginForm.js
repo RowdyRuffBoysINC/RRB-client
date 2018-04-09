@@ -33,7 +33,7 @@ export function LoginForm(props) {
           component={Input}
           type="text"
           name="username"
-          id="username"
+          id="username-login"
           validate={[ required, nonEmpty, ]}
         />
         <label className="labelInput" htmlFor="password">Password</label>

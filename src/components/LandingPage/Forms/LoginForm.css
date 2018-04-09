@@ -7,14 +7,21 @@
   width: 350px;
   height: 500px;
   padding: 10px;
-  background:#f3f3f3;
-  font-size: 20px;
+  background: rgb(0, 111, 255);
+  font-size: 24px;
+  color: white;
 }
 
 h1 {
   margin: 0px;
   margin-bottom: 5px;
 }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0px 9999px rgb(0, 111, 255);
+  -webkit-text-fill-color:white !important;
+}
+
 
 .login-form {
   display: inline-block;
@@ -26,6 +33,12 @@ h1 {
 .labelInput {
   display: inline-block;
   padding: 20px;
+}
+
+#username {
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid white;
 }
 
 .labelInputReg {
@@ -40,7 +53,7 @@ h1 {
 }
 
 .close {
-    color: rgba(216, 216, 216, 0.933);
+    color: white;
     margin-left: 90%;
     display: block;
     font-size: 35px;
