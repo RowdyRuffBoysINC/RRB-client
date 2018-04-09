@@ -8,7 +8,7 @@ script:
   - npm test
 
 env:
-  - REACT_APP_API_BASE_URL="https://mysterious-garden-51929.herokuapp.com"
+  - REACT_APP_API_BASE_URL="https://crossshare-server.herokuapp.com"
 
 before_deploy:
   - npm install netlify-cli -g

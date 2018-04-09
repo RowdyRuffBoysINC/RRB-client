@@ -1,0 +1,33 @@
+.chat-wrapper {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height:50% !important;
+}
+
+.chat-display {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  min-height: 20vh;
+}
+
+.message-content {
+  display: flex;
+}
+
+.message-sender {
+  color: blue;
+  font-weight: 700;
+  margin-right: 0.4em;
+}
+
+.chat-tabs {
+  display: flex;
+}
+
+.chat-tabs li {
+  margin: 5px;
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 5px;
+  color:rgb(0, 0, 0);
+}

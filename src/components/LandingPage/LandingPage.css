@@ -16,48 +16,52 @@ header {
 
 .landing-header {
   font-size: 1.2em;
-/* font-family: 'Croissant One', cursive; */
-/* font-family: 'Berkshire Swash', cursive; */
-/* font-family: 'Playfair Display SC', serif; */
-font-family: 'Amiri', serif;
-/* font-family: 'Prata', serif; */
-/* font-family: 'Yeseva One', cursive; */
-/* font-family: 'Averia Serif Libre', cursive; */
-	font-weight: 300;
+  margin-top: .8em;
 }
 
 .landing-sub-header {
 font-size: .5em;
-/* font-family: 'Croissant One', cursive; */
-/* font-family: 'Berkshire Swash', cursive; */
-/* font-family: 'Playfair Display SC', serif; */
-font-family: 'Amiri', serif;
-/* font-family: 'Prata', serif; */
-/* font-family: 'Yeseva One', cursive; */
-/* font-family: 'Averia Serif Libre', cursive; */
+font-family: 'Josefin Sans', sans-serif;
 font-weight: 300;
-margin-bottom: 300px;
 }
 
-.container {
-	min-height: 100%;
+.header-one {
+  font-weight: 600;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 6px;
+}
+
+ .header-two {
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 6px;
+  font-weight: 100;
+}
+
+.container, .container-about {
+  min-height: 100%;
+  max-height: 100%;
 	display: flex;
 	position: relative;
 	margin: 0;
 	overflow-x: hidden;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+  text-align: center;
+  flex-direction: column;
 }
 
-.content {
-	width: 45em;
-	max-width: calc(100% - 4em);
-	margin: 0 auto;
+.container-about {
+  justify-content: center;
+}
+
+footer {
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin-top: 2.5em !important;
 }
 
 .scroll-icon {
-	width: 1em;
+  width: 1em;
+  flex-direction: column-reverse;
+  text-align: center;
 }
 
 #header {
@@ -67,14 +71,45 @@ margin-bottom: 300px;
 	background-repeat: no-repeat;
 	font-size: 4em;
   text-align: center;
-	line-height: 1.1em;
+  line-height: 1.1em;
 }
 
 #sign-up {
-  background: #00d2ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #00d2ff, #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #00d2ff, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(0, 111, 255);
   color: white;
-  font-family: 'Lato';
+  font-family: 'Ubuntu', sans-serif;
   line-height: 2;
+}
+
+
+@media (max-width: 1024px) {
+  .landing-header {
+    font-size: .8em;
+  }
+  .landing-sub-header {
+    font-size: .4em;
+  } 
+} 
+
+@media (max-width: 760px) {
+  .landing-header {
+    font-size: .8em;
+  }
+  .landing-sub-header {
+    font-size: .4em;
+  } 
+}
+
+@media (max-width: 480px) {
+  .landing-header {
+    font-size: .7em;
+    margin-bottom: 0px;
+    margin-top: 25%;
+  }
+  .landing-sub-header {
+    font-size: .2em;
+  } 
+  #header {
+  line-height: .8em;
+  }
 }

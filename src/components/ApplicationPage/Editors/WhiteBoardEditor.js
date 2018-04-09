@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { socket, } from '../Room';
 import { SketchField, Tools, } from 'react-sketch';
+
 import WhiteBoardEditorControls from './WhiteBoardEditorControls';
 import { setWhiteBoardEditorValue, } from '../../../actions/Editor';
+import { socket, } from '../Room';
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {
@@ -17,7 +18,6 @@ export class WhiteBoardEditor extends React.Component {
 
   componentDidMount() {
     // No given functions to listen keyEvents from canvas
-
     document.querySelector('.upper-canvas').addEventListener('click', () => {
       if (this.sketch) {
         this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
@@ -72,8 +72,9 @@ export class WhiteBoardEditor extends React.Component {
     return (
       <section className="whiteboard-container">
         <WhiteBoardEditorControls clear={() => this.clearSketchCanvas()} />
-        <SketchField width="100vw"
-          height="500px"
+        <SketchField
+          width="100%"
+          height="100%"
           tool={Tools.Pencil}
           lineColor={this.props.whiteBoardEditorColor}
           lineWidth={this.props.whiteBoardEditorBrushSize}

@@ -17,24 +17,22 @@ export function LandingPage(props) {
     <section className="landing-page">
       <Modal />
       <section id="header" className="container">
-        <section className="content">
-          <header>
-            <h1 className="landing-header">
-              CrossShare
-            </h1>
-            <h2 className="landing-sub-header">
-              Working remotely shouldnt FEEL remote.
-            </h2>
-          </header>
-          <footer>
-            <a href="#about">
-              <img src={scroll} className="scroll-icon" alt="scroll icon img" />
-            </a>
-          </footer>
-        </section>
+        <header>
+          <h1 className="landing-header">
+            <span className="header-one">Cross</span><span className="header-two">Share</span>
+          </h1>
+          <h2 className="landing-sub-header">
+          Working remotely shouldnt feel remote
+          </h2>
+        </header>
+        <footer>
+          <a href="#about">
+            <img src={scroll} className="scroll-icon" alt="scroll icon img" />
+          </a>
+        </footer>
       </section>
       <About />
-      <section id="sign-up" className="container">
+      <section id="sign-up" className="container-about">
         <section className="about content">
           <RegistrationForm />
           <header>

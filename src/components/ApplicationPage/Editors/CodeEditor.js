@@ -1,6 +1,7 @@
 import React from 'react';
 import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
+
 import { socket, } from '../Room';
 
 //Import Actions
@@ -23,7 +24,6 @@ import 'codemirror/mode/xml/xml.js';
 export class CodeEditor extends React.Component {
   constructor(props) {
     super(props);
-
     socket.on('code msg sent back to clients', (msg) => {
       this.updateCodeEditorWithSocketInfo(msg);
     });
@@ -76,7 +76,6 @@ export class CodeEditor extends React.Component {
         {this.renderSelect(setMode, modeOptions)}
         {this.renderSelect(setTheme, themeOptions)}
         {this.renderSelect(setTabSize, tabSizeOptions)}
-
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>

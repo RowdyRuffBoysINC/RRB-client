@@ -10,6 +10,7 @@ const initialState = {
   localVideoStream: null,
   remoteVideoStreams: [],
   createVideoFunc: null,
+  roomView: 'audio',
 };
 
 const applicationReducer = function (state = initialState, action) {
@@ -81,7 +82,7 @@ const applicationReducer = function (state = initialState, action) {
         remoteVideoStreams: [ ...state.remoteVideoStreams, { id: action.data.id, stream: action.data.stream, }, ],
       };
   }
-  case ApplicationActions.DELETE_REMOTE_USER_STREAM:
+  case ApplicationActions.DELETE_REMOTE_USER_STREAM: {
     return {
       ...state,
       remoteVideoStreams: state.remoteVideoStreams.filter((video) => {
@@ -93,6 +94,12 @@ const applicationReducer = function (state = initialState, action) {
 
         return true;
       }),
+    };
+  }
+  case ApplicationActions.SET_ROOM_VIEW:
+    return {
+      ...state,
+      roomView: action.data,
     };
   default:
     return state;

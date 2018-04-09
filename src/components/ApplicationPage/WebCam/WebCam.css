@@ -6,22 +6,23 @@ video {
 .video-container {
   display: flex;
   flex-direction: column;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  height: 50%;
 }
 
 .video-box {
-  max-width: 720px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.video-remote-large {
-  top: 0px;
+.video-large {
   width: 100%;
-  min-width:320px;
-  max-width: 720px;
+  max-width: 640px;
   max-height: 480px;
-  position: relative;
+  /* border: 1px solid black; */
+  margin-bottom: 10px;
 }
 
 .video-local-small {
@@ -33,6 +34,10 @@ video {
   max-height: 180px;
   position: relative;
   z-index: 10;
+}
+
+.room-name {
+  margin-top: 10px;
 }
 
 #users li {

@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import RequiresLogin from '../LandingPage/RequiresLogin';
 import { withRouter, } from 'react-router';
+
+import RequiresLogin from '../LandingPage/RequiresLogin';
 import { setCreateInput, } from '../../actions/Application';
+import './RoomCreate.css';
 
 export function RoomCreate(props) {
   function handleOnChange(e) {
@@ -16,9 +18,11 @@ export function RoomCreate(props) {
 
   return (
     <section className="room-create">
-      <h1> Room Create </h1>
-      <input type="text" placeholder="Enter your room name!" onChange={e => handleOnChange(e)} />
-      <button onClick={e => handleClick(e)}> Submit </button>
+      <div className="room-create-wrapper">
+        <h1 className="room-create-header"> Create a Room </h1>
+        <input className="room-create-input" type="text" placeholder="Room Name..." onChange={e => handleOnChange(e)} />
+        <button className="btn-form btn-room" onClick={e => handleClick(e)}> Submit </button>
+      </div>
     </section>
   );
 }

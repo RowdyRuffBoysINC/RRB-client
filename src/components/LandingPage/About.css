@@ -17,9 +17,10 @@
 }
 
 .about-header {
-  font-size: 1.8em;
+  font-size: 2.2em;
   line-height: 1.8;
   margin-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .about-text {

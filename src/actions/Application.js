@@ -29,3 +29,6 @@ export const setRemoteUserStream = (stream, addedPerson) => ({ type: SET_REMOTE_
 
 export const DELETE_REMOTE_USER_STREAM = 'DELETE_REMOTE_USER_STREAM';
 export const deleteRemoteUserStream = id => ({ type: DELETE_REMOTE_USER_STREAM, data: id, });
+
+export const SET_ROOM_VIEW = 'SET_ROOM_VIEW';
+export const setRoomView = input => ({type: SET_ROOM_VIEW, data: input, });
