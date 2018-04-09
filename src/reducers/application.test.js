@@ -10,6 +10,7 @@ describe('applicationReducer', () => {
       editorMode: 'code',
       listOfUsers: [],
       listOfUserVideos: [],
+      roomView: 'audio',
     });
   });
 
@@ -31,6 +32,7 @@ describe('applicationReducer', () => {
         editorMode: 'code',
         listOfUsers: [],
         listOfUserVideos: [],
+        roomView: 'audio',
       });
       state = applicationReducer(state, ApplicationActions.setCreateInput(input2));
       expect(state).toEqual({
@@ -38,6 +40,7 @@ describe('applicationReducer', () => {
         editorMode: 'code',
         listOfUsers: [],
         listOfUserVideos: [],
+        roomView: 'audio',
       });
     });
   });

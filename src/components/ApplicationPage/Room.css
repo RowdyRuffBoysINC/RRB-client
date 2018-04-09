@@ -14,3 +14,13 @@
   height: 90vh;
   width: 30%;
 }
+
+.top-side-wrapper {
+  height: 70vh;
+  width: 100%;
+}
+
+.bottom-side-wrapper {
+  height: 20vh;
+  width: 100%;
+}

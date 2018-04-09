@@ -1,5 +1,4 @@
 .room-create {
-  /* height: 500px; */
   position: absolute;
   top:0;
   bottom: 0;
@@ -38,7 +37,18 @@
   display: block;
   margin: 20px auto;
   border-radius: 20px solid white;
-  color: #999;
+  background: rgb(0, 111, 255);
+  color: white;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid white;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+
+::placeholder {
+  color: white;
+  opacity: 1;
 }
 
 .btn-room {

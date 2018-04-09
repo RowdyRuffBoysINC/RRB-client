@@ -114,7 +114,7 @@ export class WebCam extends React.Component {
     }, error);
 
     function error(err) {
-      trace('some shit happened');
+      trace(err);
     }
 
     const createOffer = (id) => {
@@ -184,6 +184,9 @@ export class WebCam extends React.Component {
         <section className="video-box" id="video-box">
           <video className="video-large" id="webcam-local-video" autoPlay></video>
         </section>
+        <section className="users-container" id="users-container">
+          <UserList createOffer={(id) => this.createVideo(id)} />
+        </section>
       </section>
     );
   }
@@ -192,6 +195,7 @@ export class WebCam extends React.Component {
 const mapStateToProps = (state) => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  roomView: state.applicationReducer.roomView,
 });
 
 export default connect(mapStateToProps)(WebCam);

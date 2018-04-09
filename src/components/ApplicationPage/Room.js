@@ -51,13 +51,26 @@ export class Room extends React.Component {
   }
 
   render() {
-    return (
-      <section className="room">
-        <div className="left-side-wrapper">
+    if (this.props.roomView === 'video') {
+      return (
+        <section className="room">
+          <div className="left-side-wrapper">
+            <EditorView className="editors" />
+          </div>
+          <div className="right-side-wrapper">
+            <WebCam className="webcam" />
+            <Chat className="chat" />
+          </div>
+        </section>
+      );
+    }
+
+    else return (
+      <section className="room-audio">
+        <div className="top-side-wrapper">
           <EditorView className="editors" />
         </div>
-        <div className="right-side-wrapper">
-          <WebCam className="webcam" />
+        <div className="bottom-side-wrapper">
           <Chat className="chat" />
         </div>
       </section>
@@ -68,6 +81,7 @@ export class Room extends React.Component {
 const mapStateToProps = state => ({
   username: state.auth.currentUser.username,
   roomName: state.applicationReducer.roomName,
+  roomView: state.applicationReducer.roomView,
   codeEditorText: state.editorReducer.codeEditorText,
   wordEditorText: state.editorReducer.wordEditorText,
   whiteBoardEditorText: state.editorReducer.whiteBoardEditorText,

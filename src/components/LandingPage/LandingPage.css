@@ -16,7 +16,7 @@ header {
 
 .landing-header {
   font-size: 1.2em;
-  margin-top: 15%;
+  margin-top: .8em;
 }
 
 .landing-sub-header {
@@ -37,19 +37,31 @@ font-weight: 300;
   font-weight: 100;
 }
 
-.container {
-	min-height: 100%;
+.container, .container-about {
+  min-height: 100%;
+  max-height: 100%;
 	display: flex;
 	position: relative;
 	margin: 0;
 	overflow-x: hidden;
-	justify-content: center;
   text-align: center;
+  flex-direction: column;
+}
+
+.container-about {
+  justify-content: center;
+}
+
+footer {
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin-top: 2.5em !important;
 }
 
 .scroll-icon {
   width: 1em;
-  margin-top: 50%;
+  flex-direction: column-reverse;
+  text-align: center;
 }
 
 #header {
@@ -63,9 +75,7 @@ font-weight: 300;
 }
 
 #sign-up {
-  background: #00d2ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #00d2ff, #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #00d2ff, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(0, 111, 255);
   color: white;
   font-family: 'Ubuntu', sans-serif;
   line-height: 2;
@@ -79,10 +89,7 @@ font-weight: 300;
   .landing-sub-header {
     font-size: .4em;
   } 
-  .scroll-icon {
-    margin-top: 60%;
-  }
-}
+} 
 
 @media (max-width: 760px) {
   .landing-header {
@@ -91,10 +98,6 @@ font-weight: 300;
   .landing-sub-header {
     font-size: .4em;
   } 
-  .scroll-icon {
-    margin-top: 60%;
-    width: .8em;
-  }
 }
 
 @media (max-width: 480px) {
@@ -108,8 +111,5 @@ font-weight: 300;
   } 
   #header {
   line-height: .8em;
-  }
-  .scroll-icon {
-    margin-top: 110%;
   }
 }

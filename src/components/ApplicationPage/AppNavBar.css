@@ -1,3 +1,43 @@
 .nav-bar-wrapper {
   height: 10vh;
 }
+
+.view-switch, .video, .audio {
+  flex-direction: row-reverse;
+}
+
+.video {
+  margin-left: 50%;
+  margin-right: 15px;
+}
+
+.right-li {
+  flex-direction:
+}
+
+.nav-bar-ul {
+  display: flex;
+  margin-top: 0px;
+  padding-top: 15px;
+  margin-bottom: 0px;
+  flex-direction: row;
+  margin-right: 10%;
+  padding-left: 0px;
+  font-size: .8em;
+}
+
+.editor-mode-text {
+  list-style-type: none;
+  color: #141414;
+  margin-left: 15px;
+  text-align: left;
+  flex-wrap: nowrap;
+}
+
+.editor-mode-text, .video, .audio:hover {
+  cursor:pointer;
+ }
+
+ .nav-bar-wrapper {
+   width: 100%;
+ }

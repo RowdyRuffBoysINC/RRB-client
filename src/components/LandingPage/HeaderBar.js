@@ -1,14 +1,17 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { slide as Menu, } from 'react-burger-menu';
+import Menu from './Menu';
 import { clearAuth, } from '../../actions/Auth';
 import { showLoginForm, } from '../../actions/Users';
 import { clearAuthToken, } from '../../local-storage';
 import { hideLoginForm, } from '../../actions/Users';
+import {action as toggleMenu, } from 'redux-burger-menu';
+import createStore from '../../store';
 import './HeaderBar.css';
 
 export function HeaderBar(props) {
   function logOut() {
+    createStore.dispatch(toggleMenu(false));
     props.dispatch(clearAuth());
     props.dispatch(hideLoginForm());
     clearAuthToken();
@@ -23,7 +26,6 @@ export function HeaderBar(props) {
   }
   else {
     logOutButton = (
-
       <p className="login-text" onClick={() => props.dispatch(showLoginForm())}>Login</p>
     );
   }
