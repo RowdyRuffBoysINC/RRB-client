@@ -8,7 +8,7 @@ export function UserList(props) {
       user.user !== props.username
     )
     .map(user =>
-      <li onClick={() => createOffer(user.id)} key={user.id}> Share your screen with {user.user} </li>
+      <li onClick={() => createOffer(user.id)} key={user.id}> Share your camera with {user.user} </li>
     );
   return (<ul>{list}</ul>);
 }
