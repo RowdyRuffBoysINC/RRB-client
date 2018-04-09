@@ -1,9 +1,16 @@
-.CodeMirror {
-  height: 85vh;
-}
-
-.CodeMirror-sizer {
+/* .CodeMirror {
+  font-family: monospace;
+  line-height: 1em;
+  height: auto;
   height: 100%;
+  overflow: hidden;
+} */
+
+
+.CodeMirror-scroll{
+  overflow: auto;
+  height: auto;
+  overflow-y: hidden;
 }
 
 .editor-view-wrapper {

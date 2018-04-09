@@ -23,7 +23,7 @@ export class Room extends React.Component {
 
   render() {
     // return (
-    //   <section className="room-video">
+    //   <section className="room">
     //     <div className="left-side-wrapper">
     //       <EditorView className="editors" />
     //     </div>

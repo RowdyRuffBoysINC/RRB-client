@@ -16,10 +16,8 @@ export function AppNavBar(props) {
   const editorNavigation = (
     <ul className="nav-bar-ul">
       {editorListItem}
-      <div className="view-switch">
-        <li className="view-switch video">Audio</li>
-        <li className="view-switch audio">Video</li>
-      </div>
+      <li className="view-switch video">Audio</li>
+      <li className="view-switch audio">Video</li>
     </ul>
   );
 

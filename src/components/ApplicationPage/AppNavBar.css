@@ -2,11 +2,13 @@
   height: 10vh;
 }
 
-.view-switch, video, audio {
-  display: flex;
+.view-switch, .video, .audio {
   flex-direction: row-reverse;
-  align-self: flex-end;
+}
+
+.video {
   margin-left: 50%;
+  margin-right: 15px;
 }
 
 .right-li {
@@ -22,11 +24,10 @@
   margin-right: 10%;
   padding-bottom: 5px;
   padding-left: 0px;
+  font-size: .8em;
 }
 
 .editor-mode-text {
-  display: flex;
-  flex-direction: row;
   list-style-type: none;
   color: #141414;
   font-size: 1.1em;
@@ -34,7 +35,7 @@
   text-align: left;
 }
 
-.editor-mode-text:hover, .video, .audio {
+.editor-mode-text:hover, video, audio {
   cursor:pointer;
  }
 
