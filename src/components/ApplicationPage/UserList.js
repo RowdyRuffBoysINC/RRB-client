@@ -3,7 +3,7 @@ import { connect, } from 'react-redux';
 
 export function UserList(props) {
   const { userList, } = props;
-  
+
   const list = userList
     .filter(user =>
       user.user !== props.username
@@ -15,7 +15,7 @@ export function UserList(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {  
+  return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     userList: state.applicationReducer.listOfUsers,
