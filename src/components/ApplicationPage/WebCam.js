@@ -179,8 +179,6 @@ export class WebCam extends React.Component {
   }
 
   render() {
-
-    // if (this.props.roomView === 'video') {
       return (
         <section className="webcam-container">
           <section className="video-box" id="video-box">
@@ -193,14 +191,6 @@ export class WebCam extends React.Component {
         </section>
       );
     }
-    // else return (
-    //   <section className="webcam-audio-only-container">
-    //     <section className="users-container" id="users-container">
-    //         <h4 className="room-name"> Room: {this.props.roomName} </h4>
-    //         <UserList createOffer={(id) => this.createVideo(id)} />
-    //     </section>
-    //   </section>
-    // )
   }
 
 

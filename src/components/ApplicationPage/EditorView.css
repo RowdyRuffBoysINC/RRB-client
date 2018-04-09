@@ -4,7 +4,7 @@
 }
 
 .CodeMirror-scroll{
-  min-height: 80vh;
+  min-height: 100% ;
 }
 
 .editor-view-wrapper {
