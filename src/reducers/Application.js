@@ -25,7 +25,7 @@ const applicationReducer = function (state = initialState, action) {
       editorMode: action.mode,
     };
   case ApplicationActions.SET_CREATE_VIDEO_FUNC:
-    console.log('applicationReducer -> SET_CREATE_VIDEO_FUNC', action.data);
+
     return {
       ...state,
       createVideoFunc: action.data,
