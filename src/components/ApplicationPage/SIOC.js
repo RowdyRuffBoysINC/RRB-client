@@ -65,7 +65,7 @@ export default class SIOC {
 
   createVideo(id) {
     this.pc.createOffer((offer) => {
-      console.log('creating video aka creating offer');
+
       this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
         socket.emit('make-offer', {
           offer,
@@ -79,7 +79,7 @@ export default class SIOC {
 
   __createOffer(id) {
     this.pc.createOffer((offer) => {
-      console.log('SIOC -> creating offer');
+
       this.pc.setLocalDescription(new this.sessionDescription(offer), () =>{
         socket.emit('make-offer', {
           offer,
@@ -91,10 +91,10 @@ export default class SIOC {
   }
 
   answerMade() {
-    console.log('SIOC -> Created answerMade socket listener');
+
     socket.on('answer-made', (data) =>{
-      console.log('SIOC -> answer was made');
-      console.log('SIOC -> answerMade() -> data from socket', data);
+
+
 
       const { socket, user, } = data;
       this.addedPerson = { socket, user, };
@@ -106,7 +106,7 @@ export default class SIOC {
         */
 
         if(!this.answersFrom[data.socket]) {
-          console.log('SIOC -> answerMade() -> answer from socket doesnt exist..');
+
           this.__createOffer(data.socket);
           this.answersFrom[data.socket] = true;
         }
@@ -115,10 +115,10 @@ export default class SIOC {
   }
 
   offerMade() {
-    console.log('SIOC -> Created offer made socket listener');
+
     socket.on('offer-made', (data) => {
-      console.log('SIOC -> offerMade() -> offer was made');
-      console.log('SIOC -> offerMade() -> data from socket', data);
+
+
 
       const userSocket = data.socket;
       const user = data.user;
@@ -127,7 +127,7 @@ export default class SIOC {
       this.addedPerson.user = user;
       this.addedPerson.socket = userSocket;
 
-      console.log('SIOC -> offer made');
+
       this.offer = data.offer;
       this.pc.setRemoteDescription(new this.sessionDescription(data.offer), () =>{
         this.pc.createAnswer((answer) => {
@@ -145,23 +145,23 @@ export default class SIOC {
   }
 
   addUsers(dispatch) {
-    console.log('added addUsers socket listener');
+
     socket.on('add-users', (data) => {
-      console.log('SIOC -> addUsers -> add-users was event was emitted');
+
       dispatch(setUserList(data.users));
     });
   }
 
   removeUsers(dispatch) {
     socket.on('remove-user', (id) => {
-      console.log('SIOC -> removeUser() -> remove-users was event was emitted', id);
+
       dispatch(deleteUserFromList(id));
       dispatch(deleteRemoteUserStream(id));
     });
   }
 
   getLocalUserMedia() {
-    console.log('SIOC -> getLocalUserMedia -> running getUserMedia', this.enableCamera, this.enableAudio);
+
     this.navigator.getUserMedia({
       video: this.enableCamera,
       audio: this.enableAudio,
@@ -182,24 +182,24 @@ export default class SIOC {
     this.enableAudio = enableAudio;
     this.enableCamera = enableCamera;
 
-    console.log('SIOC -> adding pc.onaddstream listener');
+
     /*
     This gets triggered whenever an [answer was made] aka this.pc.setRemoteDescription(data.answer) in answerMade func
     also setRemoteDescription is in [offer was made] func
     */
     this.pc.onaddstream = (obj) => {
-      console.log('SIOC -> This.pc.onaddstream triggered');
-      console.log('SIOC -> This.pc.onaddstream -> this user triggered the event: ', this.addedPerson);
-      console.log('SIOC -> This.pc.onaddstream -> obj: ', obj); 
+
+
+ 
       dispatch(setRemoteUserStream(obj.stream, this.addedPerson));
     };
 
     // Wire socket events
-    console.log('SIOC -> wiring socket events');
+
     this.answerMade();
     this.offerMade();
 
-    console.log('SIOC -> emitting add-users');
+
     socket.emit('add-users', {
       room: roomName,
       user: username,
