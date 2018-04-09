@@ -50,10 +50,10 @@ export class Chat extends React.Component {
       <section className="chat-wrapper">
         <header>
           <ul className="chat-tabs">
-            <li onClick={this.props.dispatch(showChatView())}>
+            <li onClick={() => this.props.dispatch(showChatView())}>
               Chat
             </li>
-            <li onClick={this.props.dispatch(showUserView())}>
+            <li onClick={() => this.props.dispatch(showUserView())}>
               Users ({this.props.numOfUsers})
               <UserList />
             </li>
