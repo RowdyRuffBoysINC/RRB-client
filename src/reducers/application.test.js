@@ -32,18 +32,26 @@ describe('applicationReducer', () => {
 
       state = applicationReducer(state, ApplicationActions.setCreateInput(input1));
       expect(state).toEqual({
+        createVideoFunc: null,
+        enableAudio: false,
+        enableVideo: true,
+        localVideoStream: null,
+        remoteVideoStreams: [],
         roomName: input1,
         editorMode: 'code',
         listOfUsers: [],
-        listOfUserVideos: [],
         roomView: 'audio',
       });
       state = applicationReducer(state, ApplicationActions.setCreateInput(input2));
       expect(state).toEqual({
+        createVideoFunc: null,
+        enableAudio: false,
+        enableVideo: true,
+        localVideoStream: null,
+        remoteVideoStreams: [],
         roomName: input2,
         editorMode: 'code',
         listOfUsers: [],
-        listOfUserVideos: [],
         roomView: 'audio',
       });
     });
