@@ -1,7 +1,8 @@
 import {
   UPDATE_CHAT_LOG,
   UPDATE_MESSAGE_DRAFT,
-  TOGGLE_CHAT_VIEW,
+  SHOW_CHAT_VIEW,
+  SHOW_USER_VIEW,
 } from './../actions/Chat';
 const initialState = {
   chatLogs: [],
@@ -22,10 +23,15 @@ const chatReducer = function (state = initialState, action) {
         action.data,
       ],
     };
-  case TOGGLE_CHAT_VIEW:
+  case SHOW_CHAT_VIEW:
     return {
       ...state,
-      isChatViewEnabled: !state.isChatViewEnabled,
+      isChatViewEnabled: true,
+    };
+  case SHOW_USER_VIEW:
+    return {
+      ...state,
+      isChatViewEnabled: false,
     };
   case UPDATE_MESSAGE_DRAFT:
     return {

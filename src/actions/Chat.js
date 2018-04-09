@@ -1,5 +1,8 @@
-export const TOGGLE_CHAT_VIEW = 'TOGGLE_CHAT_VIEW';
-export const toggleChatView = () => ({ type: TOGGLE_CHAT_VIEW, });
+export const SHOW_CHAT_VIEW = 'SHOW_CHAT_VIEW';
+export const showChatView = () => ({ type: SHOW_CHAT_VIEW, });
+
+export const SHOW_USER_VIEW = 'SHOW_USER_VIEW';
+export const showUserView = () => ({ type: SHOW_USER_VIEW, });
 
 export const UPDATE_CHAT_LOG = 'UPDATE_CHAT_LOG';
 export const updateChatLog = data => ({

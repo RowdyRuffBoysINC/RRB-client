@@ -4,7 +4,8 @@ import { connect, } from 'react-redux';
 import {
   updateChatLog,
   updateMessageDraft,
-  isChatViewEnabled,
+  showChatView,
+  showUserView,
 } from './../../actions/Chat';
 import { socket, } from './Room';
 import UserList from './UserList';
@@ -49,10 +50,10 @@ export class Chat extends React.Component {
       <section className="chat-wrapper">
         <header>
           <ul className="chat-tabs">
-            <li>
+            <li onClick={this.props.dispatch(showChatView())}>
               Chat
             </li>
-            <li>
+            <li onClick={this.props.dispatch(showUserView())}>
               Users ({this.props.numOfUsers})
               <UserList />
             </li>
