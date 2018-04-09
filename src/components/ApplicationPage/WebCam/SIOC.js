@@ -7,7 +7,6 @@ import {
   deleteUserFromList,
   setLocalUserStream,
   setRemoteUserStream,
-  deleteLocalUserStream,
   deleteRemoteUserStream,
 } from '../../../actions/Application';
 
