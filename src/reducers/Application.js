@@ -18,7 +18,7 @@ const applicationReducer = function (state = initialState, action) {
     return {
       ...state,
       roomName: action.data,
-    };    
+    };
   case EditorActions.SET_EDITOR_VIEW:
     return {
       ...state,

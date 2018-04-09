@@ -9,7 +9,11 @@ describe('applicationReducer', () => {
       roomName: null,
       editorMode: 'code',
       listOfUsers: [],
-      listOfUserVideos: [],
+      enableAudio: false,
+      enableVideo: true,
+      localVideoStream: null,
+      remoteVideoStreams: [],
+      createVideoFunc: null,
     });
   });
 
