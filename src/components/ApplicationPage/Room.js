@@ -4,10 +4,10 @@ import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
 import EditorView from './EditorView';
-import { setCreateInput, deleteLocalUserStream, setCreateVideoFunc, } from '../../actions/Application';
-import { API_BASE_URL, } from '../../config';
 import SIOC from './SIOC';
 import WebCam from './WebCam';
+import { setCreateInput, deleteLocalUserStream, setCreateVideoFunc, } from '../../actions/Application';
+import { API_BASE_URL, } from '../../config';
 export const socket = io(API_BASE_URL);
 
 
@@ -15,11 +15,9 @@ export class Room extends React.Component {
   constructor(props) {
     super(props);
     this.SIOC = new SIOC();
-    console.log('Room.js -> new instance of SIOC');
   }
 
   componentWillMount() {
-    console.log('Room.js -> ComponentDidMount -> init');
     this.SIOC.init(this.props);
     this.props.dispatch(setCreateInput(this.props.match.params.roomName));
     this.props.dispatch(setCreateVideoFunc(id => this.SIOC.createVideo(id)));
