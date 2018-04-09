@@ -5,6 +5,8 @@ const initialState = {
   roomName: null,
   editorMode: 'code',
   listOfUsers: [],
+  enableAudio: false,
+  enableVideo: true,
   localVideoStream: null,
   remoteVideoStreams: [],
 };
