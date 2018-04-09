@@ -51,7 +51,7 @@ export class WebCam extends React.Component {
     let answersFrom = {}, offer;
 
     function error(err) {
-      trace('some shit happened');
+      trace(err);
     }
 
     function trace(text) {
@@ -183,10 +183,6 @@ export class WebCam extends React.Component {
       <section className="webcam-container">
         <section className="video-box" id="video-box">
           <video className="video-large" id="webcam-local-video" autoPlay></video>
-        </section>
-        <section className="users-container" id="users-container">
-          <h4 className="room-name"> Room: {this.props.roomName} </h4>
-          <UserList createOffer={(id) => this.createVideo(id)} />
         </section>
       </section>
     );
