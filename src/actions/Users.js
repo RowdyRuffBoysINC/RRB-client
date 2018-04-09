@@ -1,5 +1,6 @@
 import { SubmissionError, } from 'redux-form';
 import { API_BASE_URL, } from '../config';
+
 export const registerUser = user => async (dispatch) => {
   try {
     const response = await fetch(`${API_BASE_URL}/users`, {

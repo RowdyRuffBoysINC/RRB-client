@@ -4,7 +4,7 @@ import * as EditorActions from '../actions/Editor';
 
 describe('applicationReducer', () => {
   it('Should set the initial state when nothing is passed in', () => {
-    const state = applicationReducer(undefined, {type: '__UNKNOWN',});
+    const state = applicationReducer(undefined, { type: '__UNKNOWN', });
     expect(state).toEqual({
       roomName: null,
       editorMode: 'code',
@@ -16,7 +16,7 @@ describe('applicationReducer', () => {
 
   it('Should return the current state on an unknown action', () => {
     const currentState = {};
-    const state = applicationReducer(currentState, {type: '__UNKNOWN',});
+    const state = applicationReducer(currentState, { type: '__UNKNOWN', });
     expect(state).toBe(currentState);
   });
 
@@ -48,7 +48,7 @@ describe('applicationReducer', () => {
   describe('setEditorView', () => {
     it('Should default to code mode', () => {
       let state;
-      state = applicationReducer(state, {type: '__UNKNOWN',});
+      state = applicationReducer(state, { type: '__UNKNOWN', });
       expect(state.editorMode).toEqual('code');
     });
     it('Should set correct editor mode', () => {
@@ -79,12 +79,12 @@ describe('applicationReducer', () => {
   describe('deleteUserFromList', () => {
     it('Should delete user from list', () => {
       let state;
-      const userList1 = [ {id: 'user1',}, {id: 'user2',}, {id: 'user3',}, ];
+      const userList1 = [ { id: 'user1', }, { id: 'user2', }, { id: 'user3', }, ];
 
       state = applicationReducer(state, ApplicationActions.setUserList(userList1));
       expect(state.listOfUsers).toEqual(userList1);
       state = applicationReducer(state, ApplicationActions.deleteUserFromList('user1'));
-      expect(state.listOfUsers).toEqual([ {id: 'user2',}, {id: 'user3',}, ]);
+      expect(state.listOfUsers).toEqual([ { id: 'user2', }, { id: 'user3', }, ]);
     });
   });
 });

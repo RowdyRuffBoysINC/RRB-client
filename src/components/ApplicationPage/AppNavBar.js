@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { setEditorView, } from '../../actions/Editor';
 import { setRoomView, } from '../../actions/Application';
 import { connect, } from 'react-redux';
@@ -30,7 +31,7 @@ export function AppNavBar(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {editorMode: state.applicationReducer.editorMode,};
+  return { editorMode: state.applicationReducer.editorMode, };
 };
 
 export default connect(mapStateToProps)(AppNavBar);

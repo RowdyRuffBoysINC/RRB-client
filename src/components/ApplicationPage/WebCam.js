@@ -51,7 +51,7 @@ export class WebCam extends React.Component {
     let answersFrom = {}, offer;
 
     function error(err) {
-      trace('some shit happened');
+      trace(err);
     }
 
     function trace(text) {
@@ -114,7 +114,7 @@ export class WebCam extends React.Component {
     }, error);
 
     function error(err) {
-      trace('some shit happened');
+      trace(err);
     }
 
     const createOffer = (id) => {
@@ -188,10 +188,8 @@ export class WebCam extends React.Component {
             <UserList createOffer={(id) => this.createVideo(id)} />
           </section>
         </section>
-      );
-    }
+    );
   }
-
 
 const mapStateToProps = (state) => ({
   username: state.auth.currentUser.username,
