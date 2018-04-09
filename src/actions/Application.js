@@ -14,3 +14,7 @@ export const deleteUserFromList = input => ({ type: DELETE_USER_FROM_LIST, data:
 
 export const DELETE_USER_VIDEO = 'DELETE_USER_VIDEO';
 export const deleteUserVideo = input => ({ type: DELETE_USER_VIDEO, data: input, });
+
+export const SET_ROOM_VIEW = 'SET_ROOM_VIEW';
+export const setRoomView = input => ({type: SET_ROOM_VIEW, data: input,
+});
