@@ -1,11 +1,10 @@
 .CodeMirror {
-  height: 65vh;
+  min-height: 65vh;
+  max-height: 85vh;
 }
 
 .CodeMirror-scroll{
-  overflow: auto;
-  height: auto;
-  overflow-y: hidden;
+  min-height: 80vh;
 }
 
 .editor-view-wrapper {
