@@ -19,11 +19,6 @@ export const socket = io(API_BASE_URL);
 export class Room extends React.Component {
   constructor(props) {
     super(props);
-    socket.emit('add-users', {
-      room: this.props.roomName,
-      user: this.props.username,
-    });
-
     socket.on('add-users', (data) => {
       this.props.dispatch(ApplicationActions.setUserList(data.users));
     });
