@@ -4,8 +4,6 @@ import SIOC_Class from './SIOC';
 
 
 export function UserList(props) {
-  const SIOC = new SIOC_Class();
-
   const { userList, } = props;
   
   const list = userList
