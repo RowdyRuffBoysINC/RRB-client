@@ -3,7 +3,6 @@ import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
 import { convertToRaw, } from 'draft-js';
-
 import EditorView from './EditorView';
 import SIOC from './SIOC';
 import WebCam from './WebCam';
