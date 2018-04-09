@@ -11,16 +11,22 @@ import UserList from './UserList';
 
 import './Chat.css';
 
-
 export class Chat extends React.Component {
+  constructor(props) {
+    super(props);
+    socket.on('chat msg sent back to clients', (data) => {
+      this.props.dispatch(updateChatLog(data));
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    this.props.dispatch(updateChatLog(this.props.messageDraft));
+    socket.emit('chat msg', {room: this.props.roomName, msg: this.props.messageDraft,});
     this.input.value = '';
   }
 
   handleMessageDraftChange() {
-    this.props.dispatch(updateMessageDraft(this.input.value));
+    this.props.dispatch(updateMessageDraft({username: this.props.username, message: this.input.value,}));
     this.input = this.props.messageDraft;
   }
   // Consider adding timestamp to messages
@@ -29,10 +35,10 @@ export class Chat extends React.Component {
       .map((message, key) =>
         <li key={key} className="message-content" >
           <span className="message-sender">
-            {this.props.username}:
+            {message.username}:
           </span>
           <p className="message-body">
-            {message}
+            {message.msg}
           </p>
         </li>
       );
@@ -87,6 +93,8 @@ const mapStateToProps = (state) => {
     isChatViewEnabled: state.chat.isChatViewEnabled,
     username: state.auth.currentUser.username,
     numOfUsers: state.applicationReducer.listOfUsers.length,
+    roomName: state.applicationReducer.roomName,
+    chatUsername: state.chat.messageDraft.username,
   };
 };
 

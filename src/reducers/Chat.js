@@ -5,19 +5,21 @@ import {
 } from './../actions/Chat';
 const initialState = {
   chatLogs: [],
-  messageDraft: '',
+  messageDraft: {
+    username: '',
+    msg: '',
+  },
   isChatViewEnabled: true,
 };
 
 const chatReducer = function (state = initialState, action) {
-  console.log(action, 'THIS IS ACTION FROM REDUCER');
   switch (action.type) {
   case UPDATE_CHAT_LOG:
     return {
       ...state,
       chatLogs: [
         ...state.chatLogs,
-        action.message,
+        action.data,
       ],
     };
   case TOGGLE_CHAT_VIEW:
@@ -28,7 +30,10 @@ const chatReducer = function (state = initialState, action) {
   case UPDATE_MESSAGE_DRAFT:
     return {
       ...state,
-      messageDraft: action.message,
+      messageDraft: {
+        username: action.username,
+        msg: action.message,
+      },
     };
   default:
     return state;
