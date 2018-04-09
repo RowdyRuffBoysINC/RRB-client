@@ -6,7 +6,7 @@ import { convertToRaw, } from 'draft-js';
 import EditorView from './EditorView';
 import SIOC from './SIOC';
 import WebCam from './WebCam';
-import { setCreateInput, deleteLocalUserStream, setCreateVideoFunc, } from '../../actions/Application';
+import * as ApplicationActions from '../../actions/Application';
 import { fetchDocsFromDb, updateDocsDb, createDocsDb, } from '../../actions/Editor';
 import { API_BASE_URL, } from '../../config';
 import Chat from './Chat';
@@ -23,7 +23,14 @@ export class Room extends React.Component {
   componentWillMount() {
     this.SIOC.init(this.props);
 
-    // If false is returned from GET, create new doc instead of updating
+    socket.on('add-users', (data) => {
+      this.props.dispatch(ApplicationActions.setUserList(data.users));
+    });
+
+    socket.on('remove-user', (id) => {
+      this.props.dispatch(ApplicationActions.deleteUserFromList(id));
+    });
+
     this.props.dispatch(fetchDocsFromDb(this.props.match.params.roomName))
       .then((value) => {
         if (value === false) {
@@ -38,14 +45,14 @@ export class Room extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(setCreateInput(this.props.match.params.roomName));
-    this.props.dispatch(setCreateVideoFunc(id => this.SIOC.createVideo(id)));
-    
+    this.props.dispatch(ApplicationActions.setCreateInput(this.props.match.params.roomName));
+    this.props.dispatch(ApplicationActions.setCreateVideoFunc(id => this.SIOC.createVideo(id)));
+
     // Getting the stream from the local user
     this.SIOC.getLocalUserMedia();
 
     socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
-    
+
     // Update docs every x seconds
     this.interval = setInterval(() => {
       this.props.dispatch(updateDocsDb({
@@ -60,7 +67,7 @@ export class Room extends React.Component {
   componentWillUnmount() {
     socket.emit('leave room', { room: this.props.match.params.roomName, user: this.props.username, });
 
-    this.props.dispatch(deleteLocalUserStream());
+    this.props.dispatch(ApplicationActions.deleteLocalUserStream());
     clearInterval(this.interval);
   }
 
