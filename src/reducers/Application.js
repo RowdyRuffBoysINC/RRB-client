@@ -23,6 +23,16 @@ const applicationReducer = function (state = initialState, action) {
       ...state,
       editorMode: action.mode,
     };
+  case ApplicationActions.TOGGLE_WEBCAM_AUDIO:
+    return {
+      ...state,
+      enableAudio: !state.enableAudio,
+    };
+  case ApplicationActions.TOGGLE_WEBCAM_VIDEO:
+    return {
+      ...state,
+      enableVideo: !state.enableVideo,
+    };
   case ApplicationActions.SET_USER_LIST:
     return {
       ...state,
