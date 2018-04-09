@@ -9,46 +9,14 @@ import { trace, erro } from './helpers';
 import './WebCam.css'
 
 export class WebCam extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.SIOC = new SIOC();
-    console.log('Index.js -> new instance of SIOC');
-  }
-
-  componentWillMount() {
-    console.log('Index.js -> ComponentDidMount -> init');
-    // this.SIOC.init(this.props);
-  }
-
-  componentDidMount() {
-    // this.props.SIOC.getLocalUserMedia();
-  }
-
-  componentWillUpdate() {
-    console.log('Index.js -> update?');
-  }
-
-  componentDidUpdate() {
-    console.log('Index.js -> didupdate');
-  }
-
-  componentWillUnmount() {
-    console.log('Index.js -> unmounted');
-    // this.props.dispatch(deleteLocalUserStream());
-  }
 
   createLocalVideo() {
     if (this.props.localVideoStream) {
-      console.log('Index.js -> createLocalVideo -> localVideoStream exists');
 
       const videoSrc = window.URL.createObjectURL(this.props.localVideoStream);
 
-      console.log('Index.js -> createLocalVideo -> localVideoStream exists -> turned into src -> return it');
-
       return (<video className='video-local-small' src={videoSrc} muted autoPlay></video>);
     }
-
-    console.log('Index.js -> createLocalVideo -> localVideoStream is null -> return null');
 
     return null;
   }
@@ -56,30 +24,24 @@ export class WebCam extends React.Component {
   createRemoteVideos() {
     const arrOfVideos = [];
     if (this.props.remoteVideoStreams.length > 0) {
-      console.log('Indexjs -> createRemoteVideo -> a remoteVideoStream exists');
+
       for (let index in this.props.remoteVideoStreams) {
 
         let currentId = this.props.remoteVideoStreams[index].id;
         let currentStream = this.props.remoteVideoStreams[index].stream;
 
-        console.log(currentId, currentStream);
         const videoSrc = window.URL.createObjectURL(currentStream);
       
         arrOfVideos.push(<video key={currentId} className='video-remote-large' src={videoSrc} autoPlay></video>);
-        console.log('Index.js -> createRemoteVideos -> videos: ', arrOfVideos);
       }
 
       return arrOfVideos;
     }
 
-    console.log('Index.js -> createRemoteVideos -> localVideoStream is null -> return null');
-
     return null;
   }
 
   render() {
-    console.log('Index.js -> render');
-    console.log('Index.js -> this.props: ', this.props);
 
     return (
       <section className="video-container">
