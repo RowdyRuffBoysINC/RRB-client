@@ -91,7 +91,9 @@ export class Chat extends React.Component {
     if (this.props.roomView === 'video') {
       sectionClass = 'chat-wrapper-video';
     }
-    else sectionClass = 'chat-wrapper-audio'
+    else {
+      sectionClass = 'chat-wrapper-audio';
+    }
     return (
       <section className={sectionClass}>
         <header>
