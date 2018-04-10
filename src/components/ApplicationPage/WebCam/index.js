@@ -35,15 +35,9 @@ export class WebCam extends React.Component {
   render() {
     return (
       <section className="video-container">
-        <section className="video-box" id="video-box">
-          <h1>Video</h1>
-          {this.createLocalVideo()}
-          {this.createRemoteVideos()}
-        </section>
-        <section className="users-container" id="users-container">
-          <h4> Room: {this.props.roomName} </h4>
-          <UserList />
-        </section>
+        <h1>Video</h1>
+        {this.createLocalVideo()}
+        {this.createRemoteVideos()}
       </section>
     );
   }
