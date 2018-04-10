@@ -19,7 +19,7 @@ export function RegistrationForm(props) {
 
   return (
     <section className="reg-form-wrapper">
-      <h1 className="reg-header">Sign Up Today</h1>
+      <h1 className="reg-header">Get Started</h1>
       <form
         className="login-form"
         onSubmit={props.handleSubmit(values =>
