@@ -44,6 +44,10 @@ export class CodeEditor extends React.Component {
     });
   }
 
+  runCode() {
+    console.log('CodeEditor.js -> Current mode selected: ', this.props.mode);
+  }
+
   renderOptions(array) {
     return array.map((option, index) => {
       return (
@@ -85,7 +89,7 @@ export class CodeEditor extends React.Component {
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
-        <button className="run-code"> Run </button>
+        <button className="run-code" onClick={() => this.runCode()}> Run </button>
         <CodeMirror
           value={this.props.codeEditorText}
           options={options}
