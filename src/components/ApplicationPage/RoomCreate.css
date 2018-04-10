@@ -5,10 +5,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  background-color: #f1f1f1;
   background: rgb(46,94,102);
-  /* Change to primary color once decided */
-  /* background: rgb(255, 100, 65); */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -18,7 +15,7 @@
 .room-create-wrapper {
   margin-bottom: 20px;
   text-align: center;
-  color: rgb(153, 153, 153);
+  color: rgb(170, 4, 4);
 }
 
 .room-create-header {
@@ -52,6 +49,7 @@ input:focus::-webkit-input-placeholder { color:transparent; }
 }
 
 .btn-room {
+  text-align: center;
   color: #999;
 }
 
