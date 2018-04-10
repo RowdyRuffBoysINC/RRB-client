@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import UserList from '../UserList';
 import './WebCam.css';
 
 export class WebCam extends React.Component {
