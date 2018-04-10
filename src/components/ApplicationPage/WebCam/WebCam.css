@@ -3,7 +3,7 @@ video {
   margin: 0px;
 }
 
-.webcam-container {
+.video-container {
   display: flex;
   flex-direction: column;
   border-top: 1px solid black;
@@ -25,9 +25,9 @@ video {
   margin-bottom: 10px;
 }
 
-.video-small {
+.video-local-small {
   left: 30%;
-  bottom: 150px;
+  bottom: 0px;
   width: 25%;
   min-width: 128px;
   max-width: 240px;

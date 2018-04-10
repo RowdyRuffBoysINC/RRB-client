@@ -3,22 +3,26 @@ import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
 import { convertToRaw, } from 'draft-js';
-
 import EditorView from './EditorView';
+import SIOC from './SIOC';
+import WebCam from './WebCam';
 import * as ApplicationActions from '../../actions/Application';
-
 import { fetchDocsFromDb, updateDocsDb, createDocsDb, } from '../../actions/Editor';
 import { API_BASE_URL, } from '../../config';
-import WebCam from './WebCam';
 import Chat from './Chat';
 import './Room.css';
-
 
 export const socket = io(API_BASE_URL);
 
 export class Room extends React.Component {
   constructor(props) {
     super(props);
+    this.SIOC = new SIOC();
+  }
+
+  componentWillMount() {
+    this.SIOC.init(this.props);
+
     socket.on('add-users', (data) => {
       this.props.dispatch(ApplicationActions.setUserList(data.users));
     });
@@ -26,10 +30,6 @@ export class Room extends React.Component {
     socket.on('remove-user', (id) => {
       this.props.dispatch(ApplicationActions.deleteUserFromList(id));
     });
-  }
-
-  componentWillMount() {
-    // If false is returned from GET, create new doc instead of updating
     this.props.dispatch(fetchDocsFromDb(this.props.match.params.roomName))
       .then((value) => {
         if (value === false) {
@@ -45,7 +45,13 @@ export class Room extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(ApplicationActions.setCreateInput(this.props.match.params.roomName));
+    this.props.dispatch(ApplicationActions.setCreateVideoFunc(id => this.SIOC.createVideo(id)));
+
+    // Getting the stream from the local user
+    this.SIOC.getLocalUserMedia();
+
     socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
+
     // Update docs every x seconds
     this.interval = setInterval(() => {
       this.props.dispatch(updateDocsDb({
@@ -59,6 +65,8 @@ export class Room extends React.Component {
 
   componentWillUnmount() {
     socket.emit('leave room', { room: this.props.match.params.roomName, user: this.props.username, });
+
+    this.props.dispatch(ApplicationActions.deleteLocalUserStream());
     clearInterval(this.interval);
   }
 

@@ -2,13 +2,14 @@ import React from 'react';
 import { connect, } from 'react-redux';
 
 export function UserList(props) {
-  const { userList, createOffer, } = props;
+  const { userList, } = props;
+
   const list = userList
     .filter(user =>
       user.user !== props.username
     )
     .map(user =>
-      <li onClick={() => createOffer(user.id)} key={user.id}> Share your camera with {user.user} </li>
+      <li onClick={() => props.createVideoFunc(user.id)} key={user.id}> Share your camera with {user.user} </li>
     );
   return (<ul>{list}</ul>);
 }
@@ -18,6 +19,7 @@ const mapStateToProps = (state) => {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     userList: state.applicationReducer.listOfUsers,
+    createVideoFunc: state.applicationReducer.createVideoFunc,
   };
 };
 
