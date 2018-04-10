@@ -12,11 +12,20 @@
   height: 100% !important
 }
 
-.chat-display {
+.chat-display-audio {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   min-height: 20vh;
   height: 70vh;
+  overflow: auto;
+}
+
+.chat-display-video {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  min-height: 20vh;
+  height: 25vh;
+  overflow: auto;
 }
 
 .message-content {
