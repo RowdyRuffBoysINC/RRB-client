@@ -11,15 +11,6 @@ a {
   top: 36px;
 }
 
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: rgb(46,94,102);
-}
-
-#bm-burger-bars-signed-in {
-  background: rgb(255, 170, 133);
-}
-
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 24px;

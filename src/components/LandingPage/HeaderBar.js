@@ -30,12 +30,16 @@ export function HeaderBar(props) {
       <p className="login-text" onClick={() => props.dispatch(showLoginForm())}>Login</p>
     );
   }
-  let style;
+  let styles;
   if (props.loggedIn) {
-    style = 'bm-burger-bars-signed-in';
+    styles = { bmBurgerBars: { background: 'rgb(255, 170, 133)', }, };
   }
+  else {
+    styles = { bmBurgerBars: { background: 'rgb(46,94,102)', }, };
+  }
+
   return (
-    <Menu right id={style}>
+    <Menu styles={styles} right >
       <ul>
         <li>
           <a href="#about">
