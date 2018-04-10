@@ -7,6 +7,9 @@ import { socket, } from '../Room';
 //Import Actions
 import { setTheme, setMode, setTabSize, setLineNumbers, setCodeEditorText, } from '../../../actions/Editor';
 
+//Import Basic Css
+import './CodeEditor.css';
+
 //Import Themes
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
@@ -82,6 +85,7 @@ export class CodeEditor extends React.Component {
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
+        <button className="run-code"> Run </button>
         <CodeMirror
           value={this.props.codeEditorText}
           options={options}

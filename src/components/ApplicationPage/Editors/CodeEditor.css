@@ -1,0 +1,12 @@
+.code-editor-wrapper {
+    position: relative;
+}
+
+.run-code {
+    position: absolute;
+    top: 2%;
+    right: 5%;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
