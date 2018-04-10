@@ -18,6 +18,10 @@ const chatReducer = function (state = initialState, action) {
   case UPDATE_CHAT_LOG:
     return {
       ...state,
+      messageDraft: {
+        username: '',
+        msg: '',
+      },
       chatLogs: [
         ...state.chatLogs,
         action.data,

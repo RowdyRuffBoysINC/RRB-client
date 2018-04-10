@@ -63,6 +63,7 @@ export class Chat extends React.Component {
             ref={(input) => {
               this.input = input;
             }}
+            value={this.props.messageDraft.msg}
             onChange={() => {
               this.handleMessageDraftChange();
             }}
