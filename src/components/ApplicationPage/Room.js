@@ -11,6 +11,7 @@ import { fetchDocsFromDb, updateDocsDb, createDocsDb, } from '../../actions/Edit
 import { API_BASE_URL, } from '../../config';
 import Chat from './Chat';
 import './Room.css';
+import { FirepadEditor, } from '../Firepad';
 
 export const socket = io(API_BASE_URL);
 
@@ -80,7 +81,8 @@ export class Room extends React.Component {
     return (
       <section className="room">
         <div className="left-side-wrapper">
-          <EditorView className="editors" />
+          {/* <EditorView className="editors" /> */}
+          <FirepadEditor />
         </div>
         <div className="right-side-wrapper">
           {webCam}
