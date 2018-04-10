@@ -22,12 +22,12 @@ export class Chat extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    socket.emit('chat msg', {room: this.props.roomName, msg: this.props.messageDraft,});
+    socket.emit('chat msg', { room: this.props.roomName, msg: this.props.messageDraft, });
     this.input.value = '';
   }
 
   handleMessageDraftChange() {
-    this.props.dispatch(updateMessageDraft({username: this.props.username, message: this.input.value,}));
+    this.props.dispatch(updateMessageDraft({ username: this.props.username, message: this.input.value, }));
     this.input = this.props.messageDraft;
   }
   // Consider adding timestamp to messages
@@ -45,20 +45,9 @@ export class Chat extends React.Component {
       );
   }
 
-  render() {
+  generateChatView() {
     return (
-      <section className="chat-wrapper">
-        <header>
-          <ul className="chat-tabs">
-            <li onClick={() => this.props.dispatch(showChatView())}>
-              Chat
-            </li>
-            <li onClick={() => this.props.dispatch(showUserView())}>
-              Users ({this.props.numOfUsers})
-              <UserList />
-            </li>
-          </ul>
-        </header>
+      <section className="chat-room-view">
         <div className="chat-display">
           <ul className="chat-messages">
             {this.generateChatList()}
@@ -82,6 +71,32 @@ export class Chat extends React.Component {
             Send
           </button>
         </form>
+      </section>
+    );
+  }
+
+  generateUserListView() {
+    return <UserList />;
+  }
+
+  render() {
+    let view;
+    this.props.isChatViewEnabled
+      ? view = this.generateChatView()
+      : view = this.generateUserListView();
+    return (
+      <section className="chat-wrapper">
+        <header>
+          <ul className="chat-tabs">
+            <li onClick={() => this.props.dispatch(showChatView())}>
+              Chat
+            </li>
+            <li onClick={() => this.props.dispatch(showUserView())}>
+              Users ({this.props.numOfUsers})
+            </li>
+          </ul>
+        </header>
+        {view}
       </section>
     );
   }
