@@ -22,8 +22,10 @@ export class Chat extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    socket.emit('chat msg', { room: this.props.roomName, msg: this.props.messageDraft, });
-    this.input.value = '';
+    if (this.input.value !== '') {
+      socket.emit('chat msg', { room: this.props.roomName, msg: this.props.messageDraft, });
+      this.input.value = '';
+    }
   }
 
   handleMessageDraftChange() {
