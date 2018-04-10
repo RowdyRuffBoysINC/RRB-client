@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import UserList from '../UserList';
 import './WebCam.css';
 
 export class WebCam extends React.Component {
@@ -35,15 +34,9 @@ export class WebCam extends React.Component {
   render() {
     return (
       <section className="video-container">
-        <section className="video-box" id="video-box">
-          <h1>Video</h1>
-          {this.createLocalVideo()}
-          {this.createRemoteVideos()}
-        </section>
-        <section className="users-container" id="users-container">
-          <h4> Room: {this.props.roomName} </h4>
-          <UserList />
-        </section>
+        <h1>Video</h1>
+        {this.createLocalVideo()}
+        {this.createRemoteVideos()}
       </section>
     );
   }

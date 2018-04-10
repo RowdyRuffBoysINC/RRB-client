@@ -5,12 +5,12 @@ export function UserList(props) {
   const { userList, } = props;
 
   const list = userList
-    .filter(user =>
-      user.user !== props.username
-    )
-    .map(user =>
-      <li onClick={() => props.createVideoFunc(user.id)} key={user.id}> Share your camera with {user.user} </li>
-    );
+    .map((user) => {
+      <li onClick={() => props.createVideoFunc(user.id)} key={user.id}>Share your camera with {user.user}</li>;
+      if (user.user === props.username) {
+        return <li key={user.id}>{user.user}</li>;
+      }
+    });
   return (<ul>{list}</ul>);
 }
 
