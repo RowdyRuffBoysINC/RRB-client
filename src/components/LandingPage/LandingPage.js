@@ -22,7 +22,7 @@ export function LandingPage(props) {
             <span className="header-one">Cross</span><span className="header-two">Share</span>
           </h1>
           <h2 className="landing-sub-header">
-          Working remotely shouldnt feel remote
+            Working remotely shouldnt feel remote
           </h2>
         </header>
         <footer>
@@ -35,11 +35,6 @@ export function LandingPage(props) {
       <section id="sign-up" className="container-about">
         <section className="about content">
           <RegistrationForm />
-          <header>
-          </header>
-          <footer>
-            {/* Add image inside link to click to the next page  */}
-          </footer>
         </section>
       </section>
     </section>
