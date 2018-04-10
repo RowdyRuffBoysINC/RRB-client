@@ -87,8 +87,13 @@ export class Chat extends React.Component {
     this.props.isChatViewEnabled
       ? view = this.generateChatView()
       : view = this.generateUserListView();
+    let sectionClass;
+    if (this.props.roomView === 'video') {
+      sectionClass = 'chat-wrapper-video';
+    }
+    else sectionClass = 'chat-wrapper-audio'
     return (
-      <section className="chat-wrapper">
+      <section className={sectionClass}>
         <header>
           <ul className="chat-tabs">
             <li onClick={() => this.props.dispatch(showChatView())}>
@@ -109,6 +114,7 @@ const mapStateToProps = (state) => {
   return {
     chatLogs: state.chat.chatLogs,
     messageDraft: state.chat.messageDraft,
+    roomView: state.applicationReducer.roomView,
     isChatViewEnabled: state.chat.isChatViewEnabled,
     username: state.auth.currentUser.username,
     numOfUsers: state.applicationReducer.listOfUsers.length,

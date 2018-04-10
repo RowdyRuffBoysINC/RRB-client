@@ -1,14 +1,22 @@
-.chat-wrapper {
+.chat-wrapper-video, .chat-wrapper-audio {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+}
+
+.chat-wrapper-video {
   height:50% !important;
+}
+
+.chat-wrapper-audio {
+  height: 100% !important
 }
 
 .chat-display {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   min-height: 20vh;
+  height: 70vh;
 }
 
 .message-content {
