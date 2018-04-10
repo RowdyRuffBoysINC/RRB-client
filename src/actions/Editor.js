@@ -150,7 +150,6 @@ export const createDocsDb = doc => async (dispatch) => {
       headers: { 'content-type': 'application/json', },
       body: JSON.stringify(doc),
     })
-    console.log(response.json());
     dispatch(createDocsDbSuccess());
     await response.json();
   }
