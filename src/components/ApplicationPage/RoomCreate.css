@@ -6,7 +6,7 @@
   right: 0;
   margin: auto;
   background-color: #f1f1f1;
-  background: rgb(0, 111, 255);
+  background: rgb(46,94,102);
   /* Change to primary color once decided */
   /* background: rgb(255, 100, 65); */
   text-align: center;
@@ -17,7 +17,7 @@
 
 .room-create-wrapper {
   margin-bottom: 20px;
-  text-align: center; 
+  text-align: center;
   color: rgb(153, 153, 153);
 }
 
@@ -37,7 +37,7 @@
   display: block;
   margin: 20px auto;
   border-radius: 20px solid white;
-  background: rgb(0, 111, 255);
+  background: rgb(46,94,102);
   color: white;
   border: 0;
   outline: 0;
