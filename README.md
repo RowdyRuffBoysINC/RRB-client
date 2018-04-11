@@ -5,9 +5,15 @@
 # RRB-client
 [Live site](https://crossshare.netlify.com)
 
+## Table of Contents
+
+[Contributing](#contributing)
+[Credits](#credits)
+[License](#license)
+
 ## Technologies used
 
-
+<a name="contributing">
 ## Contributing
 
 1. Fork it!
@@ -18,6 +24,7 @@
 
 > For additional details on RRB Inc's workflow checkout [our wiki](https://github.com/RowdyRuffBoysINC/RRB-client/wiki)
 
+<a name="credits">
 ## Credits
 
 - [Brent Guistwite](https://github.com/brentguistwite)
@@ -26,6 +33,7 @@
 - [David Park](https://github.com/sadmilk)
 - [Abraham Cuenca](https://github.com/yourwebdevguy)
 
+<a name="license">
 ## License
 
 This project is licensed under the terms of the **MIT** license.
