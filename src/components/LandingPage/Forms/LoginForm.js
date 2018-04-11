@@ -4,7 +4,7 @@ import Input from './Input';
 import { login, } from '../../../actions/Auth';
 import { required, nonEmpty, } from '../../../validators';
 import { hideLoginForm, } from '../../../actions/Users';
-import {action as toggleMenu, } from 'redux-burger-menu';
+import { action as toggleMenu, } from 'redux-burger-menu';
 import createStore from '../../../store';
 import './LoginForm.css';
 
@@ -34,6 +34,7 @@ export function LoginForm(props) {
         {error}
         <label className="labelInput" htmlFor="username">Username</label>
         <Field
+          autoFocus
           component={Input}
           type="text"
           name="username"
@@ -49,7 +50,7 @@ export function LoginForm(props) {
           validate={[ required, nonEmpty, ]}
         />
         <button className="btn-form" disabled={props.pristine || props.submitting}>
-            Log in
+          Log in
         </button>
       </form>
     </section>

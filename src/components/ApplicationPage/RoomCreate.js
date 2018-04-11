@@ -24,7 +24,11 @@ export function RoomCreate(props) {
           Create a Room
         </h1>
         <form onSubmit={e => handleSubmit(e)}>
-          <input className="room-create-input" type="text" placeholder="Room Name..." onChange={e => handleOnChange(e)} />
+          <input
+            autoFocus
+            type="text"
+            className="room-create-input"
+            onChange={e => handleOnChange(e)} />
           <button className="btn-form btn-room">
             Submit
           </button>
