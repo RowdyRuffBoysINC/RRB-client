@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import './Firepad.css';
 
 export class FirepadCodeEditor extends React.Component {
   componentDidMount() {
