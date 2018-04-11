@@ -34,7 +34,7 @@ export function LandingPage(props) {
       <About />
       <section id="sign-up" className="container-about">
         <section className="about content">
-          <RegistrationForm />
+          <RegistrationForm className="landing-page-register" />
         </section>
       </section>
     </section>

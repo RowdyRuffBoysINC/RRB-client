@@ -12,3 +12,11 @@
   margin-bottom: 20px;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+.landing-page-btn-form {
+  font-size: 1.3em;
+  border: 1px solid rgb(46,94,102);
+  background-color: rgb(244,153,115);
+  text-align: center;
+  color: rgb(46,94,102);
+}

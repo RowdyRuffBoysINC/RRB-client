@@ -83,7 +83,7 @@ export function RegistrationForm(props) {
           ]}
         />
         <button
-          className="btn-form"
+          className="landing-page-btn-form btn-form"
           type="submit"
           disabled={props.pristine || props.submitting}>
           Register
