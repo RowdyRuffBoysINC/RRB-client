@@ -1,14 +1,16 @@
 import React from 'react';
+import { connect, } from 'react-redux';
 
-
-
-export default function CodeEditorOutput(props) {
-
+export function CodeEditorOutput(props) {
   return (
     <section className="editor-output-wrapper">
       Console log stuff goes somewhere here!
     </section>
-
   );
-
 }
+
+const mapStateToProps = (state) => {
+  return {username: state.auth.currentUser.username,};
+};
+
+export default connect(mapStateToProps)(CodeEditorOutput);
