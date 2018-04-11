@@ -3,13 +3,19 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/RowdyRuffBoysINC/RRB-client/pull/new/master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/RowdyRuffBoysINC/RRB-client/blob/master/LICENSE)
 # RRB-client
-[Live site](https://crossshare.netlify.com)
+[CrossShare](https://crossshare.netlify.com)
+
 
 ## Table of Contents
 
 [Contributing](#contributing)
 [Credits](#credits)
 [License](#license)
+
+## Usage
+After you clone this repo to your computer, run `npm install` to install its dependencies.
+
+start the [RRB-Server](https://github.com/RowdyRuffBoysINC/RRB-server) and then run `npm start` within the RRB-client directory. Once running, you can access `http://localhost:3000`
 
 ## Technologies used
 
