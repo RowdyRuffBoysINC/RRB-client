@@ -26,7 +26,6 @@ export class FirepadCodeEditor extends React.Component {
   }
 
   componentDidMount() {
-    // const firepadRef = window.firebase.database().ref(`rooms/${this.props.roomName}/code`);
     this.codeMirror = window.CodeMirror(document.getElementById('firepad'), {
       lineWrapping: true,
       lineNumbers: this.props.lineNumbers,
@@ -35,19 +34,15 @@ export class FirepadCodeEditor extends React.Component {
       tabSize: this.props.tabSize,
     });
     this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, {defaultText: 'Hello World',});
-    // firepad.on('ready', () => console.log('FirepadCodeEditor ready and working!'));
+    this.firepad.on('ready', () => console.log('FirepadCodeEditor ready and working!'));
   }
 
   componentDidUpdate() {
-    console.log(this.codeMirror);
-    this.codeMirror = window.CodeMirror(document.getElementById('firepad'), {
-      lineWrapping: true,
-      lineNumbers: this.props.lineNumbers,
-      mode: this.props.mode,
-      theme: this.props.theme,
-      tabSize: this.props.tabSize,
-    });
-    this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, {defaultText: 'Hello World',});
+    this.codeMirror.setOption('theme', this.props.theme);
+    this.codeMirror.setOption('mode', this.props.mode);
+    this.codeMirror.setOption('tabSize', this.props.tabSize);
+    this.codeMirror.setOption('theme', this.props.theme);
+    this.codeMirror.setOption('lineNumbers', this.props.lineNumbers);
   }
 
   renderOptions(array) {
@@ -66,6 +61,14 @@ export class FirepadCodeEditor extends React.Component {
         {this.renderOptions(option)}
       </select>
     );
+  }
+
+  renderFirepad() {
+    if (this.props.firepad) {
+      return (
+        <div id="firepad"></div>
+      );
+    }
   }
 
   render() {
