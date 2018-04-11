@@ -1,4 +1,4 @@
-/* This actions file handles actions specific to the EditorView component and it's child components: CodeEditor, WordEditor, & WhiteBoardEditor */
+/* This actions file handles actions specific to the EditorView component and it's child components: FirepadCodeEditor, FirepadWordEditor, & WhiteBoardEditor */
 
 //Actions that handle state change for Editor View Component
 export const SET_EDITOR_VIEW = 'SET_EDITOR_VIEW';
