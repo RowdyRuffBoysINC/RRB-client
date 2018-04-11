@@ -1,7 +1,7 @@
 .login-modal {
   position: fixed;
   margin: 0 auto;
-  z-index: 1;
+  z-index: 99999999;
   padding-top: 100px;
   left: 0;
   top: 0;

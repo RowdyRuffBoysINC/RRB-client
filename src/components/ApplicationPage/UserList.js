@@ -6,9 +6,11 @@ export function UserList(props) {
 
   const list = userList
     .map((user) => {
-      <li onClick={() => props.createVideoFunc(user.id)} key={user.id}>Share your camera with {user.user}</li>;
       if (user.user === props.username) {
         return <li key={user.id}>{user.user}</li>;
+      }
+      else {
+        return <li onClick={() => props.createVideoFunc(user.id)} key={user.id}>Share your camera with {user.user}</li>;
       }
     });
   return (<ul>{list}</ul>);

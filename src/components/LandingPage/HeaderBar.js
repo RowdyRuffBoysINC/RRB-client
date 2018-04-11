@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+
 import Menu from './Menu';
 import { clearAuth, } from '../../actions/Auth';
 import { showLoginForm, } from '../../actions/Users';
 import { clearAuthToken, } from '../../local-storage';
 import { hideLoginForm, } from '../../actions/Users';
-import {action as toggleMenu, } from 'redux-burger-menu';
+import { action as toggleMenu, } from 'redux-burger-menu';
 import createStore from '../../store';
 import './HeaderBar.css';
 
@@ -29,17 +30,25 @@ export function HeaderBar(props) {
       <p className="login-text" onClick={() => props.dispatch(showLoginForm())}>Login</p>
     );
   }
+  let styles;
+  if (props.loggedIn) {
+    styles = { bmBurgerBars: { background: 'rgb(244,153,115)', }, };
+  }
+  else {
+    styles = { bmBurgerBars: { background: 'rgb(46,94,102)', }, };
+  }
+
   return (
-    <Menu right>
+    <Menu styles={styles} right >
       <ul>
         <li>
           <a href="#about">
-              About
+            About
           </a>
         </li>
         <li>
           <a href="#sign-up">
-              Sign Up
+            Sign Up
           </a>
         </li>
         <li>

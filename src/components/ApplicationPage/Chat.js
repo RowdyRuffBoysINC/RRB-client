@@ -52,7 +52,9 @@ export class Chat extends React.Component {
     if (this.props.roomView === 'video') {
       chatDisplay = 'chat-display-video';
     }
-    else chatDisplay = 'chat-display-audio';
+    else {
+      chatDisplay = 'chat-display-audio';
+    }
 
     return (
       <section className="chat-room-view">
@@ -94,7 +96,11 @@ export class Chat extends React.Component {
     if (this.props.roomView === 'video') {
       sectionClass = 'chat-wrapper-video';
     }
-    else sectionClass = 'chat-wrapper-audio';
+
+    else {
+      sectionClass = 'chat-wrapper-audio';
+    }
+
     return (
       <section className={sectionClass}>
         <header>
