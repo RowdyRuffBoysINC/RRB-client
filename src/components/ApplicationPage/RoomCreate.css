@@ -41,7 +41,9 @@
   border-bottom: 2px solid rgb(244,153,115);
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus::-webkit-input-placeholder {
+  color:transparent;
+}
 
 ::placeholder {
   color: rgb(244, 153, 115);
