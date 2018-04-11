@@ -51,7 +51,7 @@ export class CodeEditor extends React.Component {
 
   renderSelect(func, option) {
     return (
-      <select onChange={(e) => {
+      <select className="code-select" onChange={(e) => {
         this.props.dispatch(func(e.target.value));
       }}>
         {this.renderOptions(option)}
@@ -67,16 +67,16 @@ export class CodeEditor extends React.Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift', ];
-    const themeOptions = [ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
-    const tabSizeOptions = [ 2, 4, 8, ];
+    const modeOptions = [ 'Language', 'javascript', 'xml', 'ruby', 'swift', ];
+    const themeOptions = [ 'Theme', 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
+    const tabSizeOptions = [ 'Tab size', 2, 4, 8, ];
 
     return (
       <section className="code-editor-wrapper">
         {this.renderSelect(setMode, modeOptions)}
         {this.renderSelect(setTheme, themeOptions)}
         {this.renderSelect(setTabSize, tabSizeOptions)}
-        <select onChange={(e) => {
+        <select className="code-select" onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>
           <option value="true">Line numbers</option>

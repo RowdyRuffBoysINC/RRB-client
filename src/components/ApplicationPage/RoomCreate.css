@@ -45,11 +45,6 @@ input:focus::-webkit-input-placeholder {
   color:transparent;
 }
 
-::placeholder {
-  color: rgb(244, 153, 115);
-  opacity: 1;
-}
-
 .btn-room {
   font-size: 1.3em;
   border: 1px solid rgb(244,153,115);

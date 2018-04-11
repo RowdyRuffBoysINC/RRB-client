@@ -9,9 +9,9 @@ import './EditorView.css';
 export function EditorView(props) {
   const editorViewToggle = (view) => {
     switch (view) {
-    case 'Doc View':
+    case 'Doc':
       return <WordEditor />;
-    case 'Whiteboard View':
+    case 'Whiteboard':
       return <WhiteBoardEditor />;
     default:
       return <CodeEditor />;
