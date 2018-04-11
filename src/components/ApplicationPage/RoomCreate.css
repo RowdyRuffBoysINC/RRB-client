@@ -29,13 +29,13 @@
 .room-create-input {
   width: 40%;
   padding: 15px 15px;
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
   display: block;
   margin: 20px auto;
   border-radius: 20px solid white;
   background: rgb(46,94,102);
-  color: white;
+  color: rgb(244,153,115);
   border: 0;
   outline: 0;
   border-bottom: 2px solid white;
@@ -44,15 +44,22 @@
 input:focus::-webkit-input-placeholder { color:transparent; }
 
 ::placeholder {
-  color: white;
+  color: rgb(244, 153, 115);
   opacity: 1;
 }
 
 .btn-room {
+  font-size: 1.3em;
   border: 1px solid rgb(244,153,115);
   background-color: rgb(46,94,102);
   text-align: center;
   color: rgb(244,153,115);
+}
+
+.btn-room:hover {
+  border: 1px solid rgb(244,153,115);
+  background-color: rgb(244,153,115);
+  color: rgb(46,94,102);
 }
 
 @media (max-width: 760px) {
