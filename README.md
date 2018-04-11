@@ -7,6 +7,13 @@
 
 ## Technologies used
 
+## Credits
+
+- [Brent Guistwite](https://github.com/brentguistwite)
+- [Jeff Connelly](https://github.com/jeffconnelly)
+- [Vernon Mensah](https://github.com/Alderr)
+- [David Park](https://github.com/sadmilk)
+- [Abraham Cuenca](https://github.com/yourwebdevguy)
 
 ## License
 
