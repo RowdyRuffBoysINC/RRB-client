@@ -26,7 +26,7 @@ a {
 .bm-menu {
 	/* User important flag to override stubborn default setting */
 	overflow: hidden !important;
-  background: rgb(255, 170, 133);
+  background: rgb(244,153,115);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }

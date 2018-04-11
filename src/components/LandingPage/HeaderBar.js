@@ -32,7 +32,7 @@ export function HeaderBar(props) {
   }
   let styles;
   if (props.loggedIn) {
-    styles = { bmBurgerBars: { background: 'rgb(255, 170, 133)', }, };
+    styles = { bmBurgerBars: { background: 'rgb(244,153,115)', }, };
   }
   else {
     styles = { bmBurgerBars: { background: 'rgb(46,94,102)', }, };
