@@ -27,6 +27,10 @@ export class CodeEditor extends React.Component {
     socket.on('code msg sent back to clients', (msg) => {
       this.updateCodeEditorWithSocketInfo(msg);
     });
+    
+    socket.on('ran code', (msg) => {
+      console.log('CodeEditor -> ranCode -> msg: ', msg);
+    });
   }
 
   updateCodeEditorWithSocketInfo(info) {
