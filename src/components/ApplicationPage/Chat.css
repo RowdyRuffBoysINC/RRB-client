@@ -17,7 +17,7 @@
   border-bottom: 1px solid black;
   min-height: 20vh;
   height: 70vh;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .chat-display-video {
@@ -25,13 +25,23 @@
   border-bottom: 1px solid black;
   min-height: 20vh;
   height: 25vh;
-  overflow: auto;
+  overflow-y: auto;
+}
+
+.chat-messages {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* Firefox support */
 }
 
 .message-content {
   display: flex;
   margin-left: 20px;
+  margin-right: 20px;
   color: #4e4d4d;
+  padding-bottom: 10px;
 }
 
 .message-sender {
@@ -48,13 +58,13 @@
   margin: 5px;
   border: 1px solid rgb(75, 75, 75);
   border-radius: 5px;
-  /* color:rgb(0, 0, 0); */
   color: #4e4d4d;
 }
 
 .chat-user-input {
   padding: 10px;
   width: 90%;
+  font-size: 15px;
   margin: 15px auto;
   border-radius: 2px;
   display: block;

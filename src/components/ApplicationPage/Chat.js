@@ -68,8 +68,6 @@ export class Chat extends React.Component {
           <input
             className="chat-user-input"
             placeholder="Type here..."
-            onFocus={e => e.target.placeholder = ''}
-            onBlur={e => e.target.placeholder = 'Type here...'}
             ref={(input) => {
               this.input = input;
             }}
