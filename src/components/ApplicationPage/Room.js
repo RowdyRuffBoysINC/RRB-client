@@ -11,7 +11,6 @@ import { fetchDocsFromDb, updateDocsDb, createDocsDb, } from '../../actions/Edit
 import { API_BASE_URL, } from '../../config';
 import Chat from './Chat';
 import './Room.css';
-import { FirepadEditor, } from '../Firepad';
 
 export const socket = io(API_BASE_URL);
 
@@ -22,6 +21,18 @@ export class Room extends React.Component {
   }
 
   componentWillMount() {
+    const config = {
+      apiKey: 'AIzaSyBZMhhatyllvgrOwuVWulM7wf_Ctzjz6gk',
+      authDomain: 'crossshare-2645f.firebaseapp.com',
+      databaseURL: 'https://crossshare-2645f.firebaseio.com',
+      projectId: 'crossshare-2645f',
+      storageBucket: '',
+      messagingSenderId: '112633651653',
+    };
+    if(!window.firebase.apps.length) {
+      window.firebase.initializeApp(config);
+    }
+
     this.SIOC.init(this.props);
 
     socket.on('add-users', (data) => {
@@ -81,8 +92,7 @@ export class Room extends React.Component {
     return (
       <section className="room">
         <div className="left-side-wrapper">
-          {/* <EditorView className="editors" /> */}
-          <FirepadEditor room={this.props.match.params.roomName}/>
+          <EditorView className="editors" />
         </div>
         <div className="right-side-wrapper">
           {webCam}
