@@ -27,7 +27,7 @@ export class CodeEditor extends React.Component {
     socket.on('code msg sent back to clients', (msg) => {
       this.updateCodeEditorWithSocketInfo(msg);
     });
-    
+
     socket.on('ran code', (msg) => {
       console.log('CodeEditor -> ranCode -> msg: ', msg);
     });
@@ -86,6 +86,7 @@ export class CodeEditor extends React.Component {
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
+        <button className="run-code" onClick={() => this.runCode()}> Run </button>
         <CodeMirror
           value={this.props.codeEditorText}
           options={options}
