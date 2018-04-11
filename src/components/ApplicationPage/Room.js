@@ -82,7 +82,7 @@ export class Room extends React.Component {
       <section className="room">
         <div className="left-side-wrapper">
           {/* <EditorView className="editors" /> */}
-          <FirepadEditor />
+          <FirepadEditor room={this.props.match.params.roomName}/>
         </div>
         <div className="right-side-wrapper">
           {webCam}

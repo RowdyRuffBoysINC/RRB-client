@@ -75,6 +75,7 @@ export const updateDocsDb = doc => async (dispatch) => {
     })
     dispatch(updateDocsDbSuccess());
     await response.json();
+    return;
   }
   catch (err) {
     dispatch(updateDocsDbError(err));
