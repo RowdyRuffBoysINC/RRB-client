@@ -67,10 +67,10 @@ export class Chat extends React.Component {
           }}>
           <input
             className="chat-user-input"
-            placeholder="Type here..."
             ref={(input) => {
               this.input = input;
             }}
+            placeholder="Type here..."
             value={this.props.messageDraft.msg}
             onChange={() => {
               this.handleMessageDraftChange();
