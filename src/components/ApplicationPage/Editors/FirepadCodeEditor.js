@@ -38,7 +38,7 @@ export class FirepadCodeEditor extends React.Component {
       lineNumbers: true,
       mode: 'javascript',
     });
-    this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, { defaultText: 'Hello World', });
+    this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, { defaultText: '', });
   }
 
   componentDidUpdate() {
