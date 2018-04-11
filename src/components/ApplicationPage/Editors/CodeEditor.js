@@ -67,9 +67,9 @@ export class CodeEditor extends React.Component {
       tabSize: this.props.tabSize,
       lineWrapping: true,
     };
-    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift', ];
-    const themeOptions = [ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
-    const tabSizeOptions = [ 2, 4, 8, ];
+    const modeOptions = [ 'Language', 'javascript', 'xml', 'ruby', 'swift', ];
+    const themeOptions = [ 'Theme', 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
+    const tabSizeOptions = [ 'Tab size', 2, 4, 8, ];
 
     return (
       <section className="code-editor-wrapper">
