@@ -20,10 +20,14 @@ export function RoomCreate(props) {
   return (
     <section className="room-create">
       <div className="room-create-wrapper">
-        <h1 className="room-create-header"> Create a Room </h1>
+        <h1 className="room-create-header">
+          Create a Room
+        </h1>
         <form onSubmit={e => handleSubmit(e)}>
           <input className="room-create-input" type="text" placeholder="Room Name..." onChange={e => handleOnChange(e)} />
-          <button className="btn-form btn-room"> Submit </button>
+          <button className="btn-form btn-room">
+            Submit
+          </button>
         </form>
       </div>
     </section>

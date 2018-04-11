@@ -49,8 +49,10 @@ input:focus::-webkit-input-placeholder { color:transparent; }
 }
 
 .btn-room {
+  border: 1px solid rgb(244,153,115);
+  background-color: rgb(46,94,102);
   text-align: center;
-  color: #999;
+  color: rgb(244,153,115);
 }
 
 @media (max-width: 760px) {
