@@ -21,20 +21,19 @@ export class FirepadCodeEditor extends React.Component {
   constructor(props) {
     super(props);
     this.firepadRef = window.firebase.database().ref(`rooms/${this.props.roomName}/code`);
-    this.firepad;
-    this.codeMirror;
+    this.firepad = null;
+    this.codeMirror = null;
   }
 
   componentDidMount() {
     this.codeMirror = window.CodeMirror(document.getElementById('firepad'), {
       lineWrapping: true,
-      lineNumbers: this.props.lineNumbers,
-      mode: this.props.mode,
-      theme: this.props.theme,
-      tabSize: this.props.tabSize,
+      theme: 'material',
+      lineNumbers: true,
+      mode: 'javascript',
     });
     this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, {defaultText: 'Hello World',});
-    this.firepad.on('ready', () => console.log('FirepadCodeEditor ready and working!'));
+    // this.firepad.on('ready', () => console.log('FirepadCodeEditor ready and working!'));
   }
 
   componentDidUpdate() {
@@ -61,14 +60,6 @@ export class FirepadCodeEditor extends React.Component {
         {this.renderOptions(option)}
       </select>
     );
-  }
-
-  renderFirepad() {
-    if (this.props.firepad) {
-      return (
-        <div id="firepad"></div>
-      );
-    }
   }
 
   render() {
