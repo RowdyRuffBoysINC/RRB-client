@@ -9,7 +9,7 @@ export class FirepadWordEditor extends React.Component {
       richTextShortcuts: true,
       richTextToolbar: true,
     });
-    firepad.on('ready', () => console.log('FirepadWordEditor ready and working!'));
+    // firepad.on('ready', () => console.log('FirepadWordEditor ready and working!'));
   }
 
   render() {
