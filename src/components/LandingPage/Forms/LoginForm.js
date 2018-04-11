@@ -49,7 +49,7 @@ export function LoginForm(props) {
           id="password"
           validate={[ required, nonEmpty, ]}
         />
-        <button className="btn-form" disabled={props.pristine || props.submitting}>
+        <button className="landing-page-btn-form btn-form" disabled={props.pristine || props.submitting}>
           Log in
         </button>
       </form>

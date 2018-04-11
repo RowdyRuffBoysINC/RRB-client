@@ -20,3 +20,8 @@
   text-align: center;
   color: rgb(46,94,102);
 }
+
+.landing-page-btn-form:hover {
+  background-color: rgb(46,94,102);
+  color:rgb(244,153,115);
+}
