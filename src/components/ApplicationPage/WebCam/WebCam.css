@@ -13,8 +13,8 @@ video {
 
 .video-large {
   width: 100%;
-  max-width: 640px;
-  max-height: 480px;
+  /* max-width: 640px; */
+  /* max-height: 480px; */
   /* border: 1px solid black; */
   margin-bottom: 10px;
 }

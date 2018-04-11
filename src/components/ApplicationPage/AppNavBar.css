@@ -11,14 +11,10 @@
   margin-right: 15px;
 }
 
-.right-li {
-  flex-direction:
-}
-
 .nav-bar-ul {
   display: flex;
   margin-top: 0px;
-  padding-top: 15px;
+  padding-top: 30px;
   margin-bottom: 0px;
   flex-direction: row;
   margin-right: 10%;
