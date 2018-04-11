@@ -12,10 +12,8 @@
 }
 
 .code-select {
-  display: table-cell;
-  font-size: 15px;
+  font-size: 18px;
   padding: 10px 5px;
-  position: relative;
   align-items: center;
   margin: 0px 10px;
 }
