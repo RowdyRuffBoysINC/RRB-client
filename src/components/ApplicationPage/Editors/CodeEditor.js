@@ -29,7 +29,7 @@ export class CodeEditor extends React.Component {
     });
 
     socket.on('ran code', (msg) => {
-      console.log('CodeEditor -> ranCode -> msg: ', msg);
+      // Code to dispatch "addToConsoleLog" here
     });
   }
 
