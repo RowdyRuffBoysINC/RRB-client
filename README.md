@@ -7,6 +7,17 @@
 
 ## Technologies used
 
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -amm 'Add some feature`
+4. Push to the branch `git push origin my-new-feature`
+5. Submit a pull request
+
+> For additional details on RRB Inc's workflow checkout [our wiki](https://github.com/RowdyRuffBoysINC/RRB-client/wiki)
+
 ## Credits
 
 - [Brent Guistwite](https://github.com/brentguistwite)
