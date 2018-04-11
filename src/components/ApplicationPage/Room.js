@@ -77,6 +77,7 @@ export class Room extends React.Component {
       webCam = <WebCam className="webcam" />;
     }
 
+    
     return (
       <section className="room">
         <div className="left-side-wrapper">

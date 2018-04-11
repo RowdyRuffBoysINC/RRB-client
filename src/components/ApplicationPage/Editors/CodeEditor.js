@@ -3,6 +3,8 @@ import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
 
 import { socket, } from '../Room';
+import CodeEditorOutput from './CodeEditorOutput';
+
 
 //Import Actions
 import { setTheme, setMode, setTabSize, setLineNumbers, setCodeEditorText, } from '../../../actions/Editor';
@@ -90,6 +92,7 @@ export class CodeEditor extends React.Component {
           }}
           onKeyDown={() => this.emitCodeMsg()}
           onKeyUp={() => this.emitCodeMsg()} />
+        <CodeEditorOutput />
       </section>
     );
   }

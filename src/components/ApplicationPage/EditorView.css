@@ -26,3 +26,8 @@
 .whiteboard-container, .upper-canvas {
   height: 100% !important;
 }
+
+.editor-output-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
