@@ -7,11 +7,12 @@
 
 
 ## Table of Contents
-
+[Usage](#usage)
 [Contributing](#contributing)
 [Credits](#credits)
 [License](#license)
 
+<a name="usage">
 ## Usage
 After you clone this repo to your computer, run `npm install` to install its dependencies.
 
