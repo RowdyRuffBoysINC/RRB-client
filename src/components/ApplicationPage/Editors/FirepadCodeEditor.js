@@ -1,6 +1,12 @@
 import React from 'react';
 import { connect, } from 'react-redux';
-import { setTheme, setMode, setTabSize, setLineNumbers, } from '../../../actions/Editor';
+
+import {
+  setTheme,
+  setMode,
+  setTabSize,
+  setLineNumbers,
+} from '../../../actions/Editor';
 import './Firepad.css';
 
 //Import Themes
@@ -32,8 +38,7 @@ export class FirepadCodeEditor extends React.Component {
       lineNumbers: true,
       mode: 'javascript',
     });
-    this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, {defaultText: 'Hello World',});
-    // this.firepad.on('ready', () => console.log('FirepadCodeEditor ready and working!'));
+    this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, { defaultText: 'Hello World', });
   }
 
   componentDidUpdate() {
@@ -47,7 +52,12 @@ export class FirepadCodeEditor extends React.Component {
   renderOptions(array) {
     return array.map((option, index) => {
       return (
-        <option value={option} key={index}>{option}</option>
+        <option
+          value={option}
+          key={index}
+        >
+          {option}
+        </option>
       );
     });
   }
@@ -63,9 +73,24 @@ export class FirepadCodeEditor extends React.Component {
   }
 
   render() {
-    const modeOptions = [ 'javascript', 'xml', 'ruby', 'swift', ];
-    const themeOptions = [ 'material', 'midnight', 'solarized', 'dracula', 'isotope', ];
-    const tabSizeOptions = [ 2, 4, 8, ];
+    const modeOptions = [
+      'javascript',
+      'xml',
+      'ruby',
+      'swift',
+    ];
+    const themeOptions = [
+      'material',
+      'midnight',
+      'solarized',
+      'dracula',
+      'isotope',
+    ];
+    const tabSizeOptions = [
+      2,
+      4,
+      8,
+    ];
 
     return (
       <section className="code-editor-wrapper">
@@ -75,10 +100,14 @@ export class FirepadCodeEditor extends React.Component {
         <select onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>
-          <option value="true">Line numbers</option>
-          <option value="false">No line numbers</option>
+          <option value="true">
+            Line numbers
+          </option>
+          <option value="false">
+            No line numbers
+          </option>
         </select>
-        <div id="firepad"></div>
+        <div id="firepad" />
       </section>
     );
   }
