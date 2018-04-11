@@ -40,6 +40,6 @@ a {
 
 /* Styling of overlay */
 .bm-overlay {
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+  background: rgba(255, 255, 255, 0);
 }
