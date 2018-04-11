@@ -46,18 +46,9 @@ export class CodeEditor extends React.Component {
   }
 
   emitMessageToRunCode() {
-    console.log('CodeEditor.js -> Current mode selected: ', this.props.mode);
-
     socket.emit('run code', {
       room: this.props.roomName,
       user: this.props.username,
-      text: this.props.codeEditorText,
-      langauge: this.props.mode,
-    });
-
-    console.log('CodeEditor.js -> socket event sent: ', {
-      room: this.props.roomName,
-      user: this.props.userName,
       text: this.props.codeEditorText,
       langauge: this.props.mode,
     });
