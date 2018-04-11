@@ -4,7 +4,7 @@ import { connect, } from 'react-redux';
 export function CodeEditorOutput(props) {
   return (
     <section className="editor-output-wrapper">
-      Console log stuff goes somewhere here!
+      Console log output goes somewhere here!
     </section>
   );
 }
