@@ -21,6 +21,8 @@ export class Room extends React.Component {
   }
 
   componentWillMount() {
+    // WithRouter creates issues with redux store when dispatching
+    this.props.dispatch(ApplicationActions.setCreateInput(this.props.match.params.roomName));
     const config = {
       apiKey: 'AIzaSyBZMhhatyllvgrOwuVWulM7wf_Ctzjz6gk',
       authDomain: 'crossshare-2645f.firebaseapp.com',
@@ -56,7 +58,6 @@ export class Room extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(ApplicationActions.setCreateInput(this.props.match.params.roomName));
     this.props.dispatch(ApplicationActions.setCreateVideoFunc(id => this.SIOC.createVideo(id)));
 
     // Getting the stream from the local user

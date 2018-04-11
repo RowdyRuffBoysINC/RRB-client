@@ -3,7 +3,7 @@ import { connect, } from 'react-redux';
 
 export class FirepadWordEditor extends React.Component {
   componentDidMount() {
-    const firepadRef = window.firebase.database().ref(`rooms/word/${this.props.roomName}`);
+    const firepadRef = window.firebase.database().ref(`rooms/${this.props.roomName}/word`);
     const codeMirror = window.CodeMirror(document.getElementById('firepad'), { lineWrapping: true, });
     const firepad = window.Firepad.fromCodeMirror(firepadRef, codeMirror, {
       richTextShortcuts: true,

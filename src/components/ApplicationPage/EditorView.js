@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
-import CodeEditor from './Editors/CodeEditor';
-import WordEditor from './Editors/WordEditor';
+// import CodeEditor from './Editors/CodeEditor';
+// import WordEditor from './Editors/WordEditor';
 import WhiteBoardEditor from './Editors/WhiteBoardEditor';
-import FirepadWordEditor from '../FirepadWordEditor';
-import FirepadCodeEditor from '../FirepadCodeEditor';
+import FirepadWordEditor from './Editors/FirepadWordEditor';
+import FirepadCodeEditor from './Editors/FirepadCodeEditor';
 import './EditorView.css';
 
 export function EditorView(props) {

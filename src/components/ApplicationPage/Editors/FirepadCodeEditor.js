@@ -3,8 +3,9 @@ import { connect, } from 'react-redux';
 
 export class FirepadCodeEditor extends React.Component {
   componentDidMount() {
-    const firepadRef = window.firebase.database().ref(`rooms/code/${this.props.roomName}`);
-    const codeMirror = window.CodeMirror(document.getElementById('firepad'), { 
+    console.log(this.props.roomName);
+    const firepadRef = window.firebase.database().ref(`rooms/${this.props.roomName}/code`);
+    const codeMirror = window.CodeMirror(document.getElementById('firepad'), {
       lineWrapping: true,
       lineNumbers: true,
       mode: 'javascript',
