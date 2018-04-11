@@ -12,6 +12,7 @@
     margin: 5px 15px;
     width: 50px;
     height: 50px;
+    cursor:pointer;
 }
 
 .green-brush {
@@ -38,7 +39,17 @@
 
 .eraser {
     border: 1px solid black;
-    border-radius: 80px;
+    display:inline-block;
+    color:#444;
+    border:1px solid #CCC;
+    background:#DDD;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    padding-top: 3px;
+    cursor:pointer;
+    vertical-align:middle;
+    text-align: center;
+    width: 75px;
+    font-size: 20px;
 }
 
 .nuke {
@@ -53,6 +64,7 @@
     vertical-align:middle;
     text-align: center;
     width: 75px;
+    font-size: 20px;
 }
 
 .change-size-button {

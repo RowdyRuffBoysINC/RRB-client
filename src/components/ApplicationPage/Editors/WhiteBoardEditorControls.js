@@ -9,6 +9,15 @@ export function WhiteBoardEditorControls(props) {
     props.dispatch(setWhiteBoardEditorColor(color));
   }
 
+
+  function changeFontSizeSmall() {
+
+  }
+
+  function changeFontSizeBig() {
+
+  }
+
   function changeFontSize() {
     if (props.whiteBoardEditorBrushSize === 12) {
       props.dispatch(setWhiteBoardEditorBrushSize(2));
@@ -30,8 +39,12 @@ export function WhiteBoardEditorControls(props) {
   return (
     <section className="whiteBoardControls-container">
       {colorChangeButtons}
-      <div onClick={() => changeFontSize()} className="tool change-size-button"> {whiteBoardEditorBrushSize} </div>
-      <div onClick={() => changeBrushToEraser()} className="tool eraser"></div>
+      <div>
+        <span onClick={() => changeFontSizeSmall()} className="tool change-size-button"> left </span>
+        {whiteBoardEditorBrushSize}
+        <span onClick={() => changeFontSizeBig()} className="tool change-size-button">right</span>
+      </div>
+      <div onClick={() => changeBrushToEraser()} className="tool eraser">Eraser</div>
       <div onClick={() => clear()} className="tool nuke">Clear</div>
     </section>
   );
