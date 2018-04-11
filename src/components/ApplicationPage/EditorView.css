@@ -11,6 +11,15 @@
   width: 100%;
 }
 
+.code-select {
+  display: table-cell;
+  font-size: 15px;
+  padding: 10px 5px;
+  position: relative;
+  align-items: center;
+  margin: 0px 10px;
+}
+
 .main-editor-wrapper {
   height: 90vh;
   border: 1px solid black;
