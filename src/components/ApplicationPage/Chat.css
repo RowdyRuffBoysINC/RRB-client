@@ -6,10 +6,12 @@
 
 .chat-wrapper-video {
   height:50% !important;
+  /* background: #f1f1f1; */
 }
 
 .chat-wrapper-audio {
-  height: 100% !important
+  height: 100% !important;
+  /* background: #f1f1f1; */
 }
 
 .chat-display-audio {
