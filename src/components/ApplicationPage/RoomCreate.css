@@ -46,11 +46,6 @@
 
 input:focus::-webkit-input-placeholder { color:transparent; }
 
-::placeholder {
-  color: white;
-  opacity: 1;
-}
-
 .btn-room {
   color: #999;
 }

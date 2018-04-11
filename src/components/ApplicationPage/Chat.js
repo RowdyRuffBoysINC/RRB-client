@@ -66,11 +66,11 @@ export class Chat extends React.Component {
             this.handleSubmit(event);
           }}>
           <input
+            placeholder="Type here..."
             className="chat-user-input"
             ref={(input) => {
               this.input = input;
             }}
-            placeholder="Type here..."
             value={this.props.messageDraft.msg}
             onChange={() => {
               this.handleMessageDraftChange();

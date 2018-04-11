@@ -72,3 +72,7 @@
   color: #4e4d4d;
   box-shadow: inset 0 4px 8px #f8f8f8;
 }
+
+::placeholder {
+  color: rgb(244,153,115);
+}
