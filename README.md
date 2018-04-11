@@ -3,7 +3,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/RowdyRuffBoysINC/RRB-client/pull/new/master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/RowdyRuffBoysINC/RRB-client/blob/master/LICENSE)
 # RRB-client
-[CrossShare](https://crossshare.netlify.com)
+[Checkout RRB-client Live on Heroku](https://crossshare.netlify.com)
 
 
 ## Table of Contents
