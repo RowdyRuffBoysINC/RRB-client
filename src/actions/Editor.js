@@ -49,3 +49,9 @@ export const setWhiteBoardEditorBrushSize = input => ({
   type: SET_WHITEBOARD_EDITOR_BRUSH_SIZE,
   input,
 });
+
+export const SET_CONSOLE_LOG_MSG = 'SET_CONSOLE_LOG_MSG';
+export const setConsoleLogMsg = input => ({
+  type: SET_CONSOLE_LOG_MSG,
+  input,
+});

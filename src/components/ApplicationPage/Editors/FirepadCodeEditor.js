@@ -7,6 +7,7 @@ import {
   setMode,
   setTabSize,
   setLineNumbers,
+  setConsoleLogMsg,
 } from '../../../actions/Editor';
 
 import ConsoleLog from './ConsoleLog';
