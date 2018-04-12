@@ -37,7 +37,6 @@ export class WebCam extends React.Component {
   }
 
   render() {
-
     if (this.props.roomView === 'video') {
       return (
         <section className="video-container">
