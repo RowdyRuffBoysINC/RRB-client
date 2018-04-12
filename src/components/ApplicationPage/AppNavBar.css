@@ -7,7 +7,7 @@
 }
 
 .video {
-  margin-left: 65%;
+  margin-left: 50%;
   margin-right: 15px;
 }
 
@@ -41,21 +41,3 @@
  .nav-bar-wrapper {
    width: 100%;
  }
-
- @media (max-width: 1024px) {
-  .video {
-    margin-left: 50%;
-  }
-}
-
-@media (max-width: 900px) {
-  .video {
-    margin-left: 40%;
-  }
-}
-
-@media (max-width: 760px) {
-  .video {
-    margin-left: 20%;
-  }
-}

@@ -19,33 +19,17 @@ export function RegistrationForm(props) {
 
   return (
     <section className="reg-form-wrapper">
-      <h1 className="reg-header">
-        Get Started
-      </h1>
+      <h1 className="reg-header">Sign Up Today</h1>
       <form
         className="login-form"
         onSubmit={props.handleSubmit(values =>
           onSubmit(values)
         )}>
-        <label htmlFor="firstName">
-          First name
-        </label>
-        <Field
-          component={Input}
-          type="text"
-          name="firstName"
-        />
-        <label htmlFor="lastName">
-          Last name
-        </label>
-        <Field
-          component={Input}
-          type="text"
-          name="lastName"
-        />
-        <label htmlFor="username">
-          Username
-        </label>
+        <label htmlFor="firstName">First name</label>
+        <Field component={Input} type="text" name="firstName" />
+        <label htmlFor="lastName">Last name</label>
+        <Field component={Input} type="text" name="lastName" />
+        <label htmlFor="username">Username</label>
         <Field
           component={Input}
           type="text"
@@ -56,9 +40,7 @@ export function RegistrationForm(props) {
             isTrimmed,
           ]}
         />
-        <label htmlFor="password">
-          Password
-        </label>
+        <label htmlFor="password">Password</label>
         <Field
           component={Input}
           type="password"
@@ -69,9 +51,7 @@ export function RegistrationForm(props) {
             isTrimmed,
           ]}
         />
-        <label htmlFor="passwordConfirm">
-          Confirm password
-        </label>
+        <label htmlFor="passwordConfirm">Confirm password</label>
         <Field
           component={Input}
           type="password"
@@ -83,7 +63,7 @@ export function RegistrationForm(props) {
           ]}
         />
         <button
-          className="landing-page-btn-form btn-form"
+          className="btn-form"
           type="submit"
           disabled={props.pristine || props.submitting}>
           Register

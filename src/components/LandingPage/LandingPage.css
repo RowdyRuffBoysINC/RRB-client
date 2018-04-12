@@ -75,7 +75,7 @@ footer {
 }
 
 #sign-up {
-  background: rgb(244,153,115);
+  background: rgb(0, 111, 255);
   color: white;
   font-family: 'Ubuntu', sans-serif;
   line-height: 2;
@@ -88,8 +88,8 @@ footer {
   }
   .landing-sub-header {
     font-size: .4em;
-  }
-}
+  } 
+} 
 
 @media (max-width: 760px) {
   .landing-header {
@@ -97,7 +97,7 @@ footer {
   }
   .landing-sub-header {
     font-size: .4em;
-  }
+  } 
 }
 
 @media (max-width: 480px) {
@@ -108,7 +108,7 @@ footer {
   }
   .landing-sub-header {
     font-size: .2em;
-  }
+  } 
   #header {
   line-height: .8em;
   }

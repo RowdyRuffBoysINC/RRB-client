@@ -12,27 +12,16 @@ export function RoomCreate(props) {
     props.dispatch(setCreateInput(input));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleClick() {
     props.history.push(`/dashboard/${props.roomName}`);
   }
 
   return (
     <section className="room-create">
       <div className="room-create-wrapper">
-        <h1 className="room-create-header">
-          Create a Room
-        </h1>
-        <form onSubmit={e => handleSubmit(e)}>
-          <input
-            autoFocus
-            type="text"
-            className="room-create-input"
-            onChange={e => handleOnChange(e)} />
-          <button className="btn-form btn-room">
-            Submit
-          </button>
-        </form>
+        <h1 className="room-create-header"> Create a Room </h1>
+        <input className="room-create-input" type="text" placeholder="Room Name..." onChange={e => handleOnChange(e)} />
+        <button className="btn-form btn-room" onClick={e => handleClick(e)}> Submit </button>
       </div>
     </section>
   );

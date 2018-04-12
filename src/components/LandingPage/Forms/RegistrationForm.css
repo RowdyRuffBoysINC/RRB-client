@@ -1,27 +1,21 @@
+.reg-form-input {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid red;
+  background-color: red;
+}
+
 #firstName, #lastName, #username, #password, #passwordConfirm  {
   border: 0;
   outline: 0;
   border-bottom: 2px solid white;
   color: white;
-  background: rgb(244,153,115);
+  background: rgb(0, 111, 255);
 }
 
 .reg-header {
-  font-size: 5em;
+  font-size: 2.2em;
   line-height: 1.8;
   margin-bottom: 20px;
   font-family: 'Josefin Sans', sans-serif;
-}
-
-.landing-page-btn-form {
-  font-size: 1.3em;
-  border: 1px solid rgb(46,94,102);
-  background-color: rgb(244,153,115);
-  text-align: center;
-  color: rgb(46,94,102);
-}
-
-.landing-page-btn-form:hover {
-  background-color: rgb(46,94,102);
-  color:rgb(244,153,115);
 }

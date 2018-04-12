@@ -7,7 +7,7 @@
   width: 350px;
   height: 500px;
   padding: 10px;
-  background: rgb(244,153,115);
+  background: rgb(0, 111, 255);
   font-size: 24px;
   color: white;
 }
@@ -18,7 +18,7 @@ h1 {
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: inset 0 0 0px 9999px rgb(244,153,115);
+  -webkit-box-shadow: inset 0 0 0px 9999px rgb(0, 111, 255);
   -webkit-text-fill-color:white !important;
 }
 
@@ -82,7 +82,7 @@ input, .demo-text {
 
 .btn-form {
   margin-top: 15px;
-  font-size: 1.3em;
+  font-size: 1em;
 	text-decoration: none;
 	padding: 8px 25px;
 	display: inline-block;

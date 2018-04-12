@@ -11,13 +11,6 @@
   width: 100%;
 }
 
-.code-select {
-  font-size: 18px;
-  padding: 10px 5px;
-  align-items: center;
-  margin: 0px 10px;
-}
-
 .main-editor-wrapper {
   height: 90vh;
   border: 1px solid black;
