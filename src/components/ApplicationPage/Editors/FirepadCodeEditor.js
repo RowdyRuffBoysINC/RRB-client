@@ -8,6 +8,7 @@ import {
   setTabSize,
   setLineNumbers,
   setConsoleLogMsg,
+  clearConsoleLogMsg,
 } from '../../../actions/Editor';
 
 import ConsoleLog from './ConsoleLog';
@@ -146,6 +147,7 @@ export class FirepadCodeEditor extends React.Component {
           </option>
         </select>
         <button className="run-code" onClick={() => this.emitMessageToRunCode()}> Run </button>
+        <button className="clear-console" onClick={() => this.props.dispatch(clearConsoleLogMsg())}> Clear Console </button>
         <div id="firepad" />
         <ConsoleLog />
         
