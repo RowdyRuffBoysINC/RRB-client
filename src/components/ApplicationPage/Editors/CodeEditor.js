@@ -3,7 +3,6 @@ import { UnControlled as CodeMirror, } from 'react-codemirror2';
 import { connect, } from 'react-redux';
 
 import { socket, } from '../Room';
-import CodeEditorOutput from './CodeEditorOutput';
 
 
 //Import Actions
