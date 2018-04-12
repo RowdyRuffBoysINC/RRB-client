@@ -54,7 +54,6 @@ export class WhiteBoardEditor extends React.Component {
 
   updateSketchFieldWithSocketInfo(msg) {
     if (this.sketch) {
-      // Surprise, this.sketch.fromJSON rerenders SketchField by ITSELF; no need to bind
       const convertedMsg = this.sketch.fromJSON(msg);
       this.props.dispatch(setWhiteBoardEditorValue(convertedMsg));
     }
