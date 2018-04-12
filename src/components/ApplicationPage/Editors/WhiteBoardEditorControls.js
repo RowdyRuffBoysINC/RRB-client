@@ -48,19 +48,19 @@ export function WhiteBoardEditorControls(props) {
   return (
     <section className="whiteBoardControls-container">
       {colorChangeButtons}
-      <div>
+      <div className="tool whiteboard">
         <span
           onClick={() => decreaseBrushSize(whiteBoardEditorBrushSize)}
-          className="tool change-size-button"
+          className="change-size-button"
         >
-          left
+          Less
         </span>
-        {whiteBoardEditorBrushSize}
+        <span className="whiteboard-num">{whiteBoardEditorBrushSize}</span>
         <span
           onClick={() => increaseBrushSize(whiteBoardEditorBrushSize)}
-          className="tool change-size-button"
+          className="change-size-button"
         >
-          right
+          More
         </span>
       </div>
       <div

@@ -15,6 +15,23 @@
     cursor:pointer;
 }
 
+.whiteboard {
+  -webkit-tap-highlight-color:transparent;
+  width: 100px; border: 
+  1px solid black;
+  display:inline-block;
+  color:#444;
+  border:1px solid #CCC;
+  background:#DDD;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  padding-top: 3px;
+  cursor:pointer;
+  vertical-align:middle;
+  text-align: center;
+  width: 175px;
+  font-size: 20px;
+}
+
 .green-brush {
     background-color: green;
     border-radius: 80px;
@@ -68,5 +85,13 @@
 }
 
 .change-size-button {
-    border: 1px solid black;
+  -webkit-tap-highlight-color:transparent;
 }
+
+.whiteboard-num {
+  -webkit-tap-highlight-color:transparent;
+  margin: 5px;
+}
+
+span::-moz-selection { background:transparent; }
+span::selection { background:transparent; }
