@@ -5,6 +5,7 @@
     border: 1px solid #F1F1F1;
     padding-bottom: 5px;
     padding-top: 5px;
+    flex-wrap: wrap;
 }
 
 .tool {
