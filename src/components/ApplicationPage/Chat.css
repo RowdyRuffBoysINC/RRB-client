@@ -1,5 +1,5 @@
 .chat-wrapper-video, .chat-wrapper-audio {
-  border: 1px solid black;
+  border: 1px solid #e2e2e2;
   display: flex;
   flex-direction: column;
 }
@@ -15,16 +15,15 @@
 }
 
 .chat-display-audio {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border: 1px solid #e2e2e2;
   min-height: 20vh;
   height: 70vh;
   overflow-y: auto;
 }
 
 .chat-display-video {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #e2e2e2;
+  border: 1px solid #e2e2e2;
   min-height: 20vh;
   height: 25vh;
   overflow-y: auto;

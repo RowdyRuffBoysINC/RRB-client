@@ -3,14 +3,13 @@
   align-content: center;
   align-items: center;
   text-align: center;
-  /* border: solid black 2px; */
 }
 
 .editor-box {
   width: 90vw;
   height: 70vh;
   margin-left: 3vw;
-  border: solid black 2px;
+  border: 1px solid #eeeeee;
   text-align: center;
   margin-bottom: 50px;
   padding: 0;
@@ -19,7 +18,7 @@
 
 .save-button {
   position: absolute;
-  border: solid black 1px;
+  border: 1px solid #eeeeee;
   width: 100px;
   background-color: black;
   color: white;

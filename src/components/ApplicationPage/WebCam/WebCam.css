@@ -6,8 +6,7 @@ video {
 .video-container {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  border: 1px solid #e2e2e2;
   height: 50%;
 }
 

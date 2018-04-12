@@ -9,7 +9,6 @@
 
 .editor-view-wrapper {
   width: 100%;
-  /* background: #FFFFFF; */
 }
 
 .code-select {
@@ -21,7 +20,7 @@
 
 .main-editor-wrapper {
   height: 90vh;
-  border: 1px solid black;
+  border: 1px solid #e2e2e2;
 }
 
 .whiteboard-container, .upper-canvas {

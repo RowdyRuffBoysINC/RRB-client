@@ -1,5 +1,4 @@
 .whiteBoardControls-container {
-    /* position: absolute; */
     display: flex;
     flex-direction: row;
     z-index: 1;
@@ -17,8 +16,8 @@
 
 .whiteboard {
   -webkit-tap-highlight-color:transparent;
-  width: 100px; border: 
-  1px solid black;
+  width: 100px; 
+  border: 1px solid #eeeeee;
   display:inline-block;
   color:#444;
   border:1px solid #CCC;
@@ -55,7 +54,7 @@
 }
 
 .eraser {
-    border: 1px solid black;
+    border: 1px solid #eeeeee;
     display:inline-block;
     color:#444;
     border:1px solid #CCC;
@@ -70,7 +69,7 @@
 }
 
 .nuke {
-    border: 1px solid black;
+    border: 1px solid #eeeeee;
     display:inline-block;
     color:#444;
     border:1px solid #CCC;
