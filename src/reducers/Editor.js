@@ -65,6 +65,11 @@ const editorReducer = function (state = initialState, action) {
       ...state,
       consoleLogMessages: [ ...state.consoleLogMessages, action.input, ],
     };
+  case EditorActions.CLEAR_CONSOLE_LOG_MSG:
+    return {
+      ...state,
+      consoleLogMessages: [],
+    };
   default: return state;
   }
 };
