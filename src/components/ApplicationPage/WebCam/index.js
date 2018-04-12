@@ -8,10 +8,7 @@ export class WebCam extends React.Component {
       const videoSrc = window.URL.createObjectURL(this.props.localVideoStream);
 
       return (
-        <section>
-          <video className="video-local-small" src={videoSrc} muted autoPlay></video>
-          <video className="video-local-large" src={videoSrc} muted autoPlay></video>
-        </section>
+        <video className="video-local-small" src={videoSrc} muted autoPlay></video>
       );
     }
 
