@@ -27,6 +27,10 @@ export class CodeEditor extends React.Component {
     socket.on('code msg sent back to clients', (msg) => {
       this.updateCodeEditorWithSocketInfo(msg);
     });
+
+    socket.on('ran code', (msg) => {
+      // Code to dispatch "addToConsoleLog" here
+    });
   }
 
   updateCodeEditorWithSocketInfo(info) {
@@ -38,6 +42,15 @@ export class CodeEditor extends React.Component {
       room: this.props.roomName,
       user: this.props.userName,
       msg: this.props.codeEditorText,
+    });
+  }
+
+  emitMessageToRunCode() {
+    socket.emit('run code', {
+      room: this.props.roomName,
+      user: this.props.username,
+      text: this.props.codeEditorText,
+      langauge: this.props.mode,
     });
   }
 
@@ -82,6 +95,7 @@ export class CodeEditor extends React.Component {
           <option value="true">Line numbers</option>
           <option value="false">No line numbers</option>
         </select>
+        <button className="run-code" onClick={() => this.emitMessageToRunCode()}> Run </button>
         <CodeMirror
           value={this.props.codeEditorText}
           options={options}
