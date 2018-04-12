@@ -42,13 +42,13 @@ export class FirepadCodeEditor extends React.Component {
           theme: 'material',
           lineNumbers: true,
           mode: 'javascript',
+          autofocus: true,
         }
       );
     this.firepad = window.Firepad
       .fromCodeMirror(
         this.firepadRef,
-        this.codeMirror,
-        { defaultText: '', }
+        this.codeMirror
       );
   }
 
