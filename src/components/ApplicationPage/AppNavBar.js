@@ -6,7 +6,7 @@ import { connect, } from 'react-redux';
 import './AppNavBar.css';
 
 export function AppNavBar(props) {
-  const editorViewArr = [ 'Code View', 'Doc View', 'Whiteboard View', ];
+  const editorViewArr = [ 'Code', 'Doc', 'Whiteboard', ];
 
   const editorListItem = editorViewArr.map((view, index) => (
     <li key={index}

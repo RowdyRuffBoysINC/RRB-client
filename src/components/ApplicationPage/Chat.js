@@ -48,9 +48,17 @@ export class Chat extends React.Component {
   }
 
   generateChatView() {
+    let chatDisplay;
+    if (this.props.roomView === 'video') {
+      chatDisplay = 'chat-display-video';
+    }
+    else {
+      chatDisplay = 'chat-display-audio';
+    }
+
     return (
       <section className="chat-room-view">
-        <div className="chat-display">
+        <div className={chatDisplay}>
           <ul className="chat-messages">
             {this.generateChatList()}
           </ul>
@@ -60,8 +68,8 @@ export class Chat extends React.Component {
             this.handleSubmit(event);
           }}>
           <input
-            className="chat-user-input"
             placeholder="Type here..."
+            className="chat-user-input"
             ref={(input) => {
               this.input = input;
             }}
@@ -70,9 +78,6 @@ export class Chat extends React.Component {
               this.handleMessageDraftChange();
             }}
           />
-          <button>
-            Send
-          </button>
         </form>
       </section>
     );
@@ -91,9 +96,11 @@ export class Chat extends React.Component {
     if (this.props.roomView === 'video') {
       sectionClass = 'chat-wrapper-video';
     }
+
     else {
       sectionClass = 'chat-wrapper-audio';
     }
+
     return (
       <section className={sectionClass}>
         <header>

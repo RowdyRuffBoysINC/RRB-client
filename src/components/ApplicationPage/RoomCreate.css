@@ -5,10 +5,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  background-color: #f1f1f1;
-  background: rgb(0, 111, 255);
-  /* Change to primary color once decided */
-  /* background: rgb(255, 100, 65); */
+  background: rgb(46,94,102);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -17,8 +14,8 @@
 
 .room-create-wrapper {
   margin-bottom: 20px;
-  text-align: center; 
-  color: rgb(153, 153, 153);
+  text-align: center;
+  color: rgb(170, 4, 4);
 }
 
 .room-create-header {
@@ -26,33 +23,40 @@
   font-weight: 100;
   font-size: 4.5em;
   padding-bottom: 30px;
-  color: rgb(255, 255, 255);
+  color: rgb(244,153,115);
 }
 
 .room-create-input {
   width: 40%;
   padding: 15px 15px;
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
   display: block;
   margin: 20px auto;
   border-radius: 20px solid white;
-  background: rgb(0, 111, 255);
-  color: white;
+  background: rgb(46,94,102);
+  color: rgb(244,153,115);
   border: 0;
   outline: 0;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(244,153,115);
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-
-::placeholder {
-  color: white;
-  opacity: 1;
+input:focus::-webkit-input-placeholder {
+  color:transparent;
 }
 
 .btn-room {
-  color: #999;
+  font-size: 1.3em;
+  border: 1px solid rgb(244,153,115);
+  background-color: rgb(46,94,102);
+  text-align: center;
+  color: rgb(244,153,115);
+}
+
+.btn-room:hover {
+  border: 1px solid rgb(244,153,115);
+  background-color: rgb(244,153,115);
+  color: rgb(46,94,102);
 }
 
 @media (max-width: 760px) {
