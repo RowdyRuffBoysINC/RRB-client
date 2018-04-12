@@ -30,7 +30,8 @@ export class Room extends React.Component {
       storageBucket: '',
       messagingSenderId: '112633651653',
     };
-    if(!window.firebase.apps.length) {
+
+    if (!window.firebase.apps.length) {
       window.firebase.initializeApp(config);
     }
 
@@ -51,7 +52,7 @@ export class Room extends React.Component {
     // Getting the stream from the local user
     this.SIOC.getLocalUserMedia();
 
-    socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, }); 
+    socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
   }
 
   componentWillUnmount() {

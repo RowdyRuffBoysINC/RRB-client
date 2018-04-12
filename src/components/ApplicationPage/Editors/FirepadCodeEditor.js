@@ -26,19 +26,30 @@ import 'codemirror/mode/xml/xml.js';
 export class FirepadCodeEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.firepadRef = window.firebase.database().ref(`rooms/${this.props.roomName}/code`);
+    this.firepadRef = window.firebase
+      .database()
+      .ref(`rooms/${this.props.roomName}/code`);
     this.firepad = null;
     this.codeMirror = null;
   }
 
   componentDidMount() {
-    this.codeMirror = window.CodeMirror(document.getElementById('firepad'), {
-      lineWrapping: true,
-      theme: 'material',
-      lineNumbers: true,
-      mode: 'javascript',
-    });
-    this.firepad = window.Firepad.fromCodeMirror(this.firepadRef, this.codeMirror, { defaultText: '', });
+    this.codeMirror = window
+      .CodeMirror(
+        document
+          .getElementById('firepad'), {
+          lineWrapping: true,
+          theme: 'material',
+          lineNumbers: true,
+          mode: 'javascript',
+        }
+      );
+    this.firepad = window.Firepad
+      .fromCodeMirror(
+        this.firepadRef,
+        this.codeMirror,
+        { defaultText: '', }
+      );
   }
 
   componentDidUpdate() {
