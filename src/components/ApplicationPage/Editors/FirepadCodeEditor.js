@@ -141,7 +141,7 @@ export class FirepadCodeEditor extends React.Component {
         <button className="clear-console" onClick={() => this.props.dispatch(clearConsoleLogMsg())}> Clear Console </button>
         <div id="firepad" />
         <ConsoleLog />
-        
+
       </section>
     );
   }
