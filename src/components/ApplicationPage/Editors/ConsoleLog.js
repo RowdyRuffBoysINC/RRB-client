@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import './ConsoleLog.css';
 
 export function ConsoleLog(props) {
   const { userList, } = props;
@@ -12,7 +13,7 @@ export function ConsoleLog(props) {
       return <li onClick={() => props.createVideoFunc(user.id)} key={user.id}>Share your camera with {user.user}</li>;
     }
   });
-  return (<ul>{consoleLog}</ul>);
+  return (<section className="console-log"><ul>{consoleLog}</ul></section>);
 }
 
 const mapStateToProps = (state) => {

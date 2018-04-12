@@ -7,6 +7,8 @@ import {
   setTabSize,
   setLineNumbers,
 } from '../../../actions/Editor';
+
+import ConsoleLog from './ConsoleLog';
 import './Firepad.css';
 
 //Import Themes
@@ -119,6 +121,8 @@ export class FirepadCodeEditor extends React.Component {
           </option>
         </select>
         <div id="firepad" />
+        <ConsoleLog />
+        
       </section>
     );
   }

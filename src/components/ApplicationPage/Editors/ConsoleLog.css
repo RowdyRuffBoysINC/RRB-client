@@ -1,0 +1,8 @@
+.console-log {
+    width: 68vw;
+    height: 20vh;
+    position: fixed;
+    bottom: 0;
+
+    font-size: 14px;
+}
