@@ -7,7 +7,7 @@ export function ConsoleLog(props) {
   let counter = 0;
 
   const consoleLog = logMessages.map((message) => {
-    const item = (<li className="user" key={counter}> &#62; {message} </li>);
+    const item = (<li className="console-log-item" key={counter}> &#62; {message} </li>);
     counter = counter + 1;
     return item;
   });
@@ -19,8 +19,6 @@ const mapStateToProps = (state) => {
   return {
     username: state.auth.currentUser.username,
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
-    userList: state.applicationReducer.listOfUsers,
-    createVideoFunc: state.applicationReducer.createVideoFunc,
     logMessages: state.editorReducer.consoleLogMessages,
   };
 };

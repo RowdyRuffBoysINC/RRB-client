@@ -58,9 +58,6 @@ const editorReducer = function (state = initialState, action) {
       whiteBoardEditorColor: action.input,
     };
   case EditorActions.SET_CONSOLE_LOG_MSG:
-    console.log('EditorActions -> SET_CONSOLE -> input: ', action.input);
-    console.log('consolelog', state.consoleLogMessages);
-
     return {
       ...state,
       consoleLogMessages: [ ...state.consoleLogMessages, action.input, ],
