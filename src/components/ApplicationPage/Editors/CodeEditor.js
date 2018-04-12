@@ -92,7 +92,6 @@ export class CodeEditor extends React.Component {
           }}
           onKeyDown={() => this.emitCodeMsg()}
           onKeyUp={() => this.emitCodeMsg()} />
-        <CodeEditorOutput />
       </section>
     );
   }
@@ -109,3 +108,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CodeEditor);
+
+
+//Kept editor output for when we need it <CodeEditorOutput />
