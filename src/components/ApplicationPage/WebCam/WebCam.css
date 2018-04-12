@@ -23,6 +23,21 @@ video {
   position: relative;
 }
 
+.video-remote-large {
+  /* width: 100%;
+  height: 100%;
+  /* max-width: 640px; */
+  /* max-height: 480px; */
+  /* border: 1px solid black; */
+  /* margin-bottom: 10px; */ 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  position: relative;
+}
+
 .video-local-large {
   /* max-width: 640px; */
   /* max-height: 480px; */
