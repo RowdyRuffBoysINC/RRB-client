@@ -6,7 +6,7 @@ import EditorView from './EditorView';
 import SIOC from './SIOC';
 import WebCam from './WebCam';
 import * as ApplicationActions from '../../actions/Application';
-import { API_BASE_URL, __CONFIG, } from '../../config';
+import { API_BASE_URL, } from '../../config';
 import Chat from './Chat';
 import './Room.css';
 
@@ -22,9 +22,17 @@ export class Room extends React.Component {
     // WithRouter creates issues with redux store when dispatching
     this.props.dispatch(ApplicationActions.setCreateInput(this.props.match.params.roomName));
     // Initialize firebase
+    const config = {
+      apiKey: 'AIzaSyBZMhhatyllvgrOwuVWulM7wf_Ctzjz6gk',
+      authDomain: 'crossshare-2645f.firebaseapp.com',
+      databaseURL: 'https://crossshare-2645f.firebaseio.com',
+      projectId: 'crossshare-2645f',
+      storageBucket: '',
+      messagingSenderId: '112633651653',
+    };
 
     if (!window.firebase.apps.length) {
-      window.firebase.initializeApp(__CONFIG);
+      window.firebase.initializeApp(config);
     }
 
     this.SIOC.init(this.props);
