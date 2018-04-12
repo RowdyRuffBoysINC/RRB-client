@@ -15,8 +15,6 @@
     "codemirror": "^5.36.0",
     "draft-js": "^0.10.5",
     "enzyme-adapter-react-16": "^1.1.1",
-    "firebase": "^4.12.1",
-    "firepad": "^1.4.0",
     "jwt-decode": "^2.2.0",
     "mocha": "^5.0.5",
     "react": "^16.2.0",
