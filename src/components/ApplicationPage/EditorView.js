@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
-import CodeEditor from './Editors/CodeEditor';
-import WordEditor from './Editors/WordEditor';
 import WhiteBoardEditor from './Editors/WhiteBoardEditor';
+import FirepadWordEditor from './Editors/FirepadWordEditor';
+import FirepadCodeEditor from './Editors/FirepadCodeEditor';
 import './EditorView.css';
 
 export function EditorView(props) {
   const editorViewToggle = (view) => {
     switch (view) {
-    case 'Doc':
-      return <WordEditor />;
-    case 'Whiteboard':
+    case 'Doc View':
+      return <FirepadWordEditor />;
+    case 'Whiteboard View':
       return <WhiteBoardEditor />;
     default:
-      return <CodeEditor />;
+      return <FirepadCodeEditor />;
     }
   };
 
