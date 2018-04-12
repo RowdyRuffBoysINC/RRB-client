@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import { socket, } from '../Room';
 
 import {
   setTheme,
@@ -33,6 +34,10 @@ export class FirepadCodeEditor extends React.Component {
       .ref(`rooms/${this.props.roomName}/code`);
     this.firepad = null;
     this.codeMirror = null;
+
+    socket.on('ran code', (msg) => {
+      console.log('FirepadCodeEditor -> ran code -> msg: ', msg);
+    });
   }
 
   componentDidMount() {
