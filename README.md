@@ -1,6 +1,27 @@
 [![Build Status](https://travis-ci.org/RowdyRuffBoysINC/RRB-client.svg?branch=master)](https://travis-ci.org/RowdyRuffBoysINC/RRB-client) [![Coverage Status](https://coveralls.io/repos/github/RowdyRuffBoysINC/RRB-client/badge.svg?branch=master)](https://coveralls.io/github/RowdyRuffBoysINC/RRB-client?branch=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/RowdyRuffBoysINC/RRB-client/pull/new/master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/RowdyRuffBoysINC/RRB-client/blob/master/LICENSE)
 # RRB-client
+RRB-Client is the official frontend client for CrossShare.
+CrossShare is a collaboration tool that allows you to work with your peers as
+if you were both on the same computer.
+
+**Features**
+
+- Multi-Cursor Document editing
+- Multi=Cursor Code editing
+- Collaborative Whiteboarding
+- Web chat
+- Video chat
+
+CrossShare is perfect for working on school projects, writing your next novel
+with your friends, pair-programming, or drafting up the notes for the next big
+meeting.
+
+Share your ideas and be more productive with CrossShare!
+
+
 [Checkout RRB-client Live on Heroku](https://crossshare.netlify.com)
+
+
 
 
 ## Table of Contents
