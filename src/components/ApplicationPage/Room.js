@@ -63,12 +63,7 @@ export class Room extends React.Component {
   }
 
   render() {
-    let webCam;
-
-    if (this.props.roomView === 'video') {
-      webCam = <WebCam className="webcam" />;
-    }
-
+    const webCam = <WebCam className="webcam" />;
     return (
       <section className="room">
         <div className="left-side-wrapper">

@@ -9,14 +9,14 @@ export function WhiteBoardEditorControls(props) {
     props.dispatch(setWhiteBoardEditorColor(color));
   }
 
-  function changeFontSize() {
-    if (props.whiteBoardEditorBrushSize === 12) {
-      props.dispatch(setWhiteBoardEditorBrushSize(2));
-    }
+  function decreaseBrushSize(brushSize) {
+    const decreasedSize = Math.ceil((8 * (brushSize - (brushSize < 9 ? 3 : 6)) / 9));
+    props.dispatch(setWhiteBoardEditorBrushSize(decreasedSize));
+  }
 
-    else {
-      props.dispatch(setWhiteBoardEditorBrushSize(props.whiteBoardEditorBrushSize + 2));
-    }
+  function increaseBrushSize(brushSize) {
+    const increasedSize = Math.floor(brushSize + (brushSize / 8) + (brushSize < 9 ? 3 : 6));
+    props.dispatch(setWhiteBoardEditorBrushSize(increasedSize));
   }
 
   function changeBrushToEraser() {
@@ -30,15 +30,51 @@ export function WhiteBoardEditorControls(props) {
     'blue',
     'black',
   ];
-  const colorChangeButtons = arrOfColors.map(color => (<div className={`tool ${color}-brush`} key={color} onClick={() => changeColor(color)}></div>));
-  const { whiteBoardEditorBrushSize, clear, } = props;
+
+  const colorChangeButtons = arrOfColors
+    .map(color => (
+      <div
+        className={`tool ${color}-brush`}
+        key={color}
+        onClick={() => changeColor(color)}
+      />
+    ));
+
+  const {
+    whiteBoardEditorBrushSize,
+    clear,
+  } = props;
 
   return (
     <section className="whiteBoardControls-container">
       {colorChangeButtons}
-      <div onClick={() => changeFontSize()} className="tool change-size-button"> {whiteBoardEditorBrushSize} </div>
-      <div onClick={() => changeBrushToEraser()} className="tool eraser"></div>
-      <div onClick={() => clear()} className="tool nuke"></div>
+      <div className="tool whiteboard">
+        <span
+          onClick={() => decreaseBrushSize(whiteBoardEditorBrushSize)}
+          className="change-size-button"
+        >
+          Less
+        </span>
+        <span className="whiteboard-num">{whiteBoardEditorBrushSize}</span>
+        <span
+          onClick={() => increaseBrushSize(whiteBoardEditorBrushSize)}
+          className="change-size-button"
+        >
+          More
+        </span>
+      </div>
+      <div
+        onClick={() => changeBrushToEraser()}
+        className="tool eraser"
+      >
+        Eraser
+      </div>
+      <div
+        onClick={() => clear()}
+        className="tool nuke"
+      >
+        Clear
+      </div>
     </section>
   );
 }

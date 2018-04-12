@@ -9,7 +9,7 @@ const initialState = {
   loading: false,
   error: null,
   whiteBoardEditorColor: 'black',
-  whiteBoardEditorBrushSize: 6,
+  whiteBoardEditorBrushSize: 2,
 };
 
 const editorReducer = function (state = initialState, action) {
@@ -49,7 +49,7 @@ const editorReducer = function (state = initialState, action) {
   case EditorActions.SET_WHITEBOARD_EDITOR_BRUSH_SIZE:
     return {
       ...state,
-      whiteBoardEditorBrushSize: action.input,
+      whiteBoardEditorBrushSize: Math.min(Math.max(2, action.input), 75),
     };
   case EditorActions.SET_WHITEBOARD_EDITOR_COLOR:
     return {
