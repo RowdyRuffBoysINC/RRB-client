@@ -18,11 +18,17 @@ meeting.
 
 Share your ideas and be more productive with CrossShare!
 
+> ***Stack:***
+> - JavaScript ES6
+> - React.js
+> - Redux.js
+> - Firepad
+> - SocketIO
+> - react-sketch
+> - babel.js
+
 
 [Checkout RRB-client Live on Heroku](https://crossshare.netlify.com)
-
-
-
 
 ## Table of Contents
 [Installation](#installation)
@@ -43,7 +49,6 @@ Share your ideas and be more productive with CrossShare!
 ## Usage
 Start the [RRB-Server](https://github.com/RowdyRuffBoysINC/RRB-server) and then run `npm start` within the RRB-client directory. Once running, you can access `http://localhost:3000`
 
-## Technologies used
 
 <a name="contributing">
 ## Contributing
