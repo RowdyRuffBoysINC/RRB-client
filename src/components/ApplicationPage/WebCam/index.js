@@ -37,11 +37,17 @@ export class WebCam extends React.Component {
   }
 
   render() {
-    return (
-      <section className="video-container">
-        {this.createLocalVideo()}
-        {this.createRemoteVideos()}
-      </section>
+
+    if (this.props.roomView === 'video') {
+      return (
+        <section className="video-container">
+          {this.createLocalVideo()}
+          {this.createRemoteVideos()}
+        </section>
+      );
+    }
+    else return (
+      <section></section>
     );
   }
 }
@@ -51,6 +57,7 @@ const mapStateToProps = state => ({
   roomName: state.applicationReducer.roomName,
   localVideoStream: state.applicationReducer.localVideoStream,
   remoteVideoStreams: state.applicationReducer.remoteVideoStreams,
+  roomView: state.applicationReducer.roomView,
 });
 
 export default connect(mapStateToProps)(WebCam);
