@@ -10,6 +10,7 @@ const initialState = {
   error: null,
   whiteBoardEditorColor: 'black',
   whiteBoardEditorBrushSize: 2,
+  consoleLogMessages: [],
 };
 
 const editorReducer = function (state = initialState, action) {
@@ -55,6 +56,11 @@ const editorReducer = function (state = initialState, action) {
     return {
       ...state,
       whiteBoardEditorColor: action.input,
+    };
+  case EditorActions.SET_CONSOLE_LOG_MSG:
+    return {
+      ...state,
+      consoleLogMessages: [...state.consoleLogMessages, action.input, ],
     };
   default: return state;
   }
