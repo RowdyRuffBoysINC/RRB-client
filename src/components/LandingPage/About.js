@@ -3,6 +3,7 @@ import './About.css';
 
 export default function About(props) {
   return (
+
     <section id="about" className="about-container">
       <section className="about-text-section">
         <h1 className="about-header">About CrossShare</h1>
