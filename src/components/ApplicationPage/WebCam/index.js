@@ -43,7 +43,7 @@ export class WebCam extends React.Component {
       );
     }
     else return (
-      <section></section>
+      <section className="audio-only-render"></section>
     );
   }
 }
