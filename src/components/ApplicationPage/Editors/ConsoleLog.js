@@ -7,7 +7,7 @@ export function ConsoleLog(props) {
   let counter = 0;
 
   const consoleLog = logMessages.map((message) => {
-    const item = (<li className="user" key={counter}> {message} </li>);
+    const item = (<li className="user" key={counter}> &#62; {message} </li>);
     counter = counter + 1;
     return item;
   });
