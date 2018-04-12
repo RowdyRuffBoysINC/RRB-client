@@ -12,17 +12,22 @@
 }
 
 .code-select {
-  font-size: 18px;
-  padding: 10px 5px;
+  font-size: 15px;
+  padding: 5px 5px;
   align-items: center;
   margin: 0px 10px;
 }
 
 .main-editor-wrapper {
   height: 90vh;
-  border: 1px solid black;
+  border: 1px solid #e2e2e2;
 }
 
 .whiteboard-container, .upper-canvas {
   height: 100% !important;
+}
+
+.editor-output-wrapper {
+  margin-top: 30px;
+  text-align: center;
 }
