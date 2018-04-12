@@ -9,13 +9,8 @@ export function WhiteBoardEditorControls(props) {
     props.dispatch(setWhiteBoardEditorColor(color));
   }
 
-  function _sizeRatio(x) {
-    return Math.floor(x + (x / 8) + (x < 9 ? 3 : 6));
-  }
-
   function decreaseBrushSize(brushSize) {
-    const decreasedSize = Math.floor(brushSize + (brushSize / (brushSize / 8)) - (brushSize < 9 ? 3 : 6));
-    console.log(decreasedSize, 'size');
+    const decreasedSize = Math.ceil((8 * (brushSize - (brushSize < 9 ? 3 : 6)) / 9));
     props.dispatch(setWhiteBoardEditorBrushSize(decreasedSize));
   }
 
@@ -50,7 +45,6 @@ export function WhiteBoardEditorControls(props) {
     clear,
   } = props;
 
-  console.log(whiteBoardEditorBrushSize);
   return (
     <section className="whiteBoardControls-container">
       {colorChangeButtons}
