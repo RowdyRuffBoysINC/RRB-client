@@ -71,7 +71,7 @@ export class FirepadCodeEditor extends React.Component {
     socket.emit('run code', {
       room: this.props.roomName,
       user: this.props.username,
-      text: this.props.codeEditorText,
+      text: "console.log('run')",
       langauge: this.props.mode,
     });
   }
