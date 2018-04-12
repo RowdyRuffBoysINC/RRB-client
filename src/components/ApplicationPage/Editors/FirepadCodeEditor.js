@@ -75,7 +75,7 @@ export class FirepadCodeEditor extends React.Component {
 
   renderSelect(func, option) {
     return (
-      <select onChange={(e) => {
+      <select className="code-select" onChange={(e) => {
         this.props.dispatch(func(e.target.value));
       }}>
         {this.renderOptions(option)}
@@ -108,7 +108,7 @@ export class FirepadCodeEditor extends React.Component {
         {this.renderSelect(setMode, modeOptions)}
         {this.renderSelect(setTheme, themeOptions)}
         {this.renderSelect(setTabSize, tabSizeOptions)}
-        <select onChange={(e) => {
+        <select className="code-select" onChange={(e) => {
           this.props.dispatch(setLineNumbers(e.target.value));
         }}>
           <option value="true">
