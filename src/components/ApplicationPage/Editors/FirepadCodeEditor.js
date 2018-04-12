@@ -67,6 +67,15 @@ export class FirepadCodeEditor extends React.Component {
     this.codeMirror.setOption('lineNumbers', this.props.lineNumbers);
   }
 
+  emitMessageToRunCode() {
+    socket.emit('run code', {
+      room: this.props.roomName,
+      user: this.props.username,
+      text: this.props.codeEditorText,
+      langauge: this.props.mode,
+    });
+  }
+  
   renderOptions(array) {
     return array.map((option, index) => {
       return (
