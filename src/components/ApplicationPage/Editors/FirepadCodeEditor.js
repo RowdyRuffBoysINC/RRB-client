@@ -75,7 +75,7 @@ export class FirepadCodeEditor extends React.Component {
       langauge: this.props.mode,
     });
   }
-  
+
   renderOptions(array) {
     return array.map((option, index) => {
       return (
@@ -134,6 +134,7 @@ export class FirepadCodeEditor extends React.Component {
             No line numbers
           </option>
         </select>
+        <button className="run-code" onClick={() => this.emitMessageToRunCode()}> Run </button>
         <div id="firepad" />
         <ConsoleLog />
         
