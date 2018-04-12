@@ -38,6 +38,7 @@ export class FirepadCodeEditor extends React.Component {
 
     socket.on('ran code', (msg) => {
       console.log('FirepadCodeEditor -> ran code -> msg: ', msg);
+      this.props.dispatch(setConsoleLogMsg(msg.log));
     });
   }
 

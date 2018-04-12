@@ -3,16 +3,15 @@ import { connect, } from 'react-redux';
 import './ConsoleLog.css';
 
 export function ConsoleLog(props) {
-  const { userList, } = props;
+  const { logMessages, } = props;
+  let counter = 0;
 
-  const consoleLog = userList.map((user) => {
-    if (user.user === props.username) {
-      return <li className="user" key={user.id}>{user.user}</li>;
-    }
-    else {
-      return <li onClick={() => props.createVideoFunc(user.id)} key={user.id}>Share your camera with {user.user}</li>;
-    }
+  const consoleLog = logMessages.map((message) => {
+    const item = (<li className="user" key={counter}> {message} </li>);
+    counter = counter + 1;
+    return item;
   });
+
   return (<section className="console-log"><ul>{consoleLog}</ul></section>);
 }
 
@@ -22,6 +21,7 @@ const mapStateToProps = (state) => {
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     userList: state.applicationReducer.listOfUsers,
     createVideoFunc: state.applicationReducer.createVideoFunc,
+    logMessages: state.editorReducer.consoleLogMessages,
   };
 };
 
