@@ -5,7 +5,7 @@ import WhiteBoardEditor from './Editors/WhiteBoardEditor';
 import FirepadWordEditor from './Editors/FirepadWordEditor';
 import FirepadCodeEditor from './Editors/FirepadCodeEditor';
 import './EditorView.css';
-
+//add comment
 export function EditorView(props) {
   const editorViewToggle = (view) => {
     switch (view) {
