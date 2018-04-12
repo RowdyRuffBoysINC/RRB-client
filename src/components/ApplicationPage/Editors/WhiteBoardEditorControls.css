@@ -84,14 +84,18 @@
     font-size: 20px;
 }
 
-.change-size-button {
-  -webkit-tap-highlight-color:transparent;
-}
-
 .whiteboard-num {
-  -webkit-tap-highlight-color:transparent;
   margin: 5px;
+  border: 1px solid #444444;
+  border-radius: 3px;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
 }
 
 span::-moz-selection { background:transparent; }
 span::selection { background:transparent; }
+
+div::-moz-selection { background:transparent; }
+div::selection { background:transparent; }
