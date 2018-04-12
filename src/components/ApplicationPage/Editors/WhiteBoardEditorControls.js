@@ -22,7 +22,13 @@ export function WhiteBoardEditorControls(props) {
     props.dispatch(setWhiteBoardEditorColor('white'));
   }
 
-  const arrOfColors = [ 'green', 'yellow', 'red', 'blue', 'black', ];
+  const arrOfColors = [
+    'green',
+    'yellow',
+    'red',
+    'blue',
+    'black',
+  ];
   const colorChangeButtons = arrOfColors.map(color => (<div className={`tool ${color}-brush`} key={color} onClick={() => changeColor(color)}></div>));
   const { whiteBoardEditorBrushSize, clear, } = props;
 
