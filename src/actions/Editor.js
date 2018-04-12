@@ -55,3 +55,9 @@ export const setConsoleLogMsg = input => ({
   type: SET_CONSOLE_LOG_MSG,
   input,
 });
+
+export const CLEAR_CONSOLE_LOG_MSG = 'CLEAR_CONSOLE_LOG_MSG';
+export const clearConsoleLogMsg = input => ({
+  type: CLEAR_CONSOLE_LOG_MSG,
+  input,
+});
