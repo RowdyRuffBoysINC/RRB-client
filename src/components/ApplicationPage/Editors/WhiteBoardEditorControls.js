@@ -13,7 +13,6 @@ export function WhiteBoardEditorControls(props) {
     if (props.whiteBoardEditorBrushSize === 12) {
       props.dispatch(setWhiteBoardEditorBrushSize(2));
     }
-
     else {
       props.dispatch(setWhiteBoardEditorBrushSize(props.whiteBoardEditorBrushSize + 2));
     }
