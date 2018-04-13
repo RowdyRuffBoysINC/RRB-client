@@ -1,6 +1,8 @@
 .nav-bar-wrapper {
   height: 10vh;
-  background: rgb(46,94,102);
+  background: rgb(43, 43, 43);
+  color: white;
+  font-size: 1.3em;
 }
 
 .view-switch, .video, .audio {
@@ -21,16 +23,13 @@
   margin-right: 10%;
   padding-left: 0px;
   font-size: .8em;
-  /* color: white; */
 }
 
 .editor-mode-text {
   list-style-type: none;
-  color: #141414;
   margin-left: 15px;
   text-align: left;
   flex-wrap: nowrap;
-  /* color: white; */
 }
 
 .editor-mode-text, .video, .audio:hover {

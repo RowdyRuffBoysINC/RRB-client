@@ -19,6 +19,7 @@
   min-height: 20vh;
   height: 70vh;
   overflow-y: auto;
+  background: rgb(82, 82, 82);
 }
 
 .chat-display-video {
@@ -46,14 +47,14 @@
 }
 
 .message-sender {
-  color: rgb(244,153,115);
+  color: rgb(38, 38, 38);
   font-weight: 700;
   margin-right: 0.4em;
 }
 
 .chat-tabs {
   display: flex;
-  background-color: rgb(46,94,102);
+  background-color: rgb(43, 43, 43);
 }
 
 .chat-tabs li {
@@ -62,7 +63,7 @@
   border-radius: 5px;
   color: rgb(244,153,115);
   display: inline-block;
-  background-color: rgb(46,94,102);
+  background-color: rgb(43, 43, 43);
   text-align: center;
 }
 
@@ -76,15 +77,14 @@
  }
 
 .chat-user-input {
-  background-color: rgb(46,94,102);
+  background-color: white;
   padding: 10px;
   width: 90%;
   font-size: 1em;
   margin: 50px auto;
   border-radius: 2px;
   display: block;
-  border: 1px solid rgb(244,153,115);
-  color: rgb(244,153,115);
+  color: rgb(24, 24, 23);
 }
 
   input:focus {
@@ -92,5 +92,5 @@
 }
 
 ::placeholder {
-  color: rgb(244,153,115);
+  color: rgb(24, 24, 23);
 }
