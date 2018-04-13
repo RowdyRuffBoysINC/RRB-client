@@ -27,6 +27,7 @@
   border: 1px solid #e2e2e2;
   min-height: 20vh;
   height: 25vh;
+  background: rgb(82, 82, 82);
   overflow-y: auto;
 }
 
@@ -81,7 +82,7 @@
   padding: 10px;
   width: 90%;
   font-size: 1em;
-  margin: 50px auto;
+  margin: 15px auto;
   border-radius: 2px;
   display: block;
   color: rgb(24, 24, 23);
