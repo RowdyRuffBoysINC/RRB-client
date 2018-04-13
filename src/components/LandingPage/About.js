@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 
-export default function About(props) {
+export default function About() {
   return (
     <section id="about" className="about-container">
       <section className="about-text-section">

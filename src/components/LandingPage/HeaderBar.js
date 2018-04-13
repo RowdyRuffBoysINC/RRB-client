@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import { action as toggleMenu, } from 'redux-burger-menu';
+
 
 import Menu from './Menu';
 import { clearAuth, } from '../../actions/Auth';
 import { showLoginForm, } from '../../actions/Users';
 import { clearAuthToken, } from '../../local-storage';
 import { hideLoginForm, } from '../../actions/Users';
-import { action as toggleMenu, } from 'redux-burger-menu';
 import createStore from '../../store';
 import './HeaderBar.css';
 

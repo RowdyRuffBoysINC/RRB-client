@@ -2,6 +2,7 @@ import React from 'react';
 import { connect, } from 'react-redux';
 import io from 'socket.io-client';
 import { withRouter, } from 'react-router';
+
 import EditorView from './EditorView';
 import SIOC from './SIOC';
 import WebCam from './WebCam';
@@ -32,7 +33,8 @@ export class Room extends React.Component {
     };
 
     if (!window.firebase.apps.length) {
-      window.firebase.initializeApp(config);
+      window.firebase
+        .initializeApp(config);
     }
 
     this.SIOC.init(this.props);
@@ -52,11 +54,19 @@ export class Room extends React.Component {
     // Getting the stream from the local user
     this.SIOC.getLocalUserMedia();
 
-    socket.emit('join room', { room: this.props.match.params.roomName, user: this.props.username, });
+    socket
+      .emit('join room', {
+        room: this.props.match.params.roomName,
+        user: this.props.username,
+      });
   }
 
   componentWillUnmount() {
-    socket.emit('leave room', { room: this.props.match.params.roomName, user: this.props.username, });
+    socket
+      .emit('leave room', {
+        room: this.props.match.params.roomName,
+        user: this.props.username,
+      });
 
     this.props.dispatch(ApplicationActions.deleteLocalUserStream());
     clearInterval(this.interval);

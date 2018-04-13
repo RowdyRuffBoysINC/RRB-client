@@ -7,10 +7,19 @@ export function UserList(props) {
   const list = userList
     .map((user) => {
       if (user.user === props.username || props.roomView === 'audio') {
-        return <li className="user" key={user.id}>{user.user}</li>;
+        return <li
+          className="user"
+          key={user.id}>
+          {user.user}
+        </li>;
       }
       else {
-        return <li onClick={() => props.createVideoFunc(user.id)} key={user.id}>Share your camera with {user.user}</li>;
+        return <li
+          onClick={() => props.createVideoFunc(user.id)}
+          key={user.id}>
+          Share your camera with
+          {user.user}
+        </li>;
       }
     });
   return (<ul>{list}</ul>);

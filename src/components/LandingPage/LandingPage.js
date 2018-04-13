@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import { Redirect, } from 'react-router-dom';
+
 import Modal from './Modal.js';
 import RegistrationForm from './Forms/RegistrationForm.js';
 import About from './About.js';
