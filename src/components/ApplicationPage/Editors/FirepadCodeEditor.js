@@ -16,6 +16,8 @@ import 'codemirror/theme/midnight.css';
 import 'codemirror/theme/solarized.css';
 import 'codemirror/theme/dracula.css';
 import 'codemirror/theme/isotope.css';
+import 'codemirror/theme/ambiance.css';
+
 
 //Import Code Options
 import 'codemirror/mode/javascript/javascript.js';
@@ -39,7 +41,7 @@ export class FirepadCodeEditor extends React.Component {
         document
           .getElementById('firepad'), {
           lineWrapping: true,
-          theme: 'material',
+          theme: 'ambiance',
           lineNumbers: true,
           mode: 'javascript',
           autofocus: true,
@@ -91,6 +93,7 @@ export class FirepadCodeEditor extends React.Component {
       'swift',
     ];
     const themeOptions = [
+      'ambiance',
       'material',
       'midnight',
       'solarized',
