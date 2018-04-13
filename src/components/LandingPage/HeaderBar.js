@@ -20,25 +20,14 @@ export function HeaderBar(props) {
 
   // Only render the log out button if we are logged in
   let logOutButton;
-  let aboutButton;
-  let signUpButton;
-
   if (props.loggedIn) {
     logOutButton = (
       <p href="#home" onClick={() => logOut()}>Logout</p>
     );
-    aboutButton = null;
-    signUpButton = null;
   }
   else {
     logOutButton = (
       <p className="login-text" onClick={() => props.dispatch(showLoginForm())}>Login</p>
-    );
-    aboutButton = (
-      <p href="#about">About</p>
-    );
-    signUpButton = (
-      <p href="#sign-up">Sign Up</p>
     );
   }
   let styles;
@@ -54,12 +43,12 @@ export function HeaderBar(props) {
       <ul>
         <li>
           <a href="#about">
-            {aboutButton}
+            About
           </a>
         </li>
         <li>
           <a href="#sign-up">
-            {signUpButton}
+            Sign Up
           </a>
         </li>
         <li>

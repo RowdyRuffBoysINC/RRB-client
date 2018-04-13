@@ -49,7 +49,8 @@ const applicationReducer = function (state = initialState, action) {
   case ApplicationActions.DELETE_USER_FROM_LIST:
     return {
       ...state,
-      listOfUsers: state.listOfUsers.filter(user => user.id !== action.data),
+      listOfUsers: state.listOfUsers
+        .filter(user => user.id !== action.data),
     };
   case ApplicationActions.SET_LOCAL_USER_STREAM:
     return {
@@ -57,9 +58,13 @@ const applicationReducer = function (state = initialState, action) {
       localVideoStream: action.data,
     };
   case ApplicationActions.DELETE_LOCAL_USER_STREAM:
-
-    state.localVideoStream.getTracks().forEach(track => track.stop());
-
+    //  Need this logic because localVideoStream is sometimes null
+    //  When this action occurs possible race condition??
+    if (state.localVideoStream) {
+      state.localVideoStream
+        .getTracks()
+        .forEach(track => track.stop());
+    }
     return {
       ...state,
       localVideoStream: null,
@@ -68,32 +73,45 @@ const applicationReducer = function (state = initialState, action) {
     if (state.remoteVideoStreams.length === 0) {
       return {
         ...state,
-        remoteVideoStreams: [ ...state.remoteVideoStreams, { id: action.data.id, stream: action.data.stream, }, ],
+        remoteVideoStreams: [
+          ...state.remoteVideoStreams, {
+            id: action.data.id,
+            stream: action.data.stream,
+          },
+        ],
       };
     }
 
-    const foundUser = state.remoteVideoStreams.find(video => video.id === action.data.id);
+    const foundUser = state.remoteVideoStreams
+      .find(video => video.id === action.data.id);
 
     if (foundUser)
       return state;
     else
       return {
         ...state,
-        remoteVideoStreams: [ ...state.remoteVideoStreams, { id: action.data.id, stream: action.data.stream, }, ],
+        remoteVideoStreams: [
+          ...state.remoteVideoStreams, {
+            id: action.data.id,
+            stream: action.data.stream,
+          },
+        ],
       };
   }
   case ApplicationActions.DELETE_REMOTE_USER_STREAM: {
     return {
       ...state,
-      remoteVideoStreams: state.remoteVideoStreams.filter((video) => {
-        if (video.id === action.data) {
-          video.stream.getTracks().forEach(track => track.stop());
-          video.stream = null;
-          return false;
-        }
-
-        return true;
-      }),
+      remoteVideoStreams: state.remoteVideoStreams
+        .filter((video) => {
+          if (video.id === action.data) {
+            video.stream
+              .getTracks()
+              .forEach(track => track.stop());
+            video.stream = null;
+            return false;
+          }
+          return true;
+        }),
     };
   }
   case ApplicationActions.SET_ROOM_VIEW:
