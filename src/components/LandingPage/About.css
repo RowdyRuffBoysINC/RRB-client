@@ -14,18 +14,19 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.1em;
 }
 
 .about-header {
-  font-size: 2.2em;
+  font-size: 3em;
   line-height: 1.8;
   margin-bottom: 20px;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 .about-text {
-  font-size: .8em;
-  width: 70%;
+  font-size: .9em;
+  width: 56%;
   line-height: 1.5;
 }
 

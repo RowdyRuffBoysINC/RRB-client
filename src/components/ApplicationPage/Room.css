@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   height: 100%;
+  overflow: hidden;
 }
 
 .left-side-wrapper {
@@ -13,6 +14,7 @@
 .right-side-wrapper {
   height: 90vh;
   width: 30%;
+  background-color: rgb(43, 43, 43);
 }
 
 .top-side-wrapper {

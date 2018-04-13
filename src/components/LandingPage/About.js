@@ -6,7 +6,7 @@ export default function About() {
     <section id="about" className="about-container">
       <section className="about-text-section">
         <h1 className="about-header">About CrossShare</h1>
-        <p className="about-text">CrossShare is a collaborative tool that allows professionals, developers, and friends to share and edit documents in real time. Features include a code editor, doc editor, and whiteboard editor, with users able to share their screen with each other.</p>
+        <p className="about-text">CrossShare is a collaborative tool that enables professionals, developers, and peers to share and edit documents in real time. CrossShare provides a code editor, doc editor, and whiteboard to give users full customization on how they work together.</p>
       </section>
       <section className="about-img-section">
         <img className="about-img"
