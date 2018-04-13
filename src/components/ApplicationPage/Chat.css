@@ -58,12 +58,10 @@
 
 .chat-tabs li {
   margin: 5px;
-  padding: 5px;
   border: 1px solid rgb(244,153,115);
   border-radius: 5px;
   color: rgb(244,153,115);
   display: inline-block;
-  /* margin-right:10px; */
   background-color: rgb(46,94,102);
   text-align: center;
 }
@@ -81,8 +79,8 @@
   background-color: rgb(46,94,102);
   padding: 10px;
   width: 90%;
-  font-size: 1.3em;
-  margin: 15px auto;
+  font-size: 1em;
+  margin: 50px auto;
   border-radius: 2px;
   display: block;
   border: 1px solid rgb(244,153,115);

@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   height: 100%;
+  overflow: hidden;
 }
 
 .left-side-wrapper {
