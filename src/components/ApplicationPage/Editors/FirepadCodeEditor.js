@@ -1,12 +1,18 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+import { socket, } from '../Room';
+
 
 import {
   setTheme,
   setMode,
   setTabSize,
   setLineNumbers,
+  setConsoleLogMsg,
+  clearConsoleLogMsg,
 } from '../../../actions/Editor';
+
+import ConsoleLog from './ConsoleLog';
 import './Firepad.css';
 
 //Import Themes
@@ -31,6 +37,10 @@ export class FirepadCodeEditor extends React.Component {
       .ref(`rooms/${this.props.roomName}/code`);
     this.firepad = null;
     this.codeMirror = null;
+
+    socket.on('ran code', (msg) => {
+      this.props.dispatch(setConsoleLogMsg(msg.log));
+    });
   }
 
   componentDidMount() {
@@ -58,6 +68,16 @@ export class FirepadCodeEditor extends React.Component {
     this.codeMirror.setOption('tabSize', this.props.tabSize);
     this.codeMirror.setOption('theme', this.props.theme);
     this.codeMirror.setOption('lineNumbers', this.props.lineNumbers);
+  }
+
+  emitMessageToRunCode() {
+    const text = this.firepad.getText();
+    socket.emit('run code', {
+      room: this.props.roomName,
+      user: this.props.username,
+      text,
+      langauge: this.props.mode,
+    });
   }
 
   renderOptions(array) {
@@ -118,7 +138,11 @@ export class FirepadCodeEditor extends React.Component {
             No line numbers
           </option>
         </select>
+        <button className="run-code" onClick={() => this.emitMessageToRunCode()}> Run </button>
+        <button className="clear-console" onClick={() => this.props.dispatch(clearConsoleLogMsg())}> Clear Console </button>
         <div id="firepad" />
+        <ConsoleLog />
+
       </section>
     );
   }

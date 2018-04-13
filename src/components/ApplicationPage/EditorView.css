@@ -1,6 +1,6 @@
 .CodeMirror {
-  min-height: 85vh;
-  max-height: 85vh;
+  min-height: 65vh;
+  max-height: 65vh;
 }
 
 .CodeMirror-scroll{
