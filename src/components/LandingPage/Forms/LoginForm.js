@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, focus, } from 'redux-form';
+
 import Input from './Input';
 import { login, } from '../../../actions/Auth';
 import { required, nonEmpty, } from '../../../validators';
@@ -28,11 +29,13 @@ export function LoginForm(props) {
       <span className="close js-close" onClick={() => props.dispatch(hideLoginForm())}> &times; </span>
       <form
         className="login-form"
-        onSubmit={props.handleSubmit(values =>
-          onSubmit(values)
-        )} >
+        onSubmit={props.handleSubmit(values => onSubmit(values))}>
         {error}
-        <label className="labelInput" htmlFor="username">Username</label>
+        <label
+          className="labelInput"
+          htmlFor="username">
+          Username
+        </label>
         <Field
           autoFocus
           component={Input}
@@ -41,7 +44,11 @@ export function LoginForm(props) {
           id="username-login"
           validate={[ required, nonEmpty, ]}
         />
-        <label className="labelInput" htmlFor="password">Password</label>
+        <label
+          className="labelInput"
+          htmlFor="password">
+          Password
+        </label>
         <Field
           component={Input}
           type="password"
@@ -49,7 +56,9 @@ export function LoginForm(props) {
           id="password"
           validate={[ required, nonEmpty, ]}
         />
-        <button className="landing-page-btn-form btn-form" disabled={props.pristine || props.submitting}>
+        <button
+          className="landing-page-btn-form btn-form"
+          disabled={props.pristine || props.submitting}>
           Log in
         </button>
       </form>

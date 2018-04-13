@@ -1,4 +1,4 @@
-import {socket,} from './Room';
+import { socket, } from './Room';
 import { trace, error, } from './WebCam/helpers';
 import {
   setUserList,
@@ -39,18 +39,18 @@ export default class SIOC {
       window.msRTCPeerConnection;
 
 
-    this.pc = new this._peerConnection({'iceServers': [ {urls: this.stunServer,} , ],});
+    this.pc = new this._peerConnection({ 'iceServers': [ { urls: this.stunServer, }, ], });
 
 
     this.sessionDescription = window.RTCSessionDescription ||
-    window.mozRTCSessionDescription ||
-    window.webkitRTCSessionDescription ||
-    window.msRTCPeerConnection;
+      window.mozRTCSessionDescription ||
+      window.webkitRTCSessionDescription ||
+      window.msRTCPeerConnection;
 
     navigator.getUserMedia = navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia;
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia ||
+      navigator.msGetUserMedia;
     this.navigator = navigator;
   }
 
@@ -65,84 +65,95 @@ export default class SIOC {
   createVideo(id) {
     this.pc.createOffer((offer) => {
       this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
-        socket.emit('make-offer', {
-          offer,
-          to: id,
-          room: this.roomName,
-          user: this.username,
-        });
+        socket
+          .emit('make-offer', {
+            offer,
+            to: id,
+            room: this.roomName,
+            user: this.username,
+          });
       }, error);
     }, error);
   }
 
   __createOffer(id) {
     this.pc.createOffer((offer) => {
-      this.pc.setLocalDescription(new this.sessionDescription(offer), () =>{
-        socket.emit('make-offer', {
-          offer,
-          to: id,
-          room: this.roomName,
-        });
+      this.pc.setLocalDescription(new this.sessionDescription(offer), () => {
+        socket
+          .emit('make-offer', {
+            offer,
+            to: id,
+            room: this.roomName,
+          });
       }, error);
     }, error);
   }
 
   answerMade() {
-    socket.on('answer-made', (data) =>{
-      const { socket, user, } = data;
-      this.addedPerson = { socket, user, };
+    socket
+      .on('answer-made',
+        (data) => {
+          const { socket, user, } = data;
+          this.addedPerson = { socket, user, };
 
-      this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
-        /*
-        This runs more than once; even though a valid answer comes back from a remote user the first time.
-        Might produce issues in the future?
-        */
+          this.pc.setRemoteDescription(new this.sessionDescription(data.answer), () => {
+            /*
+            This runs more than once; even though a valid answer comes back from a remote user the first time.
+            Might produce issues in the future?
+            */
 
-        if(!this.answersFrom[data.socket]) {
-          this.__createOffer(data.socket);
-          this.answersFrom[data.socket] = true;
-        }
-      }, error);
-    });
+            if (!this.answersFrom[data.socket]) {
+              this.__createOffer(data.socket);
+              this.answersFrom[data.socket] = true;
+            }
+          }, error);
+        });
   }
 
   offerMade() {
-    socket.on('offer-made', (data) => {
-      const userSocket = data.socket;
-      const user = data.user;
+    socket
+      .on('offer-made',
+        (data) => {
+          const userSocket = data.socket;
+          const user = data.user;
 
-      this.addedPerson = {};
-      this.addedPerson.user = user;
-      this.addedPerson.socket = userSocket;
+          this.addedPerson = {};
+          this.addedPerson.user = user;
+          this.addedPerson.socket = userSocket;
 
 
-      this.offer = data.offer;
-      this.pc.setRemoteDescription(new this.sessionDescription(data.offer), () =>{
-        this.pc.createAnswer((answer) => {
-          this.pc.setLocalDescription(new this.sessionDescription(answer), () =>{
-            socket.emit('make-answer', {
-              answer,
-              to: data.socket,
-              room: this.roomName,
-              user: this.username,
-            });
+          this.offer = data.offer;
+          this.pc.setRemoteDescription(new this.sessionDescription(data.offer), () => {
+            this.pc.createAnswer((answer) => {
+              this.pc.setLocalDescription(new this.sessionDescription(answer), () => {
+                socket
+                  .emit('make-answer', {
+                    answer,
+                    to: data.socket,
+                    room: this.roomName,
+                    user: this.username,
+                  });
+              }, error);
+            }, error);
           }, error);
-        }, error);
-      }, error);
-    });
+        });
   }
 
   addUsers(dispatch) {
-    socket.on('add-users', (data) => {
-      dispatch(setUserList(data.users));
-    });
+    socket
+      .on('add-users',
+        (data) => {
+          dispatch(setUserList(data.users));
+        });
   }
 
   removeUsers(dispatch) {
-    socket.on('remove-user', (id) => {
-      dispatch(deleteUserFromList(id));
-      dispatch(deleteRemoteUserStream(id));
-    });
+    socket
+      .on('remove-user',
+        (id) => {
+          dispatch(deleteUserFromList(id));
+          dispatch(deleteRemoteUserStream(id));
+        });
   }
 
   getLocalUserMedia() {
@@ -157,7 +168,16 @@ export default class SIOC {
 
   init(props) {
     trace('Running SIOC.init');
-    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, enableAudio = true, enableCamera = true, } = props;
+    const {
+      roomName,
+      username,
+      dispatch,
+      setLocalVideoStream,
+      setRemoteVideoStream,
+      enableAudio = true,
+      enableCamera = true,
+    } = props;
+
     this.roomName = roomName;
     this.username = username;
     this.dispatch = dispatch;
@@ -181,10 +201,11 @@ export default class SIOC {
     this.offerMade();
 
 
-    socket.emit('add-users', {
-      room: roomName,
-      user: username,
-    });
+    socket
+      .emit('add-users', {
+        room: roomName,
+        user: username,
+      });
 
     // Forgot what these did
     this.addUsers(dispatch);
@@ -192,7 +213,16 @@ export default class SIOC {
   }
 
   changeProps(props) {
-    const { roomName, username, dispatch, setLocalVideoStream, setRemoteVideoStream, enableAudio, enableCamera, } = props;
+    const {
+      roomName,
+      username,
+      dispatch,
+      setLocalVideoStream,
+      setRemoteVideoStream,
+      enableAudio,
+      enableCamera,
+    } = props;
+
     this.roomName = roomName;
     this.username = username;
     this.dispatch = dispatch;

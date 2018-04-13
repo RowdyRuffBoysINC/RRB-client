@@ -18,29 +18,57 @@ export class WhiteBoardEditor extends React.Component {
 
   componentDidMount() {
     // No given functions to listen keyEvents from canvas
-    document.querySelector('.upper-canvas').addEventListener('click', () => {
-      if (this.sketch) {
-        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
-      }
-    });
+    document
+      .querySelector('.upper-canvas')
+      .addEventListener('click', () => {
+        if (this.sketch) {
+          this.sendMessage(
+            'whiteBoard msg',
+            this.sketch.toJSON(
+              this.props.whiteBoardEditorValue
+            )
+          );
+        }
+      });
 
-    document.querySelector('.upper-canvas').addEventListener('mousedown', () => {
-      if (this.sketch) {
-        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
-      }
-    });
+    document
+      .querySelector('.upper-canvas')
+      .addEventListener('mousedown', () => {
+        if (this.sketch) {
+          this.sendMessage(
+            'whiteBoard msg',
+            this.sketch.toJSON(
+              this.props.whiteBoardEditorValue
+            )
+          );
+        }
+      });
 
-    document.querySelector('.upper-canvas').addEventListener('mouseup', () => {
-      if (this.sketch) {
-        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
-      }
-    });
+    document
+      .querySelector('.upper-canvas')
+      .addEventListener('mouseup', () => {
+        if (this.sketch) {
+          this.sendMessage(
+            'whiteBoard msg',
+            this.sketch.toJSON(
+              this.props.whiteBoardEditorValue
+            )
+          );
+        }
+      });
 
-    document.querySelector('.upper-canvas').addEventListener('mouseleave', () => {
-      if (this.sketch) {
-        this.sendMessage('whiteBoard msg', this.sketch.toJSON(this.props.whiteBoardEditorValue));
-      }
-    });
+    document
+      .querySelector('.upper-canvas')
+      .addEventListener('mouseleave', () => {
+        if (this.sketch) {
+          this.sendMessage(
+            'whiteBoard msg',
+            this.sketch.toJSON(
+              this.props.whiteBoardEditorValue
+            )
+          );
+        }
+      });
   }
 
   onSketchFieldChange(data) {
@@ -60,11 +88,14 @@ export class WhiteBoardEditor extends React.Component {
   }
 
   sendMessage(message, msg) {
-    socket.emit(message, {
-      room: this.props.roomName,
-      user: this.props.userName,
-      msg,
-    });
+    socket
+      .emit(
+        message, {
+          room: this.props.roomName,
+          user: this.props.userName,
+          msg,
+        }
+      );
   }
 
   render() {

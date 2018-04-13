@@ -106,7 +106,8 @@ const applicationReducer = function (state = initialState, action) {
           if (video.id === action.data) {
             video.stream
               .getTracks()
-              .forEach(track => track.stop());
+              .forEach(track => track
+                .stop());
             video.stream = null;
             return false;
           }

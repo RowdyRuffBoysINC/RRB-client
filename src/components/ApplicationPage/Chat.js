@@ -21,22 +21,33 @@ export class Chat extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    event
+      .preventDefault();
     if (this.input.value !== '') {
-      socket.emit('chat msg', { room: this.props.roomName, msg: this.props.messageDraft, });
+      socket
+        .emit('chat msg', {
+          room: this.props.roomName,
+          msg: this.props.messageDraft,
+        });
       this.input.value = '';
     }
   }
 
   handleMessageDraftChange() {
-    this.props.dispatch(updateMessageDraft({ username: this.props.username, message: this.input.value, }));
+    this.props.dispatch(updateMessageDraft({
+      username: this.props.username,
+      message: this.input.value,
+    }));
     this.input = this.props.messageDraft;
   }
   // Consider adding timestamp to messages
   generateChatList() {
     return this.props.chatLogs
       .map((message, key) =>
-        <li key={key} className="message-content" >
+        <li
+          key={key}
+          className="message-content"
+        >
           <span className="message-sender">
             {message.username}:
           </span>

@@ -10,7 +10,10 @@ export function AppNavBar(props) {
 
   const editorListItem = editorViewArr.map((view, index) => (
     <li key={index}
-      className="editor-mode-text" href="#" onClick={() => props.dispatch(setEditorView(view))}>
+      className="editor-mode-text"
+      href="#"
+      onClick={() => props.dispatch(setEditorView(view))}
+    >
       {view}
     </li>
   ));
@@ -18,8 +21,20 @@ export function AppNavBar(props) {
   const editorNavigation = (
     <ul className="nav-bar-ul">
       {editorListItem}
-      <li className="view-switch video" href="#" onClick={() => props.dispatch(setRoomView('audio'))}>Audio</li>
-      <li className="view-switch audio" href="#" onClick={() => props.dispatch(setRoomView('video'))}>Video</li>
+      <li
+        className="view-switch video"
+        href="#"
+        onClick={() => props.dispatch(setRoomView('audio'))}
+      >
+        Audio
+      </li>
+      <li
+        className="view-switch audio"
+        href="#"
+        onClick={() => props.dispatch(setRoomView('video'))}
+      >
+        Video
+      </li>
     </ul>
   );
 

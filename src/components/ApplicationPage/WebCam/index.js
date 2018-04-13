@@ -1,14 +1,20 @@
 import React from 'react';
 import { connect, } from 'react-redux';
+
 import './WebCam.css';
 
 export class WebCam extends React.Component {
   createLocalVideo() {
     if (this.props.localVideoStream) {
-      const videoSrc = window.URL.createObjectURL(this.props.localVideoStream);
+      const videoSrc = window.URL
+        .createObjectURL(this.props.localVideoStream);
 
       return (
-        <video className="video-local-small" src={videoSrc} muted autoPlay></video>
+        <video
+          className="video-local-small"
+          src={videoSrc}
+          muted
+          autoPlay />
       );
     }
 
@@ -22,9 +28,18 @@ export class WebCam extends React.Component {
         const currentId = this.props.remoteVideoStreams[index].id;
         const currentStream = this.props.remoteVideoStreams[index].stream;
 
-        const videoSrc = window.URL.createObjectURL(currentStream);
+        const videoSrc = window.URL
+          .createObjectURL(currentStream);
 
-        arrOfVideos.push(<video key={currentId} className="video-remote-large" src={videoSrc} autoPlay></video>);
+        arrOfVideos
+          .push(
+            <video
+              key={currentId}
+              className="video-remote-large"
+              src={videoSrc}
+              autoPlay
+            />
+          );
       }
 
       return arrOfVideos;
@@ -43,7 +58,7 @@ export class WebCam extends React.Component {
       );
     }
     else return (
-      <section className="audio-only-render"></section>
+      <section className="audio-only-render" />
     );
   }
 }

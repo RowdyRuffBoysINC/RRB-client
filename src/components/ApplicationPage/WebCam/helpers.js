@@ -1,7 +1,7 @@
+
 /*
 eslint-disable
 */
-
 /**
  *
  * @param {*} text a message to return as text
@@ -11,10 +11,17 @@ eslint-disable
 // Trace function used throughout code to provide helpful logs.
 // In this instance its acceptable to have console logs in production
 export const trace = (text, level = 'info') => {
-  if (typeof text === 'string') text = text.trim();
-  const now = (window.performance.now() / 1000).toFixed(3);
+  if (typeof text === 'string') text = text
+    .trim();
+  const now = (window.performance
+    .now() / 1000)
+    .toFixed(3);
 
-  switch (level.toLowerCase().trim()) {
+  switch (
+  level
+    .toLowerCase()
+    .trim()
+  ) {
     case 'info':
       console.info(now, text);
       break;

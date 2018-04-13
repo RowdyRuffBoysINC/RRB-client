@@ -13,8 +13,10 @@ export function RoomCreate(props) {
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    props.history.push(`/dashboard/${props.roomName}`);
+    e
+      .preventDefault();
+    props.history
+      .push(`/dashboard/${props.roomName}`);
   }
 
   return (
@@ -28,7 +30,8 @@ export function RoomCreate(props) {
             autoFocus
             type="text"
             className="room-create-input"
-            onChange={e => handleOnChange(e)} />
+            onChange={e => handleOnChange(e)}
+          />
           <button className="btn-form btn-room">
             Submit
           </button>
