@@ -41,17 +41,17 @@
   display: flex;
   margin-left: 20px;
   margin-right: 20px;
-  color: #4e4d4d;
+  color: #ffffff;
   padding-bottom: 10px;
 }
 
 .user {
-  color: #4e4d4d;
+  color: #ffffff;
   margin-left: 20px;
 }
 
 .message-sender {
-  color: rgb(46,94,102);
+  color: rgb(244,153,115);
   font-weight: 700;
   margin-right: 0.4em;
 }
@@ -86,7 +86,7 @@
   background-color: rgb(46,94,102);
   padding: 10px;
   width: 90%;
-  font-size: 20px;
+  font-size: 1em;
   margin: 15px auto;
   border-radius: 2px;
   display: block;
