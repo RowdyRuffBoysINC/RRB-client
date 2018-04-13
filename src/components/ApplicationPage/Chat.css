@@ -29,15 +29,10 @@
   overflow-y: auto;
 }
 
-.chat-messages {
-  display: flex;
-  overflow-y: auto;
+.message-content {
   flex-direction: column;
   overflow-wrap: break-word;
   word-wrap: break-word; /* Firefox support */
-}
-
-.message-content {
   display: flex;
   margin-left: 20px;
   margin-right: 20px;
@@ -86,7 +81,7 @@
   background-color: rgb(46,94,102);
   padding: 10px;
   width: 90%;
-  font-size: 1em;
+  font-size: 1.5em;
   margin: 15px auto;
   border-radius: 2px;
   display: block;
