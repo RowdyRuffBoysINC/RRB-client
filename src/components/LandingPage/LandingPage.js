@@ -20,7 +20,12 @@ export function LandingPage(props) {
       <section id="header" className="container">
         <header>
           <h1 className="landing-header">
-            <span className="header-one">Cross</span><span className="header-two">Share</span>
+            <span className="header-one">
+              Cross
+            </span>
+            <span className="header-two">
+              Share
+            </span>
           </h1>
           <h2 className="landing-sub-header">
             Working remotely shouldnt feel remote
@@ -28,12 +33,19 @@ export function LandingPage(props) {
         </header>
         <footer>
           <a href="#about">
-            <img src={scroll} className="scroll-icon" alt="scroll icon img" />
+            <img
+              src={scroll}
+              className="scroll-icon"
+              alt="scroll icon img"
+            />
           </a>
         </footer>
       </section>
       <About />
-      <section id="sign-up" className="container-about">
+      <section
+        id="sign-up"
+        className="container-about"
+      >
         <section className="about content">
           <RegistrationForm className="landing-page-register" />
         </section>
