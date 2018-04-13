@@ -31,7 +31,7 @@ export function LandingPage(props) {
             Working remotely shouldnt feel remote
           </h2>
         </header>
-        <footer>
+        <footer className="footer-container">
           <a href="#about">
             <img
               src={scroll}
