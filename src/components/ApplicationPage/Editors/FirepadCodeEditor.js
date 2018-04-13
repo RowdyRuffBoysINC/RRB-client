@@ -63,16 +63,17 @@ export class FirepadCodeEditor extends React.Component {
   }
 
   renderOptions(array) {
-    return array.map((option, index) => {
-      return (
-        <option
-          value={option}
-          key={index}
-        >
-          {option}
-        </option>
-      );
-    });
+    return array
+      .map((option, index) => {
+        return (
+          <option
+            value={option}
+            key={index}
+          >
+            {option}
+          </option>
+        );
+      });
   }
 
   renderSelect(func, option) {
