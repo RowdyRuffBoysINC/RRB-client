@@ -6,7 +6,7 @@ export function UserList(props) {
 
   const list = userList
     .map((user) => {
-      if (user.user === props.username) {
+      if (user.user === props.username || props.roomView === 'audio') {
         return <li className="user" key={user.id}>{user.user}</li>;
       }
       else {
@@ -22,6 +22,7 @@ const mapStateToProps = (state) => {
     name: `${state.auth.currentUser.firstName} ${state.auth.currentUser.lastName}`,
     userList: state.applicationReducer.listOfUsers,
     createVideoFunc: state.applicationReducer.createVideoFunc,
+    roomView: state.applicationReducer.roomView,
   };
 };
 
