@@ -17,7 +17,10 @@ export function LandingPage(props) {
   return (
     <section className="landing-page">
       <Modal />
-      <section id="header" className="container">
+      <section
+        id="header"
+        className="container"
+      >
         <header>
           <h1 className="landing-header">
             <span className="header-one">
