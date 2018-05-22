@@ -27,34 +27,13 @@ export function RegistrationForm(props) {
         onSubmit={props.handleSubmit(values =>
           onSubmit(values)
         )}>
-        <label htmlFor="firstName">
-          First name
+        <label htmlFor="emailAddress">
+          Email Address
         </label>
         <Field
           component={Input}
           type="text"
-          name="firstName"
-        />
-        <label htmlFor="lastName">
-          Last name
-        </label>
-        <Field
-          component={Input}
-          type="text"
-          name="lastName"
-        />
-        <label htmlFor="username">
-          Username
-        </label>
-        <Field
-          component={Input}
-          type="text"
-          name="username"
-          validate={[
-            required,
-            nonEmpty,
-            isTrimmed,
-          ]}
+          name="emailAddress"
         />
         <label htmlFor="password">
           Password
@@ -67,19 +46,6 @@ export function RegistrationForm(props) {
             required,
             passwordLength,
             isTrimmed,
-          ]}
-        />
-        <label htmlFor="passwordConfirm">
-          Confirm password
-        </label>
-        <Field
-          component={Input}
-          type="password"
-          name="passwordConfirm"
-          validate={[
-            required,
-            nonEmpty,
-            matchesPassword,
           ]}
         />
         <button
