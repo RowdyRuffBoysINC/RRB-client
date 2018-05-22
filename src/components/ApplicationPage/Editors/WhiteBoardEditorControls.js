@@ -9,14 +9,8 @@ export function WhiteBoardEditorControls(props) {
     props.dispatch(setWhiteBoardEditorColor(color));
   }
 
-  function decreaseBrushSize(brushSize) {
-    const decreasedSize = Math.ceil((8 * (brushSize - (brushSize < 9 ? 3 : 6)) / 9));
-    props.dispatch(setWhiteBoardEditorBrushSize(decreasedSize));
-  }
-
-  function increaseBrushSize(brushSize) {
-    const increasedSize = Math.floor(brushSize + (brushSize / 8) + (brushSize < 9 ? 3 : 6));
-    props.dispatch(setWhiteBoardEditorBrushSize(increasedSize));
+  function setBrushSize(brushSize) {
+    props.dispatch(setWhiteBoardEditorBrushSize(brushSize));
   }
 
   function changeBrushToEraser() {
@@ -40,28 +34,59 @@ export function WhiteBoardEditorControls(props) {
       />
     ));
 
-  const {
-    whiteBoardEditorBrushSize,
-    clear,
-  } = props;
+  const { clear, } = props;
 
   return (
     <section className="whiteBoardControls-container">
       {colorChangeButtons}
-      <div className="tool whiteboard">
-        <span
-          onClick={() => decreaseBrushSize(whiteBoardEditorBrushSize)}
-          className="change-size-button"
-        >
-          Less
-        </span>
-        <span className="whiteboard-num">{whiteBoardEditorBrushSize}</span>
-        <span
-          onClick={() => increaseBrushSize(whiteBoardEditorBrushSize)}
-          className="change-size-button"
-        >
-          More
-        </span>
+      <div className="tool brush-size">
+        <select className="size-picker" onChange={e => setBrushSize(e.currentTarget.value)}>
+          <option>
+            6
+          </option>
+          <option>
+            7
+          </option>
+          <option>
+            8
+          </option>
+          <option>
+            10
+          </option>
+          <option>
+            12
+          </option>
+          <option selected>
+            16
+          </option>
+          <option>
+            20
+          </option>
+          <option>
+            24
+          </option>
+          <option>
+            36
+          </option>
+          <option>
+            48
+          </option>
+          <option>
+            60
+          </option>
+          <option>
+            72
+          </option>
+          <option>
+            84
+          </option>
+          <option>
+            96
+          </option>
+          <option>
+            110
+          </option>
+        </select>
       </div>
       <div
         onClick={() => changeBrushToEraser()}
