@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 
 export class FirepadWordEditor extends React.Component {
   componentDidMount() {
@@ -9,7 +9,7 @@ export class FirepadWordEditor extends React.Component {
     const codeMirror = window
       .CodeMirror(document
         .getElementById('firepad'),
-      { lineWrapping: true, });
+      { lineWrapping: true });
     //Firepad not currently used but will be used in future.
     //eslint-disable-next-line
     const firepad = window.Firepad
@@ -29,6 +29,6 @@ export class FirepadWordEditor extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ roomName: state.applicationReducer.roomName, });
+const mapStateToProps = state => ({ roomName: state.applicationReducer.roomName });
 
 export default connect(mapStateToProps)(FirepadWordEditor);

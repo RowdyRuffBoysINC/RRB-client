@@ -1,13 +1,13 @@
 import React from 'react';
-import { connect, } from 'react-redux';
-import { action as toggleMenu, } from 'redux-burger-menu';
+import { connect } from 'react-redux';
+import { action as toggleMenu } from 'redux-burger-menu';
 
 
 import Menu from './Menu';
-import { clearAuth, } from '../../actions/Auth';
-import { showLoginForm, } from '../../actions/Users';
-import { clearAuthToken, } from '../../local-storage';
-import { hideLoginForm, } from '../../actions/Users';
+import { clearAuth } from '../../actions/Auth';
+import { showLoginForm } from '../../actions/Users';
+import { clearAuthToken } from '../../local-storage';
+import { hideLoginForm } from '../../actions/Users';
 import createStore from '../../store';
 import './HeaderBar.css';
 
@@ -44,10 +44,10 @@ export function HeaderBar(props) {
   }
   let styles;
   if (props.loggedIn) {
-    styles = { bmBurgerBars: { background: 'rgb(244,153,115)', }, };
+    styles = { bmBurgerBars: { background: 'rgb(244,153,115)' } };
   }
   else {
-    styles = { bmBurgerBars: { background: 'rgb(46,94,102)', }, };
+    styles = { bmBurgerBars: { background: 'rgb(46,94,102)' } };
   }
 
   return (
@@ -73,6 +73,6 @@ export function HeaderBar(props) {
   );
 }
 
-const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null, });
+const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null });
 
 export default connect(mapStateToProps)(HeaderBar);

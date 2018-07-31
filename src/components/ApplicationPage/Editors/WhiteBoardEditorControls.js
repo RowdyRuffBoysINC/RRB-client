@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { setWhiteBoardEditorColor, setWhiteBoardEditorBrushSize, } from '../../../actions/Editor';
+import { setWhiteBoardEditorColor, setWhiteBoardEditorBrushSize } from '../../../actions/Editor';
 import './WhiteBoardEditorControls.css';
 
 export function WhiteBoardEditorControls(props) {
@@ -34,7 +34,7 @@ export function WhiteBoardEditorControls(props) {
       />
     ));
 
-  const { clear, } = props;
+  const { clear } = props;
 
   return (
     <section className="whiteBoardControls-container">

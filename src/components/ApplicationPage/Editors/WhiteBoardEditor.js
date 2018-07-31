@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect, } from 'react-redux';
-import { SketchField, Tools, } from 'react-sketch';
+import { connect } from 'react-redux';
+import { SketchField, Tools } from 'react-sketch';
 
 import WhiteBoardEditorControls from './WhiteBoardEditorControls';
-import { setWhiteBoardEditorValue, } from '../../../actions/Editor';
-import { socket, } from '../Room';
+import { setWhiteBoardEditorValue } from '../../../actions/Editor';
+import { socket } from '../Room';
 import './WhiteBoardEditor.css';
 
 export class WhiteBoardEditor extends React.Component {

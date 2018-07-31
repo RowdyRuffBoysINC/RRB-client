@@ -1,7 +1,4 @@
 
-/*
-eslint-disable
-*/
 /**
  *
  * @param {*} text a message to return as text
@@ -18,22 +15,24 @@ export const trace = (text, level = 'info') => {
     .toFixed(3);
 
   switch (
-  level
-    .toLowerCase()
-    .trim()
+    level
+      .toLowerCase()
+      .trim()
   ) {
-    case 'info':
-      console.info(now, text);
-      break;
-    case 'log':
-      console.log(now, text);
-      break;
-    case 'warn':
-      console.warn(now, text);
-      break;
-    case 'error':
-      console.error(now, text);
-      break;
+  case 'info':
+    console.info(now, text);
+    break;
+  case 'log':
+    console.log(now, text);
+    break;
+  case 'warn':
+    console.warn(now, text);
+    break;
+  case 'error':
+    console.error(now, text);
+    break;
+  default:
+    break;
   }
 };
 

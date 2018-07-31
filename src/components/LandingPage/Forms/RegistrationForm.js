@@ -1,17 +1,16 @@
 import React from 'react';
-import { Field, reduxForm, focus, } from 'redux-form';
-import { registerUser, } from '../../../actions/Users';
-import { login, } from '../../../actions/Auth';
+import { Field, reduxForm, focus } from 'redux-form';
+import { registerUser } from '../../../actions/Users';
+import { login } from '../../../actions/Auth';
 import Input from './Input';
 import './RegistrationForm.css';
-import { required, nonEmpty, matches, length, isTrimmed, } from '../../../validators';
-const passwordLength = length({ min: 10, max: 72, });
-const matchesPassword = matches('password');
+import { required, nonEmpty, length, isTrimmed } from '../../../validators';
+const passwordLength = length({ min: 1, max: 72 });
 
 export function RegistrationForm(props) {
   function onSubmit(values) {
-    const { username, password, firstName, lastName, } = values;
-    const user = { username, password, firstName, lastName, };
+    const { username, password, firstName, lastName } = values;
+    const user = { username, password, firstName, lastName };
     return props
       .dispatch(registerUser(user))
       .then(() => props.dispatch(login(username, password)));
@@ -27,13 +26,14 @@ export function RegistrationForm(props) {
         onSubmit={props.handleSubmit(values =>
           onSubmit(values)
         )}>
-        <label htmlFor="emailAddress">
-          Email Address
+        <label htmlFor="username">
+          Username
         </label>
         <Field
           component={Input}
           type="text"
-          name="emailAddress"
+          name="username"
+          validate={[ nonEmpty ]}
         />
         <label htmlFor="password">
           Password
@@ -43,6 +43,7 @@ export function RegistrationForm(props) {
           type="password"
           name="password"
           validate={[
+            nonEmpty,
             required,
             passwordLength,
             isTrimmed,

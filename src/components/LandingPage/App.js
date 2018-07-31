@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect, } from 'react-redux';
-import { Route, withRouter, } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
 import HeaderBar from './HeaderBar';
 import LandingPage from './LandingPage';
 import Application from '.././ApplicationPage/Application';
-import { refreshAuthToken, } from '../../actions/Auth';
+import { refreshAuthToken } from '../../actions/Auth';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {

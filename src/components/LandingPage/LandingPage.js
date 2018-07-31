@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect, } from 'react-redux';
-import { Redirect, } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import Modal from './Modal.js';
 import RegistrationForm from './Forms/RegistrationForm.js';
@@ -57,6 +57,6 @@ export function LandingPage(props) {
   );
 }
 
-const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null, });
+const mapStateToProps = state => ({ loggedIn: state.auth.currentUser !== null });
 
 export default connect(mapStateToProps)(LandingPage);

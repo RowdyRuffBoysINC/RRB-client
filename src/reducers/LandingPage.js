@@ -3,7 +3,7 @@ import {
   HIDE_LOGIN_FORM,
 } from '../actions/Users';
 
-const initialState = { showLoginForm: false, };
+const initialState = { showLoginForm: false };
 
 const landingPageReducer = function (state = initialState, action) {
   switch (action.type) {

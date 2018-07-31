@@ -1,9 +1,9 @@
 import jwtDecode from 'jwt-decode';
-import { SubmissionError, } from 'redux-form';
+import { SubmissionError } from 'redux-form';
 
-import { API_BASE_URL, } from '../config';
-import { normalizeResponseErrors, } from './Utils';
-import { saveAuthToken, clearAuthToken, } from '../local-storage';
+import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './Utils';
+import { saveAuthToken, clearAuthToken } from '../local-storage';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -12,10 +12,10 @@ export const setAuthToken = authToken => ({
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
-export const clearAuth = () => ({ type: CLEAR_AUTH, });
+export const clearAuth = () => ({ type: CLEAR_AUTH });
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
-export const authRequest = () => ({ type: AUTH_REQUEST, });
+export const authRequest = () => ({ type: AUTH_REQUEST });
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const authSuccess = currentUser => ({
@@ -43,7 +43,7 @@ export const login = (username, password) => (dispatch) => {
   return (
     fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username,
         password,
@@ -53,9 +53,9 @@ export const login = (username, password) => (dispatch) => {
       // Errors which follow a consistent format
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
-      .then(({ authToken, }) => storeAuthInfo(authToken, dispatch))
+      .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
       .catch((err) => {
-        const { code, } = err;
+        const { code } = err;
         const message =
           code === 401
             ? 'Incorrect username or password'
@@ -63,7 +63,7 @@ export const login = (username, password) => (dispatch) => {
         dispatch(authError(err));
         // Could not authenticate, so return a SubmissionError for Redux Form
         return Promise.reject(
-          new SubmissionError({ _error: message, })
+          new SubmissionError({ _error: message })
         );
       })
   );
@@ -81,7 +81,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(({ authToken, }) => storeAuthInfo(authToken, dispatch))
+    .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
     .catch((err) => {
       // We couldn't get a refresh token because our current credentials
       // Are invalid or expired, or something else went wrong, so clear
