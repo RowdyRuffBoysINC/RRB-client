@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 import LoginForm from './Forms/LoginForm';
 import './Modal.css';
 
 export function Modal(props) {
-  const loginStyle = { display: 'show', };
+  const loginStyle = { display: 'show' };
   if (props.showLoginForm) {
     return (
       <section style={loginStyle} className="login-modal">
@@ -19,6 +19,6 @@ export function Modal(props) {
   }
 }
 
-const mapStateToProps = state => ({showLoginForm: state.landingPageReducer.showLoginForm,});
+const mapStateToProps = state => ({ showLoginForm: state.landingPageReducer.showLoginForm });
 
 export default connect(mapStateToProps)(Modal);

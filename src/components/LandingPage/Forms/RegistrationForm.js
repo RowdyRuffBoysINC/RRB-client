@@ -1,17 +1,16 @@
 import React from 'react';
-import { Field, reduxForm, focus, } from 'redux-form';
-import { registerUser, } from '../../../actions/Users';
-import { login, } from '../../../actions/Auth';
+import { Field, reduxForm, focus } from 'redux-form';
+import { registerUser } from '../../../actions/Users';
+import { login } from '../../../actions/Auth';
 import Input from './Input';
 import './RegistrationForm.css';
-import { required, nonEmpty, matches, length, isTrimmed, } from '../../../validators';
-const passwordLength = length({ min: 10, max: 72, });
-const matchesPassword = matches('password');
+import { required, nonEmpty, length, isTrimmed } from '../../../validators';
+const passwordLength = length({ min: 1, max: 72 });
 
 export function RegistrationForm(props) {
   function onSubmit(values) {
-    const { username, password, firstName, lastName, } = values;
-    const user = { username, password, firstName, lastName, };
+    const { username, password, firstName, lastName } = values;
+    const user = { username, password, firstName, lastName };
     return props
       .dispatch(registerUser(user))
       .then(() => props.dispatch(login(username, password)));
@@ -27,22 +26,6 @@ export function RegistrationForm(props) {
         onSubmit={props.handleSubmit(values =>
           onSubmit(values)
         )}>
-        <label htmlFor="firstName">
-          First name
-        </label>
-        <Field
-          component={Input}
-          type="text"
-          name="firstName"
-        />
-        <label htmlFor="lastName">
-          Last name
-        </label>
-        <Field
-          component={Input}
-          type="text"
-          name="lastName"
-        />
         <label htmlFor="username">
           Username
         </label>
@@ -50,11 +33,7 @@ export function RegistrationForm(props) {
           component={Input}
           type="text"
           name="username"
-          validate={[
-            required,
-            nonEmpty,
-            isTrimmed,
-          ]}
+          validate={[ nonEmpty ]}
         />
         <label htmlFor="password">
           Password
@@ -64,22 +43,10 @@ export function RegistrationForm(props) {
           type="password"
           name="password"
           validate={[
+            nonEmpty,
             required,
             passwordLength,
             isTrimmed,
-          ]}
-        />
-        <label htmlFor="passwordConfirm">
-          Confirm password
-        </label>
-        <Field
-          component={Input}
-          type="password"
-          name="passwordConfirm"
-          validate={[
-            required,
-            nonEmpty,
-            matchesPassword,
           ]}
         />
         <button
