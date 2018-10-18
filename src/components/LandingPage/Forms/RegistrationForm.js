@@ -9,8 +9,8 @@ const passwordLength = length({ min: 1, max: 72 });
 
 export function RegistrationForm(props) {
   function onSubmit(values) {
-    const { username, password, firstName, lastName } = values;
-    const user = { username, password, firstName, lastName };
+    const { username, password } = values;
+    const user = { username, password };
     return props
       .dispatch(registerUser(user))
       .then(() => props.dispatch(login(username, password)));
